@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     caseId = match.id;
   } else {
     if (!process.env.SERPAPI_API_KEY) return apiError(503, 'NOT_CONFIGURED', 'SERPAPI_API_KEY is not set.');
-    const { creditsThisMonth } = store.ledgerStats(monthStartIso());
+    const { creditsThisMonth } = await store.ledgerStats(monthStartIso());
     if (MONTHLY_CREDIT_LIMIT - creditsThisMonth < MONTHLY_CREDIT_FLOOR) {
       return apiError(402, 'CREDITS_EXHAUSTED', 'The monthly SerpApi search budget is nearly used up. Switch to FIXTURE_MODE=replay.');
     }

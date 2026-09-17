@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 /** Ledger totals, cache hit rate and (outside replay) SerpApi's own searches-left figure. */
 export async function GET() {
   const mode = fixtureMode();
-  const stats = appStore().ledgerStats(monthStartIso());
+  const stats = await appStore().ledgerStats(monthStartIso());
   const calls = stats.creditsThisMonth + stats.cachedThisMonth;
 
   let serpapiSearchesLeft: number | undefined;

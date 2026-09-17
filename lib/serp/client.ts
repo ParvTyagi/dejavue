@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import type { EngineId, FixtureMode } from '@/lib/shared/types';
-import type { Store } from '@/lib/store/types';
+import { TTL, type Store } from '@/lib/store/types';
 
 /** Performs one real SerpApi request. Only used in `record` and `live` modes. */
 export type SerpTransport = (engine: EngineId, params: Record<string, string>, signal: AbortSignal) => Promise<unknown>;
@@ -21,6 +21,8 @@ export interface SearchContext {
   onCredit?: (e: { engine: EngineId; cached: boolean; totalCredits: number }) => void;
   /** Aborts the request (audit deadline or tier timeout). An aborted search is never retried. */
   signal?: AbortSignal;
+  /** Answer only from the query cache; never spend a credit. */
+  cacheOnly?: boolean;
 }
 
 export interface SearchResult {
@@ -44,6 +46,7 @@ export type SerpErrorCode =
   | 'BUDGET_EXCEEDED'
   | 'CREDITS_EXHAUSTED'
   | 'FIXTURE_MISSING'
+  | 'NOT_CACHED'
   | 'RATE_LIMITED'
   | 'TIMED_OUT'
   | 'UPSTREAM_FAILED';
@@ -64,7 +67,6 @@ export interface SerpClientOptions {
   fixtures: FixtureSource;
   transport?: SerpTransport;
   clock: () => Date;
-  cacheTtlMs?: number;
   timeoutMs?: number;
   retryDelayMs?: number;
 }
@@ -83,6 +85,11 @@ export function fixtureName(engine: EngineId, params: Record<string, string>, fr
     .sort()
     .map((k) => (IMAGE_PARAMS.has(k) ? `frame=${frameIndex ?? 0}` : `${k}=${params[k]}`));
   return `${engine}?${parts.join('&')}`;
+}
+
+/** How long a query result is reused. Places don't move, so Maps is kept longer. */
+export function cacheTtlMs(engine: EngineId): number {
+  return engine === 'google_maps' ? TTL.mapsMs : TTL.serpMs;
 }
 
 export function cacheKey(engine: EngineId, params: Record<string, string>): string {
@@ -111,7 +118,6 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
  * guard → live request with one retry → cache, ledger and (record) fixture.
  */
 export function createSerpClient(opts: SerpClientOptions): SerpClient {
-  const ttl = opts.cacheTtlMs ?? 24 * 3_600_000;
   const timeoutMs = opts.timeoutMs ?? 8_000;
   const retryDelayMs = opts.retryDelayMs ?? 1_000;
 
@@ -131,7 +137,8 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
   return async (engine, params, ctx) => {
     if (ctx.signal?.aborted) throw timedOut(engine);
     if (opts.mode === 'replay') {
-      // Replay simulates credit spend so the meter and budget behave as in live mode.
+      // Replay has no query cache, and simulates credit spend so the meter and budget behave as in live mode.
+      if (ctx.cacheOnly) throw new SerpError('NOT_CACHED', engine, `Skipped ${engine}: not in the query cache`);
       guard(engine, ctx);
       const name = fixtureName(engine, params, ctx.frameIndex);
       const raw = ctx.caseId ? opts.fixtures.get(ctx.caseId, name) : undefined;
@@ -142,12 +149,13 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     }
 
     const key = cacheKey(engine, params);
-    const hit = opts.store.getSerp(key);
-    if (hit && opts.clock().getTime() - Date.parse(hit.fetchedAt) < ttl) {
-      opts.store.addLedger({ auditId: ctx.auditId, engine, cached: true, at: opts.clock().toISOString() });
+    const hit = await opts.store.getSerp(key, opts.clock());
+    if (hit) {
+      await opts.store.addLedger({ auditId: ctx.auditId, engine, cached: true, at: opts.clock().toISOString() });
       spend(engine, true, ctx);
       return { raw: hit.response, cached: true, fetchedAt: new Date(hit.fetchedAt) };
     }
+    if (ctx.cacheOnly) throw new SerpError('NOT_CACHED', engine, `Skipped ${engine}: not in the query cache`);
 
     guard(engine, ctx);
     if (!opts.transport) throw new SerpError('UPSTREAM_FAILED', engine, 'No SerpApi transport configured');
@@ -173,8 +181,8 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     }
 
     const fetchedAt = opts.clock();
-    opts.store.putSerp(key, raw, fetchedAt.toISOString());
-    opts.store.addLedger({ auditId: ctx.auditId, engine, cached: false, at: fetchedAt.toISOString() });
+    await opts.store.putSerp(key, raw, fetchedAt.toISOString(), cacheTtlMs(engine));
+    await opts.store.addLedger({ auditId: ctx.auditId, engine, cached: false, at: fetchedAt.toISOString() });
     spend(engine, false, ctx);
     if (opts.mode === 'record' && ctx.caseId) {
       opts.fixtures.put(ctx.caseId, fixtureName(engine, params, ctx.frameIndex), scrubResponse(raw));

@@ -1,5 +1,6 @@
 import { randomBytes } from 'node:crypto';
 import path from 'node:path';
+import { Redis } from '@upstash/redis';
 import sharp from 'sharp';
 import { TRUSTED_DOMAINS } from '@/lib/evidence/trusted';
 import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
@@ -15,6 +16,7 @@ import { pHash, toGray } from '@/lib/media/phash';
 import type { AuditDeps } from '@/lib/orchestrator/pipeline';
 import { createSerpClient, httpTransport } from '@/lib/serp/client';
 import type { FixtureMode } from '@/lib/shared/types';
+import { createRedisStore } from '@/lib/store/redis';
 import { createSqliteStore } from '@/lib/store/sqlite';
 import type { Store } from '@/lib/store/types';
 import { signDossier } from './sign';
@@ -25,8 +27,21 @@ import { FIXTURES_DIR } from './mode';
 export { FIXTURES_DIR, fixtureMode } from './mode';
 
 const g = globalThis as { __dejavueStore?: Store };
+
+/**
+ * Upstash Redis when it is configured (required on serverless hosts such as
+ * Vercel, where local files are wiped), otherwise a local SQLite file.
+ * Vercel's Upstash integration may name the variables KV_REST_API_*.
+ */
 export function appStore(): Store {
-  return (g.__dejavueStore ??= createSqliteStore(path.join(process.cwd(), 'data', 'dejavue.db')));
+  if (g.__dejavueStore) return g.__dejavueStore;
+  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+  g.__dejavueStore =
+    url && token
+      ? createRedisStore(new Redis({ url, token, automaticDeserialization: false }))
+      : createSqliteStore(path.join(process.cwd(), 'data', 'dejavue.db'));
+  return g.__dejavueStore;
 }
 
 const MAX_THUMB_BYTES = 2_000_000;

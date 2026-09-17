@@ -17,7 +17,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 
   let unsubscribe: (() => void) | undefined;
   const stream = new ReadableStream<Uint8Array>({
-    start(controller) {
+    async start(controller) {
       let closed = false;
       const close = () => {
         if (closed) return;
@@ -33,7 +33,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 
       unsubscribe = subscribe(id, send);
       if (!unsubscribe) {
-        const dossier = appStore().getAudit(id);
+        const dossier = await appStore().getAudit(id, new Date());
         if (dossier) send({ type: 'dossier', data: dossier });
         else send({ type: 'error', data: { code: 'NOT_FOUND', message: 'This audit does not exist or has expired.', recoverable: false } });
       }

@@ -17,7 +17,7 @@ import type {
   SceneReading,
   Signals,
 } from '@/lib/shared/types';
-import type { Store } from '@/lib/store/types';
+import { TTL, type Store } from '@/lib/store/types';
 import { decide } from '@/lib/verdict/rules';
 import { score } from '@/lib/verdict/score';
 
@@ -70,6 +70,8 @@ const ID_PREFIX: Record<EngineId, string> = {
 
 const TIER3_RANK = ['google_news', 'maps_claim', 'maps_scene', 'youtube', 'google'] as const;
 const LANDMARK_MIN_CONFIDENCE = 0.8;
+/** Engines whose results are reused from the media cache. */
+const MEDIA_ENGINES: EngineId[] = ['google_lens', 'bing_reverse_image', 'yandex_images', 'youtube', 'google'];
 const NEWS_WINDOW_MS = 3 * 86_400_000;
 
 /** Rejects with TIMED_OUT when the signal fires, even if the work itself ignores it. */
@@ -126,7 +128,11 @@ async function audit(
   const inputHashes = frames.map((f) => f.pHash);
   const sharpest = frames[0];
 
-  const call = async (req: engines.EngineRequest, signal = auditSignal): Promise<SearchResult | undefined> => {
+  const call = async (
+    req: engines.EngineRequest,
+    signal = auditSignal,
+    cacheOnly = false,
+  ): Promise<SearchResult | undefined> => {
     if (halt || auditSignal.aborted) {
       partial = true;
       skipped.add(req.engine);
@@ -140,12 +146,17 @@ async function audit(
         frameIndex: req.frameIndex,
         onCredit: (data) => emit({ type: 'credit', data }),
         signal,
+        cacheOnly,
       });
       const res = await untilAborted(search, signal, req.engine);
       used.add(req.engine);
       return res;
     } catch (err) {
       const e = err instanceof SerpError ? err : new SerpError('UPSTREAM_FAILED', req.engine, String(err));
+      if (e.code === 'NOT_CACHED') {
+        skipped.add(req.engine);
+        return undefined;
+      }
       if (e.code === 'BUDGET_EXCEEDED') {
         skipped.add(req.engine);
       } else {
@@ -198,7 +209,7 @@ async function audit(
     return !!computeFirstSeen(older, deps.clock()).firstSeen;
   };
 
-  const cached = deps.useMediaCache ? deps.store.findMedia(inputHashes) : undefined;
+  const cached = deps.useMediaCache ? await deps.store.findMedia(inputHashes, deps.clock()) : undefined;
   let scene: SceneReading | undefined;
   let sceneGeo: GeoPoint | undefined;
 
@@ -297,7 +308,8 @@ async function audit(
 
     // One timeout for the whole tier; it also cancels the searches still running.
     const tier3Signal = AbortSignal.any([auditSignal, AbortSignal.timeout(deps.timeouts?.tier3Ms ?? 10_000)]);
-    const results = await Promise.all(affordable.map((p) => call(p.req, tier3Signal)));
+    // A media cache hit costs no credits: claim-dependent searches are answered from the query cache or skipped.
+    const results = await Promise.all(affordable.map((p) => call(p.req, tier3Signal, !!cached)));
 
     // Process in rank order so evidence ids and ordering stay deterministic.
     for (let i = 0; i < affordable.length; i++) {
@@ -343,14 +355,20 @@ async function audit(
     sceneGeo = { lat, lng, label: 'Photo GPS location', scale: 'poi' };
   }
 
-  if (!cached && deps.useMediaCache) {
-    deps.store.putMedia({
-      pHash: sharpest.pHash,
-      evidence: evidence.filter((e) => e.kind === 'visual_match' || e.kind === 'video'),
-      scene,
-      sceneGeo: sceneResolvedByMaps ? sceneGeo : undefined,
-      createdAt: deps.clock().toISOString(),
-    });
+  // Only complete image evidence is reused: a partial audit or a failed image search would
+  // otherwise hide older copies from every later audit of the same media.
+  const imageEvidenceComplete = !partial && !MEDIA_ENGINES.some((e) => failed.has(e));
+  if (!cached && deps.useMediaCache && imageEvidenceComplete) {
+    await deps.store.putMedia(
+      {
+        pHash: sharpest.pHash,
+        evidence: evidence.filter((e) => MEDIA_ENGINES.includes(e.engine)),
+        scene,
+        sceneGeo: sceneResolvedByMaps ? sceneGeo : undefined,
+        createdAt: deps.clock().toISOString(),
+      },
+      TTL.mediaMs,
+    );
   }
 
   // Judge.
@@ -414,7 +432,7 @@ async function audit(
     createdAt: deps.clock().toISOString(),
   };
   const dossier: Dossier = { ...unsigned, signature: deps.sign(unsigned) };
-  deps.store.putAudit(dossier);
+  await deps.store.putAudit(dossier, TTL.auditMs);
   emit({ type: 'dossier', data: dossier });
   return dossier;
 }

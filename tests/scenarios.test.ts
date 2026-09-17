@@ -4,8 +4,8 @@ import { AuditError, runAudit } from '@/lib/orchestrator/pipeline';
 import { createAuditDeps } from '@/lib/server/deps';
 import { SerpError, type SerpClient } from '@/lib/serp/client';
 import type { EngineId } from '@/lib/shared/types';
-import { createMemoryStore } from '@/lib/store/memory';
 import { getCase, replay } from './harness';
+import { makeStore, STORE_KINDS } from './stores';
 
 const failing =
   (serp: SerpClient, engines: EngineId[], code: SerpError['code'] = 'UPSTREAM_FAILED'): SerpClient =>
@@ -91,7 +91,7 @@ describe('engine failures', () => {
     vi.stubEnv('SERPAPI_API_KEY', 'test-key');
     vi.stubEnv('GEMINI_API_KEY', '');
     try {
-      const deps = createAuditDeps({ mode: 'live', store: createMemoryStore(), clock: () => new Date(c.submittedAt) });
+      const deps = createAuditDeps({ mode: 'live', store: makeStore('memory', () => new Date()), clock: () => new Date(c.submittedAt) });
       const dossier = await runAudit(c.input, () => {}, { ...deps, sign: () => 'test' });
       expect(dossier.signals.enginesFailed).toEqual([]);
       expect(dossier.metrics.tiersRun).toEqual([1, 2, 3]);
@@ -254,22 +254,92 @@ describe('verdict rules through the pipeline', () => {
   });
 });
 
-describe('media cache', () => {
-  it('reuses evidence for the same photo but re-judges it against the new claim', async () => {
-    const c = getCase('c1-kharkiv-prayer');
-    const store = createMemoryStore();
-    const cached = (d: Parameters<NonNullable<Parameters<typeof replay>[1]>>[0]) => ({ store, useMediaCache: true });
+describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
+  const DAY = 86_400_000;
 
-    const first = await replay(c, cached);
+  /** Runs audits of one case against a shared store, with a clock that can move forward. */
+  const session = (caseId: string) => {
+    const c = getCase(caseId);
+    let now = new Date(c.submittedAt);
+    const store = makeStore(kind, () => now);
+    const run = (patch: Parameters<typeof replay>[1] = () => ({}), input = c.input) =>
+      replay(c, (d) => ({ store, useMediaCache: true, clock: () => now, ...patch!(d) }), input);
+    return { c, run, later: (ms: number) => (now = new Date(Date.parse(c.submittedAt) + ms)) };
+  };
+
+  it('reuses evidence for the same photo at no credit cost, but re-judges it against the new claim', async () => {
+    const { c, run } = session('c1-kharkiv-prayer');
+    const first = await run();
     expect(first.dossier!.metrics.cacheHit).toBe(false);
     expect(first.dossier!.verdict).toBe('CONSISTENT');
 
     const laterPost = { ...c.input, claim: { ...c.input.claim, date: '2024-02-24T09:00:00+02:00' } };
-    const second = await replay(c, cached, laterPost);
+    const second = await run(undefined, laterPost);
     expect(second.dossier!.metrics.cacheHit).toBe(true);
-    expect(second.dossier!.signals.enginesUsed).not.toContain('google_lens');
-    expect(second.dossier!.metrics.credits).toBe(2);
+    expect(second.dossier!.metrics.credits).toBe(0);
+    expect(second.dossier!.signals.enginesUsed).toEqual([]);
     expect(second.dossier!.signals.sceneGeo?.label).toBe('Derzhprom');
     expect(second.dossier!.verdict).toBe('RECYCLED');
+  });
+
+  it('does not cache evidence from a partial audit', async () => {
+    const { run } = session('c1-kharkiv-prayer');
+    const partial = await run((d) => ({
+      serp: (engine, params, ctx) =>
+        engine === 'bing_reverse_image'
+          ? Promise.reject(new SerpError('RATE_LIMITED', engine, 'slow down'))
+          : d.serp(engine, params, ctx),
+    }));
+    expect(partial.dossier!.metrics.partial).toBe(true);
+    const next = await run();
+    expect(next.dossier!.metrics.cacheHit).toBe(false);
+    expect(next.dossier!.verdict).toBe('CONSISTENT');
+  });
+
+  it('searches again once cached evidence is older than 7 days', async () => {
+    const { run, later } = session('c2-uttarakhand-flood');
+    expect((await run()).dossier!.metrics.cacheHit).toBe(false);
+    later(6 * DAY);
+    expect((await run()).dossier!.metrics.cacheHit).toBe(true);
+    later(8 * DAY);
+    const stale = await run();
+    expect(stale.dossier!.metrics.cacheHit).toBe(false);
+    expect(stale.dossier!.metrics.credits).toBe(1);
+  });
+});
+
+describe('query cache in live mode', () => {
+  it('keeps Maps lookups for 30 days but other searches for 24 hours', async () => {
+    const c = getCase('s11-unverified-nothing');
+    let now = new Date(c.submittedAt);
+    const fetched: string[] = [];
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url: string | URL | Request) => {
+        fetched.push(new URL(String(url)).searchParams.get('engine')!);
+        const body = { search_metadata: { status: 'Success' }, error: "Google hasn't returned any results for this query." };
+        return new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': 'application/json' } });
+      }),
+    );
+    vi.stubEnv('SERPAPI_API_KEY', 'test-key');
+    vi.stubEnv('GEMINI_API_KEY', '');
+    try {
+      const store = makeStore('memory', () => now);
+      // The image cache is off so the second audit searches again and only the query cache is exercised.
+      const audit = () =>
+        runAudit(c.input, () => {}, { ...createAuditDeps({ mode: 'live', store, clock: () => now }), useMediaCache: false, sign: () => 'test' });
+
+      await audit();
+      fetched.length = 0;
+      now = new Date(Date.parse(c.submittedAt) + 2 * 86_400_000);
+      const second = await audit();
+
+      expect(fetched).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news']);
+      expect(second.metrics.credits).toBe(4);
+      expect(second.signals.enginesUsed).toContain('google_maps');
+    } finally {
+      vi.unstubAllGlobals();
+      vi.unstubAllEnvs();
+    }
   });
 });
