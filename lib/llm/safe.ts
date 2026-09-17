@@ -17,12 +17,26 @@ const sceneOut = z.object({
   language: z.string().max(50).nullish(),
 });
 
+/** Runs an LLM call with a time limit, cancelling it when the limit passes. */
+function withinTime<T>(ms: number, run: (signal: AbortSignal) => Promise<T>): Promise<T> {
+  if (ms <= 0) return Promise.reject(new Error('No time left for the LLM call'));
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      reject(new Error(`LLM call timed out after ${ms} ms`));
+    }, ms);
+  });
+  return Promise.race([run(controller.signal), timeout]).finally(() => clearTimeout(timer));
+}
+
 const narrativeOut = z.object({
   summary: z.string().min(1).max(600),
   bullets: z.array(z.object({ text: z.string().min(1).max(300), evidenceIds: z.array(z.string()) })).max(8),
 });
 
-export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest): Promise<Claim> {
+export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest, timeoutMs: number): Promise<Claim> {
   const fallback: Claim = {
     rawText: req.text,
     place: req.place,
@@ -31,7 +45,7 @@ export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest): Prom
     refersToPast: false,
   };
   try {
-    const out = claimOut.parse(await llm.parseClaim(req));
+    const out = claimOut.parse(await withinTime(timeoutMs, (signal) => llm.parseClaim(req, signal)));
     const claimedAt = req.date ?? out.claimedAt ?? req.submittedAt;
     return {
       rawText: req.text,
@@ -48,9 +62,9 @@ export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest): Prom
   }
 }
 
-export async function readSceneSafe(llm: LlmPort, frameUrl: string): Promise<SceneReading | undefined> {
+export async function readSceneSafe(llm: LlmPort, frameUrl: string, timeoutMs: number): Promise<SceneReading | undefined> {
   try {
-    const out = sceneOut.parse(await llm.readScene(frameUrl));
+    const out = sceneOut.parse(await withinTime(timeoutMs, (signal) => llm.readScene(frameUrl, signal)));
     return {
       signText: out.signText,
       landmarks: out.landmarks,
@@ -78,19 +92,19 @@ export async function narrateSafe(
   flags: Dossier['flags'],
   signals: Signals,
   evidence: Evidence[],
+  timeoutMs: number,
 ): Promise<Narrative> {
   const top = [...signals.confirmedMatches, ...evidence.filter((e) => !e.match?.confirmed)].slice(0, 6);
   const known = new Set(evidence.map((e) => e.id));
   try {
     const { confirmedMatches: _omit, ...rest } = signals;
-    const out = narrativeOut.parse(
-      await llm.narrate({
-        verdict,
-        flags,
-        signals: rest,
-        evidence: top.map(({ id, engine, domain, title, publishedAt, url }) => ({ id, engine, domain, title, publishedAt, url })),
-      }),
-    );
+    const request = {
+      verdict,
+      flags,
+      signals: rest,
+      evidence: top.map(({ id, engine, domain, title, publishedAt, url }) => ({ id, engine, domain, title, publishedAt, url })),
+    };
+    const out = narrativeOut.parse(await withinTime(timeoutMs, (signal) => llm.narrate(request, signal)));
     // Bullets citing unknown evidence are dropped, which blocks invented sources.
     const bullets = out.bullets.filter((b) => b.evidenceIds.length > 0 && b.evidenceIds.every((id) => known.has(id)));
     const text = [out.summary, ...bullets.map((b) => b.text)].join(' ');

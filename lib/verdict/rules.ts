@@ -23,11 +23,14 @@ export function decide(signals: Signals): Decision {
   if (signals.confirmedMatches.length > 0 && firstSeen) {
     const recycled = isOlderThan48h(firstSeen.at, claim.claimedAt) && !claimRefersToOriginal(signals);
     if (recycled) return { verdict: 'RECYCLED', flags: { recycled: true, misplaced } };
-    return { verdict: misplaced ? 'MISPLACED' : 'CONSISTENT', flags: { recycled: false, misplaced } };
+    if (misplaced) return { verdict: 'MISPLACED', flags: { recycled: false, misplaced } };
+    if (signals.locationAgrees) return { verdict: 'CONSISTENT', flags: { recycled: false, misplaced } };
+    // Recent copies exist but the location could not be checked, so the claim
+    // is not confirmed: fall through to the news check.
   }
 
-  // No dated confirmed match: absence of a match is never proof, so only
-  // location and news evidence can move the verdict.
+  // No dated confirmed match (or an unchecked location): absence of evidence is
+  // never proof, so only location and news evidence can move the verdict.
   if (misplaced) return { verdict: 'MISPLACED', flags: { recycled: false, misplaced } };
   if (signals.newsCorroborates) return { verdict: 'CONTEXT_PLAUSIBLE', flags: { recycled: false, misplaced } };
   return { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced } };

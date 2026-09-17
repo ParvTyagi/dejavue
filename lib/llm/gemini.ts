@@ -10,7 +10,13 @@ const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
 export function createGeminiLlm(apiKey: string, model: string): LlmPort {
   const ai = new GoogleGenAI({ apiKey });
 
-  const ask = async (prompt: string, data: unknown, schema: object, image?: { mimeType: string; data: string }) => {
+  const ask = async (
+    prompt: string,
+    data: unknown,
+    schema: object,
+    signal: AbortSignal | undefined,
+    image?: { mimeType: string; data: string },
+  ) => {
     const res = await ai.models.generateContent({
       model,
       contents: [
@@ -22,13 +28,19 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
           ],
         },
       ],
-      config: { systemInstruction: SYSTEM, responseMimeType: 'application/json', responseSchema: schema, temperature: 0 },
+      config: {
+        systemInstruction: SYSTEM,
+        responseMimeType: 'application/json',
+        responseSchema: schema,
+        temperature: 0,
+        abortSignal: signal,
+      },
     });
     return JSON.parse(res.text ?? 'null');
   };
 
   return {
-    parseClaim: (req) =>
+    parseClaim: (req, signal) =>
       ask(
         'Extract the event, the place and the date the claim says the media shows. claimedAt is ISO 8601 with offset, ' +
           'resolved against submittedAt, or null if the claim gives no date. refersToPast is true only when the claim ' +
@@ -45,10 +57,12 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
           },
           required: ['refersToPast'],
         },
+        signal,
       ),
 
-    readScene: async (frameUrl) => {
-      const res = await fetch(frameUrl, { signal: AbortSignal.timeout(5_000) });
+    readScene: async (frameUrl, signal) => {
+      const fetchSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(5_000)]) : AbortSignal.timeout(5_000);
+      const res = await fetch(frameUrl, { signal: fetchSignal });
       const buf = Buffer.from(await res.arrayBuffer());
       if (!res.ok || buf.byteLength > MAX_IMAGE_BYTES) throw new Error('Frame unavailable for scene reading');
       return ask(
@@ -72,11 +86,12 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
           },
           required: ['signText', 'landmarks'],
         },
+        signal,
         { mimeType: res.headers.get('content-type') ?? 'image/jpeg', data: buf.toString('base64') },
       );
     },
 
-    narrate: (req) =>
+    narrate: (req, signal) =>
       ask(
         'Write a short plain-language explanation of this verdict for a general audience. Do not change or question the ' +
           'verdict. Every bullet must cite the ids of the evidence items it relies on. Use only the evidence given.',
@@ -96,6 +111,7 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
           },
           required: ['summary', 'bullets'],
         },
+        signal,
       ),
   };
 }

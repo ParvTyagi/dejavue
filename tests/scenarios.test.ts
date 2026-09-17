@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { LlmPort } from '@/lib/llm/port';
-import { AuditError } from '@/lib/orchestrator/pipeline';
+import { AuditError, runAudit } from '@/lib/orchestrator/pipeline';
+import { createAuditDeps } from '@/lib/server/deps';
 import { SerpError, type SerpClient } from '@/lib/serp/client';
 import type { EngineId } from '@/lib/shared/types';
 import { createMemoryStore } from '@/lib/store/memory';
@@ -61,7 +62,107 @@ describe('engine failures', () => {
     expect(dossier!.metrics.partial).toBe(true);
     expect(dossier!.metrics.credits).toBe(1);
     expect(dossier!.signals.enginesSkipped).toEqual(expect.arrayContaining(['yandex_images', 'google_news', 'google_maps']));
-    expect(dossier!.verdict).toBe('CONSISTENT');
+    // Same-day copies were found, but the location was never checked, so the claim is not confirmed.
+    expect(dossier!.verdict).toBe('UNVERIFIED');
+  });
+
+  it('reports the rate limit, not an upstream failure, when SerpApi refuses the first search', async () => {
+    const calls: EngineId[] = [];
+    const { dossier, error } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+      serp: (engine, params, ctx) => {
+        calls.push(engine);
+        return failing(d.serp, ['google_lens'], 'RATE_LIMITED')(engine, params, ctx);
+      },
+    }));
+    expect(dossier).toBeUndefined();
+    expect(error).toMatchObject({ code: 'RATE_LIMITED', status: 429 });
+    expect(calls).toEqual(['google_lens']);
+  });
+
+  it('keeps going when a search engine simply has no results', async () => {
+    const c = getCase('s11-unverified-nothing');
+    const fetched: string[] = [];
+    const noResults = async (url: string | URL | Request) => {
+      fetched.push(new URL(String(url)).searchParams.get('engine')!);
+      const body = { search_metadata: { status: 'Success' }, error: "Google hasn't returned any results for this query." };
+      return new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': 'application/json' } });
+    };
+    vi.stubGlobal('fetch', vi.fn(noResults));
+    vi.stubEnv('SERPAPI_API_KEY', 'test-key');
+    vi.stubEnv('GEMINI_API_KEY', '');
+    try {
+      const deps = createAuditDeps({ mode: 'live', store: createMemoryStore(), clock: () => new Date(c.submittedAt) });
+      const dossier = await runAudit(c.input, () => {}, { ...deps, sign: () => 'test' });
+      expect(dossier.signals.enginesFailed).toEqual([]);
+      expect(dossier.metrics.tiersRun).toEqual([1, 2, 3]);
+      // One request per engine: an empty result is not an error, so nothing is retried.
+      expect(fetched).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news', 'google_maps']);
+      expect(dossier.verdict).toBe('UNVERIFIED');
+    } finally {
+      vi.unstubAllGlobals();
+      vi.unstubAllEnvs();
+    }
+  });
+});
+
+describe('audit deadline', () => {
+  const hang = () => new Promise<never>(() => {});
+
+  it('judges whatever has arrived when the deadline passes, even if a search never answers', async () => {
+    const started = performance.now();
+    const { dossier } = await replay(getCase('s06-misplaced-with-match'), (d) => ({
+      serp: (engine, params, ctx) => (engine === 'bing_reverse_image' ? hang() : d.serp(engine, params, ctx)),
+      timeouts: { auditMs: 150 },
+    }));
+    expect(performance.now() - started).toBeLessThan(2_000);
+    expect(dossier!.metrics.partial).toBe(true);
+    expect(dossier!.signals.enginesFailed).toEqual(['bing_reverse_image']);
+    expect(dossier!.signals.enginesSkipped).toEqual(expect.arrayContaining(['yandex_images', 'google_news', 'google_maps']));
+    expect(dossier!.evidence.filter((e) => e.engine === 'google_lens')).toHaveLength(2);
+  });
+
+  it('cancels tier 3 searches that outlive the tier timeout and lists them only as failed', async () => {
+    const { dossier } = await replay(getCase('s06-misplaced-with-match'), (d) => ({
+      serp: (engine, params, ctx) => (engine === 'google_news' ? hang() : d.serp(engine, params, ctx)),
+      timeouts: { tier3Ms: 100 },
+    }));
+    expect(dossier!.signals.enginesFailed).toEqual(['google_news']);
+    expect(dossier!.signals.enginesUsed).not.toContain('google_news');
+    expect(dossier!.verdict).toBe('MISPLACED');
+  });
+
+  it('falls back to the template narrative when Gemini does not answer in time', async () => {
+    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+      llm: llmWith(d.llm, { narrate: hang }),
+      timeouts: { llmMs: 50 },
+    }));
+    expect(dossier!.verdict).toBe('RECYCLED');
+    expect(dossier!.narrative.source).toBe('template');
+  });
+});
+
+describe('early stop', () => {
+  it('does not stop early on two old copies that are years apart, since they cannot date the media', async () => {
+    const c = getCase('s06-misplaced-with-match');
+    const frame = c.input.media.frames[0].pHash;
+    const lens = {
+      search_metadata: { processed_at: c.submittedAt },
+      exact_matches: [
+        { title: 'Port fire', link: 'https://old-blog.example/2019/fire', thumbnail: 'https://t.example/a.jpg', date: 'May 1, 2019' },
+        { title: 'Port fire', link: 'https://mirror.example/2023/fire', thumbnail: 'https://t.example/b.jpg', date: 'Jun 1, 2023' },
+      ],
+    };
+    const { dossier, events } = await replay(c, (d) => ({
+      serp: (engine, params, ctx) =>
+        engine === 'google_lens'
+          ? d.serp(engine, params, ctx).then((res) => ({ ...res, raw: lens }))
+          : d.serp(engine, params, ctx),
+      hashThumbnail: async (url) => (url.startsWith('https://t.example/') ? frame : d.hashThumbnail(url)),
+    }));
+    expect(events.some((e) => e.type === 'short_circuit')).toBe(false);
+    expect(dossier!.metrics.tiersRun).toEqual([1, 2, 3]);
+    expect(dossier!.signals.firstSeen).toBeUndefined();
+    expect(dossier!.verdict).toBe('MISPLACED');
   });
 });
 
@@ -74,7 +175,9 @@ describe('credit budget', () => {
     expect(dossier!.signals.enginesSkipped).toEqual(['google_maps']);
     expect(dossier!.signals.sceneGeo).toBeUndefined();
     expect(events.filter((e) => e.type === 'error' && e.data.code === 'BUDGET_EXCEEDED')).toHaveLength(2);
-    expect(dossier!.confidence.value).toBe(70);
+    // Without Maps the location is unchecked, so news corroboration is the strongest verdict (capped at 60).
+    expect(dossier!.verdict).toBe('CONTEXT_PLAUSIBLE');
+    expect(dossier!.confidence.value).toBe(60);
   });
 });
 
@@ -137,7 +240,7 @@ describe('verdict rules through the pipeline', () => {
       { ...c.input, claim: { ...c.input.claim, text: 'Remembering the 2013 Uttarakhand floods' } },
     );
     expect(dossier!.flags.recycled).toBe(false);
-    expect(dossier!.verdict).toBe('CONSISTENT');
+    expect(dossier!.verdict).not.toBe('RECYCLED');
   });
 
   it('uses EXIF GPS as the scene location only when the user opts in', async () => {

@@ -34,16 +34,26 @@ export interface AuditDeps {
   caseId?: string;
   /** Reuse evidence for near-identical media seen before. */
   useMediaCache: boolean;
-  timeouts?: { tier3Ms?: number; auditMs?: number };
+  timeouts?: { tier3Ms?: number; auditMs?: number; llmMs?: number };
 }
 
+export type AuditErrorCode = 'UPSTREAM_FAILED' | 'RATE_LIMITED' | 'CREDITS_EXHAUSTED' | 'TIMED_OUT';
+
+const AUDIT_ERROR_STATUS: Record<AuditErrorCode, number> = {
+  UPSTREAM_FAILED: 502,
+  RATE_LIMITED: 429,
+  CREDITS_EXHAUSTED: 402,
+  TIMED_OUT: 504,
+};
+
+/** An audit that ends with no verdict at all. */
 export class AuditError extends Error {
-  constructor(
-    readonly code: 'UPSTREAM_FAILED',
-    readonly status: number,
-    message: string,
-  ) {
+  readonly code: AuditErrorCode;
+  readonly status: number;
+  constructor(code: AuditErrorCode, message: string) {
     super(message);
+    this.code = code;
+    this.status = AUDIT_ERROR_STATUS[code];
   }
 }
 
@@ -62,17 +72,43 @@ const TIER3_RANK = ['google_news', 'maps_claim', 'maps_scene', 'youtube', 'googl
 const LANDMARK_MIN_CONFIDENCE = 0.8;
 const NEWS_WINDOW_MS = 3 * 86_400_000;
 
-function withTimeout<T>(p: Promise<T>, ms: number): Promise<T | undefined> {
-  return Promise.race([p, new Promise<undefined>((r) => setTimeout(() => r(undefined), ms))]);
+/** Rejects with TIMED_OUT when the signal fires, even if the work itself ignores it. */
+function untilAborted<T>(work: Promise<T>, signal: AbortSignal, engine: EngineId): Promise<T> {
+  const timedOut = () => new SerpError('TIMED_OUT', engine, `${engine} timed out`);
+  if (signal.aborted) return Promise.reject(timedOut());
+  return new Promise<T>((resolve, reject) => {
+    const onAbort = () => reject(timedOut());
+    signal.addEventListener('abort', onAbort, { once: true });
+    work.then(resolve, reject).finally(() => signal.removeEventListener('abort', onAbort));
+  });
 }
 
 /**
  * Runs one audit: claim and scene reading, tiered SerpApi escalation that stops
  * as soon as evidence is decisive, then deterministic judging and narration.
+ * Whatever has arrived when the audit deadline (25 s) passes is judged as-is.
  */
 export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): Promise<Dossier> {
+  const auditMs = deps.timeouts?.auditMs ?? 25_000;
+  const deadline = new AbortController();
+  const timer = setTimeout(() => deadline.abort(), auditMs);
+  try {
+    return await audit(input, emit, deps, deadline.signal, auditMs);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function audit(
+  input: AuditInput,
+  emit: Emit,
+  deps: AuditDeps,
+  auditSignal: AbortSignal,
+  auditMs: number,
+): Promise<Dossier> {
   const startedMs = performance.now();
-  const auditDeadline = startedMs + (deps.timeouts?.auditMs ?? 25_000);
+  const remainingMs = () => Math.max(0, auditMs - (performance.now() - startedMs));
+  const llmMs = () => Math.min(deps.timeouts?.llmMs ?? 8_000, remainingMs());
   const auditId = deps.newId();
   const budget = new AuditBudget(input.options.maxCredits);
   const used = new Set<EngineId>();
@@ -81,7 +117,8 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
   const evidence: Evidence[] = [];
   const tiersRun: number[] = [];
   let partial = false;
-  let halted = false;
+  /** Set when SerpApi refuses further searches (rate limit or credits exhausted). */
+  let halt: SerpError | undefined;
 
   const frames = input.media.frames
     .map((frame, index) => ({ ...frame, index }))
@@ -89,20 +126,22 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
   const inputHashes = frames.map((f) => f.pHash);
   const sharpest = frames[0];
 
-  const call = async (req: engines.EngineRequest): Promise<SearchResult | undefined> => {
-    if (halted || performance.now() > auditDeadline) {
+  const call = async (req: engines.EngineRequest, signal = auditSignal): Promise<SearchResult | undefined> => {
+    if (halt || auditSignal.aborted) {
       partial = true;
       skipped.add(req.engine);
       return undefined;
     }
     try {
-      const res = await deps.serp(req.engine, req.params, {
+      const search = deps.serp(req.engine, req.params, {
         auditId,
         budget,
         caseId: deps.caseId,
         frameIndex: req.frameIndex,
         onCredit: (data) => emit({ type: 'credit', data }),
+        signal,
       });
+      const res = await untilAborted(search, signal, req.engine);
       used.add(req.engine);
       return res;
     } catch (err) {
@@ -112,9 +151,10 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
       } else {
         failed.add(req.engine);
         if (e.code === 'RATE_LIMITED' || e.code === 'CREDITS_EXHAUSTED') {
-          halted = true;
+          halt = e;
           partial = true;
         }
+        if (auditSignal.aborted) partial = true;
       }
       emit({ type: 'error', data: { code: e.code, message: e.message, recoverable: true } });
       return undefined;
@@ -140,16 +180,22 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
 
   // Stage 0: claim and scene.
   emit({ type: 'stage', data: { stage: 'claim' } });
-  const claim: Claim = await parseClaimSafe(deps.llm, {
-    text: input.claim.text,
-    place: input.claim.place,
-    date: input.claim.date,
-    submittedAt: deps.clock().toISOString(),
-  });
+  const claim: Claim = await parseClaimSafe(
+    deps.llm,
+    {
+      text: input.claim.text,
+      place: input.claim.place,
+      date: input.claim.date,
+      submittedAt: deps.clock().toISOString(),
+    },
+    llmMs(),
+  );
 
+  // Decisive uses the same rule as T₀, applied to copies older than 48 h: a
+  // trusted archive on its own, or two domains within 30 days of each other.
   const decisive = () => {
     const older = confirmed().filter((e) => e.publishedAt && isOlderThan48h(e.publishedAt, claim.claimedAt));
-    return older.some((e) => e.trustedSource) || new Set(older.map((e) => e.domain)).size >= 2;
+    return !!computeFirstSeen(older, deps.clock()).firstSeen;
   };
 
   const cached = deps.useMediaCache ? deps.store.findMedia(inputHashes) : undefined;
@@ -165,7 +211,7 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
       emit({ type: 'evidence', data: ev });
     }
   } else {
-    scene = await readSceneSafe(deps.llm, sharpest.url);
+    scene = await readSceneSafe(deps.llm, sharpest.url, llmMs());
   }
 
   let shortCircuited = false;
@@ -191,7 +237,13 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
     } else if (failed.has('google_lens')) {
       const bingReq = engines.bingReverse(sharpest.url, sharpest.index);
       const bing = await call(bingReq);
-      if (!bing) throw new AuditError('UPSTREAM_FAILED', 502, 'Google Lens and Bing both failed; no verdict is possible.');
+      if (!bing) {
+        if (halt?.code === 'RATE_LIMITED' || halt?.code === 'CREDITS_EXHAUSTED') {
+          throw new AuditError(halt.code, `SerpApi refused the search: ${halt.message}`);
+        }
+        if (auditSignal.aborted) throw new AuditError('TIMED_OUT', 'Reverse image search timed out; no verdict is possible.');
+        throw new AuditError('UPSTREAM_FAILED', 'Google Lens and Bing both failed; no verdict is possible.');
+      }
       await collect(bingReq, bing);
     }
     if (decisive()) shortCircuit(1);
@@ -243,17 +295,15 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
       });
     }
 
-    const tier3Ms = deps.timeouts?.tier3Ms ?? 10_000;
-    const results = await Promise.all(affordable.map((p) => withTimeout(call(p.req), tier3Ms)));
+    // One timeout for the whole tier; it also cancels the searches still running.
+    const tier3Signal = AbortSignal.any([auditSignal, AbortSignal.timeout(deps.timeouts?.tier3Ms ?? 10_000)]);
+    const results = await Promise.all(affordable.map((p) => call(p.req, tier3Signal)));
 
     // Process in rank order so evidence ids and ordering stay deterministic.
     for (let i = 0; i < affordable.length; i++) {
       const { key, req } = affordable[i];
       const res = results[i];
-      if (!res) {
-        if (!failed.has(req.engine) && !skipped.has(req.engine)) failed.add(req.engine);
-        continue;
-      }
+      if (!res) continue;
       if (key === 'maps_claim' || key === 'maps_scene') {
         const place = toPlace(res.raw);
         if (!place) continue;
@@ -326,6 +376,7 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
     sceneGeo,
     deltaSKm: claimGeo && sceneGeo ? Math.round(haversineKm(claimGeo, sceneGeo)) : undefined,
     locationMismatch: !!(claimGeo && sceneGeo && isLocationMismatch(claimGeo, sceneGeo)),
+    locationAgrees: !!(claimGeo && sceneGeo && !isLocationMismatch(claimGeo, sceneGeo)),
     newsCorroborates,
     sceneResolvedByMaps,
     enginesUsed: [...used],
@@ -342,7 +393,7 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
   const confidence = score(signals, verdict);
 
   emit({ type: 'stage', data: { stage: 'narrate' } });
-  const narrative = await narrateSafe(deps.llm, verdict, flags, signals, evidence);
+  const narrative = await narrateSafe(deps.llm, verdict, flags, signals, evidence, llmMs());
 
   const unsigned: Omit<Dossier, 'signature'> = {
     id: auditId,

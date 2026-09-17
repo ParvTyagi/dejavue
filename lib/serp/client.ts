@@ -19,6 +19,8 @@ export interface SearchContext {
   /** Which keyframe an image search was run on. */
   frameIndex?: number;
   onCredit?: (e: { engine: EngineId; cached: boolean; totalCredits: number }) => void;
+  /** Aborts the request (audit deadline or tier timeout). An aborted search is never retried. */
+  signal?: AbortSignal;
 }
 
 export interface SearchResult {
@@ -38,7 +40,13 @@ export class AuditBudget {
   }
 }
 
-export type SerpErrorCode = 'BUDGET_EXCEEDED' | 'CREDITS_EXHAUSTED' | 'FIXTURE_MISSING' | 'RATE_LIMITED' | 'UPSTREAM_FAILED';
+export type SerpErrorCode =
+  | 'BUDGET_EXCEEDED'
+  | 'CREDITS_EXHAUSTED'
+  | 'FIXTURE_MISSING'
+  | 'RATE_LIMITED'
+  | 'TIMED_OUT'
+  | 'UPSTREAM_FAILED';
 
 export class SerpError extends Error {
   readonly code: SerpErrorCode;
@@ -118,7 +126,10 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     }
   };
 
+  const timedOut = (engine: EngineId) => new SerpError('TIMED_OUT', engine, `${engine} timed out`);
+
   return async (engine, params, ctx) => {
+    if (ctx.signal?.aborted) throw timedOut(engine);
     if (opts.mode === 'replay') {
       // Replay simulates credit spend so the meter and budget behave as in live mode.
       guard(engine, ctx);
@@ -144,9 +155,12 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     let raw: unknown;
     for (let attempt = 0; ; attempt++) {
       try {
-        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, AbortSignal.timeout(timeoutMs));
+        const perCall = AbortSignal.timeout(timeoutMs);
+        const signal = ctx.signal ? AbortSignal.any([perCall, ctx.signal]) : perCall;
+        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, signal);
         break;
       } catch (err) {
+        if (ctx.signal?.aborted) throw timedOut(engine);
         const status = (err as { status?: number }).status;
         if (status === 429) throw new SerpError('RATE_LIMITED', engine, `${engine} rate limited by SerpApi`);
         const retryable = status === undefined || status >= 500;
@@ -154,6 +168,7 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
           throw new SerpError('UPSTREAM_FAILED', engine, `${engine} failed: ${(err as Error).message}`);
         }
         await sleep(retryDelayMs);
+        if (ctx.signal?.aborted) throw timedOut(engine);
       }
     }
 
@@ -168,17 +183,20 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
   };
 }
 
+// SerpApi answers an empty search with HTTP 200 and an `error` message such as
+// "Google hasn't returned any results for this query." That is a valid, empty result.
+const NO_RESULTS = /hasn't returned any results|no results/i;
+
 /** Live transport over SerpApi's JSON endpoint. */
 export function httpTransport(apiKey: string): SerpTransport {
   return async (engine, params, signal) => {
     const qs = new URLSearchParams({ ...params, engine, api_key: apiKey, output: 'json' });
     const res = await fetch(`https://serpapi.com/search.json?${qs}`, { signal });
     const body = (await res.json().catch(() => ({}))) as { error?: string };
-    if (!res.ok || body.error) {
-      const err = new Error(body.error ?? `HTTP ${res.status}`) as Error & { status: number };
-      err.status = res.ok ? 500 : res.status;
-      throw err;
-    }
-    return body;
+    if (res.ok && (!body.error || NO_RESULTS.test(body.error))) return body;
+    const err = new Error(body.error ?? `HTTP ${res.status}`) as Error & { status: number };
+    // Other errors inside a 200 response are request problems, so they are not retried.
+    err.status = res.ok ? 422 : res.status;
+    throw err;
   };
 }

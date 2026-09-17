@@ -89,6 +89,8 @@ export interface Signals {
   sceneGeo?: GeoPoint;
   deltaSKm?: number;
   locationMismatch: boolean;
+  /** Both the claimed place and the scene were located, and they are close enough. */
+  locationAgrees: boolean;
   newsCorroborates: boolean;
   sceneResolvedByMaps: boolean;
   enginesUsed: EngineId[];

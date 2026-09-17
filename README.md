@@ -26,7 +26,7 @@ npm run build
 | --- | --- |
 | `RECYCLED` | A confirmed copy was online more than 48 hours before the claimed date |
 | `MISPLACED` | The scene resolves too far from the claimed place (50 km city, 300 km region, country boundary) |
-| `CONSISTENT` | The earliest confirmed copies match the claimed time and place |
+| `CONSISTENT` | The earliest confirmed copies match the claimed time, and the scene was located close to the claimed place |
 | `CONTEXT_PLAUSIBLE` | No earlier copy, but news corroborates the claimed event |
 | `UNVERIFIED` | Not enough evidence. Finding nothing never counts as proof of authenticity |
 
