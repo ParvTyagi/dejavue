@@ -4,6 +4,7 @@ import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { LogoMark } from '@/components/site/Logo';
 import { displayDate, OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL } from '@/lib/client/labels';
+import { redactContacts } from '@/lib/offer/redact';
 import { isOfferDossier, type AnyDossier } from '@/lib/shared/types';
 
 interface CardContent {
@@ -15,6 +16,8 @@ interface CardContent {
   footer: string;
 }
 
+const results = (n: number) => `${n} search result${n === 1 ? '' : 's'}`;
+
 function cardContent(dossier: AnyDossier): CardContent {
   const confidence = { label: 'Confidence', value: `${dossier.confidence.value} · ${dossier.confidence.band}` };
   if (isOfferDossier(dossier)) {
@@ -23,14 +26,15 @@ function cardContent(dossier: AnyDossier): CardContent {
     return {
       ...label,
       color: TONE_VAR[label.tone],
-      quote: dossier.reading.excerpt,
+      // The card is made to be forwarded, so it must not spread the links and numbers it warns about.
+      quote: redactContacts(dossier.reading.excerpt, dossier.signals.contacts),
       facts: [
         { label: 'Official site', value: dossier.signals.officialDomain ?? 'Not found' },
         { label: 'Warning signs', value: String(signs) },
         { label: 'Searches', value: String(dossier.metrics.credits) },
         confidence,
       ],
-      footer: `Based on ${dossier.evidence.length} search results · signed dossier · ${dossier.advice} Finding no warning signs never proves an offer is genuine.`,
+      footer: `Based on ${results(dossier.evidence.length)} · signed dossier · ${dossier.advice} Finding no warning signs never proves an offer is genuine.`,
     };
   }
   const label = VERDICT_LABEL[dossier.verdict];
@@ -47,7 +51,7 @@ function cardContent(dossier: AnyDossier): CardContent {
         : { label: 'Gap', value: s.deltaTDays !== undefined ? `${s.deltaTDays.toLocaleString()} days` : '—' },
       confidence,
     ],
-    footer: `Based on ${dossier.evidence.length} search results · signed dossier · does not detect deepfakes; no earlier copy never proves authenticity.`,
+    footer: `Based on ${results(dossier.evidence.length)} · signed dossier · does not detect deepfakes; no earlier copy never proves authenticity.`,
   };
 }
 

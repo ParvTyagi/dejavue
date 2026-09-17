@@ -130,6 +130,10 @@ const EARNING_WORDS =
   /\b(salary|earn|earning|earnings|income|stipend|per month|monthly|per day|daily|per week|weekly|ctc|lpa|package|win|won|prize|cashback|bonus|benefit|receive|get|claim|kamao|kamaye)\b|वेतन|कमाएं|कमाई/i;
 const FEE_PHRASE =
   /\b(registration|processing|security|training|joining|verification|documentation|interview|application|onboarding|kit)\s+(fees?|charges?|deposit|amount)\b|\brefundable\s+(fees?|deposit|amount)\b/i;
+
+/** Payment requests in Hinglish and Hindi that name no amount: "paise bhejo", "fees jama karein", "शुल्क जमा करें". */
+const PAY_PHRASE =
+  /\b(paise|paisa|rupaye|rupay|amount|fees?|charges?|deposit)\s+(bhejo|bhejein|bhejiye|bhejna|bharo|bharein|bhariye|bharna|jama\s+(karo|karein|kariye|karna|karen))\b|(पैसे|शुल्क|फीस|राशि)\s*(भेजें|भेजो|भेजिए|भरें|जमा)/i;
 const URGENCY =
   /\b(today only|only today|last date (is )?today|limited (seats|slots|vacancies|offer)|few (seats|slots) left|hurry|urgent(ly)?|immediately|act now|within \d+ (hours?|hrs?|minutes?)|expires? (today|tonight|soon)|don'?t miss|last chance|abhi apply)\b/i;
 
@@ -163,12 +167,12 @@ function nearest(text: string, pattern: RegExp, from: number, to: number): numbe
 const NEAR_CHARS = 40;
 
 /**
- * The sentence asking the reader to pay: a named fee ("registration fee"), or an amount whose
+ * The sentence asking the reader to pay: a named fee ("registration fee", "paise bhejo"), or an amount whose
  * closest keyword is a payment word rather than an earning word ("pay ₹999" but not "earn ₹40,000").
  */
 export function findPaymentQuote(message: string): string | undefined {
   for (const s of sentences(message)) {
-    const fee = FEE_PHRASE.exec(s.text);
+    const fee = FEE_PHRASE.exec(s.text) ?? PAY_PHRASE.exec(s.text);
     if (fee) return clip(s.text, fee.index);
     for (const a of extractAmounts(s.text)) {
       const end = a.index + a.raw.length;

@@ -116,6 +116,30 @@ describe('offer stream', () => {
     expect(dossier!.signals.listingFound).toBe(true);
   });
 
+  it('still searches the contacts when the message names no organisation', async () => {
+    const c = getOfferCase('o4-sbi-kyc-reported-number');
+    const text = 'Your account will be blocked. Call Customer Care on 82104 57693 immediately to update KYC.';
+    const { dossier } = await replayOffer(c, () => ({}), { ...c.input, text });
+    expect(dossier!.signals).toMatchObject({ org: undefined, officialDomain: undefined });
+    expect(dossier!.metrics.stepsRun).toEqual([1, 2]);
+    expect(dossier!.verdict).toBe('LIKELY_SCAM');
+    expect(dossier!.flags.map((f) => f.id)).toContain('reported_contact');
+  });
+
+  it('does not spend a search on a short link', async () => {
+    const c = getOfferCase('o6-unknown-company');
+    const text = `${c.input.text} Apply: https://bit.ly/3xYzAbC`;
+    const searched: string[] = [];
+    const { dossier } = await replayOffer(c, (d) => ({
+      serp: (engine, params, ctx) => {
+        searched.push(params.q);
+        return d.serp(engine, params, ctx);
+      },
+    }), { ...c.input, text });
+    expect(dossier!.signals.contacts.map((x) => x.type)).toContain('url');
+    expect(searched.some((q) => q.includes('bit.ly'))).toBe(false);
+  });
+
   it('counts only pages with scam words as reports', async () => {
     const { dossier } = await replayOffer(getOfferCase('o4-sbi-kyc-reported-number'));
     const phone = dossier!.signals.contacts.find((c) => c.type === 'phone')!;

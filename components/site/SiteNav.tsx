@@ -19,7 +19,10 @@ export function SiteNav({ mode }: { mode: FixtureMode }) {
             How it works
           </Link>
           <Link href="/check" className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline">
-            Check media
+            Check a photo
+          </Link>
+          <Link href="/check?type=offer" className="text-sm text-muted transition-colors hover:text-ink">
+            Check a message
           </Link>
           {/* Visitors only need to know when they're looking at example cases, not how the server is configured. */}
           {replay && (

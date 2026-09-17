@@ -54,12 +54,12 @@ export function Hero() {
                 <ArrowRight className="size-4" />
               </ShimmerButton>
             </Link>
-            <a
-              href="#how"
+            <Link
+              href="/check?type=offer"
               className="rounded-xl border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-line-strong hover:bg-surface-2"
             >
-              How it works
-            </a>
+              Check a job offer or message
+            </Link>
           </div>
 
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6"

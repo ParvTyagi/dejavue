@@ -86,6 +86,14 @@ describe('amounts and payment requests', () => {
     expect(findPaymentQuote('नौकरी पक्की, ₹500 जमा करें')).toBe('नौकरी पक्की, ₹500 जमा करें');
   });
 
+  it('catches Hinglish and Hindi payment requests that name no amount', () => {
+    expect(findPaymentQuote('Job confirm hai, bas registration ke liye paise bhejo')).toBe('Job confirm hai, bas registration ke liye paise bhejo');
+    expect(findPaymentQuote('Selection ho gaya. Kal tak fees jama karein')).toBe('Kal tak fees jama karein');
+    expect(findPaymentQuote('योजना का लाभ लेने के लिए शुल्क जमा करें')).toBe('योजना का लाभ लेने के लिए शुल्क जमा करें');
+    // Receiving money is not paying it.
+    expect(findPaymentQuote('Ghar baithe paise kamao')).toBeUndefined();
+  });
+
   it('quotes pressure to act fast', () => {
     expect(findUrgencyQuotes('Limited seats! Apply today only.\nThanks')).toEqual(['Limited seats!', 'Apply today only.']);
   });

@@ -9,10 +9,12 @@ export function SiteFooter() {
           <span className="font-medium">DejaVue</span>
         </div>
         <p className="max-w-3xl md:justify-self-end md:text-right">
-          DejaVue finds earlier appearances of media through SerpApi search engines. It does not detect deepfakes or
-          AI-generated images, and finding no earlier copy never proves that media is authentic. Media you check is sent
-          to search engines through SerpApi and to Gemini for scene reading, stored for at most 15 minutes, and never
-          kept on the server.
+          DejaVue finds earlier appearances of media and warning signs in messages through SerpApi search engines. It does
+          not detect deepfakes or AI-generated images, and finding nothing never proves that media or an offer is genuine.
+          What you check is read by Gemini, and uploaded media and screenshots are deleted within 15 minutes. Photos and
+          video frames go to reverse image search through SerpApi; from a message, only the organisation, phone numbers,
+          emails and links are searched. Results, including
+          the first 600 characters of a checked message, are kept for 7 days so they can be shared.
         </p>
       </div>
     </footer>

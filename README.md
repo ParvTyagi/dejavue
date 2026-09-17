@@ -2,6 +2,8 @@
 
 DejaVue checks whether a viral image or video is really from where and when it claims. It uses SerpApi's search engines as a timestamped archive of the web to find where the media appeared first, then judges the claim with deterministic rules and shows every piece of evidence behind the verdict.
 
+It also checks the text scams people act on fastest: **fake job offers, government scheme messages and customer-care numbers** (see [Offer Check](#offer-check) and [docs/OFFER_CHECK.md](docs/OFFER_CHECK.md)).
+
 Built for the SerpApi India Hackathon 2026 (Knowledge & Public Interest track). The full design is in [docs/DESIGN.md](docs/DESIGN.md).
 
 ## Run it locally
@@ -12,10 +14,10 @@ cp .env.example .env.local   # FIXTURE_MODE=replay needs no keys
 npm run dev                  # http://localhost:3000
 ```
 
-Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on the home page to watch an audit stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
+Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on `/check` (photos) or `/check?type=offer` (messages) to watch a check stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
 
 ```bash
-npm test            # 12 golden cases, failure scenarios and pHash checks
+npm test            # 12 media and 6 offer golden cases, failure scenarios, extraction and pHash checks
 npm run typecheck
 npm run build
 ```
@@ -46,6 +48,26 @@ Searches escalate in tiers and stop as soon as the evidence is decisive, so recy
 | 3 | Google Search (date-restricted) | When was an undated matching page published? |
 
 A search result only counts as a visual match after DejaVue re-hashes its thumbnail and finds it within Hamming distance 10 of the input (64-bit DCT pHash). Gemini only parses the claim, reads scene text and writes the explanation. It never decides the verdict, and all its output is schema-checked with fallbacks.
+
+## Offer Check
+
+Paste a message or upload a screenshot. Phones, emails, links, amounts and payment requests are found by patterns, and Gemini only reads the screenshot and names the organisation; anything it quotes must appear in the message word for word. Searches stop as soon as the message is clearly a scam.
+
+| Step | Engine | Question it answers |
+| --- | --- | --- |
+| 1 | Google Search (knowledge graph) | What is the organisation's official website? |
+| 2 | Google Search | Is this phone number, email or site reported as a scam on 2+ sites? |
+| 3 | Google Jobs | Does the company really list this job? |
+| 3 | Google Search (`site:gov.in`) | Is the scheme on a government website? |
+| 3 | Google Maps | Is this the number on the organisation's official listing? |
+
+| Verdict | Meaning |
+| --- | --- |
+| `LIKELY_SCAM` | A strong sign (asks for money, look-alike website, contact reported on 2+ sites) or two medium signs (personal email, chat-only contact, unofficial link) |
+| `NO_RED_FLAGS` | Official site found, the listing or a contact confirmed on it, and no warning signs. Never "genuine": capped below High confidence |
+| `UNVERIFIED` | Everything else, including when no official site is found |
+
+The six offer demo cases in `fixtures/offers/` are synthetic, like the media ones.
 
 ## Modes
 
@@ -90,16 +112,17 @@ How it fits serverless: `POST /api/investigate` answers immediately and finishes
 ## Project layout
 
 ```
-app/                 pages and API routes (investigate, SSE stream, upload, verify, quota)
+app/                 pages and API routes (investigate, offer, SSE stream, upload, verify, quota)
 components/          audit UI: progress, verdict, timeline, map, evidence
 lib/orchestrator/    runAudit: tiered escalation, judging, narration
+lib/offer/           runOfferCheck: extraction, reading, domain checks, rules and score
 lib/serp/            SerpApi client (replay, cache, budget, ledger), engines, normalizer
 lib/evidence/        dates and first-seen T₀, geo and ΔS, match confirmation
 lib/verdict/         pure verdict rules and score
 lib/llm/             Gemini calls with validation and fallbacks
 lib/media/           pHash and keyframe scoring (shared by browser and server)
 lib/store/           SQLite (node:sqlite) and in-memory stores
-fixtures/            golden cases
+fixtures/            golden cases (offers/ for message checks)
 tests/               tests at the runAudit seam, plus pHash
 ```
 

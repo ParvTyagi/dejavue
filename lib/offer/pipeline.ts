@@ -7,7 +7,9 @@ import { untilAborted } from '@/lib/shared/time';
 import { TTL } from '@/lib/store/types';
 import {
   isGovernmentDomain,
+  couldBeOwnSite,
   isKnownPlatform,
+  isUrlShortener,
   nameMatchesDomain,
   registrableDomain,
   sameOrganisationName,
@@ -54,11 +56,13 @@ function contactQuery(c: Contact): string {
   return c.type === 'url' ? `"${c.host}"` : `"${c.value}"`;
 }
 
-/** At most one phone and one email or site, skipping contacts already known to be official. */
+/** At most one phone and one email or site, skipping contacts already known to be official and short links. */
 function contactsToSearch(contacts: Contact[]): Contact[] {
   const open = contacts.filter((c) => c.onOfficialSite !== true);
   const phone = open.find((c) => c.type === 'phone');
-  const other = open.find((c) => (c.type === 'email' || c.type === 'url') && c.host && !isKnownPlatform(c.host));
+  const other = open.find(
+    (c) => (c.type === 'email' || c.type === 'url') && c.host && !isKnownPlatform(c.host) && !(c.type === 'url' && isUrlShortener(c.host)),
+  );
   return [phone, other].filter((c): c is Contact => !!c).slice(0, MAX_CONTACT_SEARCHES);
 }
 
@@ -66,7 +70,7 @@ function contactsToSearch(contacts: Contact[]): Contact[] {
 function findOfficialDomain(raw: unknown, name: string, government: boolean): string | undefined {
   const r = (raw ?? {}) as Item;
   const acceptable = (host: string | undefined) =>
-    !!host && !isKnownPlatform(host) && (!government || isGovernmentDomain(host));
+    !!host && couldBeOwnSite(host) && (!government || isGovernmentDomain(host));
   const website = (r.knowledge_graph as Item | undefined)?.website;
   const kgHost = typeof website === 'string' ? registrableDomain(website) : undefined;
   if (acceptable(kgHost)) return kgHost;

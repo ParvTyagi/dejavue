@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { lookalikeReason, nameMatchesDomain, posesAsGovernment, registrableDomain, sameOrganisationName } from '@/lib/offer/domains';
+import {
+  couldBeOwnSite,
+  isUrlShortener,
+  lookalikeReason,
+  nameMatchesDomain,
+  posesAsGovernment,
+  registrableDomain,
+  sameOrganisationName,
+} from '@/lib/offer/domains';
 import { decideOffer } from '@/lib/offer/rules';
 import { offerInputSchema } from '@/lib/offer/schema';
 import { scoreOffer } from '@/lib/offer/score';
@@ -60,6 +68,14 @@ describe('domains', () => {
     expect(nameMatchesDomain('Amazon', 'amazon-careers.com')).toBe(false);
     expect(nameMatchesDomain('Bank of Baroda', 'bank.in')).toBe(false);
     expect(nameMatchesDomain('Brightpath Solutions', 'brightpathtutoring.com')).toBe(false);
+  });
+
+  it('never takes a profile, directory or job board as an organisation’s own site', () => {
+    expect(couldBeOwnSite('www.facebook.com')).toBe(false);
+    expect(couldBeOwnSite('justdial.com')).toBe(false);
+    expect(couldBeOwnSite('naukri.com')).toBe(false);
+    expect(couldBeOwnSite('brightpath.co.in')).toBe(true);
+    expect(isUrlShortener('bit.ly')).toBe(true);
   });
 
   it('treats company names as equal once filler words are dropped', () => {

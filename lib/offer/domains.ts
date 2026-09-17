@@ -21,6 +21,17 @@ const KNOWN_PLATFORMS = new Set([
   'ncs.gov.in',
 ]);
 
+/** Pages about an organisation that are never its own website: social profiles, directories and reviews. */
+const PROFILE_SITES = new Set([
+  'facebook.com', 'instagram.com', 'twitter.com', 'x.com', 'youtube.com', 'wikipedia.org', 'justdial.com',
+  'indiamart.com', 'ambitionbox.com', 'zaubacorp.com', 'tofler.in', 'crunchbase.com', 'quora.com', 'reddit.com',
+]);
+
+/** Short-link services: searching their domain says nothing about where the link leads. */
+const URL_SHORTENERS = new Set([
+  'bit.ly', 'tinyurl.com', 't.co', 'goo.gl', 'cutt.ly', 'rb.gy', 'is.gd', 'shorturl.at', 'tiny.cc', 'ow.ly', 'rebrand.ly',
+]);
+
 /** Lowercase host without port, `www.` or a trailing dot; undefined when it is not a plausible host. */
 export function normaliseHost(input: string): string | undefined {
   let host = input.trim().toLowerCase();
@@ -51,6 +62,11 @@ export const isGovernmentDomain = (host: string) => {
 export const isFreeEmailDomain = (host: string) => FREE_EMAIL.has(registrableDomain(host) ?? '');
 
 export const isKnownPlatform = (host: string) => KNOWN_PLATFORMS.has(registrableDomain(host) ?? '');
+
+/** Whether a site can be taken as an organisation's own website: not a job board, profile or directory. */
+export const couldBeOwnSite = (host: string) => !isKnownPlatform(host) && !PROFILE_SITES.has(registrableDomain(host) ?? '');
+
+export const isUrlShortener = (host: string) => URL_SHORTENERS.has(registrableDomain(host) ?? '');
 
 export const sameOrganisationSite = (host: string, officialDomain: string) =>
   registrableDomain(host) === registrableDomain(officialDomain);

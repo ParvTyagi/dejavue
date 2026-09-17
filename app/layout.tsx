@@ -12,7 +12,8 @@ const instrument = Instrument_Serif({ subsets: ['latin'], weight: '400', style: 
 
 export const metadata: Metadata = {
   title: 'DejaVue — has this been seen before?',
-  description: 'Checks whether a viral image or video is really from where and when it claims, using search engines as evidence.',
+  description:
+    'Checks whether a viral image or video is really from where and when it claims, and whether a job offer, scheme message or helpline number shows signs of a scam, using search engines as evidence.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
