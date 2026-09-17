@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env
+.env.local
+.env*.local
+*.db
+*.sqlite
+coverage/
+playwright-report/
+test-results/
+.DS_Store
