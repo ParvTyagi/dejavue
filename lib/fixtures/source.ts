@@ -10,7 +10,7 @@ import type { AuditInput, Verdict } from '@/lib/shared/types';
 // A golden case lives in fixtures/<caseId>/:
 //   case.json    input, expectations and the fixed submission time
 //   serp.json    SerpApi responses keyed by fixtureName()
-//   llm.json     parseClaim / readScene / narrate outputs
+//   llm.json     parseClaim / readScene / narrate / readOffer outputs
 //   thumbs.json  thumbnail URL → pHash (hashes only, never pixels)
 
 export interface GoldenCase {
@@ -74,6 +74,7 @@ export function createReplayLlm(dir: string, caseId: string | undefined, delayMs
     parseClaim: (_req, signal) => get('parseClaim', signal),
     readScene: (_url, signal) => get('readScene', signal),
     narrate: (_req, signal) => get('narrate', signal),
+    readOffer: (_req, signal) => get('readOffer', signal),
   };
 }
 

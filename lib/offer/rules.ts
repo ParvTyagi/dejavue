@@ -53,8 +53,9 @@ export function redFlags(s: OfferSignals): RedFlag[] {
     }
   }
 
-  // A personal mailbox only matters when the message claims to come from an organisation.
-  const claimsOrganisation = !!s.org || s.type !== 'other';
+  // A personal mailbox only matters when the message names an organisation or scheme. Both are checked
+  // against the message text, whereas the type is the LLM's judgement and must not decide a flag.
+  const claimsOrganisation = !!s.org || !!s.schemeName;
   for (const c of s.contacts) {
     if (c.type === 'email' && c.host && claimsOrganisation && isFreeEmailDomain(c.host)) {
       add({ id: 'free_email', strength: 'medium', detail: `Uses a personal email address: ${c.value}`, evidenceIds: c.evidenceIds });

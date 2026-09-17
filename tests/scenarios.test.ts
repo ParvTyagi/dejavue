@@ -236,7 +236,7 @@ describe('LLM layer', () => {
   it('still reaches a verdict with template narration when Gemini is down', async () => {
     const c = getCase('c2-uttarakhand-flood');
     const { dossier } = await replay(c, (d) => ({
-      llm: { parseClaim: down, readScene: down, narrate: down },
+      llm: { parseClaim: down, readScene: down, narrate: down, readOffer: down },
     }));
     expect(dossier!.verdict).toBe('RECYCLED');
     expect(dossier!.signals.claim).toMatchObject({ claimedAtSource: 'default_now', claimedAt: c.submittedAt, place: 'Uttarakhand, India' });

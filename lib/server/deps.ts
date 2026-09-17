@@ -85,6 +85,9 @@ const unavailableLlm: LlmPort = {
   narrate: async () => {
     throw new Error('GEMINI_API_KEY not set');
   },
+  readOffer: async () => {
+    throw new Error('GEMINI_API_KEY not set');
+  },
 };
 
 export interface DepsOptions {
