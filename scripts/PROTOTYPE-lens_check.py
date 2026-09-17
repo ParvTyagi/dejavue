@@ -62,6 +62,8 @@ def scrub(obj):
         for s in SECRETS:
             if s and s in obj: obj = obj.replace(s, "<redacted>")
         obj = re.sub(r"([?&](api_key|token)=)[^&\"]+", r"\1<redacted>", obj)
+        # engines echo the input image URL inside their own links, sometimes percent-encoded
+        obj = re.sub(r"https?(?::|%3A)(?://|%2F%2F)[a-z0-9]+\.supabase\.co[^\"\s\\]*", "<redacted-signed-url>", obj, flags=re.I)
         return obj
     return obj
 

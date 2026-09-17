@@ -4,12 +4,12 @@
     "markdown_endpoint": "https://serpapi.com/searches/gXcUJT9bS45MKOwGoZfrcOMAT6f0XJGl3I2tzDAG-kg/6aab9a4e73bf59d0f3f12af9.md",
     "created_at": "2026-09-17 07:44:14 UTC",
     "processed_at": "2026-09-17 07:44:14 UTC",
-    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&view=detailv2&iss=sbi",
+    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:<redacted-signed-url>",
     "total_time_taken": 2.28
   },
   "search_parameters": {
     "engine": "bing_reverse_image",
-    "image_url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "image_url": "<redacted-signed-url>",
     "mkt": "en-US"
   },
   "search_information": {
@@ -17,9 +17,9 @@
   },
   "image_info": {
     "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO",
-    "source": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
-    "original": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
-    "domain": "yqgkrdewrggomkcabeie.supabase.co",
+    "source": "<redacted-signed-url>",
+    "original": "<redacted-signed-url>",
+    "domain": "<redacted-project>.supabase.co",
     "width": 558,
     "height": 383,
     "format": "jpeg",
@@ -763,7 +763,7 @@
       "cal": 0.0070241704,
       "car": 0.38074046,
       "cab": 0.67527395,
-      "serpapi_link": "https://serpapi.com/search.json?cab=0.67527395&cal=0.0070241704&car=0.38074046&cat=0.45582464&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+      "serpapi_link": "https://serpapi.com/search.json?cab=0.67527395&cal=0.0070241704&car=0.38074046&cat=0.45582464&engine=bing_reverse_image&image_url=<redacted-signed-url>"
     },
     {
       "name": "##TextRecognition",
@@ -771,13 +771,13 @@
       "cal": 0,
       "car": 1,
       "cab": 1,
-      "serpapi_link": "https://serpapi.com/search.json?cab=1&cal=0&car=1&cat=0&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+      "serpapi_link": "https://serpapi.com/search.json?cab=1&cal=0&car=1&cat=0&engine=bing_reverse_image&image_url=<redacted-signed-url>"
     }
   ],
   "serpapi_pagination": {
     "next_page_token": "wXr1y3icFcxNjpswAIZh9SxdBwoZaKlUVSmQBBqbTjKEMZsRGMcYY34dIF72KpW66ol6mtLtp_d7fv66D_Xfd39KKbvxs64_esqHgswDpa3gOMsJI9p477I8G4mGW32U7ZBRok-G3uYVwVIfGW30glTZdCcbKTqdNJQ1ZINLgrme4ZvtfCTEMu1tgbNPWtXRr7LlpPlCHuGQJc8sYsEM1bcamL5KLwZPBTBOL88q9XyJkpCji1GiyreQomYqfAMeAnZywzI_4PUbBrGKF8BCR1tBA4v5_8jTpCuL5lqfXs8Su06di6LLRSyRWdbIHCeUQAErvk2T2AAVUukBlpFr9XhFV1wh05nTS2AH4jwVpjXm5p4HbGZZsv8QVO0CFbVgBRbgxWrta3Lcsajyt5HHTaB8C75AR-vPp9Iurl6LgB8sXcg6a94EgMDcavgkXJTnjzdHfj96S28t1-w2-fXw2h8pfNv3P2yqnpbddFlcZXhRHaHliQP7sPvd3m4jke__ASxqnPo",
-    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US&next_page_token=wXr1y3icFcxNjpswAIZh9SxdBwoZaKlUVSmQBBqbTjKEMZsRGMcYY34dIF72KpW66ol6mtLtp_d7fv66D_Xfd39KKbvxs64_esqHgswDpa3gOMsJI9p477I8G4mGW32U7ZBRok-G3uYVwVIfGW30glTZdCcbKTqdNJQ1ZINLgrme4ZvtfCTEMu1tgbNPWtXRr7LlpPlCHuGQJc8sYsEM1bcamL5KLwZPBTBOL88q9XyJkpCji1GiyreQomYqfAMeAnZywzI_4PUbBrGKF8BCR1tBA4v5_8jTpCuL5lqfXs8Su06di6LLRSyRWdbIHCeUQAErvk2T2AAVUukBlpFr9XhFV1wh05nTS2AH4jwVpjXm5p4HbGZZsv8QVO0CFbVgBRbgxWrta3Lcsajyt5HHTaB8C75AR-vPp9Iurl6LgB8sXcg6a94EgMDcavgkXJTnjzdHfj96S28t1-w2-fXw2h8pfNv3P2yqnpbddFlcZXhRHaHliQP7sPvd3m4jke__ASxqnPo",
-    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=<redacted-signed-url>",
+    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=<redacted-signed-url>"
   },
   "_dejavue": {
     "recorded_at": "2026-09-17T13:14:16+0530",

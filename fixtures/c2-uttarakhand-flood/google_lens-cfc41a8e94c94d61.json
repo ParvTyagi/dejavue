@@ -4,12 +4,12 @@
     "markdown_endpoint": "https://serpapi.com/searches/S47hPgl1rytBjjDFL95Uf6_C3Q7qHnbX5J9wKIa9md8/6aab98af2f47f8a7b4b3d085.md",
     "created_at": "2026-09-17 07:37:19 UTC",
     "processed_at": "2026-09-17 07:37:19 UTC",
-    "google_lens_url": "https://lens.google.com/uploadbyurl?url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Flens-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9sZW5zLWNoZWNrL2FlYzAzODRmZWM1YTA3MmQuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4OTYzMDYzOCwiZXhwIjoxNzg5NjMxNTM4fQ.B3zpW_GVKkQxJUhsAX7ZYMz2T7kvm0lMYsRTTGqxzbE3x3UVvfN2KUWk94NI5N6eOrJ70eg7Bpm-Qs2ojGPqqA",
+    "google_lens_url": "https://lens.google.com/uploadbyurl?url=<redacted-signed-url>",
     "total_time_taken": 11.09
   },
   "search_parameters": {
     "engine": "google_lens",
-    "url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/lens-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "url": "<redacted-signed-url>",
     "type": "exact_matches"
   },
   "exact_matches": [

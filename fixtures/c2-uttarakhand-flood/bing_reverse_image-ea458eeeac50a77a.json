@@ -4,12 +4,12 @@
     "markdown_endpoint": "https://serpapi.com/searches/5D9mUsTgCNXIPtZHUbj6RgWOooqRXzW-NyBgX8rYJkg/6aab9a3d8ffd7b8f8e015241.md",
     "created_at": "2026-09-17 07:43:57 UTC",
     "processed_at": "2026-09-17 07:43:57 UTC",
-    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&view=detailv2&iss=sbi",
+    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:<redacted-signed-url>",
     "total_time_taken": 2.59
   },
   "search_parameters": {
     "engine": "bing_reverse_image",
-    "image_url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "image_url": "<redacted-signed-url>",
     "mkt": "en-US"
   },
   "search_information": {
@@ -17,9 +17,9 @@
   },
   "image_info": {
     "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO",
-    "source": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
-    "original": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
-    "domain": "yqgkrdewrggomkcabeie.supabase.co",
+    "source": "<redacted-signed-url>",
+    "original": "<redacted-signed-url>",
+    "domain": "<redacted-project>.supabase.co",
     "width": 463,
     "height": 543,
     "format": "jpeg",
@@ -926,8 +926,8 @@
   ],
   "serpapi_pagination": {
     "next_page_token": "JmKcFnicFczLjpswAIVh9Vm6DmAnzDQjVVWTEAoDZHIhjNlEYBzAxtzshOBlX2WkWfWJ-jSl26P_fL8_bn3198ufQspWvOj62OWsz8jQ53nDGU5SUhJN3NokTQTRcKML2fRJTvQ70JuUEix1Uea1nhGa3G9kJnmrkzovazLDBcFMTwg25t8WV4LNxHiGmUbb_IdsGKm_k9Htk2hf7kpnCNSq8qGl4iNgMfeBd9qreGNJFLkMHUGBqGUilcOYWyCwndJbu0Vq4-nrOqEKH37pLrUJBJgP_0cWR22R1efKez9IvF5WKc_alIcSwaJCUNxRdKb-xl8EdlwhdS78DR7jtdnhCZ1wheByiI_Ok8MP9wyaIoVb5pRDmURbw6HNI1C5GVD_MRlw6ivy62e5o9Z8t2HQV5bpq3ipbe0TeOvT6yI-XlIPzsZVF3hr51KFwZLZc-c19NH-9b1pqR1VNQfjihNgocuzwa3ceFIAet1NyM7KLofT_CGCE6Nvw2dzvQoiv_4DnJyblA",
-    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&mkt=en-US&next_page_token=JmKcFnicFczLjpswAIVh9Vm6DmAnzDQjVVWTEAoDZHIhjNlEYBzAxtzshOBlX2WkWfWJ-jSl26P_fL8_bn3198ufQspWvOj62OWsz8jQ53nDGU5SUhJN3NokTQTRcKML2fRJTvQ70JuUEix1Uea1nhGa3G9kJnmrkzovazLDBcFMTwg25t8WV4LNxHiGmUbb_IdsGKm_k9Htk2hf7kpnCNSq8qGl4iNgMfeBd9qreGNJFLkMHUGBqGUilcOYWyCwndJbu0Vq4-nrOqEKH37pLrUJBJgP_0cWR22R1efKez9IvF5WKc_alIcSwaJCUNxRdKb-xl8EdlwhdS78DR7jtdnhCZ1wheByiI_Ok8MP9wyaIoVb5pRDmURbw6HNI1C5GVD_MRlw6ivy62e5o9Z8t2HQV5bpq3ipbe0TeOvT6yI-XlIPzsZVF3hr51KFwZLZc-c19NH-9b1pqR1VNQfjihNgocuzwa3ceFIAet1NyM7KLofT_CGCE6Nvw2dzvQoiv_4DnJyblA",
-    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&mkt=en-US"
+    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=<redacted-signed-url>",
+    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=<redacted-signed-url>"
   },
   "_dejavue": {
     "recorded_at": "2026-09-17T13:13:59+0530",

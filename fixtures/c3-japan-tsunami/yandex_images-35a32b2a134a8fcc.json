@@ -4,12 +4,12 @@
     "markdown_endpoint": "https://serpapi.com/searches/hsuTCrJP8kVlVTuMTTVGnmWQ3SMDpu8xeWl4T4cnh2A/6aab9a53421b08735f2aada6.md",
     "created_at": "2026-09-17 07:44:19 UTC",
     "processed_at": "2026-09-17 07:44:19 UTC",
-    "yandex_images_url": "https://yandex.com/images/search/?url=https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>&rpt=imageview",
+    "yandex_images_url": "https://yandex.com/images/search/?url=<redacted-signed-url>",
     "total_time_taken": 3.95
   },
   "search_parameters": {
     "engine": "yandex_images",
-    "url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "url": "<redacted-signed-url>",
     "tab": "about"
   },
   "image_preview": {
