@@ -1,6 +1,6 @@
 // Types for Offer Check: fake job offers, government scheme messages and support numbers.
 
-import type { EngineId, ScoreReason, SkipReason } from '@/lib/shared/types';
+import type { EngineId, Evidence, ScoreReason, SkipReason } from '@/lib/shared/types';
 
 export type OfferType = 'job' | 'govt_scheme' | 'customer_support' | 'other';
 
@@ -34,7 +34,7 @@ export interface Contact {
   value: string;
   /** Host of a URL or chat link, or the part after @ in an email. */
   host?: string;
-  /** Whether the contact appears on the official site; undefined when that was not checked. */
+  /** Whether the contact is on the official site or its Maps listing; undefined when that was not checked. */
   onOfficialSite?: boolean;
   /** Distinct sites that mention this contact next to scam words. */
   scamReports: number;
@@ -74,6 +74,25 @@ export interface OfferConfidence {
   value: number;
   band: 'High' | 'Medium' | 'Low';
   reasons: ScoreReason[];
+}
+
+/** The result of an offer check, stored and streamed like a media dossier. */
+export interface OfferDossier {
+  kind: 'offer';
+  id: string;
+  verdict: OfferVerdict;
+  flags: RedFlag[];
+  confidence: OfferConfidence;
+  signals: OfferSignals;
+  /** What was read from the message. The screenshot itself is never kept. */
+  reading: { excerpt: string; source: 'llm' | 'patterns' };
+  evidence: Evidence[];
+  narrative: { summary: string; bullets: { text: string; evidenceIds: string[] }[]; source: 'template' };
+  advice: string;
+  metrics: { totalMs: number; credits: number; maxCredits: number; stepsRun: number[]; partial: boolean };
+  limitations: string[];
+  signature: string;
+  createdAt: string;
 }
 
 export const OFFER_ADVICE = 'Apply only through the official website. A real employer never asks you to pay.';

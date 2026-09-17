@@ -1,0 +1,22 @@
+{
+  "title": "PM-Kisan \"extra ₹6,000\" screenshot with a fake government link",
+  "synthetic": true,
+  "notes": "Screenshot only. LIKELY_SCAM because pmkisan-gov.online adds words to the official pmkisan.gov.in.",
+  "submittedAt": "2026-09-12T06:15:00.000Z",
+  "input": {
+    "screenshotUrl": "https://replay.dejavue.invalid/offers/o3-pmkisan-lookalike/screenshot.jpg",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LIKELY_SCAM",
+    "flags": [
+      "lookalike_domain",
+      "urgency"
+    ],
+    "credits": 1,
+    "stepsRun": [
+      1
+    ],
+    "confidence": 50
+  }
+}

@@ -6,3 +6,5 @@ export function fixtureMode(): FixtureMode {
 }
 
 export const FIXTURES_DIR = `${process.cwd()}/fixtures`;
+
+export const OFFER_FIXTURES_DIR = `${FIXTURES_DIR}/offers`;

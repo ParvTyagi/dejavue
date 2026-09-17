@@ -1,0 +1,22 @@
+{
+  "google?gl=in&hl=en&q=PM Kisan Samman Nidhi official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-12T06:15:00.000Z"
+    },
+    "_synthetic": true,
+    "knowledge_graph": {
+      "title": "PM-KISAN",
+      "type": "Government program",
+      "website": "https://pmkisan.gov.in/"
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "PM Kisan Samman Nidhi",
+        "link": "https://pmkisan.gov.in/",
+        "snippet": "Pradhan Mantri Kisan Samman Nidhi, Government of India."
+      }
+    ]
+  }
+}

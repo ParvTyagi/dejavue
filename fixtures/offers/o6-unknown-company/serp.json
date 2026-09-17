@@ -1,0 +1,39 @@
+{
+  "google?gl=in&hl=en&q=Brightpath Solutions official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-15T10:20:00.000Z"
+    },
+    "_synthetic": true,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "BrightPath Tutoring | Online tutors",
+        "link": "https://www.brightpathtutoring.example/",
+        "snippet": "One-to-one tutoring for school students."
+      },
+      {
+        "position": 2,
+        "title": "Brightpath Solutions | LinkedIn",
+        "link": "https://www.linkedin.com/company/brightpath-solutions",
+        "snippet": "3 followers."
+      }
+    ]
+  },
+  "google?gl=in&hl=en&q=\"9123456780\" OR \"91234 56780\"": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-15T10:20:00.000Z"
+    },
+    "_synthetic": true,
+    "error": "Google hasn't returned any results for this query."
+  },
+  "google_jobs?gl=in&hl=en&q=data entry operators Brightpath Solutions": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-15T10:20:00.000Z"
+    },
+    "_synthetic": true,
+    "error": "Google hasn't returned any results for this query."
+  }
+}

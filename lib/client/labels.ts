@@ -28,6 +28,7 @@ export const ENGINE_LABEL: Record<EngineId, string> = {
   google_maps: 'Google Maps',
   youtube: 'YouTube',
   google_trends: 'Google Trends',
+  google_jobs: 'Google Jobs',
 };
 
 export const STAGES: { id: Stage; label: string; detail: string }[] = [

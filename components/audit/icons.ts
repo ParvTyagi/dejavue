@@ -1,13 +1,16 @@
 import {
+  Briefcase,
   Calendar,
   Eye,
   FileText,
   Globe,
+  IdCard,
   Image as ImageIcon,
   Layers,
   MapPin,
   Newspaper,
   PenLine,
+  Phone,
   Scale,
   ScanSearch,
   Search,
@@ -25,6 +28,7 @@ export const ENGINE_ICON: Record<EngineId, LucideIcon> = {
   google_maps: MapPin,
   youtube: Youtube,
   google_trends: Calendar,
+  google_jobs: Briefcase,
 };
 
 /** A recognisable tint per engine. */
@@ -37,6 +41,7 @@ export const ENGINE_COLOR: Record<EngineId, string> = {
   google_maps: '#525252',
   youtube: '#262626',
   google_trends: '#737373',
+  google_jobs: '#404040',
 };
 
 export const STAGE_ICON: Record<Stage, LucideIcon> = {
@@ -47,4 +52,8 @@ export const STAGE_ICON: Record<Stage, LucideIcon> = {
   tier3: Newspaper,
   judge: Scale,
   narrate: PenLine,
+  read: FileText,
+  identity: IdCard,
+  contacts: Phone,
+  offer: Briefcase,
 };

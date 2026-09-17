@@ -1,0 +1,49 @@
+{
+  "google?gl=in&hl=en&q=SBI official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-13T14:45:00.000Z"
+    },
+    "_synthetic": true,
+    "knowledge_graph": {
+      "title": "State Bank of India",
+      "type": "Bank",
+      "website": "https://sbi.co.in/"
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "State Bank of India",
+        "link": "https://sbi.co.in/",
+        "snippet": "Personal banking, loans and more."
+      }
+    ]
+  },
+  "google?gl=in&hl=en&q=\"8210457693\" OR \"82104 57693\"": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-13T14:45:00.000Z"
+    },
+    "_synthetic": true,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "8210457693 - Fraud call pretending to be SBI",
+        "link": "https://www.complaints-board.example/8210457693-fraud-call",
+        "snippet": "Got a call from 82104 57693 asking me to update KYC or my SBI account would be blocked. This is a scam."
+      },
+      {
+        "position": 2,
+        "title": "Scam call from 82104 57693 claiming my account is blocked",
+        "link": "https://forum.money-talk.example/t/82104-57693",
+        "snippet": "They asked for an OTP to \"complete KYC\". Do not share anything."
+      },
+      {
+        "position": 3,
+        "title": "Who called me from 8210457693?",
+        "link": "https://numberinfo.example/8210457693",
+        "snippet": "Number lookup: mobile, India. 14 searches this week."
+      }
+    ]
+  }
+}

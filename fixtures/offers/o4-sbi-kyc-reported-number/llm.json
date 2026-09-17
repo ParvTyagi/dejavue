@@ -1,0 +1,13 @@
+{
+  "readOffer": {
+    "screenshotText": null,
+    "type": "customer_support",
+    "org": "SBI",
+    "role": null,
+    "schemeName": null,
+    "paymentQuote": null,
+    "urgencyQuotes": [
+      "Call SBI Customer Care on 82104 57693 immediately"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import { isSameImage } from '@/lib/media/phash';
-import type { AuditEvent, Dossier } from '@/lib/shared/types';
+import type { AuditEvent, AnyDossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 interface Expiring<T> {
@@ -11,7 +11,7 @@ export function createMemoryStore(clock: () => Date = () => new Date()): Store {
   const serp = new Map<string, Expiring<{ response: unknown; fetchedAt: string }>>();
   const media = new Map<string, Expiring<MediaCacheEntry>>();
   const ledger: { cached: boolean; at: string }[] = [];
-  const audits = new Map<string, Expiring<Dossier>>();
+  const audits = new Map<string, Expiring<AnyDossier>>();
   const events = new Map<string, Expiring<AuditEvent[]>>();
   const hits = new Map<string, Expiring<number>>();
 

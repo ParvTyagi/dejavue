@@ -1,0 +1,21 @@
+{
+  "title": "Infosys Systems Engineer opening linked to its careers site",
+  "synthetic": true,
+  "notes": "NO_RED_FLAGS: the link is on infosys.com and Google Jobs has a matching Infosys listing. Capped below High.",
+  "submittedAt": "2026-09-14T08:00:00.000Z",
+  "input": {
+    "text": "Infosys is hiring Systems Engineers (2025 and 2026 graduates) in Bengaluru. Apply only on the official portal: https://career.infosys.com/jobdesc?jobReferenceCode=INFSYS-EXTERNAL-210001",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "NO_RED_FLAGS",
+    "flags": [],
+    "credits": 2,
+    "stepsRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 75
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "SBI \"KYC pending\" message with a reported helpline number",
+  "synthetic": true,
+  "notes": "The number is reported as a scam on two different sites, which stops the check after the contact search.",
+  "submittedAt": "2026-09-13T14:45:00.000Z",
+  "input": {
+    "text": "Dear SBI customer, your KYC is pending and your account will be blocked. Call SBI Customer Care on 82104 57693 immediately to update KYC.",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LIKELY_SCAM",
+    "flags": [
+      "reported_contact",
+      "urgency"
+    ],
+    "credits": 2,
+    "stepsRun": [
+      1,
+      2
+    ],
+    "confidence": 50
+  }
+}

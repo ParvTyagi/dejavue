@@ -1,0 +1,28 @@
+{
+  "google?gl=in&hl=en&q=Amazon official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "knowledge_graph": {
+      "title": "Amazon",
+      "type": "Company",
+      "website": "https://www.amazon.in/"
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Amazon.in: Online Shopping India",
+        "link": "https://www.amazon.in/",
+        "snippet": "Online shopping site in India."
+      },
+      {
+        "position": 2,
+        "title": "Amazon Jobs",
+        "link": "https://www.amazon.jobs/en/",
+        "snippet": "Find jobs at Amazon."
+      }
+    ]
+  }
+}

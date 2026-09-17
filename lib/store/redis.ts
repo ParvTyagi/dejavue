@@ -1,5 +1,5 @@
 import { isSameImage } from '@/lib/media/phash';
-import type { AuditEvent, Dossier } from '@/lib/shared/types';
+import type { AuditEvent, AnyDossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 /**
@@ -71,7 +71,7 @@ export function createRedisStore(redis: RedisCommands): Store {
       ]);
       return { creditsThisMonth: Number(credits ?? 0), cachedThisMonth: Number(cached ?? 0), totalCalls: Number(total ?? 0) };
     },
-    async putAudit(dossier: Dossier, ttlMs) {
+    async putAudit(dossier: AnyDossier, ttlMs) {
       await redis.set(redisKey('audit', dossier.id), JSON.stringify(dossier), { px: ttlMs });
     },
     async getAudit(id) {

@@ -61,6 +61,50 @@ export const sameNameOtherTld = (host: string, officialDomain: string) => {
   return !!name && name === domainName(officialDomain) && !sameOrganisationSite(host, officialDomain);
 };
 
+/** Words that do not identify an organisation: "Infosys Limited" and "Amazon India" are Infosys and Amazon. */
+const NAME_FILLER = new Set(['the', 'of', 'and', 'ltd', 'limited', 'pvt', 'private', 'inc', 'llp', 'co', 'corp', 'corporation', 'company', 'group', 'india']);
+
+const words = (name: string) =>
+  name
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+
+const nameTokens = (name: string) => words(name).filter((t) => !NAME_FILLER.has(t));
+
+/** Initials keep "India" and drop only joining words: State Bank of India is sbi. */
+const initials = (name: string) =>
+  words(name)
+    .filter((t) => !['the', 'of', 'and'].includes(t))
+    .map((t) => t[0])
+    .join('');
+
+/**
+ * Whether a domain is plausibly the named organisation's own: its name part is the whole name
+ * (infosys.com), the initials (sbi.co.in for State Bank of India) or the first words run together
+ * (pmkisan.gov.in for PM Kisan Samman Nidhi). A lone first word only counts for one-word names, so
+ * "Bank of Baroda" never matches bank.in, and there is never a prefix match, which would accept amazon-careers.com.
+ */
+export function nameMatchesDomain(name: string, host: string): boolean {
+  const domain = domainName(host)?.replace(/-/g, '');
+  const tokens = nameTokens(name);
+  if (!domain || tokens.length === 0) return false;
+  const abbreviation = initials(name);
+  if (abbreviation.length >= 2 && domain === abbreviation) return true;
+  for (let k = tokens.length === 1 ? 1 : 2; k <= tokens.length; k++) {
+    const joined = tokens.slice(0, k).join('');
+    if (joined === domain && joined.length >= 3) return true;
+  }
+  return false;
+}
+
+/** Whether two organisation names are the same once filler words are dropped: "Infosys Limited" and "Infosys". */
+export const sameOrganisationName = (a: string, b: string) => {
+  const x = nameTokens(a).join('');
+  return x.length >= 2 && x === nameTokens(b).join('');
+};
+
 /** Undo common look-alike substitutions so `amaz0n` and `rnicrosoft` compare equal to the real name. */
 const unglyph = (s: string) =>
   s.replace(/rn/g, 'm').replace(/vv/g, 'w').replace(/0/g, 'o').replace(/[1l|]/g, 'i').replace(/3/g, 'e').replace(/5/g, 's').replace(/-/g, '');

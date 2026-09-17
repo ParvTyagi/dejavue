@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { lookalikeReason, posesAsGovernment, registrableDomain } from '@/lib/offer/domains';
+import { lookalikeReason, nameMatchesDomain, posesAsGovernment, registrableDomain, sameOrganisationName } from '@/lib/offer/domains';
 import { decideOffer } from '@/lib/offer/rules';
 import { offerInputSchema } from '@/lib/offer/schema';
 import { scoreOffer } from '@/lib/offer/score';
@@ -47,6 +47,24 @@ describe('domains', () => {
     expect(lookalikeReason('amazon.jobs', 'amazon.com')).toBeUndefined();
     expect(lookalikeReason('linkedin.com', 'amazon.com')).toBeUndefined();
     expect(lookalikeReason('flipkart.com', 'amazon.in')).toBeUndefined();
+  });
+
+  it('matches an organisation to its own domain by name, initials or leading words', () => {
+    expect(nameMatchesDomain('Infosys Limited', 'www.infosys.com')).toBe(true);
+    expect(nameMatchesDomain('Amazon India', 'amazon.in')).toBe(true);
+    expect(nameMatchesDomain('State Bank of India', 'sbi.co.in')).toBe(true);
+    expect(nameMatchesDomain('PM Kisan Samman Nidhi', 'pmkisan.gov.in')).toBe(true);
+  });
+
+  it('never matches a domain that only starts with the name, or on a generic first word', () => {
+    expect(nameMatchesDomain('Amazon', 'amazon-careers.com')).toBe(false);
+    expect(nameMatchesDomain('Bank of Baroda', 'bank.in')).toBe(false);
+    expect(nameMatchesDomain('Brightpath Solutions', 'brightpathtutoring.com')).toBe(false);
+  });
+
+  it('treats company names as equal once filler words are dropped', () => {
+    expect(sameOrganisationName('Infosys Limited', 'Infosys')).toBe(true);
+    expect(sameOrganisationName('Tata Consultancy Services', 'TCS')).toBe(false);
   });
 
   it('spots non-government sites dressed as government ones', () => {

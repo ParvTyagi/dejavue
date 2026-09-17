@@ -31,17 +31,17 @@ Deferred: health and investment claims (too risky to get wrong), fake quotes and
 - Gemini (`readOffer`) reads screenshot text and returns the type (`job | govt_scheme | customer_support | other`), organisation, role or scheme name, and any payment request as an **exact quote**.
 - Every quote must appear verbatim in the message or it is discarded (same guard as `lib/llm/safe.ts`).
 
-**Step 1 — official site (1 credit).** `google` `q="<org> official website"`; take the knowledge-graph website, else the top result whose domain matches the organisation. Government schemes only accept `.gov.in` / `.nic.in`.
+**Step 1 — official site (1 credit).** `google` `q="<org> official website"`; take the knowledge-graph website, else the first result whose domain is the organisation's name, initials or leading words run together (`infosys.com`, `sbi.co.in`, `pmkisan.gov.in`), never a prefix match. Government schemes only accept `.gov.in` / `.nic.in`. This step runs even for an obvious scam, so the result can point to the real site.
 
-**Step 2 — contacts (1–2 credits, parallel).** `google` `q="<phone>"` and `q="<email or domain>"`. Count distinct sites mentioning the contact next to scam words (fraud, scam, fake, cheated), and whether it appears on the official domain.
+**Step 2 — contacts (1–2 credits, parallel).** `google` `q="<phone>"` and `q="<email or domain>"`, skipping contacts already on the official domain. Count distinct sites mentioning the contact next to scam words (fraud, scam, fake, cheated), and whether it appears on the official domain. An official page that warns about the contact counts as a report, not an endorsement.
 
 **Step 3 — the offer (1–2 credits, skipped if already decided).**
 
 - Job: `google_jobs` `q="<role> <org>"` → a listing from that company?
-- Scheme: `google` `site:<gov domain> "<scheme>"` plus `google_news` `"<scheme>"`.
+- Scheme: `google` `site:<gov domain> "<scheme>"`. (A `google_news` search is left for later: it adds context but cannot change the verdict.)
 - Support: `google_maps` for the official listing → does the phone match?
 
-Budget cap 6 credits, stop early once decided. Searches default to India (`gl=in`).
+Budget cap 6 credits; stop as soon as the verdict is `LIKELY_SCAM` (there is no early stop for a pass). Searches default to India (`gl=in`). If searches fail, patterns alone still reach a verdict; only a screenshot with no readable text ends with no verdict (`UNREADABLE`). Explanations use fixed templates rather than Gemini.
 
 ## 4. Warning signs (computed by code, `lib/offer/rules.ts`)
 
@@ -69,7 +69,7 @@ There is no "genuine" or "safe" verdict. Every result says: *Apply only through 
 ## 6. Types
 
 - Offer types live in `lib/offer/types.ts` (`OfferVerdict`, `OfferSignals`, `RedFlag`, `OfferDossier`).
-- When the pipeline lands, `Dossier` becomes a union discriminated by `kind: 'media' | 'offer'`, `Stage` gains `read | identity | contacts | offer`, and `/audit/[id]` renders by `kind`. Store, stream, signing and share links are unchanged.
+- The store and the `dossier` event carry `AnyDossier = Dossier | OfferDossier`, told apart by `kind` (`'offer'`, or `'media'`/absent for older media results). `Stage` gains `read | identity | contacts | offer` and `EngineId` gains `google_jobs`. Signing and share links are unchanged; `/audit/[id]` renders by `kind` from step 5.
 
 ## 7. Results page
 
@@ -77,7 +77,7 @@ Reuse `VerdictHero`, `StageRail`, `EvidenceFeed`, `ScorePanel`, `ShareCard`. New
 
 ## 8. Demo cases and tests
 
-Six synthetic fixtures, labelled as made up:
+Six synthetic fixtures in `fixtures/offers/`, labelled as made up (they are hand-written in SerpApi's response format, not recorded):
 
 1. Amazon work-from-home, ₹999 registration → `LIKELY_SCAM` (payment)
 2. `tcs-hiring@gmail.com` recruiter with a WhatsApp link → `LIKELY_SCAM` (two medium)

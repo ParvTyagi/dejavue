@@ -1,4 +1,4 @@
-import type { AuditEvent, Dossier, EngineId, Evidence, GeoPoint, SceneReading } from '@/lib/shared/types';
+import type { AuditEvent, AnyDossier, EngineId, Evidence, GeoPoint, SceneReading } from '@/lib/shared/types';
 
 export interface MediaCacheEntry {
   pHash: string;
@@ -30,8 +30,8 @@ export interface Store {
   addLedger(row: { auditId: string; engine: EngineId; cached: boolean; at: string }): Promise<void>;
   /** Totals for the calendar month (UTC) that starts at `monthStart`. */
   ledgerStats(monthStart: string): Promise<LedgerStats>;
-  putAudit(dossier: Dossier, ttlMs: number): Promise<void>;
-  getAudit(id: string): Promise<Dossier | undefined>;
+  putAudit(dossier: AnyDossier, ttlMs: number): Promise<void>;
+  getAudit(id: string): Promise<AnyDossier | undefined>;
   /**
    * Live progress, shared by every server instance: the audit appends events in order,
    * and any stream request reads them from an index onwards.

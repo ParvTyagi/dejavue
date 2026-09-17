@@ -1,0 +1,13 @@
+{
+  "readOffer": {
+    "screenshotText": "PM Kisan Samman Nidhi 2026\nGood news! All farmers get ₹6,000 extra benefit this month.\nClaim now at pmkisan-gov.online/claim\nLast date today",
+    "type": "govt_scheme",
+    "org": null,
+    "role": null,
+    "schemeName": "PM Kisan Samman Nidhi",
+    "paymentQuote": null,
+    "urgencyQuotes": [
+      "Last date today"
+    ]
+  }
+}

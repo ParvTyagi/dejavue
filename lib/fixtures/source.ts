@@ -5,6 +5,7 @@ import type { FixtureSource } from '@/lib/serp/client';
 import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import type { LlmPort } from '@/lib/llm/port';
 import { pause } from '@/lib/shared/time';
+import type { OfferInput, OfferVerdict, RedFlagId } from '@/lib/offer/types';
 import type { AuditInput, Verdict } from '@/lib/shared/types';
 
 // A golden case lives in fixtures/<caseId>/:
@@ -12,6 +13,7 @@ import type { AuditInput, Verdict } from '@/lib/shared/types';
 //   serp.json    SerpApi responses keyed by fixtureName()
 //   llm.json     parseClaim / readScene / narrate / readOffer outputs
 //   thumbs.json  thumbnail URL → pHash (hashes only, never pixels)
+// Offer cases live the same way in fixtures/offers/<caseId>/, without thumbs.json.
 
 export interface GoldenCase {
   id: string;
@@ -29,16 +31,36 @@ export interface GoldenCase {
   };
 }
 
+export interface OfferCase {
+  id: string;
+  title: string;
+  synthetic: boolean;
+  notes?: string;
+  submittedAt: string;
+  input: OfferInput;
+  expected: {
+    verdict: OfferVerdict;
+    flags: RedFlagId[];
+    credits: number;
+    stepsRun: number[];
+    confidence: number;
+  };
+}
+
 const readJson = (file: string): Record<string, unknown> =>
   existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as Record<string, unknown>) : {};
 
-export function listCases(dir: string): GoldenCase[] {
+function listCaseFiles<T extends { id: string }>(dir: string): T[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir, { withFileTypes: true })
     .filter((d) => d.isDirectory() && existsSync(path.join(dir, d.name, 'case.json')))
-    .map((d) => ({ id: d.name, ...(readJson(path.join(dir, d.name, 'case.json')) as Omit<GoldenCase, 'id'>) }))
+    .map((d) => ({ id: d.name, ...readJson(path.join(dir, d.name, 'case.json')) }) as T)
     .sort((a, b) => a.id.localeCompare(b.id));
 }
+
+export const listCases = (dir: string): GoldenCase[] => listCaseFiles<GoldenCase>(dir);
+
+export const listOfferCases = (dir: string): OfferCase[] => listCaseFiles<OfferCase>(dir);
 
 /** Finds the recorded case whose frames look like the given media. */
 export function matchCase(dir: string, pHashes: string[]): GoldenCase | undefined {

@@ -1,0 +1,23 @@
+{
+  "title": "Work-from-home data entry job from an unknown company",
+  "synthetic": true,
+  "notes": "UNVERIFIED: no official site, no reports on the number and no listing. Absence of evidence is never a pass.",
+  "submittedAt": "2026-09-15T10:20:00.000Z",
+  "input": {
+    "text": "Brightpath Solutions urgently needs data entry operators. Work from home, ₹25,000 per month. Contact HR on 91234 56780.",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "UNVERIFIED",
+    "flags": [
+      "urgency"
+    ],
+    "credits": 3,
+    "stepsRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 5
+  }
+}

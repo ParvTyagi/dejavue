@@ -1,0 +1,22 @@
+{
+  "google?gl=in&hl=en&q=TCS official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-11T11:30:00.000Z"
+    },
+    "_synthetic": true,
+    "knowledge_graph": {
+      "title": "Tata Consultancy Services",
+      "type": "Company",
+      "website": "https://www.tcs.com/"
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "TCS: IT Services, Consulting & Business Solutions",
+        "link": "https://www.tcs.com/",
+        "snippet": "Tata Consultancy Services."
+      }
+    ]
+  }
+}

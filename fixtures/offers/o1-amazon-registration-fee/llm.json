@@ -1,0 +1,13 @@
+{
+  "readOffer": {
+    "screenshotText": null,
+    "type": "job",
+    "org": "Amazon",
+    "role": null,
+    "schemeName": null,
+    "paymentQuote": "Pay ₹999 registration fee on GPay 9876543210 to confirm your seat.",
+    "urgencyQuotes": [
+      "Limited seats, apply today only!"
+    ]
+  }
+}

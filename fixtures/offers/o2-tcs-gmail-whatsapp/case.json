@@ -1,0 +1,22 @@
+{
+  "title": "TCS \"recruiter\" using Gmail and a WhatsApp group",
+  "synthetic": true,
+  "notes": "LIKELY_SCAM from two medium signs: a personal email for a company and chat as the only other contact.",
+  "submittedAt": "2026-09-11T11:30:00.000Z",
+  "input": {
+    "text": "Dear candidate, TCS is hiring freshers for the Process Associate role. Send your resume to tcs.hiring.hr@gmail.com and join our WhatsApp group https://chat.whatsapp.com/KqT7sLm2XyZpQ9 for interview details.",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LIKELY_SCAM",
+    "flags": [
+      "free_email",
+      "chat_only"
+    ],
+    "credits": 1,
+    "stepsRun": [
+      1
+    ],
+    "confidence": 50
+  }
+}

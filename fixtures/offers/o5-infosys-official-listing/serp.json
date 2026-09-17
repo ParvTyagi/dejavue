@@ -1,0 +1,46 @@
+{
+  "google?gl=in&hl=en&q=Infosys official website": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-14T08:00:00.000Z"
+    },
+    "_synthetic": true,
+    "knowledge_graph": {
+      "title": "Infosys",
+      "type": "Company",
+      "website": "https://www.infosys.com/"
+    },
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Infosys | A global leader in next-generation digital services",
+        "link": "https://www.infosys.com/",
+        "snippet": "Infosys is a global leader in digital services and consulting."
+      }
+    ]
+  },
+  "google_jobs?gl=in&hl=en&q=Systems Engineer Infosys": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-14T08:00:00.000Z"
+    },
+    "_synthetic": true,
+    "jobs_results": [
+      {
+        "title": "Systems Engineer",
+        "company_name": "Infosys",
+        "location": "Bengaluru, Karnataka, India",
+        "via": "Infosys Careers",
+        "detected_extensions": {
+          "posted_at": "3 days ago"
+        },
+        "apply_options": [
+          {
+            "title": "Infosys Careers",
+            "link": "https://career.infosys.com/jobdesc?jobReferenceCode=INFSYS-EXTERNAL-210001"
+          }
+        ]
+      }
+    ]
+  }
+}

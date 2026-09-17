@@ -36,7 +36,7 @@ export interface AuditDeps {
   wallClock: () => Date;
   newId: () => string;
   trustedDomains: ReadonlySet<string>;
-  sign: (unsigned: Omit<Dossier, 'signature'>) => string;
+  sign: (unsigned: object) => string;
   /** Golden case to replay fixtures from. */
   caseId?: string;
   /** Reuse evidence for near-identical media seen before. */
@@ -44,13 +44,14 @@ export interface AuditDeps {
   timeouts?: { tier3Ms?: number; auditMs?: number; llmMs?: number };
 }
 
-export type AuditErrorCode = 'UPSTREAM_FAILED' | 'RATE_LIMITED' | 'CREDITS_EXHAUSTED' | 'TIMED_OUT';
+export type AuditErrorCode = 'UPSTREAM_FAILED' | 'RATE_LIMITED' | 'CREDITS_EXHAUSTED' | 'TIMED_OUT' | 'UNREADABLE';
 
 const AUDIT_ERROR_STATUS: Record<AuditErrorCode, number> = {
   UPSTREAM_FAILED: 502,
   RATE_LIMITED: 429,
   CREDITS_EXHAUSTED: 402,
   TIMED_OUT: 504,
+  UNREADABLE: 422,
 };
 
 /** An audit that ends with no verdict at all. */
@@ -73,6 +74,7 @@ const ID_PREFIX: Record<EngineId, string> = {
   google_maps: 'maps',
   youtube: 'yt',
   google_trends: 'trends',
+  google_jobs: 'jobs',
 };
 
 const TIER3_RANK = ['google_news', 'maps_claim', 'maps_scene', 'youtube', 'google'] as const;
@@ -415,6 +417,7 @@ async function auditWithinDeadline(
   const narrative = await narrateSafe(deps.llm, verdict, flags, signals, evidence, llmMs());
 
   const unsigned: Omit<Dossier, 'signature'> = {
+    kind: 'media',
     id: auditId,
     verdict,
     flags,

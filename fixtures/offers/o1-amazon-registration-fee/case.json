@@ -1,0 +1,22 @@
+{
+  "title": "Amazon work-from-home job asking for a ₹999 registration fee",
+  "synthetic": true,
+  "notes": "LIKELY_SCAM from the payment request alone. The official site is still found so the result can point to it; contacts are never searched.",
+  "submittedAt": "2026-09-10T09:00:00.000Z",
+  "input": {
+    "text": "Amazon Work From Home hiring! Earn ₹40,000/month part time. Pay ₹999 registration fee on GPay 9876543210 to confirm your seat. Limited seats, apply today only!",
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LIKELY_SCAM",
+    "flags": [
+      "payment_request",
+      "urgency"
+    ],
+    "credits": 1,
+    "stepsRun": [
+      1
+    ],
+    "confidence": 50
+  }
+}

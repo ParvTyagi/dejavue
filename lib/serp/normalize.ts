@@ -124,6 +124,13 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
         snippet: str(it.description),
         text: [str(it.published_date)],
       }));
+    case 'google_jobs':
+      return build(engine, 'listing', arr(r.jobs_results), ctx, (it) => ({
+        url: str(arr(it.apply_options)[0]?.link) ?? str(it.share_link),
+        title: [str(it.title), str(it.company_name)].filter(Boolean).join(' · '),
+        snippet: [str(it.location), str(it.via)].filter(Boolean).join(' · '),
+        text: [str((it.detected_extensions as Item | undefined)?.posted_at)],
+      }));
     case 'google_trends':
       return [];
     case 'google_maps':

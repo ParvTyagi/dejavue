@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useReducer, useState } from 'react';
-import { isFinalEvent, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
+import type { OfferDossier } from '@/lib/offer/types';
+import { isFinalEvent, isOfferDossier, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
 
 export interface AuditState {
   stage?: Stage;
@@ -12,6 +13,7 @@ export interface AuditState {
   shortCircuit?: { afterTier: number; creditsSaved: number };
   notices: { id: number; code: string; message: string }[];
   dossier?: Dossier;
+  offerDossier?: OfferDossier;
   fatal?: { code: string; message: string };
 }
 
@@ -34,8 +36,10 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
       return { ...state, shortCircuit: e.data };
     case 'signal':
       return state;
-    case 'dossier':
-      return { ...state, dossier: e.data, evidence: e.data.evidence, credits: e.data.metrics.credits, maxCredits: e.data.metrics.maxCredits };
+    case 'dossier': {
+      const done = { evidence: e.data.evidence, credits: e.data.metrics.credits, maxCredits: e.data.metrics.maxCredits };
+      return isOfferDossier(e.data) ? { ...state, ...done, offerDossier: e.data } : { ...state, ...done, dossier: e.data };
+    }
     case 'error':
       return e.data.recoverable
         ? { ...state, notices: [...state.notices, { id: state.notices.length, code: e.data.code, message: e.data.message }] }

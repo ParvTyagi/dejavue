@@ -1,5 +1,7 @@
 // Domain types shared by the browser, the API routes and the audit pipeline.
 
+import type { OfferDossier } from '@/lib/offer/types';
+
 export type EngineId =
   | 'google_lens'
   | 'bing_reverse_image'
@@ -8,13 +10,26 @@ export type EngineId =
   | 'google_news'
   | 'google_maps'
   | 'youtube'
-  | 'google_trends';
+  | 'google_trends'
+  | 'google_jobs';
 
 export type Verdict = 'RECYCLED' | 'MISPLACED' | 'CONSISTENT' | 'CONTEXT_PLAUSIBLE' | 'UNVERIFIED';
 
 export type FixtureMode = 'replay' | 'record' | 'live';
 
-export type Stage = 'claim' | 'scene' | 'tier1' | 'tier2' | 'tier3' | 'judge' | 'narrate';
+/** Media audits run claim → narrate; offer checks run read → offer, then judge. */
+export type Stage =
+  | 'claim'
+  | 'scene'
+  | 'tier1'
+  | 'tier2'
+  | 'tier3'
+  | 'judge'
+  | 'narrate'
+  | 'read'
+  | 'identity'
+  | 'contacts'
+  | 'offer';
 
 export type PlaceScale = 'poi' | 'city' | 'region' | 'country';
 
@@ -60,7 +75,7 @@ export type DateTrust = 'metadata' | 'absolute_text' | 'relative_text' | 'none';
 export interface Evidence {
   id: string;
   engine: EngineId;
-  kind: 'visual_match' | 'article' | 'video' | 'place' | 'trend';
+  kind: 'visual_match' | 'article' | 'video' | 'place' | 'trend' | 'listing';
   url: string;
   domain: string;
   title?: string;
@@ -114,6 +129,8 @@ export interface ScoreReason {
 }
 
 export interface Dossier {
+  /** Absent on media dossiers stored before offer checks existed. */
+  kind?: 'media';
   id: string;
   verdict: Verdict;
   flags: VerdictFlags;
@@ -129,6 +146,11 @@ export interface Dossier {
   createdAt: string;
 }
 
+/** Any stored result: a media audit or an offer check. */
+export type AnyDossier = Dossier | OfferDossier;
+
+export const isOfferDossier = (d: AnyDossier): d is OfferDossier => d.kind === 'offer';
+
 export const LIMITATIONS = [
   'DejaVue finds earlier appearances of media. It does not detect deepfakes or AI-generated images.',
   'Finding no earlier copy never proves that media is authentic.',
@@ -140,7 +162,7 @@ export type AuditEvent =
   | { type: 'signal'; data: { firstSeen?: Signals['firstSeen']; deltaTDays?: number; deltaSKm?: number } }
   | { type: 'credit'; data: { engine: EngineId; cached: boolean; totalCredits: number; maxCredits: number } }
   | { type: 'short_circuit'; data: { afterTier: number; creditsSaved: number } }
-  | { type: 'dossier'; data: Dossier }
+  | { type: 'dossier'; data: AnyDossier }
   | { type: 'error'; data: { code: string; message: string; recoverable: boolean } };
 
 export type Emit = (event: AuditEvent) => void;

@@ -1,7 +1,7 @@
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { isSameImage } from '@/lib/media/phash';
-import type { AuditEvent, Dossier } from '@/lib/shared/types';
+import type { AuditEvent, AnyDossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 // Node's built-in SQLite, loaded at runtime so bundlers don't try to resolve it.
@@ -81,7 +81,7 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
         .get(month, month) as { credits: number | null; cachedCalls: number | null; total: number };
       return { creditsThisMonth: row.credits ?? 0, cachedThisMonth: row.cachedCalls ?? 0, totalCalls: row.total };
     },
-    async putAudit(dossier: Dossier, ttlMs) {
+    async putAudit(dossier: AnyDossier, ttlMs) {
       purge('audits');
       db.prepare('INSERT OR REPLACE INTO audits VALUES (?, ?, ?)').run(dossier.id, JSON.stringify(dossier), now() + ttlMs);
     },
@@ -109,7 +109,7 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
       const row = db
         .prepare('SELECT dossier_json FROM audits WHERE id = ? AND expires_at > ?')
         .get(id, now()) as { dossier_json: string } | undefined;
-      return row && (JSON.parse(row.dossier_json) as Dossier);
+      return row && (JSON.parse(row.dossier_json) as AnyDossier);
     },
   };
 }

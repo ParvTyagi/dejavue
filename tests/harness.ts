@@ -1,18 +1,29 @@
 import path from 'node:path';
 import { vi } from 'vitest';
-import { listCases, type GoldenCase } from '@/lib/fixtures/source';
+import { listCases, listOfferCases, type GoldenCase, type OfferCase } from '@/lib/fixtures/source';
+import { runOfferCheck, type OfferDeps } from '@/lib/offer/pipeline';
+import type { OfferDossier } from '@/lib/offer/types';
 import { runAudit, type AuditDeps } from '@/lib/orchestrator/pipeline';
 import { createAuditDeps } from '@/lib/server/deps';
 import type { AuditEvent, Dossier } from '@/lib/shared/types';
 import { createMemoryStore } from '@/lib/store/memory';
 
 export const FIXTURES = path.join(__dirname, '..', 'fixtures');
+export const OFFER_FIXTURES = path.join(FIXTURES, 'offers');
 
 export const goldenCases = (): GoldenCase[] => listCases(FIXTURES);
 
 export function getCase(id: string): GoldenCase {
   const c = goldenCases().find((g) => g.id === id);
   if (!c) throw new Error(`Unknown golden case ${id}`);
+  return c;
+}
+
+export const offerCases = (): OfferCase[] => listOfferCases(OFFER_FIXTURES);
+
+export function getOfferCase(id: string): OfferCase {
+  const c = offerCases().find((g) => g.id === id);
+  if (!c) throw new Error(`Unknown offer case ${id}`);
   return c;
 }
 
@@ -69,6 +80,31 @@ export async function replay(
   const events: AuditEvent[] = [];
   try {
     const dossier = await runAudit(input, (e) => events.push(e), deps);
+    return { dossier, events };
+  } catch (error) {
+    return { error, events };
+  }
+}
+
+export interface OfferRun {
+  dossier?: OfferDossier;
+  error?: unknown;
+  events: AuditEvent[];
+}
+
+/** Runs an offer case through the real offer pipeline in replay mode, like `replay` does for media. */
+export async function replayOffer(
+  c: OfferCase,
+  override: (deps: OfferDeps) => Partial<OfferDeps> = () => ({}),
+  input = c.input,
+): Promise<OfferRun> {
+  const clock = () => new Date(c.submittedAt);
+  const base = createAuditDeps({ mode: 'replay', store: createMemoryStore(), fixturesDir: OFFER_FIXTURES, caseId: c.id, clock });
+  let n = 0;
+  const deps: OfferDeps = { ...base, newId: () => `dv_test${n++}`, wallClock: clock, sign: () => 'test-signature', ...override(base) };
+  const events: AuditEvent[] = [];
+  try {
+    const dossier = await runOfferCheck(input, (e) => events.push(e), deps);
     return { dossier, events };
   } catch (error) {
     return { error, events };
