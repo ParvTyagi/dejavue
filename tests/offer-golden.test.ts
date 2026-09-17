@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { matchOfferCase } from '@/lib/fixtures/source';
 import { AuditError } from '@/lib/orchestrator/pipeline';
 import { SerpError, type SerpClient } from '@/lib/serp/client';
 import type { EngineId } from '@/lib/shared/types';
-import { getOfferCase, offerCases, replayOffer } from './harness';
+import { getOfferCase, OFFER_FIXTURES, offerCases, replayOffer } from './harness';
 
 const cases = offerCases();
 
@@ -58,6 +59,22 @@ describe('offer golden cases (replay fixtures)', () => {
       expect(dossier!.limitations.join(' ')).toMatch(/cannot confirm that an offer is genuine/);
       expect(JSON.stringify(dossier)).not.toContain('screenshot.jpg');
     });
+  });
+});
+
+describe('demo message matching', () => {
+  it('finds a demo case by its text, ignoring line breaks and spacing, or by its screenshot', () => {
+    const o1 = getOfferCase('o1-amazon-registration-fee');
+    const reflowed = `  ${o1.input.text!.split(' ').join(String.fromCharCode(10))}  `;
+    expect(matchOfferCase(OFFER_FIXTURES, { text: reflowed })?.id).toBe(o1.id);
+    const o3 = getOfferCase('o3-pmkisan-lookalike');
+    expect(matchOfferCase(OFFER_FIXTURES, { screenshotUrl: o3.input.screenshotUrl })?.id).toBe(o3.id);
+  });
+
+  it('does not match an edited or unknown message', () => {
+    const o1 = getOfferCase('o1-amazon-registration-fee');
+    expect(matchOfferCase(OFFER_FIXTURES, { text: o1.input.text!.replace('₹999', '₹99') })).toBeUndefined();
+    expect(matchOfferCase(OFFER_FIXTURES, { screenshotUrl: 'https://example.com/other.jpg' })).toBeUndefined();
   });
 });
 

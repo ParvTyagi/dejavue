@@ -15,9 +15,9 @@ Deferred: health and investment claims (too risky to get wrong), fake quotes and
 
 ## 2. Input
 
-`/check` gets a toggle: **Photo / Video** (unchanged) | **Message / Offer**.
+`/check` gets a toggle: **Photo / Video** (unchanged) | **Message / Offer**, kept in the URL (`/check?type=offer`) so each mode can be linked. The form posts to `/api/offer`; progress streams from the same `/api/investigate/:id/stream` as media audits.
 
-- Pasted text (up to 2,000 characters), a screenshot, or both.
+- Pasted text (up to 2,000 characters), a screenshot, or both. Screenshots are re-encoded in the browser at up to 2048 px (twice the media frame size, so small text stays readable), uploaded to the 15-minute temporary store and deleted when the check ends.
 - Optional "Who does it claim to be from?".
 - Demo mode shows synthetic scam cases.
 

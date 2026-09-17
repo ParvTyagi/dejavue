@@ -1,8 +1,7 @@
 import { z } from 'zod';
+import { OFFER_LIMITS } from '@/lib/shared/limits';
 
 // Validates the Message / Offer form payload and the API body.
-
-export const OFFER_LIMITS = { textChars: 2000, orgChars: 100 } as const;
 
 export const offerInputSchema = z
   .object({

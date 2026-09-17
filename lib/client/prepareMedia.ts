@@ -34,9 +34,9 @@ function canvasFor(source: Drawable, srcW: number, srcH: number, maxEdge: number
   return { canvas, ctx, w, h };
 }
 
-function toBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+function toBlob(canvas: HTMLCanvasElement, quality = 0.9): Promise<Blob> {
   return new Promise((resolve, reject) =>
-    canvas.toBlob((b) => (b ? resolve(b) : reject(new MediaError('Could not encode frame'))), 'image/jpeg', 0.9),
+    canvas.toBlob((b) => (b ? resolve(b) : reject(new MediaError('Could not encode frame'))), 'image/jpeg', quality),
   );
 }
 
@@ -80,6 +80,28 @@ export async function prepareImage(file: File): Promise<PreparedUpload> {
   const frame = await frameFrom(bitmap, bitmap.width, bitmap.height);
   bitmap.close();
   return { kind: 'image', frames: [frame], exif: await readExif(file) };
+}
+
+export interface PreparedScreenshot {
+  blob: Blob;
+  previewUrl: string;
+}
+
+/** A screenshot of a message, kept large enough to read and re-encoded (which also drops its metadata). */
+export async function prepareScreenshot(file: File): Promise<PreparedScreenshot> {
+  if (file.size > MEDIA_LIMITS.imageBytes) throw new MediaError('Screenshots must be 10 MB or smaller.');
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' });
+  } catch {
+    throw new MediaError("Couldn't read this image. Try a JPEG, PNG or WebP screenshot.");
+  }
+  const { canvas } = canvasFor(bitmap, bitmap.width, bitmap.height, MEDIA_LIMITS.screenshotEdgePx);
+  bitmap.close();
+  let blob = await toBlob(canvas);
+  if (blob.size > MEDIA_LIMITS.frameBytes) blob = await toBlob(canvas, 0.7);
+  if (blob.size > MEDIA_LIMITS.frameBytes) throw new MediaError('This screenshot is too detailed to upload. Try cropping it.');
+  return { blob, previewUrl: URL.createObjectURL(blob) };
 }
 
 function seek(video: HTMLVideoElement, t: number): Promise<void> {

@@ -1,10 +1,10 @@
 'use client';
 
-/** What the audit page can show before the dossier arrives: the claim and media previews. */
+/** What the audit page can show before the dossier arrives: the claim or message, and media previews. */
 export interface AuditIntro {
   claim: string;
   place?: string;
-  kind: 'image' | 'video';
+  kind: 'image' | 'video' | 'offer';
   previews: string[];
 }
 

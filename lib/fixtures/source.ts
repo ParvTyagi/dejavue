@@ -69,6 +69,18 @@ export function matchCase(dir: string, pHashes: string[]): GoldenCase | undefine
   );
 }
 
+const sameText = (a: string | undefined, b: string | undefined) =>
+  a !== undefined && b !== undefined && a.replace(/\s+/g, ' ').trim() === b.replace(/\s+/g, ' ').trim();
+
+/** Finds the recorded offer case for a demo message: the same text, or the same screenshot URL. */
+export function matchOfferCase(dir: string, input: Pick<OfferInput, 'text' | 'screenshotUrl'>): OfferCase | undefined {
+  return listOfferCases(dir).find(
+    (c) =>
+      sameText(c.input.text, input.text) ||
+      (input.screenshotUrl !== undefined && c.input.screenshotUrl === input.screenshotUrl),
+  );
+}
+
 export function createFixtureSource(dir: string): FixtureSource {
   const cache = new Map<string, Record<string, unknown>>();
   const load = (caseId: string) => {

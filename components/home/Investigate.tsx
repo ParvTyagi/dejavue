@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { EASE_OUT, Reveal, ScrambleText, ShimmerButton, SpotlightCard } from '@/components/ui/motion';
+import { FIELD_CLASS as field, postJson, uploadImage } from '@/lib/client/api';
 import { saveAuditIntro } from '@/lib/client/auditIntro';
 import type { PreparedUpload } from '@/lib/client/prepareMedia';
 import type { AuditInput, FixtureMode } from '@/lib/shared/types';
@@ -27,15 +28,7 @@ async function uploadFrames(prepared: PreparedUpload, replay: boolean, onStatus:
   if (!replay) onStatus(`Uploading ${count} frame${count === 1 ? '' : 's'}…`);
   return Promise.all(
     prepared.frames.map(async (f, i) => {
-      let url = REPLAY_FRAME_URL(i);
-      if (!replay) {
-        const form = new FormData();
-        form.append('frame', f.blob, `frame-${i}.jpg`);
-        const res = await fetch('/api/upload', { method: 'POST', body: form });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(data?.error?.message ?? 'Upload failed.');
-        url = data.url;
-      }
+      const url = replay ? REPLAY_FRAME_URL(i) : await uploadImage(f.blob, `frame-${i}.jpg`);
       return { url, pHash: f.pHash, sharpness: f.sharpness, tMs: f.tMs };
     }),
   );
@@ -43,16 +36,6 @@ async function uploadFrames(prepared: PreparedUpload, replay: boolean, onStatus:
 
 /** Loaded on first use: most visitors never pick a file. */
 const loadMediaPrep = () => import('@/lib/client/prepareMedia');
-
-async function postJson(url: string, body: unknown) {
-  const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message ?? `Request failed (${res.status})`);
-  return data;
-}
-
-const field =
-  'w-full rounded-xl border border-line bg-bg px-3.5 py-2.5 text-sm text-ink placeholder:text-faint transition-colors outline-none focus:border-accent/60 focus:ring-4 focus:ring-accent/10';
 
 export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCase[] }) {
   const router = useRouter();
@@ -139,7 +122,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-12 pb-24 sm:px-6 sm:pt-16">
+    <section className="mx-auto max-w-6xl px-4 pt-8 pb-24 sm:px-6">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check media</p>
         <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
