@@ -69,6 +69,8 @@ export interface SerpClientOptions {
   clock: () => Date;
   timeoutMs?: number;
   retryDelayMs?: number;
+  /** Replay only: simulated network time per search, so the live UI can be seen and demoed. */
+  replayDelayMs?: number;
 }
 
 export type SerpClient = (engine: EngineId, params: Record<string, string>, ctx: SearchContext) => Promise<SearchResult>;
@@ -113,6 +115,20 @@ export function scrubResponse(raw: unknown): unknown {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** Waits, but gives up as soon as the signal fires. */
+export function pause(ms: number, signal?: AbortSignal): Promise<void> {
+  if (ms <= 0) return Promise.resolve();
+  return new Promise((resolve) => {
+    const timer = setTimeout(done, ms);
+    function done() {
+      clearTimeout(timer);
+      signal?.removeEventListener('abort', done);
+      resolve();
+    }
+    signal?.addEventListener('abort', done, { once: true });
+  });
+}
+
 /**
  * The only path to SerpApi. Order: fixtures (replay) → query cache → budget
  * guard → live request with one retry → cache, ledger and (record) fixture.
@@ -140,6 +156,8 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
       // Replay has no query cache, and simulates credit spend so the meter and budget behave as in live mode.
       if (ctx.cacheOnly) throw new SerpError('NOT_CACHED', engine, `Skipped ${engine}: not in the query cache`);
       guard(engine, ctx);
+      await pause(opts.replayDelayMs ?? 0, ctx.signal);
+      if (ctx.signal?.aborted) throw timedOut(engine);
       const name = fixtureName(engine, params, ctx.frameIndex);
       const raw = ctx.caseId ? opts.fixtures.get(ctx.caseId, name) : undefined;
       if (raw === undefined) throw new SerpError('FIXTURE_MISSING', engine, `No fixture "${name}" for case ${ctx.caseId}`);
@@ -149,7 +167,7 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     }
 
     const key = cacheKey(engine, params);
-    const hit = await opts.store.getSerp(key, opts.clock());
+    const hit = await opts.store.getSerp(key);
     if (hit) {
       await opts.store.addLedger({ auditId: ctx.auditId, engine, cached: true, at: opts.clock().toISOString() });
       spend(engine, true, ctx);

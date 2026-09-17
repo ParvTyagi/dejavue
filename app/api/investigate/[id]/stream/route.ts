@@ -33,7 +33,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 
       unsubscribe = subscribe(id, send);
       if (!unsubscribe) {
-        const dossier = await appStore().getAudit(id, new Date());
+        const dossier = await appStore().getAudit(id);
         if (dossier) send({ type: 'dossier', data: dossier });
         else send({ type: 'error', data: { code: 'NOT_FOUND', message: 'This audit does not exist or has expired.', recoverable: false } });
       }

@@ -87,6 +87,8 @@ export interface DepsOptions {
   fixturesDir?: string;
   caseId?: string;
   clock?: () => Date;
+  /** Replay only: simulated latency per search and LLM call. */
+  replayDelayMs?: number;
 }
 
 /** Wires the audit pipeline for a fixture mode. Tests and API routes share this. */
@@ -109,9 +111,10 @@ export function createAuditDeps(opts: DepsOptions): AuditDeps {
       fixtures: createFixtureSource(fixturesDir),
       transport: !replay && apiKey ? httpTransport(apiKey) : undefined,
       clock,
+      replayDelayMs: opts.replayDelayMs,
     }),
     llm: replay
-      ? createReplayLlm(fixturesDir, opts.caseId)
+      ? createReplayLlm(fixturesDir, opts.caseId, opts.replayDelayMs)
       : geminiKey
         ? createGeminiLlm(geminiKey, process.env.GEMINI_MODEL ?? 'gemini-flash-latest')
         : unavailableLlm,

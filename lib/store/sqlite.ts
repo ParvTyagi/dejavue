@@ -11,7 +11,7 @@ const { DatabaseSync } = process.getBuiltinModule('node:sqlite') as typeof impor
 const SCHEMA_VERSION = 2;
 
 /** Local store for running on one machine. Cached data is disposable, so schema changes rebuild it. */
-export function createSqliteStore(file: string): Store {
+export function createSqliteStore(file: string, clock: () => Date = () => new Date()): Store {
   mkdirSync(path.dirname(file), { recursive: true });
   const db: DatabaseSync = new DatabaseSync(file);
   const { user_version } = db.prepare('PRAGMA user_version').get() as { user_version: number };
@@ -29,36 +29,31 @@ export function createSqliteStore(file: string): Store {
     `);
   }
 
-  const purge = (table: 'serp_cache' | 'media_cache' | 'audits', now: number) =>
-    db.prepare(`DELETE FROM ${table} WHERE expires_at <= ?`).run(now);
+  const now = () => clock().getTime();
+  const purge = (table: 'serp_cache' | 'media_cache' | 'audits') =>
+    db.prepare(`DELETE FROM ${table} WHERE expires_at <= ?`).run(now());
 
   return {
-    async getSerp(key, now) {
+    async getSerp(key) {
       const row = db
         .prepare('SELECT response_json, fetched_at FROM serp_cache WHERE key = ? AND expires_at > ?')
-        .get(key, now.getTime()) as { response_json: string; fetched_at: string } | undefined;
+        .get(key, now()) as { response_json: string; fetched_at: string } | undefined;
       return row && { response: JSON.parse(row.response_json), fetchedAt: row.fetched_at };
     },
     async putSerp(key, response, fetchedAt, ttlMs) {
-      purge('serp_cache', Date.parse(fetchedAt));
-      db.prepare('INSERT OR REPLACE INTO serp_cache VALUES (?, ?, ?, ?)').run(
-        key,
-        JSON.stringify(response),
-        fetchedAt,
-        Date.parse(fetchedAt) + ttlMs,
-      );
+      purge('serp_cache');
+      db.prepare('INSERT OR REPLACE INTO serp_cache VALUES (?, ?, ?, ?)').run(key, JSON.stringify(response), fetchedAt, now() + ttlMs);
     },
-    async findMedia(hashes, now) {
+    async findMedia(hashes) {
       const rows = db
         .prepare('SELECT phash, payload_json FROM media_cache WHERE expires_at > ?')
-        .all(now.getTime()) as { phash: string; payload_json: string }[];
+        .all(now()) as { phash: string; payload_json: string }[];
       const row = rows.find((r) => hashes.some((h) => hamming(h, r.phash) <= HAMMING.sameImage));
       return row && (JSON.parse(row.payload_json) as MediaCacheEntry);
     },
     async putMedia(entry, ttlMs) {
-      const createdAt = Date.parse(entry.createdAt);
-      purge('media_cache', createdAt);
-      db.prepare('INSERT OR REPLACE INTO media_cache VALUES (?, ?, ?)').run(entry.pHash, JSON.stringify(entry), createdAt + ttlMs);
+      purge('media_cache');
+      db.prepare('INSERT OR REPLACE INTO media_cache VALUES (?, ?, ?)').run(entry.pHash, JSON.stringify(entry), now() + ttlMs);
     },
     async addLedger(row) {
       db.prepare('INSERT INTO credit_ledger (audit_id, engine, cached, at) VALUES (?, ?, ?, ?)').run(
@@ -82,14 +77,13 @@ export function createSqliteStore(file: string): Store {
       return { creditsThisMonth: row.credits ?? 0, cachedThisMonth: row.cachedCalls ?? 0, totalCalls: row.total };
     },
     async putAudit(dossier: Dossier, ttlMs) {
-      const createdAt = Date.parse(dossier.createdAt);
-      purge('audits', createdAt);
-      db.prepare('INSERT OR REPLACE INTO audits VALUES (?, ?, ?)').run(dossier.id, JSON.stringify(dossier), createdAt + ttlMs);
+      purge('audits');
+      db.prepare('INSERT OR REPLACE INTO audits VALUES (?, ?, ?)').run(dossier.id, JSON.stringify(dossier), now() + ttlMs);
     },
-    async getAudit(id, now) {
+    async getAudit(id) {
       const row = db
         .prepare('SELECT dossier_json FROM audits WHERE id = ? AND expires_at > ?')
-        .get(id, now.getTime()) as { dossier_json: string } | undefined;
+        .get(id, now()) as { dossier_json: string } | undefined;
       return row && (JSON.parse(row.dossier_json) as Dossier);
     },
   };

@@ -4,6 +4,7 @@ import { hamming, HAMMING } from '@/lib/media/phash';
 import type { FixtureSource } from '@/lib/serp/client';
 import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import type { LlmPort } from '@/lib/llm/port';
+import { pause } from '@/lib/serp/client';
 import type { AuditInput, Verdict } from '@/lib/shared/types';
 
 // A golden case lives in fixtures/<caseId>/:
@@ -62,16 +63,17 @@ export function createFixtureSource(dir: string): FixtureSource {
   };
 }
 
-export function createReplayLlm(dir: string, caseId: string | undefined): LlmPort {
+export function createReplayLlm(dir: string, caseId: string | undefined, delayMs = 0): LlmPort {
   const data = caseId ? readJson(path.join(dir, caseId, 'llm.json')) : {};
-  const get = async (key: string) => {
+  const get = async (key: string, signal?: AbortSignal) => {
+    await pause(delayMs, signal);
     if (!(key in data)) throw new Error(`No recorded LLM output "${key}"`);
     return data[key];
   };
   return {
-    parseClaim: () => get('parseClaim'),
-    readScene: () => get('readScene'),
-    narrate: () => get('narrate'),
+    parseClaim: (_req, signal) => get('parseClaim', signal),
+    readScene: (_url, signal) => get('readScene', signal),
+    narrate: (_req, signal) => get('narrate', signal),
   };
 }
 

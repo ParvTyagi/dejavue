@@ -16,20 +16,20 @@ export interface LedgerStats {
 
 /**
  * Persistence for caches, the credit ledger and finished audits. Never holds
- * pixels. Every write takes a time-to-live; reads take the current time so
- * expiry is decided by the audit clock, not the machine clock.
+ * pixels. Every write takes a time-to-live that starts when it is written, on
+ * the store's own clock (as Redis TTLs do), independent of the audit clock.
  */
 export interface Store {
-  getSerp(key: string, now: Date): Promise<{ response: unknown; fetchedAt: string } | undefined>;
+  getSerp(key: string): Promise<{ response: unknown; fetchedAt: string } | undefined>;
   putSerp(key: string, response: unknown, fetchedAt: string, ttlMs: number): Promise<void>;
   /** Cached telemetry for media within Hamming 6 of any given hash. */
-  findMedia(pHashes: string[], now: Date): Promise<MediaCacheEntry | undefined>;
+  findMedia(pHashes: string[]): Promise<MediaCacheEntry | undefined>;
   putMedia(entry: MediaCacheEntry, ttlMs: number): Promise<void>;
   addLedger(row: { auditId: string; engine: EngineId; cached: boolean; at: string }): Promise<void>;
   /** Totals for the calendar month (UTC) that starts at `monthStart`. */
   ledgerStats(monthStart: string): Promise<LedgerStats>;
   putAudit(dossier: Dossier, ttlMs: number): Promise<void>;
-  getAudit(id: string, now: Date): Promise<Dossier | undefined>;
+  getAudit(id: string): Promise<Dossier | undefined>;
 }
 
 export const TTL = {

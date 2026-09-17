@@ -12,7 +12,7 @@ cp .env.example .env.local   # FIXTURE_MODE=replay needs no keys
 npm run dev                  # http://localhost:3000
 ```
 
-Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on the home page to watch an audit stream in.
+Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on the home page to watch an audit stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
 
 ```bash
 npm test            # 12 golden cases, failure scenarios and pHash checks

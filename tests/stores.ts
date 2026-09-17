@@ -39,13 +39,13 @@ export function fakeRedis(clock: () => Date): RedisCommands {
 export type StoreKind = 'memory' | 'sqlite' | 'redis';
 export const STORE_KINDS: StoreKind[] = ['memory', 'sqlite', 'redis'];
 
-/** A fresh store of each kind. `clock` drives Redis expiry; the others use the `now` passed to reads. */
+/** A fresh store of each kind, all expiring entries by the same clock. */
 export function makeStore(kind: StoreKind, clock: () => Date): Store {
   switch (kind) {
     case 'memory':
-      return createMemoryStore();
+      return createMemoryStore(clock);
     case 'sqlite':
-      return createSqliteStore(path.join(mkdtempSync(path.join(tmpdir(), 'dejavue-')), 'test.db'));
+      return createSqliteStore(path.join(mkdtempSync(path.join(tmpdir(), 'dejavue-')), 'test.db'), clock);
     case 'redis':
       return createRedisStore(fakeRedis(clock));
   }

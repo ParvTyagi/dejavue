@@ -30,6 +30,8 @@ export async function POST(req: Request) {
   const store = appStore();
   const body = parsed.data;
   let caseId: string | undefined;
+  // Replay runs at the moment the case was recorded, so dates in its fixtures mean what they meant then.
+  let clock: (() => Date) | undefined;
 
   if (mode === 'replay') {
     const hashes = body.media.frames.map((f) => f.pHash).filter((h): h is string => !!h);
@@ -42,6 +44,8 @@ export async function POST(req: Request) {
       );
     }
     caseId = match.id;
+    const recordedAt = new Date(match.submittedAt);
+    clock = () => recordedAt;
   } else {
     if (!process.env.SERPAPI_API_KEY) return apiError(503, 'NOT_CONFIGURED', 'SERPAPI_API_KEY is not set.');
     const { creditsThisMonth } = await store.ledgerStats(monthStartIso());
@@ -69,7 +73,8 @@ export async function POST(req: Request) {
   };
   const auditId = `dv_${randomBytes(4).toString('hex')}`;
   const emit = openAudit(auditId);
-  const deps = { ...createAuditDeps({ mode, store, caseId }), newId: () => auditId };
+  const replayDelayMs = Number(process.env.REPLAY_PACE_MS ?? 700);
+  const deps = { ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs }), newId: () => auditId };
 
   void runAudit(input, emit, deps)
     .catch((err) => {

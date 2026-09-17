@@ -209,7 +209,7 @@ async function audit(
     return !!computeFirstSeen(older, deps.clock()).firstSeen;
   };
 
-  const cached = deps.useMediaCache ? await deps.store.findMedia(inputHashes, deps.clock()) : undefined;
+  const cached = deps.useMediaCache ? await deps.store.findMedia(inputHashes) : undefined;
   let scene: SceneReading | undefined;
   let sceneGeo: GeoPoint | undefined;
 

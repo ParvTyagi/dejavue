@@ -1,4 +1,6 @@
-import { Investigate, type DemoCase } from '@/components/Investigate';
+import { Hero } from '@/components/home/Hero';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { Investigate, type DemoCase } from '@/components/home/Investigate';
 import { listCases } from '@/lib/fixtures/source';
 import { FIXTURES_DIR, fixtureMode } from '@/lib/server/mode';
 
@@ -10,15 +12,10 @@ export default function Home() {
       : [];
 
   return (
-    <div className="space-y-8">
-      <section className="max-w-2xl space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Is this really from where and when it says?</h1>
-        <p className="text-muted">
-          Most viral misinformation is a real photo with a false caption. DejaVue searches Google Lens, Bing, Yandex, News,
-          Maps and YouTube through SerpApi to find where the media appeared first, then shows you the evidence.
-        </p>
-      </section>
+    <>
+      <Hero />
+      <HowItWorks />
       <Investigate mode={mode} demos={demos} />
-    </div>
+    </>
   );
 }

@@ -13,23 +13,32 @@ describe.each(STORE_KINDS)('%s store', (kind) => {
   const setup = () => {
     let now = T0;
     const store = makeStore(kind, () => now);
-    return { store, at: (ms: number) => (now = new Date(T0.getTime() + ms)) };
+    return {
+      store,
+      at: (ms: number) => {
+        now = new Date(T0.getTime() + ms);
+      },
+    };
   };
 
   it('expires query cache entries after their TTL', async () => {
     const { store, at } = setup();
     await store.putSerp('q', { ok: 1 }, T0.toISOString(), TTL.serpMs);
-    expect(await store.getSerp('q', at(TTL.serpMs - 1))).toEqual({ response: { ok: 1 }, fetchedAt: T0.toISOString() });
-    expect(await store.getSerp('q', at(TTL.serpMs + 1))).toBeUndefined();
+    at(TTL.serpMs - 1);
+    expect(await store.getSerp('q')).toEqual({ response: { ok: 1 }, fetchedAt: T0.toISOString() });
+    at(TTL.serpMs + 1);
+    expect(await store.getSerp('q')).toBeUndefined();
   });
 
   it('finds near-identical media and forgets it after the TTL', async () => {
     const { store, at } = setup();
     const entry = { pHash: '0bdd9709e6be8112', evidence: [], createdAt: T0.toISOString() };
     await store.putMedia(entry, TTL.mediaMs);
-    expect(await store.findMedia(['0bdd9709e6be8113'], at(DAY))).toMatchObject({ pHash: entry.pHash });
-    expect(await store.findMedia(['f4226af6194170ed'], at(DAY))).toBeUndefined();
-    expect(await store.findMedia([entry.pHash], at(TTL.mediaMs + 1))).toBeUndefined();
+    at(DAY);
+    expect(await store.findMedia(['0bdd9709e6be8113'])).toMatchObject({ pHash: entry.pHash });
+    expect(await store.findMedia(['f4226af6194170ed'])).toBeUndefined();
+    at(TTL.mediaMs + 1);
+    expect(await store.findMedia([entry.pHash])).toBeUndefined();
   });
 
   it('counts credits and cached calls per calendar month', async () => {
@@ -42,11 +51,14 @@ describe.each(STORE_KINDS)('%s store', (kind) => {
     expect(await store.ledgerStats('2026-09-01T00:00:00.000Z')).toEqual({ creditsThisMonth: 2, cachedThisMonth: 1, totalCalls: 4 });
   });
 
-  it('keeps dossiers reloadable for 7 days only', async () => {
+  it('keeps dossiers reloadable for 7 days after saving, whatever time the audit itself used', async () => {
     const { store, at } = setup();
-    const dossier = { id: 'dv_0000abcd', createdAt: T0.toISOString(), verdict: 'RECYCLED' } as Dossier;
+    // A replayed audit carries the time its case was recorded, years earlier.
+    const dossier = { id: 'dv_0000abcd', createdAt: '2022-02-21T02:00:00.000Z', verdict: 'RECYCLED' } as Dossier;
     await store.putAudit(dossier, TTL.auditMs);
-    expect(await store.getAudit('dv_0000abcd', at(6 * DAY))).toMatchObject({ verdict: 'RECYCLED' });
-    expect(await store.getAudit('dv_0000abcd', at(TTL.auditMs + 1))).toBeUndefined();
+    at(6 * DAY);
+    expect(await store.getAudit('dv_0000abcd')).toMatchObject({ verdict: 'RECYCLED' });
+    at(TTL.auditMs + 1);
+    expect(await store.getAudit('dv_0000abcd')).toBeUndefined();
   });
 });

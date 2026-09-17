@@ -1,15 +1,18 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'Cascadia Code', monospace;
+  --font-serif: var(--font-instrument), 'Times New Roman', serif;
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-bad: var(--bad);
@@ -20,48 +23,82 @@
   --color-good-soft: var(--good-soft);
   --color-info: var(--info);
   --color-info-soft: var(--info-soft);
-}
 
-:root {
-  --bg: #f6f5f1;
-  --surface: #ffffff;
-  --surface-2: #efede7;
-  --line: #dedad0;
-  --ink: #1c1b18;
-  --muted: #6b675e;
-  --accent: #3b3bd6;
-  --accent-ink: #ffffff;
-  --bad: #b42318;
-  --bad-soft: #fdecea;
-  --warn: #9a6200;
-  --warn-soft: #fff4dc;
-  --good: #16794a;
-  --good-soft: #e5f5ec;
-  --info: #1f5fa8;
-  --info-soft: #e6effa;
-  color-scheme: light;
-}
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-shimmer: shimmer 2.6s ease-in-out infinite;
+  --animate-scan: scan 2.2s ease-in-out infinite;
+  --animate-drift: drift 22s ease-in-out infinite alternate;
+  --animate-pulse-ring: pulse-ring 1.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121210;
-    --surface: #1b1b18;
-    --surface-2: #24241f;
-    --line: #34332c;
-    --ink: #eeece6;
-    --muted: #a29e93;
-    --accent: #8d8dff;
-    --accent-ink: #0f0f2a;
-    --bad: #ff8a7a;
-    --bad-soft: #3a1c18;
-    --warn: #f0b85a;
-    --warn-soft: #3a2c12;
-    --good: #6fd39f;
-    --good-soft: #143325;
-    --info: #86b6f0;
-    --info-soft: #162a42;
-    color-scheme: dark;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
   }
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-120%);
+    }
+    60%,
+    100% {
+      transform: translateX(220%);
+    }
+  }
+  @keyframes scan {
+    0%,
+    100% {
+      top: 0%;
+    }
+    50% {
+      top: 100%;
+    }
+  }
+  @keyframes drift {
+    from {
+      transform: translate3d(-6%, -4%, 0) scale(1);
+    }
+    to {
+      transform: translate3d(6%, 5%, 0) scale(1.15);
+    }
+  }
+  @keyframes pulse-ring {
+    from {
+      transform: scale(0.6);
+      opacity: 0.7;
+    }
+    to {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+}
+
+/* DejaVue is a dark, forensic-lab interface: ink black, hairline borders and a
+   highlighter accent for evidence. */
+:root {
+  --bg: #08080a;
+  --surface: rgb(255 255 255 / 0.028);
+  --surface-2: rgb(255 255 255 / 0.055);
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --ink: #f5f5f2;
+  --muted: #a3a3a0;
+  --faint: #6b6b68;
+  --accent: #d4f75c;
+  --accent-ink: #0b0d02;
+  --bad: #ff6b4f;
+  --bad-soft: rgb(255 107 79 / 0.12);
+  --warn: #ffb547;
+  --warn-soft: rgb(255 181 71 / 0.12);
+  --good: #4ade9a;
+  --good-soft: rgb(74 222 154 / 0.12);
+  --info: #6cb4ff;
+  --info-soft: rgb(108 180 255 / 0.12);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -69,7 +106,85 @@ body {
   color: var(--ink);
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Film grain over the whole page. */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #fff 20%, rgb(255 255 255 / 0.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .leaflet-container {
   font-family: inherit;
-  background: var(--surface-2);
+  background: #0d0d10;
+}
+.leaflet-tooltip {
+  background: #111114;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 12px;
+}
+.leaflet-tooltip-top::before,
+.leaflet-tooltip-bottom::before {
+  display: none;
+}
+.leaflet-control-attribution {
+  background: rgb(8 8 10 / 0.7) !important;
+  color: var(--faint) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--muted) !important;
+}
+.leaflet-bar a {
+  background: #111114 !important;
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+.dark-tiles {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.35);
+}
+.dash-flow {
+  animation: dash 1.4s linear infinite;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

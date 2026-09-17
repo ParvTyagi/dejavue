@@ -7,27 +7,26 @@ interface Expiring<T> {
   expiresAt: number;
 }
 
-export function createMemoryStore(): Store {
+export function createMemoryStore(clock: () => Date = () => new Date()): Store {
   const serp = new Map<string, Expiring<{ response: unknown; fetchedAt: string }>>();
   const media = new Map<string, Expiring<MediaCacheEntry>>();
   const ledger: { cached: boolean; at: string }[] = [];
   const audits = new Map<string, Expiring<Dossier>>();
 
-  const live = <T>(item: Expiring<T> | undefined, now: Date) => (item && item.expiresAt > now.getTime() ? item.value : undefined);
+  const expiring = <T>(value: T, ttlMs: number): Expiring<T> => ({ value, expiresAt: clock().getTime() + ttlMs });
+  const live = <T>(item: Expiring<T> | undefined) => (item && item.expiresAt > clock().getTime() ? item.value : undefined);
 
   return {
-    getSerp: async (key, now) => live(serp.get(key), now),
-    putSerp: async (key, response, fetchedAt, ttlMs) =>
-      void serp.set(key, { value: { response, fetchedAt }, expiresAt: Date.parse(fetchedAt) + ttlMs }),
-    findMedia: async (hashes, now) => {
+    getSerp: async (key) => live(serp.get(key)),
+    putSerp: async (key, response, fetchedAt, ttlMs) => void serp.set(key, expiring({ response, fetchedAt }, ttlMs)),
+    findMedia: async (hashes) => {
       for (const item of media.values()) {
-        const entry = live(item, now);
+        const entry = live(item);
         if (entry && hashes.some((h) => hamming(h, entry.pHash) <= HAMMING.sameImage)) return entry;
       }
       return undefined;
     },
-    putMedia: async (entry, ttlMs) =>
-      void media.set(entry.pHash, { value: entry, expiresAt: Date.parse(entry.createdAt) + ttlMs }),
+    putMedia: async (entry, ttlMs) => void media.set(entry.pHash, expiring(entry, ttlMs)),
     addLedger: async (row) => void ledger.push(row),
     ledgerStats: async (monthStart) => {
       const month = ledger.filter((r) => monthKey(r.at) === monthKey(monthStart));
@@ -37,7 +36,7 @@ export function createMemoryStore(): Store {
         totalCalls: ledger.length,
       };
     },
-    putAudit: async (d, ttlMs) => void audits.set(d.id, { value: d, expiresAt: Date.parse(d.createdAt) + ttlMs }),
-    getAudit: async (id, now) => live(audits.get(id), now),
+    putAudit: async (d, ttlMs) => void audits.set(d.id, expiring(d, ttlMs)),
+    getAudit: async (id) => live(audits.get(id)),
   };
 }
