@@ -66,7 +66,7 @@ export const OFFER_STAGES: { id: Stage; label: string; detail: string }[] = [
   { id: 'read', label: 'Read the message', detail: 'Contacts, amounts and requests' },
   { id: 'identity', label: 'Official website', detail: 'Who it claims to be' },
   { id: 'contacts', label: 'Scam reports', detail: 'Phone numbers, emails and links' },
-  { id: 'offer', label: 'The offer itself', detail: 'Job listings, government sites, Maps' },
+  { id: 'offer', label: 'The offer itself', detail: 'Job listings, scheme pages, helplines' },
   { id: 'judge', label: 'Judge', detail: 'Fixed rules' },
 ];
 

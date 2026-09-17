@@ -34,7 +34,7 @@ export interface Contact {
   value: string;
   /** Host of a URL or chat link, or the part after @ in an email. */
   host?: string;
-  /** Whether the contact is on the official site or its Maps listing; undefined when that was not checked. */
+  /** Whether the contact appears on one of the official domains; undefined when that was not checked. */
   onOfficialSite?: boolean;
   /** Distinct sites that mention this contact next to scam words. */
   scamReports: number;
@@ -48,6 +48,8 @@ export interface OfferSignals {
   schemeName?: string;
   /** Registrable domain of the organisation's official site, when one was found. */
   officialDomain?: string;
+  /** Every domain confirmed as the organisation's own, officialDomain first (amazon.com, amazon.in, amazon.jobs). */
+  officialDomains?: string[];
   contacts: Contact[];
   /** Verbatim quote from the message asking for money. */
   paymentQuote?: string;

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import type { LlmPort } from '@/lib/llm/port';
 import { withTimeLimit } from '@/lib/shared/time';
-import { appearsIn, extractFromMessage, PAYMENT_WORDS } from './extract';
+import { appearsIn, extractFromMessage, PAYMENT_WORDS, URGENCY_WORDS } from './extract';
 import type { Contact, OfferInput, OfferType } from './types';
 
 const offerOut = z.object({
@@ -59,6 +59,7 @@ export async function readOfferSafe(llm: LlmPort, input: OfferInput, timeoutMs: 
   const urgencyQuotes = [...found.urgencyQuotes];
   for (const q of out?.urgencyQuotes ?? []) {
     const kept = grounded(message, q);
+    if (kept && !URGENCY_WORDS.test(kept)) continue;
     if (kept && urgencyQuotes.length < 3 && !urgencyQuotes.some((u) => appearsIn(u, kept) || appearsIn(kept, u))) urgencyQuotes.push(kept);
   }
 

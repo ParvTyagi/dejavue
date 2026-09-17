@@ -54,7 +54,11 @@ export const officialSiteSearch = (name: string): EngineRequest => ({
 /** Pages mentioning a phone number, email or domain, used to find scam reports. */
 export const contactSearch = (q: string): EngineRequest => ({ engine: 'google', params: { q, ...INDIA } });
 
-export const jobsSearch = (q: string): EngineRequest => ({ engine: 'google_jobs', params: { q: q.slice(0, 120), ...INDIA } });
+/** Google Jobs answers far better, and faster, with a location than with gl=in. */
+export const jobsSearch = (q: string): EngineRequest => ({
+  engine: 'google_jobs',
+  params: { q: q.slice(0, 120), location: 'India', hl: 'en' },
+});
 
 /** A scheme's page on a government site. */
 export const schemeSearch = (scheme: string, site: string): EngineRequest => ({

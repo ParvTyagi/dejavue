@@ -84,8 +84,9 @@ export function MessageBanner({ intro, dossier }: { intro?: AuditIntro; dossier?
 
 /** Where to go instead of the message's links. */
 export function OfficialSourceCard({ dossier }: { dossier: OfferDossier }) {
-  const { officialDomain, org, schemeName } = dossier.signals;
+  const { officialDomain, officialDomains = [], org, schemeName } = dossier.signals;
   const who = org ?? schemeName;
+  const alsoOfficial = officialDomains.filter((d) => d !== officialDomain);
 
   if (!officialDomain) {
     return (
@@ -114,6 +115,7 @@ export function OfficialSourceCard({ dossier }: { dossier: OfferDossier }) {
       <div className="min-w-0 flex-1">
         <p className="text-xs text-faint">Official website{who ? ` of ${who}` : ''}</p>
         <p className="mt-0.5 truncate font-mono text-lg text-ink">{officialDomain}</p>
+        {alsoOfficial.length > 0 && <p className="mt-0.5 truncate text-xs text-faint">Also theirs: {alsoOfficial.join(', ')}</p>}
         <p className="mt-1 text-xs text-muted">Go there directly, not through any link in the message.</p>
       </div>
       <a
@@ -195,7 +197,7 @@ function contactStatus(c: Contact): { text: string; cls: string } {
 export function ContactList({ dossier }: { dossier: OfferDossier }) {
   const contacts = dossier.signals.contacts;
   return (
-    <Panel title="Contacts in the message" subtitle="Official means it appears on the official website or its Maps listing">
+    <Panel title="Contacts in the message" subtitle="Official means it appears on one of the organisation's own websites">
       {contacts.length === 0 ? (
         <p className="text-sm text-muted">No phone numbers, emails or links were found.</p>
       ) : (

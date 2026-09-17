@@ -18,6 +18,10 @@ export const REPORTS_NEEDED = 2;
 
 const hostOf = (c: Contact) => (c.type === 'email' || c.type === 'url' ? c.host : undefined);
 
+/** Whether a host belongs to any of the organisation's confirmed domains. */
+const officialHost = (s: OfferSignals, host: string) =>
+  [s.officialDomain, ...(s.officialDomains ?? [])].some((d) => !!d && sameOrganisationSite(host, d));
+
 /** Every warning sign in the signals, in the order they are shown. Pure; the LLM never influences this. */
 export function redFlags(s: OfferSignals): RedFlag[] {
   const flags: RedFlag[] = [];
@@ -32,7 +36,7 @@ export function redFlags(s: OfferSignals): RedFlag[] {
   for (const c of s.contacts) {
     const host = hostOf(c);
     if (!host || flaggedHosts.has(host)) continue;
-    const reason = s.officialDomain ? lookalikeReason(host, s.officialDomain) : undefined;
+    const reason = s.officialDomain && !officialHost(s, host) ? lookalikeReason(host, s.officialDomain) : undefined;
     if (reason) {
       add({ id: 'lookalike_domain', strength: 'strong', detail: `${host} ${reason} (official site: ${s.officialDomain})`, evidenceIds: c.evidenceIds });
       flaggedHosts.add(host);
@@ -80,7 +84,7 @@ export function redFlags(s: OfferSignals): RedFlag[] {
     for (const c of s.contacts) {
       const host = hostOf(c);
       if (!host || flaggedHosts.has(host) || isFreeEmailDomain(host)) continue;
-      if (sameOrganisationSite(host, s.officialDomain) || sameNameOtherTld(host, s.officialDomain) || isKnownPlatform(host)) continue;
+      if (officialHost(s, host) || sameNameOtherTld(host, s.officialDomain) || isKnownPlatform(host)) continue;
       add({
         id: 'unofficial_link',
         strength: 'medium',

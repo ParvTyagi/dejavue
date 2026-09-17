@@ -19,7 +19,7 @@
       }
     ]
   },
-  "google_jobs?gl=in&hl=en&q=Systems Engineer Infosys": {
+  "google_jobs?hl=en&location=India&q=Systems Engineer Infosys": {
     "search_metadata": {
       "status": "Success",
       "processed_at": "2026-09-14T08:00:00.000Z"

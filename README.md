@@ -18,6 +18,7 @@ Replay mode runs the whole pipeline on recorded search results and uses **zero S
 
 ```bash
 npm test            # 12 media and 6 offer golden cases, failure scenarios, extraction and pHash checks
+npm run test:live   # real SerpApi + Gemini checks; spends about 8 searches
 npm run typecheck
 npm run build
 ```
@@ -55,11 +56,11 @@ Paste a message or upload a screenshot. Phones, emails, links, amounts and payme
 
 | Step | Engine | Question it answers |
 | --- | --- | --- |
-| 1 | Google Search (knowledge graph) | What is the organisation's official website? |
+| 1 | Google Search | What are the organisation's official websites? (the knowledge graph when Google shows one, else results whose domain carries the name, e.g. `sbi.bank.in` and `sbi.co.in`) |
 | 2 | Google Search | Is this phone number, email or site reported as a scam on 2+ sites? |
-| 3 | Google Jobs | Does the company really list this job? |
+| 3 | Google Jobs (`location=India`) | Does the company really list this job? |
 | 3 | Google Search (`site:gov.in`) | Is the scheme on a government website? |
-| 3 | Google Maps | Is this the number on the organisation's official listing? |
+| 3 | Google Search (`site:` the official domain) | Does the official website list this helpline number? |
 
 | Verdict | Meaning |
 | --- | --- |
@@ -67,7 +68,7 @@ Paste a message or upload a screenshot. Phones, emails, links, amounts and payme
 | `NO_RED_FLAGS` | Official site found, the listing or a contact confirmed on it, and no warning signs. Never "genuine": capped below High confidence |
 | `UNVERIFIED` | Everything else, including when no official site is found |
 
-The six offer demo cases in `fixtures/offers/` are synthetic, like the media ones.
+The six offer demo cases in `fixtures/offers/` are synthetic, like the media ones. `npm run test:live` runs four real checks against SerpApi and Gemini (about 8 searches) with keys from `.env.local`; set `LIVE_DUMP_DIR` to save the raw responses.
 
 ## Modes
 

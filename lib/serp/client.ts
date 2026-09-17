@@ -122,7 +122,8 @@ const OUT_OF_SEARCHES = /run out of searches|out of searches|searches? (left|rem
  * guard → live request with one retry → cache, ledger and (record) fixture.
  */
 export function createSerpClient(opts: SerpClientOptions): SerpClient {
-  const timeoutMs = opts.timeoutMs ?? 8_000;
+  // Google Jobs regularly takes 5–15 s on a query it has not cached.
+  const timeoutFor = (engine: EngineId) => opts.timeoutMs ?? (engine === 'google_jobs' ? 15_000 : 8_000);
   const retryDelayMs = opts.retryDelayMs ?? 1_000;
 
   const spend = (engine: EngineId, cached: boolean, ctx: SearchContext) => {
@@ -164,7 +165,7 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     let raw: unknown;
     for (let attempt = 0; ; attempt++) {
       try {
-        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, timeoutSignal(timeoutMs, ctx.signal));
+        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, timeoutSignal(timeoutFor(engine), ctx.signal));
         break;
       } catch (err) {
         if (ctx.signal?.aborted) throw timedOut(engine);

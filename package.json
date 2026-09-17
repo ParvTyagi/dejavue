@@ -12,6 +12,7 @@
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:live": "vitest run --config vitest.live.config.ts",
     "typecheck": "tsc --noEmit",
     "fixtures:hash": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/hash-test-images.ts",
     "fixtures:author": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/author-synthetic-fixtures.ts"

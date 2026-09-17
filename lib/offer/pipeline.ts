@@ -36,12 +36,12 @@ export type OfferDeps = Pick<
 
 type Item = Record<string, unknown>;
 
-const SCAM_WORDS =
-  /\b(scams?|scammers?|fraud|frauds|fraudulent|fraudsters?|fake|cheat|cheated|cheating|phishing|complaints?|beware|spam|not genuine)\b/i;
+// "Complaint" is left out: customer-care directories say "for any complaint, call …" next to real numbers.
+const SCAM_WORDS = /\b(scams?|scammers?|fraud|frauds|fraudulent|fraudsters?|fake|cheat|cheated|cheating|phishing|beware|spam|not genuine)\b/i;
 const EXCERPT_CHARS = 600;
 const MAX_CONTACT_SEARCHES = 2;
 
-const lastTen = (phone: string) => phone.replace(/\D/g, '').slice(-10);
+const mentionsScam = (e: Evidence) => SCAM_WORDS.test(`${e.title ?? ''} ${e.snippet ?? ''}`);
 
 /** The query that finds pages mentioning a contact, written the ways it usually appears online. */
 function contactQuery(c: Contact): string {
@@ -66,32 +66,24 @@ function contactsToSearch(contacts: Contact[]): Contact[] {
   return [phone, other].filter((c): c is Contact => !!c).slice(0, MAX_CONTACT_SEARCHES);
 }
 
-/** The organisation's own domain: the knowledge graph's website, else the first result whose domain carries its name. */
-function findOfficialDomain(raw: unknown, name: string, government: boolean): string | undefined {
+/**
+ * Every domain the search shows to be the organisation's own, most likely first: the knowledge graph's website
+ * when there is one, then each result whose domain carries the name. Large organisations have several
+ * (amazon.com, amazon.in, amazon.jobs), and banks are moving to .bank.in (sbi.co.in, sbi.bank.in).
+ */
+export function findOfficialDomains(raw: unknown, name: string, government: boolean): string[] {
   const r = (raw ?? {}) as Item;
-  const acceptable = (host: string | undefined) =>
+  const acceptable = (host: string | undefined): host is string =>
     !!host && couldBeOwnSite(host) && (!government || isGovernmentDomain(host));
+  const found: string[] = [];
   const website = (r.knowledge_graph as Item | undefined)?.website;
   const kgHost = typeof website === 'string' ? registrableDomain(website) : undefined;
-  if (acceptable(kgHost)) return kgHost;
+  if (acceptable(kgHost)) found.push(kgHost);
   for (const result of Array.isArray(r.organic_results) ? (r.organic_results as Item[]) : []) {
     const host = typeof result.link === 'string' ? registrableDomain(result.link) : undefined;
-    if (acceptable(host) && nameMatchesDomain(name, host!)) return host;
+    if (acceptable(host) && nameMatchesDomain(name, host) && !found.includes(host)) found.push(host);
   }
-  return undefined;
-}
-
-/** Phone numbers on the top Maps listings. */
-function mapsPhones(raw: unknown): { title?: string; phone: string; link?: string }[] {
-  const r = (raw ?? {}) as Item;
-  const places = [r.place_results as Item | undefined, ...(Array.isArray(r.local_results) ? (r.local_results as Item[]) : [])];
-  return places
-    .filter((p): p is Item => !!p && typeof p.phone === 'string')
-    .map((p) => ({
-      title: typeof p.title === 'string' ? p.title : undefined,
-      phone: p.phone as string,
-      link: typeof p.website === 'string' ? p.website : undefined,
-    }));
+  return found;
 }
 
 function offerNarrative(verdict: OfferVerdict, flags: RedFlag[], s: OfferSignals, officialEvidence?: string): OfferDossier['narrative'] {
@@ -204,6 +196,7 @@ async function checkWithinDeadline(
   }
   const contacts = reading.contacts.map((c) => ({ ...c, evidenceIds: [...c.evidenceIds] }));
   let officialDomain: string | undefined;
+  let officialDomains: string[] = [];
   let officialEvidence: string | undefined;
   let listingFound = false;
 
@@ -213,6 +206,7 @@ async function checkWithinDeadline(
     role: reading.role,
     schemeName: reading.schemeName,
     officialDomain,
+    officialDomains,
     contacts,
     paymentQuote: reading.paymentQuote,
     urgencyQuotes: reading.urgencyQuotes,
@@ -240,13 +234,13 @@ async function checkWithinDeadline(
     const res = await call(req);
     if (res) {
       const items = collect(req, res, 'official');
-      officialDomain = findOfficialDomain(res.raw, name, government);
+      officialDomains = findOfficialDomains(res.raw, name, government);
+      officialDomain = officialDomains[0];
       officialEvidence = officialDomain ? items.find((e) => sameOrganisationSite(e.domain, officialDomain!))?.id : undefined;
     }
   }
-  if (officialDomain) {
-    for (const c of contacts) if (c.host && sameOrganisationSite(c.host, officialDomain)) c.onOfficialSite = true;
-  }
+  const isOfficial = (host: string) => officialDomains.some((d) => sameOrganisationSite(host, d));
+  for (const c of contacts) if (c.host && isOfficial(c.host)) c.onOfficialSite = true;
   stopIfScam(1);
 
   // Step 2: search contacts for scam reports, in parallel.
@@ -263,18 +257,14 @@ async function checkWithinDeadline(
       const res = results[i];
       if (!res) return;
       const items = collect(reqs[i], res, `contact${i}`);
-      // A site describing itself does not count as a report about itself.
-      const reports = items.filter(
-        (e) => SCAM_WORDS.test(`${e.title ?? ''} ${e.snippet ?? ''}`) && !(c.host && sameOrganisationSite(e.domain, c.host)),
-      );
+      // Neither a site describing itself nor the organisation's own pages (which warn about fraud next to their
+      // real numbers) count as reports.
+      const reports = items.filter((e) => mentionsScam(e) && !(c.host && sameOrganisationSite(e.domain, c.host)) && !isOfficial(e.domain));
       c.scamReports = new Set(reports.map((e) => registrableDomain(e.domain) ?? e.domain)).size;
       c.evidenceIds.push(...reports.map((e) => e.id));
-      if (officialDomain) {
-        // An official page warning about the contact is a report, not an endorsement.
-        c.onOfficialSite = items.some(
-          (e) => sameOrganisationSite(e.domain, officialDomain!) && !SCAM_WORDS.test(`${e.title ?? ''} ${e.snippet ?? ''}`),
-        );
-      }
+      const onOfficial = items.filter((e) => isOfficial(e.domain));
+      if (officialDomain) c.onOfficialSite = onOfficial.length > 0;
+      c.evidenceIds.push(...onOfficial.map((e) => e.id));
     });
     stopIfScam(2);
   }
@@ -296,31 +286,19 @@ async function checkWithinDeadline(
       const req = engines.schemeSearch(reading.schemeName, site);
       const res = await call(req);
       if (res) listingFound = collect(req, res, 'scheme').some((e) => isGovernmentDomain(e.domain));
-    } else if (reading.type === 'customer_support' && reading.org) {
-      const req = engines.mapsPlace(reading.org);
-      const res = await call(req);
-      if (res) {
-        mapsPhones(res.raw).forEach((place, i) => {
-          const matching = contacts.filter((c) => c.type === 'phone' && lastTen(c.value) === lastTen(place.phone));
-          if (matching.length === 0) return;
-          const ev: Evidence = {
-            id: `maps-${i}`,
-            engine: 'google_maps',
-            kind: 'place',
-            url: place.link ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(reading.org!)}`,
-            domain: place.link ? (registrableDomain(place.link) ?? 'google.com') : 'google.com',
-            title: place.title,
-            snippet: `Listed phone: ${place.phone}`,
-            dateTrust: 'none',
-            trustedSource: false,
-          };
-          evidence.push(ev);
-          emit({ type: 'evidence', data: ev });
-          for (const c of matching) {
-            c.onOfficialSite = true;
-            c.evidenceIds.push(ev.id);
+    } else if (reading.type === 'customer_support' && officialDomain) {
+      // A helpline is real when the official site itself lists the number.
+      const phone = contacts.find((c) => c.type === 'phone' && c.onOfficialSite !== true);
+      if (phone) {
+        const req = engines.contactSearch(`site:${officialDomain} ${contactQuery(phone)}`);
+        const res = await call(req);
+        if (res) {
+          const onOfficial = collect(req, res, 'helpline').filter((e) => isOfficial(e.domain));
+          if (onOfficial.length > 0) {
+            phone.onOfficialSite = true;
+            phone.evidenceIds.push(...onOfficial.map((e) => e.id));
           }
-        });
+        }
       }
     }
   }

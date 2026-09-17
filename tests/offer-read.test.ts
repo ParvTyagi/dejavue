@@ -35,6 +35,14 @@ describe('contact extraction', () => {
     ]);
   });
 
+  it('reads toll-free and shared-cost numbers of every length banks publish', () => {
+    expect(values('SBI: 1800 1234 or 1800 11 2211. ICICI: 1860 120 7777. Since 1800 the bank has grown.')).toEqual([
+      'phone:18001234',
+      'phone:1800112211',
+      'phone:18601207777',
+    ]);
+  });
+
   it('separates emails, links and bare domains without double counting', () => {
     expect(values('Mail tcs-hiring@gmail.com, apply at https://amazon-careers-india.com/apply?id=7. Or visit pmkisan-gov.online/claim.')).toEqual([
       'email:tcs-hiring@gmail.com',

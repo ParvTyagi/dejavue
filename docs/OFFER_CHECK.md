@@ -31,15 +31,15 @@ Deferred: health and investment claims (too risky to get wrong), fake quotes and
 - Gemini (`readOffer`) reads screenshot text and returns the type (`job | govt_scheme | customer_support | other`), organisation, role or scheme name, and any payment request as an **exact quote**.
 - Every quote must appear verbatim in the message or it is discarded (same guard as `lib/llm/safe.ts`).
 
-**Step 1 — official site (1 credit).** `google` `q="<org> official website"`; take the knowledge-graph website, else the first result whose domain is the organisation's name, initials or leading words run together (`infosys.com`, `sbi.co.in`, `pmkisan.gov.in`), never a prefix match. Government schemes only accept `.gov.in` / `.nic.in`. This step runs even for an obvious scam, so the result can point to the real site.
+**Step 1 — official site (1 credit).** `google` `q="<org> official website"`; keep the knowledge-graph website if Google shows one (in live testing it usually did not), then every result whose domain is the organisation's name, initials or leading words run together (`infosys.com`, `sbi.bank.in` and `sbi.co.in`, `pmkisan.gov.in`), never a prefix match, and never a profile, directory or job board. The first is shown as the official site; all of them count as official. Government schemes only accept `.gov.in` / `.nic.in`. This step runs even for an obvious scam, so the result can point to the real site.
 
-**Step 2 — contacts (1–2 credits, parallel).** `google` `q="<phone>"` and `q="<email or domain>"`, skipping contacts already on the official domain. Count distinct sites mentioning the contact next to scam words (fraud, scam, fake, cheated), and whether it appears on the official domain. An official page that warns about the contact counts as a report, not an endorsement.
+**Step 2 — contacts (1–2 credits, parallel).** `google` `q="<phone>"` and `q="<email or domain>"`, skipping contacts already on the official domain. Count distinct sites mentioning the contact next to scam words (fraud, scam, fake, cheated; not "complaint", which customer-care directories use next to real numbers), and whether it appears on an official domain. The organisation's own pages never count as reports, since they warn about fraud next to their real numbers.
 
 **Step 3 — the offer (1–2 credits, skipped if already decided).**
 
-- Job: `google_jobs` `q="<role> <org>"` → a listing from that company?
+- Job: `google_jobs` `q="<role> <org>"`, `location=India` (`gl=in` returned almost nothing and took up to 20 s) → a listing from that company?
 - Scheme: `google` `site:<gov domain> "<scheme>"`. (A `google_news` search is left for later: it adds context but cannot change the verdict.)
-- Support: `google_maps` for the official listing → does the phone match?
+- Support: `google` `site:<official domain> "<number>"` → does the official site list the number? (Maps was dropped: a search for "SBI" returned an office in Washington DC with no phone.)
 
 Budget cap 6 credits; stop as soon as the verdict is `LIKELY_SCAM` (there is no early stop for a pass). Searches default to India (`gl=in`). If searches fail, patterns alone still reach a verdict; only a screenshot with no readable text ends with no verdict (`UNREADABLE`). Explanations use fixed templates rather than Gemini.
 

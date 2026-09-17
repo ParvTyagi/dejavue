@@ -2,7 +2,8 @@
 
 /** Second-level suffixes under which the registrable domain has three labels. */
 const MULTI_PART_SUFFIXES = new Set([
-  'co.in', 'gov.in', 'nic.in', 'org.in', 'net.in', 'ac.in', 'edu.in', 'res.in', 'firm.in', 'gen.in', 'ind.in',
+  // bank.in and fin.in are the RBI-mandated domains Indian banks and financial firms are moving to.
+  'co.in', 'gov.in', 'nic.in', 'org.in', 'net.in', 'ac.in', 'edu.in', 'res.in', 'firm.in', 'gen.in', 'ind.in', 'bank.in', 'fin.in',
   'co.uk', 'org.uk', 'gov.uk', 'ac.uk',
   'com.au', 'gov.au', 'com.sg', 'gov.sg', 'co.jp', 'com.br', 'co.za',
 ]);

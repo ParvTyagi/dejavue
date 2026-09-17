@@ -55,7 +55,8 @@ const BARE_DOMAIN = new RegExp(`(?<![@\\w.-])(?:www\\.)?(?:[a-z0-9](?:[a-z0-9-]*
 
 // Indian mobiles (with or without +91 / 0), toll-free 1800 numbers, and other numbers written with a + country code.
 const INDIAN_MOBILE = /(?<![\d+])(?:\+?91[\s-]?|0)?([6-9]\d{2}[\s-]?\d{3}[\s-]?\d{4}|[6-9]\d{4}[\s-]?\d{5})(?!\d)/g;
-const TOLL_FREE = /(?<!\d)1800[\s-]?\d{3}[\s-]?\d{3,4}(?!\d)/g;
+// 1800 (toll-free) and 1860 (shared cost) numbers come in 8 to 11 digits: 1800 1234, 1800 11 2211, 1800-425-3800.
+const TOLL_FREE = /(?<!\d)18[06]0(?:[\s-]?\d){4,7}(?!\d)/g;
 const INTERNATIONAL = /(?<![\d+])\+(?!91)\d{1,3}[\s-]?\d[\d\s-]{6,13}\d(?!\d)/g;
 
 /** "WhatsApp: ", "WhatsApp only on ", "Telegram - " just before a number. */
@@ -104,8 +105,8 @@ export function extractContacts(message: string): Contact[] {
     if (CHAT_APP_NEAR.test(before)) push('chat', `${/telegram/i.test(before) ? 'telegram' : 'whatsapp'}:${value}`);
     rest = blank(rest, m.index!, m[0].length);
   };
-  for (const m of rest.matchAll(INDIAN_MOBILE)) phone(m, `+91${m[1].replace(/\D/g, '')}`);
   for (const m of rest.matchAll(TOLL_FREE)) phone(m, m[0].replace(/\D/g, ''));
+  for (const m of rest.matchAll(INDIAN_MOBILE)) phone(m, `+91${m[1].replace(/\D/g, '')}`);
   for (const m of rest.matchAll(INTERNATIONAL)) phone(m, `+${m[0].replace(/\D/g, '')}`);
 
   return contacts;
@@ -134,6 +135,9 @@ const FEE_PHRASE =
 /** Payment requests in Hinglish and Hindi that name no amount: "paise bhejo", "fees jama karein", "शुल्क जमा करें". */
 const PAY_PHRASE =
   /\b(paise|paisa|rupaye|rupay|amount|fees?|charges?|deposit)\s+(bhejo|bhejein|bhejiye|bhejna|bharo|bharein|bhariye|bharna|jama\s+(karo|karein|kariye|karna|karen))\b|(पैसे|शुल्क|फीस|राशि)\s*(भेजें|भेजो|भेजिए|भरें|जमा)/i;
+/** Words any pressure-to-act quote contains, used to keep Gemini from calling "confirm your seat" urgent. */
+export const URGENCY_WORDS =
+  /\b(today|tonight|now|immediately|urgent(ly)?|hurry|limited|last|within|expir(e|es|ing)|soon|quick(ly)?|fast|deadline|only \d+|jaldi|abhi|turant)\b|तुरंत|जल्दी|आज|अभी/i;
 const URGENCY =
   /\b(today only|only today|last date (is )?today|limited (seats|slots|vacancies|offer)|few (seats|slots) left|hurry|urgent(ly)?|immediately|act now|within \d+ (hours?|hrs?|minutes?)|expires? (today|tonight|soon)|don'?t miss|last chance|abhi apply)\b/i;
 
