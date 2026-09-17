@@ -1,0 +1,220 @@
+<!doctype html>
+<!--
+  PROTOTYPE — throwaway. Answers one question for the wayfinder ticket
+  "Does WebCodecs decode phone MP4s in Chrome?":
+  can Chrome's WebCodecs (with the mp4box.js demuxer) decode frames from real
+  phone videos at 1 fps, and how does the <video> seek + canvas fallback compare?
+  Open this file in Chrome (double-click), pick a video, read the results.
+  Nothing is uploaded; everything runs in this tab.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PROTOTYPE: WebCodecs probe</title>
+<script src="https://cdn.jsdelivr.net/npm/mp4box@0.5.2/dist/mp4box.all.min.js"></script>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 16px; background: #fff; color: #111; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .banner { background: #fff3cd; padding: 6px 10px; border-radius: 6px; margin-bottom: 12px; }
+  table { border-collapse: collapse; margin: 12px 0; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 4px 6px; text-align: left; vertical-align: top; font-size: 13px; }
+  th { background: #f3f3f3; }
+  .ok { color: #0a7a2f; font-weight: 600; } .bad { color: #b00020; font-weight: 600; }
+  .strip { display: flex; gap: 4px; flex-wrap: wrap; margin: 4px 0 12px; }
+  .strip canvas { width: 120px; border: 1px solid #ccc; }
+  pre { background: #f6f6f6; padding: 8px; max-height: 240px; overflow: auto; font-size: 12px; }
+  button { padding: 6px 10px; }
+</style>
+</head>
+<body>
+<h1>PROTOTYPE: does WebCodecs decode phone MP4s in Chrome?</h1>
+<div class="banner">Throwaway probe. Pick one video at a time (iPhone HEVC, Android H.264, …). Nothing leaves this tab.</div>
+<p id="env"></p>
+<input type="file" id="file" accept="video/*,.mp4,.mov">
+<button id="copy">Copy results as JSON</button>
+<table id="results">
+  <thead><tr>
+    <th>File</th><th>Container / codec</th><th>Size / rotation</th>
+    <th>A: WebCodecs</th><th>B: &lt;video&gt; seek</th>
+  </tr></thead><tbody></tbody>
+</table>
+<div id="strips"></div>
+<h3>Log</h3>
+<pre id="log"></pre>
+
+<script>
+const MAX_SECONDS = 120, THUMB_W = 320;
+const results = [];
+const $ = (id) => document.getElementById(id);
+const log = (...a) => { $('log').textContent += a.join(' ') + '\n'; $('log').scrollTop = 1e9; };
+$('env').textContent = 'Browser: ' + navigator.userAgent + ' | VideoDecoder: ' + ('VideoDecoder' in window ? 'present' : 'MISSING');
+
+$('file').onchange = async (e) => {
+  const file = e.target.files[0]; if (!file) return;
+  const r = { file: file.name, bytes: file.size, type: file.type };
+  results.push(r);
+  log(`\n=== ${file.name} (${(file.size / 1e6).toFixed(1)} MB, ${file.type || 'no mime'})`);
+  const strip = document.createElement('div');
+  strip.innerHTML = `<b>${file.name}</b>`;
+  $('strips').appendChild(strip);
+  try { r.webcodecs = await probeWebCodecs(file, r, strip); }
+  catch (err) { r.webcodecs = { ok: false, error: String(err) }; log('A error:', err); }
+  try { r.videoSeek = await probeVideoSeek(file, strip); }
+  catch (err) { r.videoSeek = { ok: false, error: String(err) }; log('B error:', err); }
+  render();
+  e.target.value = '';
+};
+
+$('copy').onclick = async () => {
+  const json = JSON.stringify({ userAgent: navigator.userAgent, results }, null, 2);
+  try { await navigator.clipboard.writeText(json); log('Copied results JSON.'); }
+  catch { log(json); }
+};
+
+function render() {
+  $('results').tBodies[0].innerHTML = results.map((r) => {
+    const cell = (x) => !x ? '…' :
+      `<span class="${x.ok ? 'ok' : 'bad'}">${x.ok ? 'OK' : 'FAIL'}</span>` +
+      (x.frames != null ? `<br>${x.frames} frames in ${x.ms} ms` : '') +
+      (x.config ? `<br>config supported: ${x.config}` : '') +
+      (x.error ? `<br>${x.error}` : '');
+    return `<tr><td>${r.file}<br>${(r.bytes / 1e6).toFixed(1)} MB</td>
+      <td>${r.brand ?? '?'}<br>${r.codec ?? '?'}</td>
+      <td>coded ${r.coded ?? '?'}<br>display ${r.display ?? '?'}<br>rotation ${r.rotation ?? '?'}°</td>
+      <td>${cell(r.webcodecs)}</td><td>${cell(r.videoSeek)}</td></tr>`;
+  }).join('');
+}
+
+// ---------- A: mp4box.js demux + WebCodecs VideoDecoder, 1 frame per second ----------
+async function probeWebCodecs(file, r, strip) {
+  if (!('VideoDecoder' in window)) return { ok: false, error: 'VideoDecoder not available' };
+  const t0 = performance.now();
+  const buf = await file.arrayBuffer();
+  buf.fileStart = 0;
+  const mp4 = MP4Box.createFile();
+
+  const info = await new Promise((resolve, reject) => {
+    mp4.onReady = resolve;
+    mp4.onError = (e) => reject(new Error('mp4box: ' + e));
+    mp4.appendBuffer(buf);
+    mp4.flush();
+    setTimeout(() => reject(new Error('mp4box: no moov found (not an MP4/MOV?)')), 5000);
+  });
+  const track = info.videoTracks[0];
+  if (!track) return { ok: false, error: 'no video track' };
+
+  const m = track.matrix; // fixed-point 16.16 [a,b,u,c,d,v,x,y,w]
+  const rotation = m ? Math.round(Math.atan2(m[1], m[0]) * 180 / Math.PI) : 0;
+  Object.assign(r, {
+    brand: info.brands?.join(','), codec: track.codec,
+    coded: `${track.video.width}x${track.video.height}`, rotation,
+    durationS: +(track.duration / track.timescale).toFixed(1), samples: track.nb_samples,
+  });
+  render();
+  log('A track:', track.codec, r.coded, 'rotation', rotation, 'duration', r.durationS, 's');
+
+  // codec-specific description box (avcC / hvcC / vpcC / av1C)
+  let description;
+  const trak = mp4.getTrackById(track.id);
+  for (const entry of trak.mdia.minf.stbl.stsd.entries) {
+    const box = entry.avcC || entry.hvcC || entry.vpcC || entry.av1C;
+    if (box) {
+      const s = new DataStream(undefined, 0, DataStream.BIG_ENDIAN);
+      box.write(s);
+      description = new Uint8Array(s.buffer, 8); // strip box header
+      break;
+    }
+  }
+  const config = { codec: track.codec, codedWidth: track.video.width, codedHeight: track.video.height, description };
+  const support = await VideoDecoder.isConfigSupported(config);
+  log('A isConfigSupported:', support.supported);
+  if (!support.supported) return { ok: false, config: false, error: `codec ${track.codec} not supported` };
+
+  const samples = await new Promise((resolve) => {
+    const all = [];
+    mp4.onSamples = (_id, _u, s) => { all.push(...s); if (all.length >= track.nb_samples) resolve(all); };
+    mp4.setExtractionOptions(track.id, null, { nbSamples: Infinity });
+    mp4.start();
+    mp4.flush();
+    setTimeout(() => resolve(all), 5000);
+  });
+
+  let frames = 0, nextUs = 0, decodeError;
+  const limitUs = MAX_SECONDS * 1e6;
+  const decoder = new VideoDecoder({
+    output: (frame) => {
+      if (frame.timestamp >= nextUs && frame.timestamp < limitUs) {
+        if (frames < 12) strip.appendChild(frameToCanvas(frame, frame.displayWidth, frame.displayHeight, 'A'));
+        frames++;
+        nextUs += 1e6;
+      }
+      frame.close();
+    },
+    error: (e) => { decodeError = e; },
+  });
+  decoder.configure(config);
+  for (const s of samples) {
+    if (decodeError) break;
+    const ts = (1e6 * s.cts) / s.timescale;
+    if (ts > limitUs + 2e6) break;
+    decoder.decode(new EncodedVideoChunk({
+      type: s.is_sync ? 'key' : 'delta', timestamp: ts,
+      duration: (1e6 * s.duration) / s.timescale, data: s.data,
+    }));
+    while (decoder.decodeQueueSize > 30) await new Promise((res) => setTimeout(res, 5));
+  }
+  if (!decodeError) await decoder.flush().catch((e) => { decodeError = e; });
+  decoder.close();
+  const ms = Math.round(performance.now() - t0);
+  log('A decoded', frames, 'frames at 1 fps in', ms, 'ms', decodeError ? 'ERROR ' + decodeError : '');
+  return { ok: !decodeError && frames > 0, config: true, frames, ms, error: decodeError ? String(decodeError) : undefined };
+}
+
+// ---------- B: <video> element + currentTime seek + canvas draw ----------
+async function probeVideoSeek(file, strip) {
+  const t0 = performance.now();
+  const url = URL.createObjectURL(file);
+  const v = document.createElement('video');
+  v.muted = true; v.preload = 'auto'; v.src = url;
+  try {
+    await once(v, 'loadedmetadata', 8000);
+    log('B metadata:', `${v.videoWidth}x${v.videoHeight}`, 'duration', v.duration.toFixed(1), 's');
+    const last = results[results.length - 1];
+    last.display = `${v.videoWidth}x${v.videoHeight}`; render();
+    let frames = 0;
+    const end = Math.min(Math.floor(v.duration), MAX_SECONDS);
+    for (let t = 0; t < end; t++) {
+      v.currentTime = t + 0.01;
+      await once(v, 'seeked', 3000);
+      if (frames < 12) strip.appendChild(frameToCanvas(v, v.videoWidth, v.videoHeight, 'B'));
+      frames++;
+    }
+    const ms = Math.round(performance.now() - t0);
+    log('B drew', frames, 'frames in', ms, 'ms');
+    return { ok: frames > 0, frames, ms };
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+function once(el, ev, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error(`${ev} timed out`)), timeoutMs);
+    el.addEventListener(ev, () => { clearTimeout(t); resolve(); }, { once: true });
+    el.addEventListener('error', () => { clearTimeout(t); reject(new Error('media error ' + (el.error?.code ?? ''))); }, { once: true });
+  });
+}
+
+function frameToCanvas(src, w, h, label) {
+  const c = document.createElement('canvas');
+  c.width = THUMB_W; c.height = Math.round((h / w) * THUMB_W) || 180;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(src, 0, 0, c.width, c.height);
+  ctx.fillStyle = '#000a'; ctx.fillRect(0, 0, 22, 18);
+  ctx.fillStyle = '#fff'; ctx.fillText(label, 6, 13);
+  c.title = label === 'A' ? 'WebCodecs frame (rotation NOT applied)' : '<video> frame (rotation applied by browser)';
+  return c;
+}
+</script>
+</body>
+</html>
