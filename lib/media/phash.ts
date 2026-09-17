@@ -96,3 +96,8 @@ export const HAMMING = {
   sameImage: 6,
   confirmedMatch: 10,
 } as const;
+
+/** True when any of the hashes is the same image as `pHash` (Hamming ≤ 6). */
+export function isSameImage(hashes: string[], pHash: string): boolean {
+  return hashes.some((h) => hamming(h, pHash) <= HAMMING.sameImage);
+}

@@ -3,7 +3,7 @@ import { haversineKm, isLocationMismatch } from '@/lib/evidence/geo';
 import { confirmMatches, type ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import type { LlmPort } from '@/lib/llm/port';
 import { narrateSafe, parseClaimSafe, readSceneSafe } from '@/lib/llm/safe';
-import { AuditBudget, SerpError, type SearchResult, type SerpClient } from '@/lib/serp/client';
+import { AuditBudget, SerpError, timedOut, type SearchResult, type SerpClient } from '@/lib/serp/client';
 import * as engines from '@/lib/serp/engines';
 import { toEvidence, toPlace } from '@/lib/serp/normalize';
 import type {
@@ -14,9 +14,13 @@ import type {
   EngineId,
   Evidence,
   GeoPoint,
+  LocationCheck,
   SceneReading,
   Signals,
+  SkipReason,
 } from '@/lib/shared/types';
+import { LIMITATIONS } from '@/lib/shared/types';
+import { untilAborted } from '@/lib/shared/time';
 import { TTL, type Store } from '@/lib/store/types';
 import { decide } from '@/lib/verdict/rules';
 import { score } from '@/lib/verdict/score';
@@ -26,7 +30,10 @@ export interface AuditDeps {
   llm: LlmPort;
   hashThumbnail: ThumbnailHasher;
   store: Store;
+  /** The audit's notion of "now": evidence dates and claims are judged against it. */
   clock: () => Date;
+  /** Real time, for when the dossier was created. Differs from `clock` when replaying a recorded case. */
+  wallClock: () => Date;
   newId: () => string;
   trustedDomains: ReadonlySet<string>;
   sign: (unsigned: Omit<Dossier, 'signature'>) => string;
@@ -77,15 +84,9 @@ const LANDMARK_MIN_CONFIDENCE = 0.8;
 const IMAGE_ENGINES: EngineId[] = ['google_lens', 'bing_reverse_image', 'yandex_images'];
 const NEWS_WINDOW_MS = 3 * 86_400_000;
 
-/** Rejects with TIMED_OUT when the signal fires, even if the work itself ignores it. */
-function untilAborted<T>(work: Promise<T>, signal: AbortSignal, engine: EngineId): Promise<T> {
-  const timedOut = () => new SerpError('TIMED_OUT', engine, `${engine} timed out`);
-  if (signal.aborted) return Promise.reject(timedOut());
-  return new Promise<T>((resolve, reject) => {
-    const onAbort = () => reject(timedOut());
-    signal.addEventListener('abort', onAbort, { once: true });
-    work.then(resolve, reject).finally(() => signal.removeEventListener('abort', onAbort));
-  });
+function locationCheck(claim: GeoPoint | undefined, scene: GeoPoint | undefined): LocationCheck {
+  if (!claim || !scene) return 'unchecked';
+  return isLocationMismatch(claim, scene) ? 'mismatch' : 'agrees';
 }
 
 /**
@@ -98,13 +99,13 @@ export async function runAudit(input: AuditInput, emit: Emit, deps: AuditDeps): 
   const deadline = new AbortController();
   const timer = setTimeout(() => deadline.abort(), auditMs);
   try {
-    return await audit(input, emit, deps, deadline.signal, auditMs);
+    return await auditWithinDeadline(input, emit, deps, deadline.signal, auditMs);
   } finally {
     clearTimeout(timer);
   }
 }
 
-async function audit(
+async function auditWithinDeadline(
   input: AuditInput,
   emit: Emit,
   deps: AuditDeps,
@@ -118,7 +119,10 @@ async function audit(
   const budget = new AuditBudget(input.options.maxCredits);
   const used = new Set<EngineId>();
   const failed = new Set<EngineId>();
-  const skipped = new Set<EngineId>();
+  const skipped = new Map<EngineId, SkipReason>();
+  const skip = (engine: EngineId, reason: SkipReason) => {
+    if (!skipped.has(engine)) skipped.set(engine, reason);
+  };
   const evidence: Evidence[] = [];
   const tiersRun: number[] = [];
   let partial = false;
@@ -134,7 +138,7 @@ async function audit(
   const call = async (req: engines.EngineRequest, signal = auditSignal): Promise<SearchResult | undefined> => {
     if (halt || auditSignal.aborted) {
       partial = true;
-      skipped.add(req.engine);
+      skip(req.engine, halt ? 'halted' : 'deadline');
       return undefined;
     }
     try {
@@ -146,13 +150,13 @@ async function audit(
         onCredit: (data) => emit({ type: 'credit', data }),
         signal,
       });
-      const res = await untilAborted(search, signal, req.engine);
+      const res = await untilAborted(search, signal, () => timedOut(req.engine));
       used.add(req.engine);
       return res;
     } catch (err) {
       const e = err instanceof SerpError ? err : new SerpError('UPSTREAM_FAILED', req.engine, String(err));
       if (e.code === 'BUDGET_EXCEEDED') {
-        skipped.add(req.engine);
+        skip(req.engine, 'budget');
       } else {
         failed.add(req.engine);
         if (e.code === 'RATE_LIMITED' || e.code === 'CREDITS_EXHAUSTED') {
@@ -292,7 +296,7 @@ async function audit(
 
     const affordable = plan.slice(0, Math.max(0, budget.remaining));
     for (const p of plan.slice(affordable.length)) {
-      skipped.add(p.req.engine);
+      skip(p.req.engine, 'budget');
       emit({
         type: 'error',
         data: { code: 'BUDGET_EXCEEDED', message: `Skipped ${p.req.engine}: audit credit cap reached`, recoverable: true },
@@ -390,13 +394,12 @@ async function audit(
     claimGeo,
     sceneGeo,
     deltaSKm: claimGeo && sceneGeo ? Math.round(haversineKm(claimGeo, sceneGeo)) : undefined,
-    locationMismatch: !!(claimGeo && sceneGeo && isLocationMismatch(claimGeo, sceneGeo)),
-    locationAgrees: !!(claimGeo && sceneGeo && !isLocationMismatch(claimGeo, sceneGeo)),
+    location: locationCheck(claimGeo, sceneGeo),
     newsCorroborates,
     sceneResolvedByMaps,
     enginesUsed: [...used],
     enginesFailed: [...failed],
-    enginesSkipped: [...skipped],
+    enginesSkipped: [...skipped].filter(([engine]) => !used.has(engine)).map(([engine, reason]) => ({ engine, reason })),
     dateSpreadDays,
   };
   emit({
@@ -422,11 +425,13 @@ async function audit(
     metrics: {
       totalMs: Math.round(performance.now() - startedMs),
       credits: budget.used,
+      maxCredits: budget.max,
       cacheHit: !!cached,
       tiersRun,
       partial,
     },
-    createdAt: deps.clock().toISOString(),
+    limitations: LIMITATIONS,
+    createdAt: deps.wallClock().toISOString(),
   };
   const dossier: Dossier = { ...unsigned, signature: deps.sign(unsigned) };
   await deps.store.putAudit(dossier, TTL.auditMs);

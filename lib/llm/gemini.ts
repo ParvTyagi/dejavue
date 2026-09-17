@@ -1,4 +1,5 @@
 import { GoogleGenAI, Type } from '@google/genai';
+import { timeoutSignal } from '@/lib/shared/time';
 import type { LlmPort } from './port';
 
 const SYSTEM =
@@ -61,8 +62,7 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
       ),
 
     readScene: async (frameUrl, signal) => {
-      const fetchSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(5_000)]) : AbortSignal.timeout(5_000);
-      const res = await fetch(frameUrl, { signal: fetchSignal });
+      const res = await fetch(frameUrl, { signal: timeoutSignal(5_000, signal) });
       const buf = Buffer.from(await res.arrayBuffer());
       if (!res.ok || buf.byteLength > MAX_IMAGE_BYTES) throw new Error('Frame unavailable for scene reading');
       return ask(

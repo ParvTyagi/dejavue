@@ -4,7 +4,7 @@ import { AuditError, runAudit } from '@/lib/orchestrator/pipeline';
 import { createAuditDeps } from '@/lib/server/deps';
 import { SerpError, type SerpClient } from '@/lib/serp/client';
 import type { EngineId } from '@/lib/shared/types';
-import { getCase, replay } from './harness';
+import { getCase, NO_RESULTS, replay, withFakeSerpApi } from './harness';
 import { makeStore, STORE_KINDS } from './stores';
 
 const failing =
@@ -17,6 +17,18 @@ const down = async () => {
   throw new Error('Gemini unavailable');
 };
 
+describe('dossier', () => {
+  it('states what DejaVue cannot tell you and when the result was created, even for a replayed case', async () => {
+    const c = getCase('c2-uttarakhand-flood');
+    const created = new Date('2026-09-17T12:00:00Z');
+    const { dossier } = await replay(c, () => ({ wallClock: () => created }));
+    expect(dossier!.limitations.join(' ')).toMatch(/does not detect deepfakes/);
+    expect(dossier!.createdAt).toBe(created.toISOString());
+    // The evidence is still judged at the moment the case was recorded.
+    expect(dossier!.signals.claim.claimedAt).toBe(c.submittedAt);
+  });
+});
+
 describe('audit stream', () => {
   it('streams stages, credits and evidence, then stops early and saves the unused searches', async () => {
     const { events } = await replay(getCase('c2-uttarakhand-flood'));
@@ -24,6 +36,7 @@ describe('audit stream', () => {
     expect(types.slice(0, 5)).toEqual(['stage:claim', 'stage:scene', 'stage:tier1', 'credit', 'evidence']);
     expect(types.slice(-5)).toEqual(['short_circuit', 'stage:judge', 'signal', 'stage:narrate', 'dossier']);
     expect(events.find((e) => e.type === 'short_circuit')?.data).toEqual({ afterTier: 1, creditsSaved: 5 });
+    expect(events.find((e) => e.type === 'credit')?.data).toEqual({ engine: 'google_lens', cached: false, totalCredits: 1, maxCredits: 6 });
     expect(events.filter((e) => e.type === 'evidence').map((e) => (e.data as { match?: { confirmed: boolean } }).match?.confirmed)).toEqual([
       true,
       true,
@@ -61,7 +74,13 @@ describe('engine failures', () => {
     }));
     expect(dossier!.metrics.partial).toBe(true);
     expect(dossier!.metrics.credits).toBe(1);
-    expect(dossier!.signals.enginesSkipped).toEqual(expect.arrayContaining(['yandex_images', 'google_news', 'google_maps']));
+    expect(dossier!.signals.enginesSkipped).toEqual(
+      expect.arrayContaining([
+        { engine: 'yandex_images', reason: 'halted' },
+        { engine: 'google_news', reason: 'halted' },
+        { engine: 'google_maps', reason: 'halted' },
+      ]),
+    );
     // Same-day copies were found, but the location was never checked, so the claim is not confirmed.
     expect(dossier!.verdict).toBe('UNVERIFIED');
   });
@@ -79,29 +98,35 @@ describe('engine failures', () => {
     expect(calls).toEqual(['google_lens']);
   });
 
+  const liveAudit = (c: ReturnType<typeof getCase>) => {
+    const deps = createAuditDeps({ mode: 'live', store: makeStore('memory', () => new Date()), clock: () => new Date(c.submittedAt) });
+    return runAudit(c.input, () => {}, { ...deps, sign: () => 'test' });
+  };
+
   it('keeps going when a search engine simply has no results', async () => {
     const c = getCase('s11-unverified-nothing');
-    const fetched: string[] = [];
-    const noResults = async (url: string | URL | Request) => {
-      fetched.push(new URL(String(url)).searchParams.get('engine')!);
-      const body = { search_metadata: { status: 'Success' }, error: "Google hasn't returned any results for this query." };
-      return new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': 'application/json' } });
-    };
-    vi.stubGlobal('fetch', vi.fn(noResults));
-    vi.stubEnv('SERPAPI_API_KEY', 'test-key');
-    vi.stubEnv('GEMINI_API_KEY', '');
-    try {
-      const deps = createAuditDeps({ mode: 'live', store: makeStore('memory', () => new Date()), clock: () => new Date(c.submittedAt) });
-      const dossier = await runAudit(c.input, () => {}, { ...deps, sign: () => 'test' });
-      expect(dossier.signals.enginesFailed).toEqual([]);
-      expect(dossier.metrics.tiersRun).toEqual([1, 2, 3]);
-      // One request per engine: an empty result is not an error, so nothing is retried.
-      expect(fetched).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news', 'google_maps']);
-      expect(dossier.verdict).toBe('UNVERIFIED');
-    } finally {
-      vi.unstubAllGlobals();
-      vi.unstubAllEnvs();
-    }
+    await withFakeSerpApi(
+      () => NO_RESULTS,
+      async (fetched) => {
+        const dossier = await liveAudit(c);
+        expect(dossier.signals.enginesFailed).toEqual([]);
+        expect(dossier.metrics.tiersRun).toEqual([1, 2, 3]);
+        // One request per engine: an empty result is not an error, so nothing is retried.
+        expect(fetched).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news', 'google_maps']);
+        expect(dossier.verdict).toBe('UNVERIFIED');
+      },
+    );
+  });
+
+  it('reports exhausted credits, not a rate limit or an upstream failure, when the SerpApi plan is used up', async () => {
+    const c = getCase('s11-unverified-nothing');
+    await withFakeSerpApi(
+      () => ({ status: 429, body: { error: 'Your account has run out of searches.' } }),
+      async (fetched) => {
+        await expect(liveAudit(c)).rejects.toMatchObject({ code: 'CREDITS_EXHAUSTED', status: 402 });
+        expect(fetched).toEqual(['google_lens']);
+      },
+    );
   });
 });
 
@@ -117,7 +142,13 @@ describe('audit deadline', () => {
     expect(performance.now() - started).toBeLessThan(2_000);
     expect(dossier!.metrics.partial).toBe(true);
     expect(dossier!.signals.enginesFailed).toEqual(['bing_reverse_image']);
-    expect(dossier!.signals.enginesSkipped).toEqual(expect.arrayContaining(['yandex_images', 'google_news', 'google_maps']));
+    expect(dossier!.signals.enginesSkipped).toEqual(
+      expect.arrayContaining([
+        { engine: 'yandex_images', reason: 'deadline' },
+        { engine: 'google_news', reason: 'deadline' },
+        { engine: 'google_maps', reason: 'deadline' },
+      ]),
+    );
     expect(dossier!.evidence.filter((e) => e.engine === 'google_lens')).toHaveLength(2);
   });
 
@@ -172,7 +203,7 @@ describe('credit budget', () => {
     const { dossier, events } = await replay(c, undefined, { ...c.input, options: { ...c.input.options, maxCredits: 4 } });
     expect(dossier!.metrics.credits).toBe(4);
     expect(dossier!.signals.enginesUsed).toContain('google_news');
-    expect(dossier!.signals.enginesSkipped).toEqual(['google_maps']);
+    expect(dossier!.signals.enginesSkipped).toEqual([{ engine: 'google_maps', reason: 'budget' }]);
     expect(dossier!.signals.sceneGeo).toBeUndefined();
     expect(events.filter((e) => e.type === 'error' && e.data.code === 'BUDGET_EXCEEDED')).toHaveLength(2);
     // Without Maps the location is unchecked, so news corroboration is the strongest verdict (capped at 60).
@@ -305,7 +336,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
     expect(again.dossier!.signals.enginesUsed).toEqual(expect.arrayContaining(['google_news', 'google_maps']));
     // News and Maps for the claimed place: 2 credits, while Lens, Bing, Yandex and the scene landmark come from the cache.
     expect(again.dossier!.metrics.credits).toBe(2);
-    expect(again.dossier!.signals.locationAgrees).toBe(true);
+    expect(again.dossier!.signals.location).toBe('agrees');
     expect(again.dossier!.verdict).toBe('CONSISTENT');
   });
 
@@ -379,18 +410,7 @@ describe('query cache in live mode', () => {
   it('keeps Maps lookups for 30 days but other searches for 24 hours', async () => {
     const c = getCase('s11-unverified-nothing');
     let now = new Date(c.submittedAt);
-    const fetched: string[] = [];
-    vi.stubGlobal(
-      'fetch',
-      vi.fn(async (url: string | URL | Request) => {
-        fetched.push(new URL(String(url)).searchParams.get('engine')!);
-        const body = { search_metadata: { status: 'Success' }, error: "Google hasn't returned any results for this query." };
-        return new Response(JSON.stringify(body), { status: 200, headers: { 'content-type': 'application/json' } });
-      }),
-    );
-    vi.stubEnv('SERPAPI_API_KEY', 'test-key');
-    vi.stubEnv('GEMINI_API_KEY', '');
-    try {
+    await withFakeSerpApi(() => NO_RESULTS, async (fetched) => {
       const store = makeStore('memory', () => now);
       // The image cache is off so the second audit searches again and only the query cache is exercised.
       const audit = () =>
@@ -404,9 +424,6 @@ describe('query cache in live mode', () => {
       expect(fetched).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news']);
       expect(second.metrics.credits).toBe(4);
       expect(second.signals.enginesUsed).toContain('google_maps');
-    } finally {
-      vi.unstubAllGlobals();
-      vi.unstubAllEnvs();
-    }
+    });
   });
 });

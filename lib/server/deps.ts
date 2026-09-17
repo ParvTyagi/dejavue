@@ -121,6 +121,7 @@ export function createAuditDeps(opts: DepsOptions): AuditDeps {
     hashThumbnail: replay ? createReplayThumbnails(fixturesDir, opts.caseId) : liveThumbnails,
     store: opts.store,
     clock,
+    wallClock: () => new Date(),
     newId: () => `dv_${randomBytes(4).toString('hex')}`,
     trustedDomains: trusted,
     sign: (unsigned) => signDossier(unsigned, process.env.DOSSIER_HMAC_SECRET),

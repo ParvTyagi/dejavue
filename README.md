@@ -95,4 +95,5 @@ tests/               tests at the runAudit seam, plus pHash
 - Plain Tailwind components instead of shadcn/ui, and React state instead of Zustand.
 - Keyframes are extracted with `<video>` seeking on the main thread, not WebCodecs in a worker.
 - Fixtures are stored per case as `serp.json`, `llm.json` and `thumbs.json` (hashes only) rather than one file per request.
-- Not built yet: Google Trends, the PNG share card, Playwright UI test, ESLint/Prettier/Husky and the gitleaks pre-commit hook.
+- Not built yet: Google Trends, Playwright UI test, ESLint/Prettier/Husky and the gitleaks pre-commit hook.
+- Extra error code `TIMED_OUT` (504) when the reverse-image search cannot finish before the audit deadline.

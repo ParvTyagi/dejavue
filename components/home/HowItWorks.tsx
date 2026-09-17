@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Reveal, SpotlightCard } from '@/components/ui/motion';
+import { ENGINE_LABEL } from '@/lib/client/labels';
 
 export function HowItWorks() {
   return (
@@ -79,7 +80,7 @@ function BitGrid() {
 }
 
 const TIERS = [
-  { label: 'Google Lens', tier: 1 },
+  { label: ENGINE_LABEL.google_lens, tier: 1 },
   { label: 'Bing · Yandex', tier: 2 },
   { label: 'News · Maps · YouTube', tier: 3 },
 ];

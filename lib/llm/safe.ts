@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import type { Claim, Dossier, Evidence, SceneReading, Signals, Verdict } from '@/lib/shared/types';
+import type { Claim, Dossier, Evidence, SceneReading, Signals, Verdict, VerdictFlags } from '@/lib/shared/types';
+import { withTimeLimit } from '@/lib/shared/time';
 import type { LlmPort, ParseClaimRequest } from './port';
 
 const claimOut = z.object({
@@ -17,20 +18,6 @@ const sceneOut = z.object({
   language: z.string().max(50).nullish(),
 });
 
-/** Runs an LLM call with a time limit, cancelling it when the limit passes. */
-function withinTime<T>(ms: number, run: (signal: AbortSignal) => Promise<T>): Promise<T> {
-  if (ms <= 0) return Promise.reject(new Error('No time left for the LLM call'));
-  const controller = new AbortController();
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  const timeout = new Promise<never>((_, reject) => {
-    timer = setTimeout(() => {
-      controller.abort();
-      reject(new Error(`LLM call timed out after ${ms} ms`));
-    }, ms);
-  });
-  return Promise.race([run(controller.signal), timeout]).finally(() => clearTimeout(timer));
-}
-
 const narrativeOut = z.object({
   summary: z.string().min(1).max(600),
   bullets: z.array(z.object({ text: z.string().min(1).max(300), evidenceIds: z.array(z.string()) })).max(8),
@@ -45,7 +32,7 @@ export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest, timeo
     refersToPast: false,
   };
   try {
-    const out = claimOut.parse(await withinTime(timeoutMs, (signal) => llm.parseClaim(req, signal)));
+    const out = claimOut.parse(await withTimeLimit(timeoutMs, (signal) => llm.parseClaim(req, signal)));
     const claimedAt = req.date ?? out.claimedAt ?? req.submittedAt;
     return {
       rawText: req.text,
@@ -64,7 +51,7 @@ export async function parseClaimSafe(llm: LlmPort, req: ParseClaimRequest, timeo
 
 export async function readSceneSafe(llm: LlmPort, frameUrl: string, timeoutMs: number): Promise<SceneReading | undefined> {
   try {
-    const out = sceneOut.parse(await withinTime(timeoutMs, (signal) => llm.readScene(frameUrl, signal)));
+    const out = sceneOut.parse(await withTimeLimit(timeoutMs, (signal) => llm.readScene(frameUrl, signal)));
     return {
       signText: out.signText,
       landmarks: out.landmarks,
@@ -89,7 +76,7 @@ type Narrative = Dossier['narrative'];
 export async function narrateSafe(
   llm: LlmPort,
   verdict: Verdict,
-  flags: Dossier['flags'],
+  flags: VerdictFlags,
   signals: Signals,
   evidence: Evidence[],
   timeoutMs: number,
@@ -104,7 +91,7 @@ export async function narrateSafe(
       signals: rest,
       evidence: top.map(({ id, engine, domain, title, publishedAt, url }) => ({ id, engine, domain, title, publishedAt, url })),
     };
-    const out = narrativeOut.parse(await withinTime(timeoutMs, (signal) => llm.narrate(request, signal)));
+    const out = narrativeOut.parse(await withTimeLimit(timeoutMs, (signal) => llm.narrate(request, signal)));
     // Bullets citing unknown evidence are dropped, which blocks invented sources.
     const bullets = out.bullets.filter((b) => b.evidenceIds.length > 0 && b.evidenceIds.every((id) => known.has(id)));
     const text = [out.summary, ...bullets.map((b) => b.text)].join(' ');
@@ -115,14 +102,14 @@ export async function narrateSafe(
   }
 }
 
-const fmtDate = (iso: string) => new Date(iso).toISOString().slice(0, 10);
+const isoDay = (iso: string) => new Date(iso).toISOString().slice(0, 10);
 
 export function templateNarrative(verdict: Verdict, s: Signals): Narrative {
   const bullets: Narrative['bullets'] = [];
   const first = s.firstSeen && s.confirmedMatches.find((e) => e.id === s.firstSeen!.evidenceId);
   if (first && s.firstSeen) {
     bullets.push({
-      text: `Earliest confirmed copy: ${first.domain} on ${fmtDate(s.firstSeen.at)}, ${s.deltaTDays} days before the claimed date.`,
+      text: `Earliest confirmed copy: ${first.domain} on ${isoDay(s.firstSeen.at)}, ${s.deltaTDays} days before the claimed date.`,
       evidenceIds: [first.id],
     });
   }

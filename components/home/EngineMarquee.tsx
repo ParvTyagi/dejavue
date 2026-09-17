@@ -1,15 +1,9 @@
-import { Calendar, Globe, Image as ImageIcon, MapPin, Newspaper, ScanSearch, Search, Youtube } from 'lucide-react';
+import { ENGINE_ICON } from '@/components/audit/icons';
+import { ENGINE_LABEL } from '@/lib/client/labels';
+import type { EngineId } from '@/lib/shared/types';
 
-const ENGINES = [
-  { name: 'Google Lens', icon: ScanSearch },
-  { name: 'Bing Reverse Image', icon: ImageIcon },
-  { name: 'Yandex Images', icon: Globe },
-  { name: 'Google News', icon: Newspaper },
-  { name: 'Google Maps', icon: MapPin },
-  { name: 'YouTube', icon: Youtube },
-  { name: 'Google Search', icon: Search },
-  { name: 'Date-restricted search', icon: Calendar },
-];
+const SEARCHED: EngineId[] = ['google_lens', 'bing_reverse_image', 'yandex_images', 'google_news', 'google_maps', 'youtube', 'google'];
+const ENGINES = SEARCHED.map((id) => ({ name: ENGINE_LABEL[id], icon: ENGINE_ICON[id] }));
 
 /** Endless, edge-faded strip of the engines DejaVue searches. */
 export function EngineMarquee() {

@@ -30,6 +30,7 @@ describe('golden cases (replay fixtures)', () => {
     it('is deterministic and never fails an engine', async () => {
       const [a, b] = await Promise.all([replay(c), replay(c)]);
       const { totalMs: _a, ...metricsA } = a.dossier!.metrics;
+      expect(a.dossier!.metrics.maxCredits).toBe(c.input.options.maxCredits);
       const { totalMs: _b, ...metricsB } = b.dossier!.metrics;
       expect({ ...a.dossier!, metrics: metricsA }).toEqual({ ...b.dossier!, metrics: metricsB });
       expect(a.dossier!.signals.enginesFailed).toEqual([]);

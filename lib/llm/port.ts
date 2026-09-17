@@ -1,4 +1,4 @@
-import type { Claim, Evidence, SceneReading, Signals, Verdict } from '@/lib/shared/types';
+import type { Claim, Evidence, SceneReading, Signals, Verdict, VerdictFlags } from '@/lib/shared/types';
 
 export interface ParseClaimRequest {
   text: string;
@@ -9,7 +9,7 @@ export interface ParseClaimRequest {
 
 export interface NarrateRequest {
   verdict: Verdict;
-  flags: { recycled: boolean; misplaced: boolean };
+  flags: VerdictFlags;
   signals: Omit<Signals, 'confirmedMatches'>;
   evidence: Pick<Evidence, 'id' | 'engine' | 'domain' | 'title' | 'publishedAt' | 'url'>[];
 }

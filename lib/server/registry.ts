@@ -1,4 +1,4 @@
-import type { AuditEvent } from '@/lib/shared/types';
+import { isFinalEvent, type AuditEvent } from '@/lib/shared/types';
 
 interface LiveAudit {
   events: AuditEvent[];
@@ -17,7 +17,7 @@ export function openAudit(id: string): (e: AuditEvent) => void {
   audits.set(id, audit);
   return (event) => {
     audit.events.push(event);
-    if (event.type === 'dossier' || (event.type === 'error' && !event.data.recoverable)) {
+    if (isFinalEvent(event)) {
       audit.done = true;
       setTimeout(() => audits.delete(id), RETAIN_MS).unref?.();
     }

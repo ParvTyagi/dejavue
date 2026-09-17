@@ -1,15 +1,16 @@
 'use client';
 
 import { useEffect, useReducer } from 'react';
-import type { AuditEvent, Dossier, EngineId, Evidence, Stage } from '@/lib/shared/types';
+import { isFinalEvent, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
 
 export interface AuditState {
   stage?: Stage;
   evidence: Evidence[];
   credits: number;
+  maxCredits?: number;
   creditLog: { engine: EngineId; cached: boolean }[];
   shortCircuit?: { afterTier: number; creditsSaved: number };
-  notices: { code: string; message: string }[];
+  notices: { id: number; code: string; message: string }[];
   dossier?: Dossier;
   fatal?: { code: string; message: string };
 }
@@ -23,16 +24,21 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
     case 'evidence':
       return { ...state, evidence: [...state.evidence, e.data] };
     case 'credit':
-      return { ...state, credits: e.data.totalCredits, creditLog: [...state.creditLog, { engine: e.data.engine, cached: e.data.cached }] };
+      return {
+        ...state,
+        credits: e.data.totalCredits,
+        maxCredits: e.data.maxCredits,
+        creditLog: [...state.creditLog, { engine: e.data.engine, cached: e.data.cached }],
+      };
     case 'short_circuit':
       return { ...state, shortCircuit: e.data };
     case 'signal':
       return state;
     case 'dossier':
-      return { ...state, dossier: e.data, evidence: e.data.evidence, credits: e.data.metrics.credits };
+      return { ...state, dossier: e.data, evidence: e.data.evidence, credits: e.data.metrics.credits, maxCredits: e.data.metrics.maxCredits };
     case 'error':
       return e.data.recoverable
-        ? { ...state, notices: [...state.notices, { code: e.data.code, message: e.data.message }] }
+        ? { ...state, notices: [...state.notices, { id: state.notices.length, code: e.data.code, message: e.data.message }] }
         : { ...state, fatal: { code: e.data.code, message: e.data.message } };
   }
 }
@@ -50,7 +56,7 @@ export function useAuditStream(id: string): AuditState {
       es.addEventListener(type, (msg) => {
         const event = { type, data: JSON.parse((msg as MessageEvent).data) } as AuditEvent;
         dispatch(event);
-        if (type === 'dossier' || (event.type === 'error' && !event.data.recoverable)) {
+        if (isFinalEvent(event)) {
           finished = true;
           es.close();
         }

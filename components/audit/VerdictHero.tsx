@@ -1,5 +1,6 @@
 'use client';
 
+import { Info } from 'lucide-react';
 import { motion } from 'motion/react';
 import { EASE_OUT, NumberTicker } from '@/components/ui/motion';
 import { TONE_VAR, VERDICT_LABEL } from '@/lib/client/labels';
@@ -100,6 +101,13 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
             <p className="mt-4 text-sm font-medium text-warn">Partial audit: searches ran out, timed out or were rate-limited before all engines ran.</p>
           )}
           {dossier.narrative.source === 'template' && <p className="mt-4 text-xs text-faint">Explanation generated from the evidence without AI.</p>}
+          <ul className="mt-5 space-y-1 border-t border-line pt-4 text-xs text-faint">
+            {dossier.limitations.map((l) => (
+              <li key={l} className="flex items-start gap-1.5">
+                <Info className="mt-0.5 size-3 shrink-0" /> {l}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <ConfidenceRing value={dossier.confidence.value} band={dossier.confidence.band} color={color} />

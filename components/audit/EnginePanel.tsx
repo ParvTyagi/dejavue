@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ENGINE_LABEL } from '@/lib/client/labels';
+import { ENGINE_LABEL, SKIP_REASON_LABEL } from '@/lib/client/labels';
 import type { Dossier } from '@/lib/shared/types';
 import { ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
@@ -11,7 +11,7 @@ export function EnginePanel({ dossier }: { dossier: Dossier }) {
   const rows = [
     ...enginesUsed.map((e) => ({ e, status: 'used', cls: 'text-good bg-good-soft' })),
     ...enginesFailed.map((e) => ({ e, status: 'failed', cls: 'text-bad bg-bad-soft' })),
-    ...enginesSkipped.filter((e) => !enginesUsed.includes(e)).map((e) => ({ e, status: 'skipped', cls: 'text-warn bg-warn-soft' })),
+    ...enginesSkipped.map((s) => ({ e: s.engine, status: `skipped · ${SKIP_REASON_LABEL[s.reason]}`, cls: 'text-warn bg-warn-soft' })),
   ];
   const m = dossier.metrics;
   const sceneTags = [...new Set([...dossier.scene.landmarks, ...dossier.scene.text].map((t) => t.trim()).filter(Boolean))];

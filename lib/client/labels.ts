@@ -1,4 +1,4 @@
-import type { DateTrust, EngineId, Stage, Verdict } from '@/lib/shared/types';
+import type { DateTrust, EngineId, SkipReason, Stage, Verdict } from '@/lib/shared/types';
 
 export type Tone = 'bad' | 'warn' | 'good' | 'info' | 'muted';
 
@@ -17,14 +17,6 @@ export const TONE_VAR: Record<Tone, string> = {
   good: 'var(--good)',
   info: 'var(--info)',
   muted: 'var(--muted)',
-};
-
-export const TONE_CLASS: Record<Tone, string> = {
-  bad: 'text-bad border-bad/40 bg-bad-soft',
-  warn: 'text-warn border-warn/40 bg-warn-soft',
-  good: 'text-good border-good/40 bg-good-soft',
-  info: 'text-info border-info/40 bg-info-soft',
-  muted: 'text-muted border-line-strong bg-surface-2',
 };
 
 export const ENGINE_LABEL: Record<EngineId, string> = {
@@ -47,6 +39,19 @@ export const STAGES: { id: Stage; label: string; detail: string }[] = [
   { id: 'judge', label: 'Judge', detail: 'Deterministic rules' },
   { id: 'narrate', label: 'Explain', detail: 'Plain-language summary' },
 ];
+
+const ENGINE_ID = new RegExp(String.raw`\b(${Object.keys(ENGINE_LABEL).join('|')})\b`, 'g');
+
+/** Replaces engine ids in server messages ("Skipped google_maps: …") with their names. */
+export const humanizeEngines = (message: string) => message.replace(ENGINE_ID, (id) => ENGINE_LABEL[id as EngineId]);
+
+export const SKIP_REASON_LABEL: Record<SkipReason, string> = {
+  budget: 'over budget',
+  deadline: 'out of time',
+  halted: 'SerpApi refused',
+};
+
+export const DEFAULT_MAX_CREDITS = 6;
 
 export const DATE_TRUST_LABEL: Record<DateTrust, string> = {
   metadata: 'page metadata',

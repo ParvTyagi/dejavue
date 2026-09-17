@@ -1,4 +1,4 @@
-import { hamming, HAMMING } from '@/lib/media/phash';
+import { isSameImage } from '@/lib/media/phash';
 import type { Dossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
@@ -22,7 +22,7 @@ export function createMemoryStore(clock: () => Date = () => new Date()): Store {
     findMedia: async (hashes) => {
       for (const item of media.values()) {
         const entry = live(item);
-        if (entry && hashes.some((h) => hamming(h, entry.pHash) <= HAMMING.sameImage)) return entry;
+        if (entry && isSameImage(hashes, entry.pHash)) return entry;
       }
       return undefined;
     },

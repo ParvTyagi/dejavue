@@ -35,7 +35,7 @@ export function FactTiles({ dossier }: { dossier: Dossier }) {
       label: 'Scene vs. claim',
       value: s.deltaSKm !== undefined ? <><NumberTicker value={s.deltaSKm} /> km</> : '—',
       hint: s.sceneGeo ? `Scene: ${s.sceneGeo.label}` : 'Scene not located',
-      highlight: s.locationMismatch,
+      highlight: s.location === 'mismatch',
     },
   ];
 

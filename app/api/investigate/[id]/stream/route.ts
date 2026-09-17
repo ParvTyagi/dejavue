@@ -1,14 +1,13 @@
 import { appStore } from '@/lib/server/deps';
 import { apiError } from '@/lib/server/http';
 import { subscribe } from '@/lib/server/registry';
-import type { AuditEvent } from '@/lib/shared/types';
+import { isFinalEvent, type AuditEvent } from '@/lib/shared/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const encoder = new TextEncoder();
 const frame = (e: AuditEvent) => encoder.encode(`event: ${e.type}\ndata: ${JSON.stringify(e.data)}\n\n`);
-const isFinal = (e: AuditEvent) => e.type === 'dossier' || (e.type === 'error' && !e.data.recoverable);
 
 /** Server-Sent Events: replays everything so far, then streams until the dossier arrives. */
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -28,7 +27,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       const send = (e: AuditEvent) => {
         if (closed) return;
         controller.enqueue(frame(e));
-        if (isFinal(e)) queueMicrotask(close);
+        if (isFinalEvent(e)) queueMicrotask(close);
       };
 
       unsubscribe = subscribe(id, send);

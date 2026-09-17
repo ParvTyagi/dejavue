@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { EASE_OUT } from '@/components/ui/motion';
 import { loadAuditIntro, type AuditIntro } from '@/lib/client/auditIntro';
+import { humanizeEngines } from '@/lib/client/labels';
 import { useAuditStream } from '@/lib/client/useAuditStream';
 import { ClaimBanner } from './ClaimBanner';
 import { CreditMeter } from './CreditMeter';
@@ -17,6 +18,7 @@ import { FactTiles } from './FactTiles';
 import { Panel } from './Panel';
 import { ScorePanel } from './ScorePanel';
 import { StageRail } from './StageRail';
+import { Toaster } from './Toaster';
 import { Timeline } from './Timeline';
 import { VerdictHero } from './VerdictHero';
 
@@ -50,6 +52,7 @@ export function AuditView({ id }: { id: string }) {
         </div>
 
         <ClaimBanner intro={intro} dossier={dossier} />
+        <Toaster notices={state.notices} />
 
         <AnimatePresence>
           {fatal && (
@@ -135,6 +138,7 @@ export function AuditView({ id }: { id: string }) {
                 evidence={dossier?.evidence ?? state.evidence}
                 firstSeenId={s?.firstSeen?.evidenceId}
                 searching={status === 'live'}
+                inputPreview={intro?.previews[0]}
               />
             </Panel>
 
@@ -144,7 +148,7 @@ export function AuditView({ id }: { id: string }) {
                   {state.notices.map((n, i) => (
                     <motion.li key={i} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} className="flex gap-2">
                       <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
-                      {n.message}
+                      {humanizeEngines(n.message)}
                     </motion.li>
                   ))}
                 </ul>

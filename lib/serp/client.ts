@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import type { EngineId, FixtureMode } from '@/lib/shared/types';
+import { pause, timeoutSignal } from '@/lib/shared/time';
 import { TTL, type Store } from '@/lib/store/types';
 
 /** Performs one real SerpApi request. Only used in `record` and `live` modes. */
@@ -18,7 +19,7 @@ export interface SearchContext {
   caseId?: string;
   /** Which keyframe an image search was run on. */
   frameIndex?: number;
-  onCredit?: (e: { engine: EngineId; cached: boolean; totalCredits: number }) => void;
+  onCredit?: (e: { engine: EngineId; cached: boolean; totalCredits: number; maxCredits: number }) => void;
   /** Aborts the request (audit deadline or tier timeout). An aborted search is never retried. */
   signal?: AbortSignal;
 }
@@ -110,21 +111,11 @@ export function scrubResponse(raw: unknown): unknown {
   });
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+/** The error for a search that was cancelled by the audit deadline or a tier timeout. */
+export const timedOut = (engine: EngineId) => new SerpError('TIMED_OUT', engine, `${engine} timed out`);
 
-/** Waits, but gives up as soon as the signal fires. */
-export function pause(ms: number, signal?: AbortSignal): Promise<void> {
-  if (ms <= 0) return Promise.resolve();
-  return new Promise((resolve) => {
-    const timer = setTimeout(done, ms);
-    function done() {
-      clearTimeout(timer);
-      signal?.removeEventListener('abort', done);
-      resolve();
-    }
-    signal?.addEventListener('abort', done, { once: true });
-  });
-}
+// SerpApi reports an exhausted plan with HTTP 429 as well; only the message tells it apart.
+const OUT_OF_SEARCHES = /run out of searches|out of searches|searches? (left|remaining).*0|plan.*(limit|exceeded)/i;
 
 /**
  * The only path to SerpApi. Order: fixtures (replay) → query cache → budget
@@ -136,7 +127,7 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
 
   const spend = (engine: EngineId, cached: boolean, ctx: SearchContext) => {
     if (!cached) ctx.budget.used++;
-    ctx.onCredit?.({ engine, cached, totalCredits: ctx.budget.used });
+    ctx.onCredit?.({ engine, cached, totalCredits: ctx.budget.used, maxCredits: ctx.budget.max });
   };
 
   const guard = (engine: EngineId, ctx: SearchContext) => {
@@ -144,8 +135,6 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
       throw new SerpError('BUDGET_EXCEEDED', engine, `Skipped ${engine}: audit credit cap of ${ctx.budget.max} reached`);
     }
   };
-
-  const timedOut = (engine: EngineId) => new SerpError('TIMED_OUT', engine, `${engine} timed out`);
 
   return async (engine, params, ctx) => {
     if (ctx.signal?.aborted) throw timedOut(engine);
@@ -175,19 +164,20 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     let raw: unknown;
     for (let attempt = 0; ; attempt++) {
       try {
-        const perCall = AbortSignal.timeout(timeoutMs);
-        const signal = ctx.signal ? AbortSignal.any([perCall, ctx.signal]) : perCall;
-        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, signal);
+        raw = await opts.transport(engine, { ...params, no_cache: 'false' }, timeoutSignal(timeoutMs, ctx.signal));
         break;
       } catch (err) {
         if (ctx.signal?.aborted) throw timedOut(engine);
         const status = (err as { status?: number }).status;
+        if (status === 402 || (status === 429 && OUT_OF_SEARCHES.test((err as Error).message))) {
+          throw new SerpError('CREDITS_EXHAUSTED', engine, `SerpApi account has no searches left (${engine})`);
+        }
         if (status === 429) throw new SerpError('RATE_LIMITED', engine, `${engine} rate limited by SerpApi`);
         const retryable = status === undefined || status >= 500;
         if (attempt >= 1 || !retryable) {
           throw new SerpError('UPSTREAM_FAILED', engine, `${engine} failed: ${(err as Error).message}`);
         }
-        await sleep(retryDelayMs);
+        await pause(retryDelayMs, ctx.signal);
         if (ctx.signal?.aborted) throw timedOut(engine);
       }
     }

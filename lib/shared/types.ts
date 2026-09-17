@@ -80,6 +80,17 @@ export interface SceneReading {
   language?: string;
 }
 
+/** Whether the scene was located near the claimed place. 'unchecked' when either place is unknown. */
+export type LocationCheck = 'agrees' | 'mismatch' | 'unchecked';
+
+/** Why an engine was not searched. */
+export type SkipReason = 'budget' | 'deadline' | 'halted';
+
+export interface VerdictFlags {
+  recycled: boolean;
+  misplaced: boolean;
+}
+
 export interface Signals {
   claim: Claim;
   confirmedMatches: Evidence[];
@@ -88,14 +99,12 @@ export interface Signals {
   claimGeo?: GeoPoint;
   sceneGeo?: GeoPoint;
   deltaSKm?: number;
-  locationMismatch: boolean;
-  /** Both the claimed place and the scene were located, and they are close enough. */
-  locationAgrees: boolean;
+  location: LocationCheck;
   newsCorroborates: boolean;
   sceneResolvedByMaps: boolean;
   enginesUsed: EngineId[];
   enginesFailed: EngineId[];
-  enginesSkipped: EngineId[];
+  enginesSkipped: { engine: EngineId; reason: SkipReason }[];
   dateSpreadDays?: number;
 }
 
@@ -107,24 +116,34 @@ export interface ScoreReason {
 export interface Dossier {
   id: string;
   verdict: Verdict;
-  flags: { recycled: boolean; misplaced: boolean };
+  flags: VerdictFlags;
   confidence: { value: number; band: 'High' | 'Medium' | 'Low'; reasons: ScoreReason[] };
   signals: Signals;
   evidence: Evidence[];
   scene: { text: string[]; landmarks: string[] };
   narrative: { summary: string; bullets: { text: string; evidenceIds: string[] }[]; source: 'llm' | 'template' };
-  metrics: { totalMs: number; credits: number; cacheHit: boolean; tiersRun: number[]; partial: boolean };
+  metrics: { totalMs: number; credits: number; maxCredits: number; cacheHit: boolean; tiersRun: number[]; partial: boolean };
+  /** What DejaVue cannot tell you, carried with every result. */
+  limitations: string[];
   signature: string;
   createdAt: string;
 }
+
+export const LIMITATIONS = [
+  'DejaVue finds earlier appearances of media. It does not detect deepfakes or AI-generated images.',
+  'Finding no earlier copy never proves that media is authentic.',
+];
 
 export type AuditEvent =
   | { type: 'stage'; data: { stage: Stage } }
   | { type: 'evidence'; data: Evidence }
   | { type: 'signal'; data: { firstSeen?: Signals['firstSeen']; deltaTDays?: number; deltaSKm?: number } }
-  | { type: 'credit'; data: { engine: EngineId; cached: boolean; totalCredits: number } }
+  | { type: 'credit'; data: { engine: EngineId; cached: boolean; totalCredits: number; maxCredits: number } }
   | { type: 'short_circuit'; data: { afterTier: number; creditsSaved: number } }
   | { type: 'dossier'; data: Dossier }
   | { type: 'error'; data: { code: string; message: string; recoverable: boolean } };
 
 export type Emit = (event: AuditEvent) => void;
+
+/** The event that ends an audit stream: the dossier, or an error that stops the audit. */
+export const isFinalEvent = (e: AuditEvent) => e.type === 'dossier' || (e.type === 'error' && !e.data.recoverable);

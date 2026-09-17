@@ -1,6 +1,6 @@
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
-import { hamming, HAMMING } from '@/lib/media/phash';
+import { isSameImage } from '@/lib/media/phash';
 import type { Dossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
@@ -48,7 +48,7 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
       const rows = db
         .prepare('SELECT phash, payload_json FROM media_cache WHERE expires_at > ?')
         .all(now()) as { phash: string; payload_json: string }[];
-      const row = rows.find((r) => hashes.some((h) => hamming(h, r.phash) <= HAMMING.sameImage));
+      const row = rows.find((r) => isSameImage(hashes, r.phash));
       return row && (JSON.parse(row.payload_json) as MediaCacheEntry);
     },
     async putMedia(entry, ttlMs) {

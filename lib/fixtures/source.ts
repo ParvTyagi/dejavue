@@ -4,7 +4,7 @@ import { hamming, HAMMING } from '@/lib/media/phash';
 import type { FixtureSource } from '@/lib/serp/client';
 import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import type { LlmPort } from '@/lib/llm/port';
-import { pause } from '@/lib/serp/client';
+import { pause } from '@/lib/shared/time';
 import type { AuditInput, Verdict } from '@/lib/shared/types';
 
 // A golden case lives in fixtures/<caseId>/:

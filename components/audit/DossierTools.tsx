@@ -1,21 +1,36 @@
 'use client';
 
-import { BadgeCheck, Download, Loader2, ShieldAlert, ShieldQuestion } from 'lucide-react';
+import { BadgeCheck, Download, ImageDown, Loader2, ShieldAlert, ShieldQuestion } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { Dossier } from '@/lib/shared/types';
 import { Panel } from './Panel';
+import { ShareCard } from './ShareCard';
 
 type Check = { state: 'idle' } | { state: 'checking' } | { state: 'valid' } | { state: 'invalid' } | { state: 'error'; message: string };
 
 export function DossierTools({ dossier }: { dossier: Dossier }) {
   const [check, setCheck] = useState<Check>({ state: 'idle' });
+  const [rendering, setRendering] = useState(false);
+  const card = useRef<HTMLDivElement>(null);
+
+  const save = (href: string, filename: string) => Object.assign(document.createElement('a'), { href, download: filename }).click();
 
   const download = () => {
     const url = URL.createObjectURL(new Blob([JSON.stringify(dossier, null, 2)], { type: 'application/json' }));
-    const a = Object.assign(document.createElement('a'), { href: url, download: `${dossier.id}.json` });
-    a.click();
+    save(url, `${dossier.id}.json`);
     URL.revokeObjectURL(url);
+  };
+
+  const downloadCard = async () => {
+    if (!card.current) return;
+    setRendering(true);
+    try {
+      const { toPng } = await import('html-to-image');
+      save(await toPng(card.current, { pixelRatio: 1, cacheBust: true, backgroundColor: '#08080a' }), `${dossier.id}-dejavue.png`);
+    } finally {
+      setRendering(false);
+    }
   };
 
   const verify = async () => {
@@ -31,7 +46,11 @@ export function DossierTools({ dossier }: { dossier: Dossier }) {
   return (
     <Panel title="Signed dossier" subtitle="HMAC-SHA256 over the full result">
       <p className="truncate font-mono text-[11px] text-faint">{dossier.signature}</p>
+      <ShareCard ref={card} dossier={dossier} />
       <div className="mt-3 flex gap-2">
+        <button type="button" onClick={downloadCard} className={button} disabled={rendering}>
+          {rendering ? <Loader2 className="size-3.5 animate-spin" /> : <ImageDown className="size-3.5" />} Card
+        </button>
         <button type="button" onClick={download} className={button}>
           <Download className="size-3.5" /> JSON
         </button>

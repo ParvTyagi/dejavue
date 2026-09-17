@@ -4,9 +4,10 @@ import { Check, Search } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { EASE_OUT, ScrambleText } from '@/components/ui/motion';
+import { ENGINE_LABEL } from '@/lib/client/labels';
 
 const STEPS = [
-  { label: 'Google Lens', found: '3 copies' },
+  { label: ENGINE_LABEL.google_lens, found: '3 copies' },
   { label: 'Trusted archive', found: 'dated 12 yrs ago' },
   { label: 'Decisive', found: 'stopped early' },
 ];

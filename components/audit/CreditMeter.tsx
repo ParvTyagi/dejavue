@@ -2,16 +2,15 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import { NumberTicker } from '@/components/ui/motion';
-import { ENGINE_LABEL } from '@/lib/client/labels';
+import { DEFAULT_MAX_CREDITS, ENGINE_LABEL } from '@/lib/client/labels';
 import type { AuditState } from '@/lib/client/useAuditStream';
 import { ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
 
-const MAX = 6;
-
 /** Live SerpApi search meter: six slots that fill as searches are spent. */
 export function CreditMeter({ state }: { state: AuditState }) {
   const used = state.credits;
+  const MAX = state.maxCredits ?? DEFAULT_MAX_CREDITS;
   return (
     <Panel title="SerpApi searches" subtitle={`Budget of ${MAX} per audit`}>
       <div className="flex items-end justify-between">
@@ -25,7 +24,7 @@ export function CreditMeter({ state }: { state: AuditState }) {
           </motion.span>
         )}
       </div>
-      <div className="mt-4 grid grid-cols-6 gap-1.5">
+      <div className="mt-4 grid gap-1.5" style={{ gridTemplateColumns: `repeat(${MAX}, minmax(0, 1fr))` }}>
         {Array.from({ length: MAX }, (_, i) => (
           <div key={i} className="h-2 overflow-hidden rounded-full bg-surface-2">
             <motion.div

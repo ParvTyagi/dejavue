@@ -6,9 +6,21 @@ import { EASE_OUT } from '@/components/ui/motion';
 import { DATE_TRUST_LABEL, displayDate, ENGINE_LABEL } from '@/lib/client/labels';
 import type { Evidence } from '@/lib/shared/types';
 import { ENGINE_ICON } from './icons';
+import { MatchCompare } from './MatchCompare';
 
 /** Evidence cards that slide in as each engine answers; confirmed matches first. */
-export function EvidenceFeed({ evidence, firstSeenId, searching }: { evidence: Evidence[]; firstSeenId?: string; searching: boolean }) {
+export function EvidenceFeed({
+  evidence,
+  firstSeenId,
+  searching,
+  inputPreview,
+}: {
+  evidence: Evidence[];
+  firstSeenId?: string;
+  searching: boolean;
+  /** The user's own image, shown beside each match's thumbnail when available. */
+  inputPreview?: string;
+}) {
   const ordered = searching ? evidence : [...evidence].sort((a, b) => Number(!!b.match?.confirmed) - Number(!!a.match?.confirmed));
 
   return (
@@ -16,7 +28,7 @@ export function EvidenceFeed({ evidence, firstSeenId, searching }: { evidence: E
       <ul className="space-y-2">
         <AnimatePresence initial={false}>
           {ordered.map((ev) => (
-            <EvidenceCard key={ev.id} ev={ev} firstSeen={ev.id === firstSeenId} />
+            <EvidenceCard key={ev.id} ev={ev} firstSeen={ev.id === firstSeenId} inputPreview={inputPreview} />
           ))}
         </AnimatePresence>
       </ul>
@@ -34,10 +46,9 @@ export function EvidenceFeed({ evidence, firstSeenId, searching }: { evidence: E
   );
 }
 
-function EvidenceCard({ ev, firstSeen }: { ev: Evidence; firstSeen: boolean }) {
+function EvidenceCard({ ev, firstSeen, inputPreview }: { ev: Evidence; firstSeen: boolean; inputPreview?: string }) {
   const Icon = ENGINE_ICON[ev.engine];
   const confirmed = ev.match?.confirmed;
-  const similarity = ev.match ? Math.max(0, 1 - ev.match.hamming / 32) : undefined;
 
   return (
     <motion.li
@@ -52,7 +63,7 @@ function EvidenceCard({ ev, firstSeen }: { ev: Evidence; firstSeen: boolean }) {
       }`}
     >
       {confirmed && <span aria-hidden className="absolute inset-y-0 left-0 w-0.5 bg-good" />}
-      <div className="flex items-start gap-3">
+      <div className="flex flex-wrap items-start gap-3 sm:flex-nowrap">
         <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg border border-line bg-surface-2 text-muted">
           <Icon className="size-4" />
         </span>
@@ -92,17 +103,9 @@ function EvidenceCard({ ev, firstSeen }: { ev: Evidence; firstSeen: boolean }) {
             {ev.domain} · {ev.publishedAt ? `${displayDate(ev.publishedAt)} (${DATE_TRUST_LABEL[ev.dateTrust]})` : 'undated'}
           </p>
         </div>
-        {similarity !== undefined && (
-          <div className="hidden w-20 shrink-0 text-right sm:block" title={`Hamming distance ${ev.match!.hamming} of 64`}>
-            <p className={`font-mono text-xs ${confirmed ? 'text-good' : 'text-faint'}`}>{Math.round(similarity * 100)}%</p>
-            <div className="mt-1 h-1 overflow-hidden rounded-full bg-surface-2">
-              <motion.div
-                className={`h-full rounded-full ${confirmed ? 'bg-good' : 'bg-faint'}`}
-                initial={{ width: 0 }}
-                animate={{ width: `${similarity * 100}%` }}
-                transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.2 }}
-              />
-            </div>
+        {ev.match && (
+          <div className="ml-11 sm:ml-0">
+            <MatchCompare ev={ev} inputPreview={inputPreview} />
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { EASE_OUT } from '@/components/ui/motion';
-import { displayDate } from '@/lib/client/labels';
+import { DATE_TRUST_LABEL, displayDate } from '@/lib/client/labels';
 import type { Dossier, Evidence } from '@/lib/shared/types';
 
 const W = 600;
@@ -115,7 +115,9 @@ export function Timeline({ dossier }: { dossier: Dossier }) {
             animate={{ opacity: 1, y: 0 }}
             className="pointer-events-none absolute top-0 left-1/2 max-w-[90%] -translate-x-1/2 truncate rounded-lg border border-line-strong bg-bg/95 px-3 py-1.5 text-xs shadow-xl"
           >
-            <span className="font-mono text-faint">{hover.id}</span> · {hover.domain} · {displayDate(hover.publishedAt)}
+            <span className="font-mono text-faint">{hover.id}</span> · {hover.domain} · {displayDate(hover.publishedAt)}{' '}
+            <span className="text-faint">({DATE_TRUST_LABEL[hover.dateTrust]})</span>
+            {hover.match && <span className={hover.match.confirmed ? 'text-good' : 'text-faint'}> · {hover.match.confirmed ? 'same image' : 'similar only'}</span>}
           </motion.div>
         )}
       </div>
