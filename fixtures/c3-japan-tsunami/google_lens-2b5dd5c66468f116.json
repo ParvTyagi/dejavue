@@ -1,0 +1,456 @@
+{
+  "search_metadata": {
+    "status": "Success",
+    "markdown_endpoint": "https://serpapi.com/searches/TEh0ctxrCNtB5TXAREgVyOxZ48dFl1XcPND5ZKbJHDk/6aab99532b15b9c313183d5d.md",
+    "created_at": "2026-09-17 07:40:03 UTC",
+    "processed_at": "2026-09-17 07:40:03 UTC",
+    "google_lens_url": "https://lens.google.com/uploadbyurl?url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Flens-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9sZW5zLWNoZWNrL2FjZjY5N2VlNTI2M2RjYTguanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4OTYzMDgwMiwiZXhwIjoxNzg5NjMxNzAyfQ.jdvYy1lpJEzOBNZ1OVlDRLmBJxU9uMzvJ3724Rn2_AkdcY0QdPLeCSGv5yUsjeyBJlLSOYatnrTsRd2Xd8CvHQ",
+    "total_time_taken": 3.39
+  },
+  "search_parameters": {
+    "engine": "google_lens",
+    "url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/lens-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "type": "exact_matches"
+  },
+  "exact_matches": [
+    {
+      "position": 1,
+      "title": "Unprecedented heavy monsoon rains lashed Karachi on Tuesday ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/dawndotcom/posts/unprecedented-heavy-monsoon-rains-lashed-karachi-on-tuesday-claiming-at-least-si/1183489447156025/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/5Uo41ElwdWoMKZirv8cL6nNOq2s7exBT-9SXtP3boiI.jpeg",
+      "date": "Aug 19, 2025",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 2,
+      "title": "Old, Unrelated Videos Shared As Visuals Of Pakistan Floods Aftermath",
+      "source": "Newschecker",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAADwBwCdASocABwAPrkurlcnIacnG_DgFwlsAJ0y4OACadHx7WB4AaTWZv4xHuHoVlhn4lo-ydTLk3XfCWkapn1YO9eO3by04QAA_vfqX89KS4T86zHUfA3kYVv7QhlnQBMWrXAbsBhscU21lG1XH-2Q7OpFCP6qcLvEi0RHtKk03SOOyNurIeqpFFYI6Se9EsjktahsUmm_vK-YPwcj3fj6tGCYJzTjNDt49vhlYcpvNXYpGwk_yVfJ8qtD1ocfKdod_kNBBTj709UrgNEpfWy26wR05ywUr_dKbG0vUH1JG0LXngGsfif3tZvL64l9KW4cVI0iD41Kavej5rhOu-YPvXiA2q4kmOntOL1vYiR4iea7-nb4IyPc62Ik1KDlRvmbVwFJopw4bASn5yJ84bm4Qb5Ojj0U3vT16pVQZYWtYqhrYIIKeU2sadq8T7ZmTZVK0-2RzyWyijoGgBwp3nJSksbpn-8LCVwsjuEy-vXszgqp-uHOds4L6K3jccElUQyeIRs0pOS-ggSP-5aoL0HP3P-8sifTf3ModATnAAA.webp",
+      "link": "https://newschecker.in/fact-check/visuals-of-pakistan-floods-false",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/R3mN-lVi439mpIeirfiyhOwagJ2pus2f7n9rtilcH5o.jpeg",
+      "date": "Sep 5, 2022",
+      "actual_image_width": 565,
+      "actual_image_height": 557
+    },
+    {
+      "position": 3,
+      "title": "International Archives - Page 57 of 60 - Fact Crescendo Sri Lanka",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/category/international/page/57/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/jdVu5EMaSOORLWhWcl-lLbBGCr6ne9eZT5uyNYE5-VI.jpeg",
+      "date": "Dec 3, 2020",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 4,
+      "title": "Brandsynario - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/Brandsynario/posts/yesterday-the-skies-opened-over-karachi-and-as-expected-the-city-drowned-what-sh/1227443196092976/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/NxRRvb_8t0ZfMCzNcJwgEewP2ZjxqH0u_M5M5AgvgdU.jpeg",
+      "date": "Aug 20, 2025",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 5,
+      "title": "Karachi Drowns Again! On August 19, 2025, heavy monsoon rains ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/groups/ca.starofficial/posts/31957074157224561/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/6WTTzT1uU-Uqj2J_8tOPTWLrA-QwCwmuENxnUh3WfuE.jpeg",
+      "date": "Aug 19, 2025",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 6,
+      "title": "FACT CHECK: 2011 Video of Tsunami in Japan Shared as Recent ...",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/scenes-from-2011-tsunami-that-hit-japan-shared-as-recent-karachi-floods/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/R6yTitsXV8z_ECTHtlF5_bTP_uDYr0cmDMWYQqxr7Eg.jpeg",
+      "date": "Dec 3, 2020",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 7,
+      "title": "KHI underwater...again. Today's Current Tea opens with Karachi's ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/thecurrentpk/posts/khi-underwateragaintodays-current-tea-opens-with-karachis-flooding-over-700-feed/1506773764578894/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/NF9_eTZOI9Q0fnB5g3gYDPymAyy7GIR7OWGPSCt0Meg.jpeg",
+      "date": "Apr 2, 2026",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 8,
+      "title": "Bulamu Tv Uganda on Reels - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/bulamuherbal55/videos/802489247858097/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/SXALjC5PBGIOCXYtpYOz00tQpk1f1ZICPwYE2vMGKAk.jpeg",
+      "date": "Aug 4, 2022",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 9,
+      "title": "Author: Sahan Perera - Fact Crescendo Sri Lanka",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/author/sahan-p/page/2/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/h5IxSJFDIqB6fvLkru8GU5rws8OGQEqoJUPqWj6NGM0.jpeg",
+      "date": "Dec 3, 2020",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 10,
+      "title": "International Archives - Page 59 of 63 - Fact Crescendo Sri Lanka",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/category/international/page/59/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/JG4kxwjjIS6GeKoRHZ1ca9iRRhP2alfpBe6lJIUg7xg.jpeg",
+      "date": "Dec 3, 2020",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 11,
+      "title": "Pakistan Archives | The leading fact-checking website",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/tag/pakistan/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/UfiYvxk-P_p7miD9B7BUX8xSYKrZmCO95PXOzh25r0A.jpeg",
+      "date": "Dec 3, 2020",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 12,
+      "title": "GWO DEGA NAN PEYI PAKISTAN pou dimanch 13 septanm 2020",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://m.facebook.com/BuzzAyiti/videos/gwo-dega-nan-peyi-pakistan-pou-dimanch-13-septanm-2020/606383346916989/?__so__=permalink&__rv__=related_videos",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/xiiB6HDwAIy58TKS9dHLQHxFmSgknnREc0k-N4ste_Q.jpeg",
+      "date": "Sep 13, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 13,
+      "title": "Photo by fundi bomba (@paulchelse) · April 25, 2020 - Instagram",
+      "source": "Instagram",
+      "source_icon": "https://serpapi.com/images/i/UklGRrQBAABXRUJQVlA4IKgBAABwCACdASocABwAPrUurVanIacnG_DgFolsAJ0yhHp_qvDn8INhnGwwG2i5ADWgPQA6TAiNSWpNpaKsXIF39bGj3Qd8pbRqOqkClBeAAP5tEoJlJoIDKX9SM7Zcd-n9JzxjUyFwXhzwPaTeFm2SeuMf1qLVq3t4wI3Sjh-TwPMqC3IvNj-0iGrCQSLYH_-G79_n_WM3XsPcVuoDF5Qv72r9Pf808tOK5Udv-Td9HMGptvnvxKOoa_2nDyZ2ppkSa2bNDL-K8pl3NhKk0sDV6BtpvNMgPb8dFSIrV0bFXaXgk5e0X-zIfxi-75avphrtEjwdvibNuQxApMkfs-CMi8mkD-o9_Rjb7y57vXTZx0h5MRX7n1JX-MenGUk5E4XC7vzHzXwfTDhRIb4bBfoSZiSNQ4UQGB7jAg92d64S_P_CCBANUoR3tplweT0RfxTAFGtV0vGjuwbJ25X1m04VXMMJ8Q3QzEsyD8w7jnAm5jqpKUZtVe-82LngE828BL78VksB9boYA1KjkUFty8pEW9876P84D7-A_J3doJbl9U3F-cBP_D9uzAAA.webp",
+      "link": "https://www.instagram.com/p/B_aUgNIpAWS/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/TO06PBAnDsRRdzYYUQE4ZF74cUTKCPeLc2_t36l4XXQ.jpeg",
+      "date": "Apr 25, 2020",
+      "actual_image_width": 640,
+      "actual_image_height": 640
+    },
+    {
+      "position": 14,
+      "title": "Japan Archives - Page 3 of 3 | The leading fact-checking website",
+      "source": "Fact Crescendo Sri Lanka",
+      "source_icon": "https://serpapi.com/images/i/UklGRuQBAABXRUJQVlA4INgBAAAQCQCdASocABwAPtEutFooIagoGAEAGglsAKw5QVAPkt-IOgA3MDTAN5IrJrdBp3ambmd-gfYF8mbqVVp6_LzbXtS9MpfuCxc5YOwEzTzk5kAA_v7CnTufGZ3TTojImsHM1eI1NyF2BT3fiMQPzTy1JuQoW9SGR2SasFHed3xCb__U2XB3fQsVbzOFWEbqThSM-SASk2VtA4vOAhuttw1ybtyLixxqZYwUevL5kpfw3NmMenURx1XaAsR7iRuGAPGW70dZY4qM2KKbaQn9WbVPDw--V_w76f-HmcQnjGiMoctk3e8wc-8w8Ox0LnY7CjJmN-e5Zu-e_pVoP7GYxiTrKg1LLc7jLVA0EM3jAT9wRyLLdekRtkxEHkEoN1WYk7ov5I5-qwA2uRnF0TU4dtCrLr10xdXkH3fsr9d9yx5D5yG6v8ryvTpkmLjl4-LOzd5jmVjEWwcfpNfjFNFxiZufHXjLidboumCCtxQAFDIQIXBl9aSOaKa4QXaX1Xz-G3_MjPLr7Ug9ZG9PPEZtW8314KxFIXWj6fwvdwr8mnn_mcpP8FNfysW9dKgC2V8ONhe1668ALgBB5S8XM5Af7YFskBdG35gP0t-Arixu3t2UfW7aQO7ut5AA.webp",
+      "link": "https://srilanka.factcrescendo.com/english/tag/japan/page/3/",
+      "thumbnail": "https://serpapi.com/searches/6aab99532b15b9c313183d5d/images/JO_cZbDc9E-QxK-An5BKU8_OxF7RAVo5vhKNwRdo7qA.jpeg",
+      "actual_image_width": 622,
+      "actual_image_height": 420
+    },
+    {
+      "position": 15,
+      "title": "gade sa kap pase Pakistan jodia si c Haïti nou tt mouri wi mezanmi",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/100064789278344/videos/gade-sa-kap-pase-pakistan-jodia-si-c-ha%C3%AFti-nou-tt-mouri-wi-mezanmi/550334429717414/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDVn3y-k2nQ79Nxm-K4Si_gFja0yfT02eUcZSTM7bsI-bEJ8BFaSWqNBwm&s",
+      "date": "Aug 24, 2021",
+      "actual_image_width": 308,
+      "actual_image_height": 480
+    },
+    {
+      "position": 16,
+      "title": "OpraDre.com's post - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/opradre/posts/fbcaad37/1785216231643491/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDmewWi-z49CewHbjkZgx2bF_MqPUQKohZWw70qH6gyjXaupwu_Uopy9l&s",
+      "date": "Sep 20, 2020",
+      "actual_image_width": 400,
+      "actual_image_height": 304
+    },
+    {
+      "position": 17,
+      "title": "Extreme weather conditions worldwide on Sept. 20, 2020 - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/groups/Redistribute/posts/3314892141928823/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8BBTaVKQsl5hzwTJ0mU-cPpccTEbh6Pgwt_rg3G6DOGmr3rnjgLE8qcMw&s",
+      "date": "Sep 22, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 18,
+      "title": "| OpraDre.com | Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/opradre/videos/fbcaad37/327644908449306/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDmewWi-z49CewHbjkZgx2bF_MqPUQKohZWw70qH6gyjXaupwu_Uopy9l&s",
+      "date": "Sep 20, 2020",
+      "actual_image_width": 400,
+      "actual_image_height": 304
+    },
+    {
+      "position": 19,
+      "title": "سیل پاکستان دیروز - Instagram",
+      "source": "Instagram",
+      "source_icon": "https://serpapi.com/images/i/UklGRrQBAABXRUJQVlA4IKgBAABwCACdASocABwAPrUurVanIacnG_DgFolsAJ0yhHp_qvDn8INhnGwwG2i5ADWgPQA6TAiNSWpNpaKsXIF39bGj3Qd8pbRqOqkClBeAAP5tEoJlJoIDKX9SM7Zcd-n9JzxjUyFwXhzwPaTeFm2SeuMf1qLVq3t4wI3Sjh-TwPMqC3IvNj-0iGrCQSLYH_-G79_n_WM3XsPcVuoDF5Qv72r9Pf808tOK5Udv-Td9HMGptvnvxKOoa_2nDyZ2ppkSa2bNDL-K8pl3NhKk0sDV6BtpvNMgPb8dFSIrV0bFXaXgk5e0X-zIfxi-75avphrtEjwdvibNuQxApMkfs-CMi8mkD-o9_Rjb7y57vXTZx0h5MRX7n1JX-MenGUk5E4XC7vzHzXwfTDhRIb4bBfoSZiSNQ4UQGB7jAg92d64S_P_CCBANUoR3tplweT0RfxTAFGtV0vGjuwbJ25X1m04VXMMJ8Q3QzEsyD8w7jnAm5jqpKUZtVe-82LngE828BL78VksB9boYA1KjkUFty8pEW9876P84D7-A_J3doJbl9U3F-cBP_D9uzAAA.webp",
+      "link": "https://www.instagram.com/reel/Cg1_bxMIeU0/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXgFFF68Eak-_L7DL1LBq4yB9SJh__fJEbDLEksZyCvHZ0esf843wOvPlu&s",
+      "date": "Aug 4, 2022",
+      "actual_image_width": 480,
+      "actual_image_height": 480
+    },
+    {
+      "position": 20,
+      "title": "Men sa ki pase nan peyi Pakistan jodia. Tsaunami. Ann gade ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/NEWSTVINFO/posts/men-sa-ki-pase-nan-peyi-pakistan-jodiatsaunamiann-gade-ansanmpa-bliye-patajel/1264682183891985/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8BBTaVKQsl5hzwTJ0mU-cPpccTEbh6Pgwt_rg3G6DOGmr3rnjgLE8qcMw&s",
+      "date": "Sep 13, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 21,
+      "title": "Yadda ruwa ya yi ambaliya a karaci kasar fakistan. | Zinder 24 TV",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://m.facebook.com/educationsnew/videos/yadda-ruwa-ya-yi-ambaliya-a-karaci-kasar-fakistan/264943678553910/?locale=ne_NP&_rdr",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe_v6ZYIT4Q-JZBZJudvEVIpv52LTxJNBLVm25fkrJFMEGxbCkQ6d2qd6o&s",
+      "date": "Aug 25, 2021",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 22,
+      "title": "ROOBAB LAXAAD LEH OO KA DA'AY WADANKA PAKISTAN IYO ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/dhaqanenews/posts/roobab-laxaad-leh-oo-ka-daay-wadanka-pakistan-iyo-karachi-oo-daadad-qaadeen/1033033317152512/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD3i-NMvDLoiX80TSaFJUPGHl1BWo6HaeI_2J7KP9PDTR-_jiIv5gzh0Tm&s",
+      "date": "Sep 10, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 23,
+      "title": "Eske se vre Sam wè a? | babocelltechnology - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/soukekowlajenes/videos/eske-se-vre-sam-w%C3%A8-a/2728791870716514/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0d8jODSSa9y0Uj7terkoWDnPX82Nt1shZ2oMKhA1sHSVIhPcuBJ0l0L-U&s",
+      "date": "Sep 13, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 24,
+      "title": "واقعاً تا کنون سیل اینجوری مشاهده کرده بودید ؟؟؟ اگر این سیل در یکی از ...",
+      "source": "Instagram",
+      "source_icon": "https://serpapi.com/images/i/UklGRrQBAABXRUJQVlA4IKgBAABwCACdASocABwAPrUurVanIacnG_DgFolsAJ0yhHp_qvDn8INhnGwwG2i5ADWgPQA6TAiNSWpNpaKsXIF39bGj3Qd8pbRqOqkClBeAAP5tEoJlJoIDKX9SM7Zcd-n9JzxjUyFwXhzwPaTeFm2SeuMf1qLVq3t4wI3Sjh-TwPMqC3IvNj-0iGrCQSLYH_-G79_n_WM3XsPcVuoDF5Qv72r9Pf808tOK5Udv-Td9HMGptvnvxKOoa_2nDyZ2ppkSa2bNDL-K8pl3NhKk0sDV6BtpvNMgPb8dFSIrV0bFXaXgk5e0X-zIfxi-75avphrtEjwdvibNuQxApMkfs-CMi8mkD-o9_Rjb7y57vXTZx0h5MRX7n1JX-MenGUk5E4XC7vzHzXwfTDhRIb4bBfoSZiSNQ4UQGB7jAg92d64S_P_CCBANUoR3tplweT0RfxTAFGtV0vGjuwbJ25X1m04VXMMJ8Q3QzEsyD8w7jnAm5jqpKUZtVe-82LngE828BL78VksB9boYA1KjkUFty8pEW9876P84D7-A_J3doJbl9U3F-cBP_D9uzAAA.webp",
+      "link": "https://www.instagram.com/reel/Cg41P_SKzg0/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxB2s2P7N7UbsVdVtcj7X4l_48nUR5irn7zuDS1f6dxUlvm1gKvsvAJply&s",
+      "date": "Aug 5, 2022",
+      "actual_image_width": 480,
+      "actual_image_height": 480
+    },
+    {
+      "position": 25,
+      "title": "العاصمة الباكستانية كراتشي | Free Lebanese Weather Forecast",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://m.facebook.com/Free-Lebanese-Weather-Forecast-768758033249776/videos/%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86%D9%8A%D8%A9-%D9%83%D8%A7%D8%B1%D8%A7%D8%AA%D8%B4%D9%8A/193930708933321/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-aciMqFB29Ty-NjG9ADMKg1ZfUJVfUwjaaBem9WzhvvGigkXEq-l03tbc&s",
+      "date": "Nov 26, 2020",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 26,
+      "title": "জাপানের সুনামির ভিডিও পাকিস্তানের বন্যার বলে প্রচার",
+      "source": "BOOM Bangladesh",
+      "source_icon": "https://serpapi.com/images/i/UklGRiYBAABXRUJQVlA4IBoBAACwBgCdASogACAAPtE-tFooIigoFAEAGglsAJ0zNDtY2jW0AF-AZYAToHvenU-F2xLPsu_ffwfW46VCOuiAAAD-_S_IMle2L-4-rCa6XvhKNCpfj1OS5bMTpcdwjAXrtrbwrA2KHQTi23izkpP14TfE-38t7_mZQq9_tK8wZN-4g34zooCCBHBEDvLpP53jHMGoMZSiG4-xE_o4DBkw6ajL1L614dRz290CmSrit53tGSn9Fd9oVQyXO4nGXRrfR_4bKxpv-OD4O_C-_zD3nmjUX28tBhV66Ayb9xGStKERlviV03K3zC8KE_OPoGFJhQE-LPbS990tQ1D9L1jG8jWnket2Rf-XsFokWJiHH-flaUsVhXcL4iaAAAA.webp",
+      "link": "https://www.boombd.com/fake-news/the-video-is-not-about-floods-in-pakistan-19251",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUdTU03IBdINAm5wV8UZxatStIk7Zb6Keb3rpYYA3xsxMfmKRfBA02-FyB&s",
+      "date": "Sep 13, 2022",
+      "actual_image_width": 770,
+      "actual_image_height": 462
+    },
+    {
+      "position": 27,
+      "title": "Nyesiga Andrew (@Natuman66705462) / Posts / X - Twitter",
+      "source": "X",
+      "source_icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAqUlEQVR4AdXQEQwCUQDG8b87pFkcRmGuyfFpFB-HuZ20_DA4yndLHj17dHJ08G_V1qp7vvWjT77t28cfKlIIMS54KmPa8uli35l4WGvNtyQ7G2CmF37M7WncQe-NidKW5CyYyDhboY5kRZelLshz5OyevK0dySVZNz1iT07r0LkpbJmqdcUoJyt-VVrAxkB0NRnzKhysGQfevt--mgavfOpi844hhFjyf-4xHWjgrPr73gAAAABJRU5ErkJggg.png",
+      "link": "https://x.com/Natuman66705462",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxqsgh7IpWbnbBkYVbAuMHhx3tYeZg1EWLaXEvR3PVXSpqJ0rGNpW-zdPD&s",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 28,
+      "title": "babocelltechnology (@soukekowlajenes) - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/soukekowlajenes/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0d8jODSSa9y0Uj7terkoWDnPX82Nt1shZ2oMKhA1sHSVIhPcuBJ0l0L-U&s",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 29,
+      "title": "رویداد های روز - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/p/%D8%B1%D9%88%DB%8C%D8%AF%D8%A7%D8%AF-%D9%87%D8%A7%DB%8C-%D8%B1%D9%88%D8%B2-100083356996104/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZtS_zzcY-40cYJiQXvS84v92vsHTWypS_DJUQf87hEONHGbBAWv4Rmds&s",
+      "actual_image_width": 426,
+      "actual_image_height": 312
+    },
+    {
+      "position": 30,
+      "title": "سیل وحشتناک در پاکستان - آپارات",
+      "source": "آپارات",
+      "source_icon": "https://serpapi.com/images/i/UklGRoQBAABXRUJQVlA4IHgBAABQBwCdASocABwAPtEutFooIagoGAEAGglsAMZoAC8AN41_bdx3VX0zh3Ak-zeY0UtFZQXPoawCSQiUDYEyRe12DLoAAP72CbNZGTVPYOv8TEbHrCtWfnoU9criBBc2SpH-QjDgxDuhuRbhn4e_h0W8E-Hatk_cdIpz4-zDshaNeI-bj98sZX_zPRr6P9-HVr7snBKFW2vVozCJMPN3Yf8HxfHKy37JURhVF-Pz2LFDYBF3G8VMCeeiK4jgGn_xUiM3V-rkbfvRegFsj9MIHrxlxbqfnhPud3QwW-7gesvz2soUQQa0PNd_w6_fnhd7JRMAEY4sWvguxv_Zpn-TzaqQ_7Fe2bXv27fxn6zqOpuNWRrC_Mx9wFe_nfOaKO8IBGUcMc10fpjdqH0ggz77SEAFomKnwpIcf-2HNYqux_XL6HnE2d3Fnz_8oQ2ys_5G315j4uKQotQaNNPA9S9HOVsvCRhqry7PGb0ydbG5urALz6crArHVNAAA.webp",
+      "link": "https://www.aparat.com/v/p4102me",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU3NOLe65pS-P_rP9j-0Ozs5s4W7VzxPfh2pkskWeWljF9kZB3LKzafJyl&s",
+      "date": "Dec 4, 2020",
+      "actual_image_width": 426,
+      "actual_image_height": 240
+    },
+    {
+      "position": 31,
+      "title": "چه سونامی شدیدیه - آپارات",
+      "source": "آپارات",
+      "source_icon": "https://serpapi.com/images/i/UklGRoQBAABXRUJQVlA4IHgBAABQBwCdASocABwAPtEutFooIagoGAEAGglsAMZoAC8AN41_bdx3VX0zh3Ak-zeY0UtFZQXPoawCSQiUDYEyRe12DLoAAP72CbNZGTVPYOv8TEbHrCtWfnoU9criBBc2SpH-QjDgxDuhuRbhn4e_h0W8E-Hatk_cdIpz4-zDshaNeI-bj98sZX_zPRr6P9-HVr7snBKFW2vVozCJMPN3Yf8HxfHKy37JURhVF-Pz2LFDYBF3G8VMCeeiK4jgGn_xUiM3V-rkbfvRegFsj9MIHrxlxbqfnhPud3QwW-7gesvz2soUQQa0PNd_w6_fnhd7JRMAEY4sWvguxv_Zpn-TzaqQ_7Fe2bXv27fxn6zqOpuNWRrC_Mx9wFe_nfOaKO8IBGUcMc10fpjdqH0ggz77SEAFomKnwpIcf-2HNYqux_XL6HnE2d3Fnz_8oQ2ys_5G315j4uKQotQaNNPA9S9HOVsvCRhqry7PGb0ydbG5urALz6crArHVNAAA.webp",
+      "link": "https://www.aparat.com/v/OKQmR",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVuN6WSQRvdewVGqcaZV-NJSfY1EOh_km4u7T4gFm_GbQmiwQK0dLL6iKE&s",
+      "date": "Dec 7, 2020",
+      "actual_image_width": 426,
+      "actual_image_height": 240
+    },
+    {
+      "position": 32,
+      "title": "পাকিস্তান বন্যার নামে ছড়ালো জাপানের সুনামির ভিডিও - Newschecker",
+      "source": "Newschecker",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAADwBwCdASocABwAPrkurlcnIacnG_DgFwlsAJ0y4OACadHx7WB4AaTWZv4xHuHoVlhn4lo-ydTLk3XfCWkapn1YO9eO3by04QAA_vfqX89KS4T86zHUfA3kYVv7QhlnQBMWrXAbsBhscU21lG1XH-2Q7OpFCP6qcLvEi0RHtKk03SOOyNurIeqpFFYI6Se9EsjktahsUmm_vK-YPwcj3fj6tGCYJzTjNDt49vhlYcpvNXYpGwk_yVfJ8qtD1ocfKdod_kNBBTj709UrgNEpfWy26wR05ywUr_dKbG0vUH1JG0LXngGsfif3tZvL64l9KW4cVI0iD41Kavej5rhOu-YPvXiA2q4kmOntOL1vYiR4iea7-nb4IyPc62Ik1KDlRvmbVwFJopw4bASn5yJ84bm4Qb5Ojj0U3vT16pVQZYWtYqhrYIIKeU2sadq8T7ZmTZVK0-2RzyWyijoGgBwp3nJSksbpn-8LCVwsjuEy-vXszgqp-uHOds4L6K3jccElUQyeIRs0pOS-ggSP-5aoL0HP3P-8sifTf3ModATnAAA.webp",
+      "link": "https://newschecker.in/bn/fact-checks/pakistan-flood-unrealted-video-viral",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1-_jONhqmWgE65h8JKhXoXoS3_E8lQmQ2X1PGoMz1WXnyZWSKW28-MHlE&s",
+      "date": "Sep 9, 2022",
+      "actual_image_width": 1200,
+      "actual_image_height": 900
+    },
+    {
+      "position": 33,
+      "title": "مقطع الفيديو ليس لسيول جرفت السيارات في باكستان - موقع مسبار",
+      "source": "موقع مسبار",
+      "source_icon": "https://serpapi.com/images/i/UklGRjIBAABXRUJQVlA4ICYBAABQBgCdASocABwAPrUurVanIacnG_DgFolsAMjgFAK8D2oPTSlIl-TZI9tcmpgASIrd9mjXZonvGWqwAAD--LAu9AwJZFkKUtGpEpOHElqj-JRguoRb8WyhVLJC7F1TDHOOhhncNmLDrmfPl5Fus_D6QEWO6WiJvDq0WbVGWXtkqG3VOdcRTyvyAXR77RogPfJM4vODK5s_IM8k5CIzqdg4tVbtkFcolgTrWLLeikvTzBG9fHO3wT7MyOYGdNntRNKAqwDcNXx0S9xv2tbP-8G3FIi0IvN6sAKyY8O9GJ_gFTuIJfzX2dUXuEx6gyibsr-e9i83oi7nAeRBd8dHzuMMiDRyyjIr0ixZz4Zfjaxa2ClOqcdvTfu2rn4lGrbcDXofW1fwAAA.webp",
+      "link": "https://www.misbar.com/factcheck/2022/01/05/%D9%85%D9%82%D8%B7%D8%B9-%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D9%84%D9%8A%D8%B3-%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D8%AC%D8%B1%D9%81%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D9%81%D9%8A-%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUPezPoEGlMSlZrwGqcCQWCL8x7tcwN0MvXsbZQOo-RJeLLJTOWqOEvodu&s",
+      "date": "Jan 4, 2022",
+      "actual_image_width": 770,
+      "actual_image_height": 769
+    },
+    {
+      "position": 34,
+      "title": "kuat supriyadi - YouTube",
+      "source": "YouTube",
+      "source_icon": "https://serpapi.com/images/i/UklGRiwBAABXRUJQVlA4ICABAACwBwCdASogACAAPtE-tFooIigoFAEAGglsAJ0vsWzOpa6QD2AZirkgG8t-SqngPdVQgIhPuY7QnfGTuhkHCCafWwEspXiAAP79K1T914se1S0hw8uWbXIYlTtaQoimvqxmIYKoYD3frD6a5W6Y9qlH8OxzGr5_tN-PxaeuqGI2m4Zz-9CzP48op__f9Bm2CT4HfqeSSLbWZxBXOMfrzs-Ha9TzPINw3Ax6lVF51803KBeM7Ab3H89_36DkJOoZmQ0ljraRalZvQMceZBos_f6K8NKxvQt3-nvCl_N43J4eBXK99cT6h-2PwUv_b-ipf3AxPF_5oLX0RT6LnBPZ6MuU-pXNvWj4txo7i3_TKPDxpoad0cHTmsOVtF1Ne3TsAAA.webp",
+      "link": "https://www.youtube.com/@kuatsupriyadi1683/videos",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyzi8rG-L7knm__J-0LzHY-3xoJipketNq6ZvHonqJJry3KuScQp7YKGKk&s",
+      "actual_image_width": 480,
+      "actual_image_height": 360
+    },
+    {
+      "position": 35,
+      "title": "সিরাজুল উলুম মহিলা মাদ্রাসা (@100064065156417) - Photos",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/100064065156417/photos/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-PLaS5hwQwPMFIUEqdg28DmcLfNGdtwcaJ3UWflcNn0GDxfD45DVf3Tq&s",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 36,
+      "title": "সিরাজুল উলুম মহিলা মাদ্রাসা - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/p/%E0%A6%B8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A7%81%E0%A6%B2-%E0%A6%89%E0%A6%B2%E0%A7%81%E0%A6%AE-%E0%A6%AE%E0%A6%B9%E0%A6%BF%E0%A6%B2%E0%A6%BE-%E0%A6%AE%E0%A6%BE%E0%A6%A6%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE-100064065156417/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-PLaS5hwQwPMFIUEqdg28DmcLfNGdtwcaJ3UWflcNn0GDxfD45DVf3Tq&s",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    },
+    {
+      "position": 37,
+      "title": "gade sa kap pase Pakistan jodia si c Haïti nou tt mouri wi mezanmi",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/100064789278344/posts/gade-sa-kap-pase-pakistan-jodia-si-c-ha%C3%AFti-nou-tt-mouri-wi-mezanmi/832572464068002/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDVn3y-k2nQ79Nxm-K4Si_gFja0yfT02eUcZSTM7bsI-bEJ8BFaSWqNBwm&s",
+      "date": "Aug 24, 2021",
+      "actual_image_width": 308,
+      "actual_image_height": 480
+    },
+    {
+      "position": 38,
+      "title": "کراچی پاکستان چوب خدا صدا نداره | رویداد های روز - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/100083356996104/videos/%DA%A9%D8%B1%D8%A7%DA%86%DB%8C-%D9%BE%D8%A7%DA%A9%D8%B3%D8%AA%D8%A7%D9%86%DA%86%D9%88%D8%A8-%D8%AE%D8%AF%D8%A7-%D8%B5%D8%AF%D8%A7-%D9%86%D8%AF%D8%A7%D8%B1%D9%87/623917452232578/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZtS_zzcY-40cYJiQXvS84v92vsHTWypS_DJUQf87hEONHGbBAWv4Rmds&s",
+      "date": "Jul 29, 2022",
+      "actual_image_width": 426,
+      "actual_image_height": 312
+    },
+    {
+      "position": 39,
+      "title": "کراچی پاکستان چوب خدا صدا نداره - Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/100083356996104/posts/%DA%A9%D8%B1%D8%A7%DA%86%DB%8C-%D9%BE%D8%A7%DA%A9%D8%B3%D8%AA%D8%A7%D9%86%DA%86%D9%88%D8%A8-%D8%AE%D8%AF%D8%A7-%D8%B5%D8%AF%D8%A7-%D9%86%D8%AF%D8%A7%D8%B1%D9%87/116991864413369/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZtS_zzcY-40cYJiQXvS84v92vsHTWypS_DJUQf87hEONHGbBAWv4Rmds&s",
+      "date": "Jul 29, 2022",
+      "actual_image_width": 426,
+      "actual_image_height": 312
+    },
+    {
+      "position": 40,
+      "title": "Pakistan flood | Muhammad Ahmad | Facebook",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/bigfanofjoker/videos/pakistan-flood/605022149299531/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBaBrxHdlM3s3WG4RKs2Di4mrxzLELWJ1PEcho6_0ksS4VKDMkA0FIqOba&s",
+      "date": "Oct 30, 2025",
+      "actual_image_width": 480,
+      "actual_image_height": 352
+    }
+  ],
+  "_dejavue": {
+    "recorded_at": "2026-09-17T13:10:06+0530",
+    "image_sha256": "acf697ee5263dca8b82629794fc13daae8475926b26247388c76c146ca97a76c",
+    "input_phash": "57d9ac8d405760a7",
+    "note": "search_parameters.url was a 15-minute Supabase signed URL (token redacted)"
+  }
+}

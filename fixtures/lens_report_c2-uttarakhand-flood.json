@@ -1,0 +1,193 @@
+{
+  "credits_before": 250,
+  "credits_after": 249,
+  "reports": [
+    {
+      "case": "c2-uttarakhand-flood",
+      "bytes": 61374,
+      "sha256": "aec0384fec5a072d3867e96f8a2907e69e1e5708138807dd0899fbbff39348b5",
+      "phash": "176e7c2677c88b10",
+      "signed_url_len": 424,
+      "signed_get": {
+        "status": 200,
+        "identical_bytes": true,
+        "content_type": "image/jpeg"
+      },
+      "lens_ms": 11520,
+      "lens_http": 200,
+      "lens_status": "Success",
+      "lens_error": null,
+      "fixture": "fixtures\\c2-uttarakhand-flood\\google_lens-cfc41a8e94c94d61.json",
+      "exact_matches": 16,
+      "matches": [
+        {
+          "i": 0,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/sana.gov/posts/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA-%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%B3%D8%A7%D9%86%D8%A7%D9%84%D9%82%D9%8A-%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%85/663949254988155/",
+          "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق #بغداد-#سانا ...",
+          "date": "Dec 17, 2021",
+          "has_thumbnail": true,
+          "thumb": "64cc7c0a6799f10b.jpg",
+          "hamming": 24,
+          "confirmed": false
+        },
+        {
+          "i": 1,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/sana.gov/photos/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA-%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%B3%D8%A7%D9%86%D8%A7%D9%84%D9%82%D9%8A-%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%85/663949228321491/",
+          "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق #بغداد-#سانا ...",
+          "date": "Dec 17, 2021",
+          "has_thumbnail": true,
+          "thumb": "e697ce7a5f2977ed.jpg",
+          "hamming": 24,
+          "confirmed": false
+        },
+        {
+          "i": 2,
+          "source": "وكالة بغداد اليوم الاخبارية",
+          "link": "https://baghdadtoday.news/176120-.html",
+          "title": "الدفاع المدني يعاق على قدرة استيعاب السدود لموجة السيول ... - بغداد اليوم",
+          "date": "Dec 17, 2021",
+          "has_thumbnail": true,
+          "thumb": "3a1d14116c60f838.jpg",
+          "hamming": 24,
+          "confirmed": false
+        },
+        {
+          "i": 3,
+          "source": "Sawtshabab",
+          "link": "https://www.sawtshabab.ps/%D8%B9%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B6%D8%AD%D8%A7%D9%8A%D8%A7-%D8%AC%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D9%8A%D9%85%D9%86/%D8%B9%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B6%D8%AD%D8%A7%D9%8A%D8%A7-%D8%AC%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D9%8A%D9%85%D9%86/",
+          "title": "عشرات الضحايا جراء السيول في اليمن - اذاعة صوت الشباب",
+          "date": "Aug 14, 2022",
+          "has_thumbnail": true,
+          "thumb": "a4ffb02c31e84bc2.jpg",
+          "hamming": 20,
+          "confirmed": false
+        },
+        {
+          "i": 4,
+          "source": "شبكة رؤية الإخبارية",
+          "link": "https://roayahnews.com/%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82-%D8%B3%D9%8A%D9%88%D9%84-%D8%AA%D8%AC%D8%AA%D8%A7%D8%AD-%D8%A5%D9%82%D9%84%D9%8A%D9%85-%D9%83%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86-%D9%81%D9%8A%D8%AF%D9%8A%D9%88/",
+          "title": "العراق.. سيول تجتاح إقليم كردستان (فيديو) - شبكة رؤية الإخبارية",
+          "date": "Jan 13, 2022",
+          "has_thumbnail": true,
+          "thumb": "c7c4feb283eeec56.jpg",
+          "hamming": 22,
+          "confirmed": false
+        },
+        {
+          "i": 5,
+          "source": "Hawaalsham",
+          "link": "https://www.hawaalsham.com/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA/",
+          "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق - هوى الشام",
+          "date": "Dec 17, 2021",
+          "has_thumbnail": true,
+          "thumb": "f0815d293b749cf3.jpg",
+          "hamming": 26,
+          "confirmed": false
+        },
+        {
+          "i": 6,
+          "source": "تودي نيوز",
+          "link": "https://www.todaynewsiq.net/63661--.html",
+          "title": "مياه الامطار تحاصر مقر إقامة مسعود البارزاني في أربيل » تودي نيوز",
+          "date": "Jan 13, 2022",
+          "has_thumbnail": true,
+          "thumb": "fb7b2e29f7e89686.jpg",
+          "hamming": 22,
+          "confirmed": false
+        },
+        {
+          "i": 7,
+          "source": "قناة افاق الفضائية",
+          "link": "https://afaq.iq/contents/view/details?id=166341",
+          "title": "محافظ أربيل يعلن حالة الطوارئ جراء السيول التي تجتاح مناطق عدة في ...",
+          "date": null,
+          "has_thumbnail": true,
+          "thumb": "0a4576e64d027cee.jpg",
+          "hamming": 22,
+          "confirmed": false
+        },
+        {
+          "i": 8,
+          "source": "Alsumaria",
+          "link": "https://www.alsumaria.tv/news/localnews/406134/%D9%85%D8%B4%D8%A7%D9%87%D8%AF-%D9%85%D9%86-%D8%B3%D9%8A%D9%88%D9%84-%D8%AC%D8%A7%D8%B1%D9%81%D8%A9-%D8%A7%D8%AC%D8%AA%D8%A7%D8%AD%D8%AA-%D8%A3%D8%B1%D8%A8%D9%8A%D9%84",
+          "title": "مشاهد من سيول جارفة اجتاحت أربيل | محليات - Alsumaria TV",
+          "date": "Dec 17, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 9,
+          "source": "تلفزيون فلسطين",
+          "link": "https://www.pbc.ps/6459-2/",
+          "title": "سيول جارفة تودي بحياة 8 أشخاص في أربيل - تلفزيون فلسطين",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 10,
+          "source": "وكالة بغداد اليوم الاخبارية",
+          "link": "https://baghdadtoday.news/lastnews/page/6776/",
+          "title": "آخر الأخبار » صفحة 6776 » وكالة بغداد اليوم الاخبارية",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 11,
+          "source": "وكالة تنوع نيوز",
+          "link": "https://tanawue.com/32223--.html",
+          "title": "مياه الامطار تحاصر مقر إقامة مسعود البارزاني في أربيل - وكالة تنوع نيوز",
+          "date": "Jan 13, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 12,
+          "source": "وكالة نون الخبرية",
+          "link": "https://non14.net/143516",
+          "title": "بسبب غزارة الامطار..إعلان حالة الطوارئ في اربيل - وكالة نون الخبرية",
+          "date": "Jan 13, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 13,
+          "source": "MeteoWeb",
+          "link": "https://www.meteoweb.eu/2021/12/maltempo-e-alluvioni-in-iraq-almeno-8-morti-per-le-piogge-torrenziali-a-erbi/1748483/",
+          "title": "Maltempo e alluvioni in Iraq: almeno 8 morti per le piogge torrenziali ...",
+          "date": "Dec 18, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 14,
+          "source": "وكالة نون الخبرية",
+          "link": "https://non14.net/tag/1847?page=10",
+          "title": "الانواء الجوية - وكالة نون الخبرية",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 15,
+          "source": "Hawaalsham",
+          "link": "https://www.hawaalsham.com/author/hawa-r/page/371/",
+          "title": "Hawa Alsham - الصفحة 371 من 714 - هوى الشام",
+          "date": null,
+          "has_thumbnail": true
+        }
+      ],
+      "match_keys": [
+        "actual_image_height",
+        "actual_image_width",
+        "date",
+        "link",
+        "position",
+        "source",
+        "source_icon",
+        "thumbnail",
+        "title"
+      ],
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    }
+  ]
+}

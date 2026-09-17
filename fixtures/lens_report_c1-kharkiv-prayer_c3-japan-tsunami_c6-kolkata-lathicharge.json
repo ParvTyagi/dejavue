@@ -1,0 +1,2212 @@
+{
+  "credits_before": 249,
+  "credits_after": 246,
+  "reports": [
+    {
+      "case": "c1-kharkiv-prayer",
+      "bytes": 94539,
+      "sha256": "f98f78b1c97394ee091eacfd20a6f63ebcc26f00ca45654a9119f31de0554ad3",
+      "phash": "0bdd9709e6be8112",
+      "signed_url_len": 424,
+      "signed_get": {
+        "status": 200,
+        "identical_bytes": true,
+        "content_type": "image/jpeg"
+      },
+      "lens_ms": 8853,
+      "lens_http": 200,
+      "lens_status": "Success",
+      "lens_error": null,
+      "fixture": "fixtures\\c1-kharkiv-prayer\\google_lens-5f2cb1dc1aa65993.json",
+      "exact_matches": 218,
+      "matches": [
+        {
+          "i": 0,
+          "source": "Instagram",
+          "link": "https://www.instagram.com/p/CaKjLw7o_7l/",
+          "title": "Ukrainian Christians pray outdoors, in the snow, for their country in ...",
+          "date": "Feb 19, 2022",
+          "has_thumbnail": true,
+          "thumb": "508137bd335b72aa.jpg",
+          "hamming": 4,
+          "confirmed": true
+        },
+        {
+          "i": 1,
+          "source": "Premier Christianity Magazine",
+          "link": "https://www.premierchristianity.com/opinion/christian-leaders-have-shared-fake-news-about-ukraine-on-social-media-heres-how-to-avoid-being-caught-out/6181.article",
+          "title": "Christian leaders have shared fake news about Ukraine on social ...",
+          "date": "Mar 2, 2022",
+          "has_thumbnail": true,
+          "thumb": "1aaceee0be4bd48e.jpg",
+          "hamming": 6,
+          "confirmed": true
+        },
+        {
+          "i": 2,
+          "source": "IBCM Network",
+          "link": "https://ibcm.net/ukraine-prayer-request/",
+          "title": "UKRAINE PRAYER REQUEST - IBCM Network",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true,
+          "thumb": "aecdc4d8278e11e2.jpg",
+          "hamming": 24,
+          "confirmed": false
+        },
+        {
+          "i": 3,
+          "source": "International Missionary Society",
+          "link": "https://sda1844.org/category/ims-news/europe/page/5/",
+          "title": "Europe Archives - Page 5 of 10 - International Missionary Society",
+          "date": null,
+          "has_thumbnail": true,
+          "thumb": "4cf277d01805b7bb.jpg",
+          "hamming": 6,
+          "confirmed": true
+        },
+        {
+          "i": 4,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/kim.owen.alabama/photos/ukrainian-christians-pray-outdoors-in-the-snow-for-their-country-in-this-phase-o/5588899321126663/",
+          "title": "Kim - Ukrainian Christians pray outdoors, in the snow, for their ...",
+          "date": "Feb 19, 2022",
+          "has_thumbnail": true,
+          "thumb": "034edeaef9f7d536.jpg",
+          "hamming": 4,
+          "confirmed": true
+        },
+        {
+          "i": 5,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/youthsayonline/posts/praying-for-peace-in-ukraine/929340457783110/",
+          "title": "Praying for peace in Ukraine - Facebook",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true,
+          "thumb": "21c1764633300d2c.jpg",
+          "hamming": 4,
+          "confirmed": true
+        },
+        {
+          "i": 6,
+          "source": "Belfast News Letter",
+          "link": "https://www.newsletter.co.uk/news/people/northern-ireland-christian-group-gods-plan-put-us-in-ukraine-at-this-time-3587191",
+          "title": "Northern Ireland Christian group: God's plan put us in Ukraine at this ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true,
+          "thumb": "b9dd941745d3350b.jpg",
+          "hamming": 6,
+          "confirmed": true
+        },
+        {
+          "i": 7,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/LivingWaterFamily/photos/a.592858994095116/4841291039251869/?type=3",
+          "title": "Living - Facebook",
+          "date": "Feb 18, 2022",
+          "has_thumbnail": true,
+          "thumb": "2a706ae47c3c509a.jpg",
+          "hamming": 4,
+          "confirmed": true
+        },
+        {
+          "i": 8,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/opradre/posts/ukrainian-christians-pray-outdoors-in-the-snow-for-their-country-in-this-phase-o/2202943116537465/",
+          "title": "Ukrainian Christians pray outdoors, in the snow, for their country in ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 9,
+          "source": "Renewaljournal",
+          "link": "https://renewaljournal.com/2020/01/07/standing-on-our-knees-in-kharkov/",
+          "title": "'Standing on our knees' in Kharkov, Ukraine - Renewal Journal",
+          "date": "Jan 7, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 10,
+          "source": "Luke's Journal",
+          "link": "https://lukesjournalcmdfa.com/2022/06/29/generosity-and-partnership-at-a-time-of-war-in-ukraine-associate-professor-michael-burke/",
+          "title": "Generosity and Partnership at a Time of War in Ukraine – Associate ...",
+          "date": "Jun 29, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 11,
+          "source": "Montana Southern Baptist Convention",
+          "link": "https://mtsbc.org/2019/10/ukrainian-believers-standing-on-our-knees/",
+          "title": "Ukrainian believers: 'Standing on our knees' - Montana Southern ...",
+          "date": "Oct 30, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 12,
+          "source": "MinistryWatch",
+          "link": "https://ministrywatch.com/eastern-european-mission-switches-to-relief-as-refugees-flee-ukraine/",
+          "title": "Eastern European Mission Switches to Relief as Refugees Flee ...",
+          "date": "Mar 8, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 13,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/bwanet/posts/10162035062121020/",
+          "title": "Join Baptists around the world in prayer and fasting as Ukraine ...",
+          "date": "Feb 26, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 14,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/douglasfloyd/posts/please-pray-for-the-christians-ministering-in-ukraine-a-friend-of-mine-who-is-uk/10166565669843594/",
+          "title": "Pray for Ukrainian ministers after warehouse loss - Facebook",
+          "date": "Sep 2, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 15,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/701677269979695/posts/2126156447531763/",
+          "title": "Contrast prayers of the Ukranian Church invoking St. Michael with ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 16,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/sean.feucht/posts/apparently-christians-praying-in-ukraine-needs-to-be-censored-by-facebook-lets-t/496944578458753/",
+          "title": "Apparently Christian's praying in Ukraine needs to be censored by ...",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 17,
+          "source": "Eternity News",
+          "link": "https://eternitynews.com.au/world/light-in-the-darkness-an-update-from-ukraine/",
+          "title": "Light in the darkness: an update from Ukraine - Eternity News",
+          "date": "Aug 8, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 18,
+          "source": "Dunya News",
+          "link": "https://dunyanews.tv/en/FakeNews/642654-Image-of-people-praying-in-snow-in-Ukraine-dates-to-at-least-2019",
+          "title": "Image of people praying in snow in Ukraine dates to at least 2019",
+          "date": "Feb 23, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 19,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1624759524469554/posts/3155261288086029/",
+          "title": "Today, this framed picture hangs on the wall in the church foyer of ...",
+          "date": "Mar 17, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 20,
+          "source": "Kentucky Today",
+          "link": "https://www.kentuckytoday.com/baptist-life/ukrainian-believers-standing-on-our-knees/article_a3e15d0c-b702-565d-89fc-2249ef720e52.html",
+          "title": "Ukrainian believers: 'Standing on our knees' - Kentucky Today",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 21,
+          "source": "God Reports",
+          "link": "https://www.godreports.com/2019/10/why-have-these-ukrainians-been-praying-every-day-on-their-knees-for-five-years/",
+          "title": "Why have these Ukrainians been praying every day on their knees ...",
+          "date": "Oct 9, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 22,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/HugotSem/posts/ukrainian-christians-praying-for-peacedid-you-know-that-its-only-been-about-40-y/3186801718258117/",
+          "title": "UKRAINIAN CHRISTIANS PRAYING FOR PEACE Did you know that ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 23,
+          "source": "Baptist Press",
+          "link": "https://www.baptistpress.com/resource-library/news/ukrainian-believers-standing-on-our-knees/",
+          "title": "Ukrainian believers: 'Standing on our knees' | Baptist Press",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 24,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/121943914670722/posts/1812665678931862/",
+          "title": "If you want to pray for the situation in Ukraine, please feel free to ...",
+          "date": "Mar 3, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 25,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/primeradio.kampala/posts/thursday-prayerheavenly-fatherthank-you-for-giving-me-another-morning-to-rise-an/1521526896654607/",
+          "title": "THURSDAY PRAYER: Heavenly Father, Thank You for giving me ...",
+          "date": "Jul 22, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 26,
+          "source": "Word&Way",
+          "link": "https://wordandway.org/2019/10/14/ukrainian-believers-standing-on-our-knees/",
+          "title": "Ukrainian Believers: 'Standing on Our Knees' - Word&Way",
+          "date": "Oct 14, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 27,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/ukr.embassy.usa/posts/ukrainiandiaspora-standwithukraine-today-ukrainian-communities-and-friends-of-uk/1202402105258208/",
+          "title": "Ukrainian communities in DC celebrate Independence Day with ...",
+          "date": "Aug 24, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 28,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/sufferingsouls/posts/1378489323920887/",
+          "title": "As Christmas approaches, I urgently ask all Christians to pray for our ...",
+          "date": "Dec 22, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 29,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/534352464165662/posts/1089395085328061/",
+          "title": "If you have extra time can we pray for Ukraine - Facebook",
+          "date": "Mar 4, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 30,
+          "source": "Evangelical Focus",
+          "link": "https://evangelicalfocus.com/europe/15430/ukrainian-evangelicals-on-russian-border-most-churches-keep-hope-and-faith-to-continue-preaching",
+          "title": "Ukrainian evangelicals on Russian border: “Most churches keep ...",
+          "date": "Feb 14, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 31,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/bishoptimothymhill/posts/i-request-our-church-of-god-family-around-the-world-to-join-together-in-prayer-f/512120416947927/",
+          "title": "I request our Church of God Family around the World to join together ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 32,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/Episcopalians/posts/25988503644123350/",
+          "title": "Prayers for east coast snowfall victims and Ukraine - Facebook",
+          "date": "Feb 23, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 33,
+          "source": "موقع مسبار",
+          "link": "https://www.misbar.com/en/factcheck/2022/02/22/2019-photo-of-ukrainians-praying-on-their-knees-goes-viral-amid-recent-tensions",
+          "title": "2019 Photo of Ukrainians Praying on Their Knees Goes Viral Amid ...",
+          "date": "Feb 21, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 34,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100006582067817/posts/nigeria-is-hell-better-to-die-in-ukraine-trapped-nigerians-some-nigerians-who-ar/3194085577487480/",
+          "title": "Nigeria Is Hell, Better To Die In Ukraine - Trapped Nigerians Some ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 35,
+          "source": "Believers Portal",
+          "link": "https://believersportal.com/why-these-ukrainians-have-been-praying-every-day-on-their-knees-for-five-years/",
+          "title": "Why These Ukrainians Have Been Praying Every Day On Their ...",
+          "date": "Oct 13, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 36,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/486577778357082/posts/2724884974526340/",
+          "title": "This Christmas let us pray for the people of Ukraine who don't even ...",
+          "date": "Dec 25, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 37,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/hopeandhealinginJesusChrist/posts/ukrainian-christians-pray-outdoors-in-the-snow-for-their-country-in-this-phase-o/2744305219211933/",
+          "title": "Ukrainian Christians pray outdoors, in the snow, for their country in ...",
+          "date": "Feb 19, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 38,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/actandpray4ukraine/posts/1084038759211103/",
+          "title": "Pray for all the churches in Ukraine...Protestant, Catholic, and ...",
+          "date": "Jun 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 39,
+          "source": "International Missionary Society",
+          "link": "https://news.sda1844.org/category/ims-news/page/47/",
+          "title": "IMS News – Page 47",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 40,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/3685458004850635/posts/24882897651346696/",
+          "title": "you can see these Nigerians are not happy to be there they were ...",
+          "date": "Aug 31, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 41,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/534352464165662/posts/1090827721851464/",
+          "title": "Can we organize a prayer and fast for Ukraine war victims?",
+          "date": "Mar 6, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 42,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/2425519840794251/posts/5339246226088250/",
+          "title": "please pray for our sisters and brothers in ukraine - Facebook",
+          "date": "Mar 4, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 43,
+          "source": "Believers Portal",
+          "link": "https://believersportal.com/why-these-ukrainians-have-been-praying-every-day-on-their-knees-for-five-years/ukrainians-kneel-and-pray-in-the-snow/",
+          "title": "Ukrainians kneel and pray in the snow - Believers Portal",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 44,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/Drsundayadelaja/posts/the-embassy-of-god-church-in-ukraine-is-32-years-old-this-month-despite-the-ongo/1483839209776774/",
+          "title": "The Embassy Of God Church In Ukraine Is 32 Years Old This Month ...",
+          "date": "Apr 1, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 45,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/732059734101511/posts/2088440611796743/",
+          "title": "Nothing wey we no go hear for this country! A Nigerian agagay ...",
+          "date": "Sep 10, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 46,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/lindaikejiblogofficial/posts/i-received-a-threatening-call-simply-because-i-spoke-about-nigeria-bleeding-russ/1602126438146927/",
+          "title": "I received a threatening call simply because I spoke about Nigeria ...",
+          "date": "May 31, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 47,
+          "source": "Believers Portal",
+          "link": "https://believersportal.com/pray-for-ukraine-and-russia-crisis-as-invasion-and-hostilities-escalates-all-life-matters/ukranian-christians/",
+          "title": "Ukranian Christians - Believers Portal",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 48,
+          "source": "X",
+          "link": "https://x.com/marijana_petir/status/1495833090350108675",
+          "title": "Marijana Petir on X",
+          "date": "Feb 21, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 49,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/eagletvng/photos/nigeria-is-hell-better-to-die-in-ukraine-trapped-nigerianssome-nigerians-who-are/1374908312941659/",
+          "title": "Eagle - Nigeria Is Hell, Better To Die In Ukraine - Facebook",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 50,
+          "source": "X",
+          "link": "https://x.com/walkenstein/status/1494910645426434048",
+          "title": "Alexis Walkenstein on X",
+          "date": "Feb 18, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 51,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/DrScottPauley/posts/in-our-morning-meeting-we-watched-a-brief-video-of-ukrainian-christians-singing-/4798610786860135/",
+          "title": "Ukrainian Christians sing 'Christ Will Hold Me Fast' - Facebook",
+          "date": "Feb 27, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 52,
+          "source": "Theroaringellie",
+          "link": "https://theroaringellie.com/the-tipping-point/",
+          "title": "The Tipping Point - the Roaring Ellie",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 53,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1191300768283373/posts/1922053225208120/",
+          "title": "God bless Ukraine its Holy Thursday - Facebook",
+          "date": "Apr 17, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 54,
+          "source": "International Mission Board - IMB",
+          "link": "https://www.imb.org/2019/09/25/standing-on-our-knees-praying-for-ukraine/",
+          "title": "Standing on Our Knees, Praying for Ukraine - IMB",
+          "date": "Sep 25, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 55,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/2403859616392226/posts/27459986107019564/",
+          "title": "Churches across America, please pray for Ukraine tomorrow ...",
+          "date": "Jul 18, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 56,
+          "source": "International Missionary Society",
+          "link": "https://news.sda1844.org/2022/02/",
+          "title": "February 2022 - IMS News",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 57,
+          "source": "International Missionary Society",
+          "link": "https://news.sda1844.org/author/smievents/page/46/",
+          "title": "Ims News – Page 46",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 58,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/580604233108895/posts/1711463346689639/",
+          "title": "Nigerians returning home due to global energy crisis - Facebook",
+          "date": "Mar 21, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 59,
+          "source": "International Christian Medical and Dental Association",
+          "link": "https://icmda.net/ukraineappeal/",
+          "title": "Ukraine Appeal - ICMDA",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 60,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/640798262723630/posts/2421365978000174/",
+          "title": "Orthodoxy and nationalism in Ukraine and Russia - Facebook",
+          "date": "Mar 15, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 61,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/vera.ugbe/posts/praise-the-lord-hallelujahit-was-beyond-welfare-it-was-a-time-of-encounter-with-/24711314451803307/",
+          "title": "Praise the Lord!!!! Hallelujah!!! It was beyond welfare, it ... - Facebook",
+          "date": "Jul 5, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 62,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/636449585360222/posts/1199594875712354/",
+          "title": "Дай, Боже, сили ycim, то боронить, VTE!!! Терп.ння ... - Facebook",
+          "date": "Jan 2, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 63,
+          "source": "X",
+          "link": "https://x.com/MahyarTousi/status/1496819915705171972",
+          "title": "Mahyar Tousi on X",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 64,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/josephlindsley/posts/ukraine-is-christian-russia-is-not/10107394831769707/",
+          "title": "Ukraine is Christian, Russia is Not - Facebook",
+          "date": "Nov 17, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 65,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/AnnouncingTheKingdom/posts/our-beautiful-christian-sisters-from-ukraine-you-all-are-always-in-our-prayers-/1551386786993335/",
+          "title": "Our beautiful Christian sisters from Ukraine. You all are always in ...",
+          "date": "Apr 9, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 66,
+          "source": "Revival & Reformation",
+          "link": "https://www.revivalandreformation.org/uip/blog/saved-by-fire-and-rain",
+          "title": "Saved by Fire and Rain | Revival & Reformation",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 67,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/837552176429011/posts/3211887098995495/",
+          "title": "Happy Sabbath my Impacct7 family across the globe ❤️ - Facebook",
+          "date": "Dec 12, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 68,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/AGEGETV/posts/ukrainians-came-out-in-the-snow-to-call-on-god-to-fight-their-battle-our-god-rei/4627688880674572/",
+          "title": "Ukrainians came out in the snow to call on God to fight their battle ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 69,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/420842902570644/posts/1647126373275618/",
+          "title": "Happy Sabbath Adventist family.. ♥️ - Facebook",
+          "date": "Mar 20, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 70,
+          "source": "LinkedIn",
+          "link": "https://www.linkedin.com/in/jeffrey-felix-979860181",
+          "title": "Jeffrey Felix - Truck driver | LinkedIn",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 71,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/AGEGETV/photos/a.729419673834865/4627688820674578/",
+          "title": "AGEGE TV- AGEGE Television 08037224118 - Facebook",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 72,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/Episcopalians/posts/25988471497459898/",
+          "title": "Prayers for east coast snowfall victims and ukraine - Facebook",
+          "date": "Feb 23, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 73,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/407165872820339/posts/2671623369707900/",
+          "title": "Does God kill......???. - Facebook",
+          "date": "Jul 2, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 74,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/2203971582/posts/10158326196771583/",
+          "title": "In the village of Nehrovec', Mižhirja District, Maramoroš County ...",
+          "date": "Apr 3, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 75,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/actandpray4ukraine/posts/1467436637537978/",
+          "title": "Day 670 of the war in Ukraine! To all who are fighting and suffering ...",
+          "date": "Dec 25, 2023",
+          "has_thumbnail": true
+        },
+        {
+          "i": 76,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/179109018883718/posts/4794626850665222/",
+          "title": "Embracing Ukraine Colossians 1:28 This is the essence and focus ...",
+          "date": "Mar 2, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 77,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/roman.sheremeta.7/posts/should-we-pray-for-putin-as-franklin-graham-suggested-if-so-what-exactly-should-/10163171625697549/",
+          "title": "Should we pray for Putin, as Franklin Graham suggested? If so, what ...",
+          "date": "May 16, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 78,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/ask.about.the.orthodox.faith/posts/1174250759262192/",
+          "title": "A procession called \"Prayers for peace and love in Ukraine\" is taking ...",
+          "date": "Jul 14, 2016",
+          "has_thumbnail": true
+        },
+        {
+          "i": 79,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1409595102618831/posts/3205042443074079/",
+          "title": "Ukraine Church of God congregations in harm's way - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 80,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/299035713465089/posts/7620594734642447/",
+          "title": "yours faithful gov is busy, writing letter upon letter's,to sound serious ...",
+          "date": "Jun 23, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 81,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/ontarioysa/posts/3883737931758763/",
+          "title": "Please join us in fasting and prayer for the snow on the mountains ...",
+          "date": "Jan 25, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 82,
+          "source": "LinkedIn",
+          "link": "https://www.linkedin.com/in/alberto-urquidi-23876436",
+          "title": "Alberto Urquidi - -- | LinkedIn",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 83,
+          "source": "基督教論壇報",
+          "link": "https://ct.org.tw/html/news/3-3.php?cat=13&article=1350736",
+          "title": "烏克蘭基督徒雪地跪禱五年每晨集結為國家呼求神 - 基督教論壇報",
+          "date": "Oct 18, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 84,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/622271874791786/posts/1664266757258954/",
+          "title": "Prayers - Facebook",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 85,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/wayoftherose/posts/2667938193336427/",
+          "title": "Praying the rosary for Ukraine and Russia - Facebook",
+          "date": "Mar 19, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 86,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/173530912743033/posts/5018245191604890/",
+          "title": "I wrote to Pastor Valdim in Ukraine and asked him** how **we can ...",
+          "date": "Apr 18, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 87,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/actandpray4ukraine/posts/1005106467104333/",
+          "title": "Praying for the People of Ukraine especially the Christians. Praying ...",
+          "date": "Mar 17, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 88,
+          "source": "International Missionary Society",
+          "link": "https://sda1844.org/es/cristianos-ucranianos-oran-por-la-paz-al-aire-libre-en-la-nieve/",
+          "title": "Cristianos ucranianos oran por la paz al aire libre en la nieve",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 89,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/795250500546867/posts/7080888418649679/",
+          "title": "PRAISING GOD ON THE SUBWAY UKRAINE Ukrainian Christians ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 90,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/PysankyForUkraine/posts/5255798841166176/",
+          "title": "Писанка і молитва за Україну! The process and the prayer is never ...",
+          "date": "Jul 8, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 91,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/387947080731863/posts/619438647582704/",
+          "title": "Happy Sabbath Family.❤️ Sunday let's meet at Sunrise SDA ...",
+          "date": "Mar 7, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 92,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/250403624988170/posts/25021507590784430/",
+          "title": "Family can be together forever. - Facebook",
+          "date": "Aug 9, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 93,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/387947080731863/posts/637426695783899/",
+          "title": "Happy Sabbath from chalimbana Family❤️ - Facebook",
+          "date": "Mar 29, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 94,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/407165872820339/posts/2372254352978138/",
+          "title": "Christ's character - Facebook",
+          "date": "Jul 27, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 95,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/837552176429011/posts/3119834828200723/",
+          "title": "Happy Sabbath my Impacct7 family across the globe - Facebook",
+          "date": "Sep 13, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 96,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/primeradio.kampala/photos/over-37-thousand-allied-health-professionals-working-in-government-health-facili/3265083963722697/",
+          "title": "Primeradio | - Facebook",
+          "date": "May 17, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 97,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/822168171222416/posts/9556236834482129/",
+          "title": "HAPPY SABBATH MY WHOLE FAMILY ❤️❤️ - Facebook",
+          "date": "Jun 20, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 98,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1832506390122343/posts/27462307813382182/",
+          "title": "Happy Sabbath my family - Facebook",
+          "date": "Apr 18, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 99,
+          "source": "Believers Portal",
+          "link": "https://believersportal.com/pray-for-ukraine-and-russia-crisis-as-invasion-and-hostilities-escalates-all-life-matters/",
+          "title": "Pray For Ukraine And Russia Crisis As Invasion And Hostilities ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 100,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/iddpenielsj/posts/2294176874070405/",
+          "title": "Iglesia de Dios Peniel - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 101,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/damepalabrae/photos/-oran-por-la-paz-mundialcristianos-ucranianos-oran-al-aire-libre-en-la-nieve-por/3198491840473766/?locale=ms_MY",
+          "title": "ORAN POR LA #PAZ #MUNDIAL Cristianos ucranianos ... - Facebook",
+          "date": "Feb 21, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 102,
+          "source": "masfe.org",
+          "link": "https://masfe.org/noticias/la-iglesia-de-jesucristo-europa-mensaje-tranquilidad-santos-de-los-ultimos-dias-ucrania/",
+          "title": "La Iglesia de Jesucristo en Europa envía mensaje a los Santos de ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 103,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/primeradio.kampala/photos/abebyokwerinda-bakutte-ivan-lukungu-ono-ngatemera-mu-myaka-26-omuvuzi-wa-boda-bo/819753103498660/",
+          "title": "Abebyokwerinda bakutte Ivan Lukungu ono ngatemera mu myaka ...",
+          "date": "Jan 29, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 104,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/IDECPanama/posts/desde-misiones-mundiales-de-iglesia-de-dios-el-dr-david-m-griffis-director-gener/2180757918738486/?locale=ms_MY",
+          "title": "Iglesia De Dios E. C. Panamá - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 105,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/IDECPanama/photos/desde-misiones-mundiales-de-iglesia-de-dios-el-dr-david-m-griffis-director-gener/2180757905405154/",
+          "title": "Iglesia - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 106,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/damepalabrae/posts/-oran-por-la-paz-mundialcristianos-ucranianos-oran-al-aire-libre-en-la-nieve-por/3198491860473764/",
+          "title": "#ORAN POR LA #PAZ #MUNDIAL Cristianos ucranianos oran al ...",
+          "date": "Feb 21, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 107,
+          "source": "Dunya News",
+          "link": "https://dunyanews.tv/en/Business/642719-oil-prices-break-$100-on-russian-'military-operation'-in-ukraine-%7C-dunya-news",
+          "title": "Oil prices break $100 on Russian 'military operation' in Ukraine",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 108,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/primeradio.kampala/posts/omutima-gwomuntu-mulimba-nyo-okusinga-ebintu-byonna-bayibuli-bwegamba-kino-naawe/983294283811207/",
+          "title": "Omutima gw'omuntu mulimba nyo okusinga ebintu byonna ...",
+          "date": "Sep 30, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 109,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/primeradio.kampala/photos/essuubi-eri-amaka-agatabangusetosubwa-obubaka-obulungi-wano-ku-primeradio-youtub/860763872730916/",
+          "title": "Essuubi Eri Amaka Agatabanguse….! Tosubwa Obubaka Obulungi ...",
+          "date": "Apr 3, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 110,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/TheChristianAngle/",
+          "title": "The Christian Angle (@TheChristianAngle) - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 111,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/primeradio.kampala/photos/president-museveni-akungubagidde-prof-emmanuel-tumusiime-mutebileagambye-nti-aba/3183119411919153/",
+          "title": "Primeradio | Facebook - Facebook",
+          "date": "Jan 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 112,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/PortalInformativoHn/posts/de-rodillas-ante-dios-una-buena-parte-del-pueblo-ucraniano-en-la-nieve-orando-pi/474634334286399/",
+          "title": "De Rodillas ante Dios una buena parte del pueblo ucraniano en la ...",
+          "date": "Feb 18, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 113,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/PortalInformativoHn/photos/de-rodillas-ante-dios-una-buena-parte-del-pueblo-ucraniano-en-la-nieve-orando-pi/474634310953068/",
+          "title": "De Rodillas ante Dios una buena parte del pueblo ucraniano en la ...",
+          "date": "Feb 18, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 114,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/StJohn23Parish/posts/oh-dios-creador-del-universoque-extiendes-tu-preocupaci%C3%B3n-paternal-sobre-cada-cr/1482115158851623/",
+          "title": "Oh, Dios, Creador del universo, que extiendes tu preocupación ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 115,
+          "source": "Christianity Daily",
+          "link": "https://kr.christianitydaily.com/articles/112275/20220225/%EB%88%88%EB%B0%AD%EC%97%90-%EB%AC%B4%EB%A6%8E-%EA%BF%87%EA%B3%A0-%EA%B8%B0%EB%8F%84%ED%95%98%EB%8A%94-%EC%9A%B0%ED%81%AC%EB%9D%BC%EC%9D%B4%EB%82%98-%EC%84%B1%EB%8F%84%EB%93%A4.htm",
+          "title": "러시아 공습에 우크라이나 성도들 눈밭에 무릎 꿇고 기도 - 기독일보",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 116,
+          "source": "Christianity Daily",
+          "link": "https://kr.christianitydaily.com/articles/112308/20220228/%EB%89%B4%EC%A0%80%EC%A7%80%EB%AA%A9%EC%82%AC%ED%9A%8C-%EC%9A%B0%ED%81%AC%EB%9D%BC%EC%9D%B4%EB%82%98-%EC%84%A0%EA%B5%90%EC%82%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%8F%84%EC%9A%94%EC%B2%AD.htm",
+          "title": "뉴저지목사회, 우크라이나 선교사를 위한 기도요청 : 한인교회 - 기독일보",
+          "date": "Feb 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 117,
+          "source": "미주 기독일보",
+          "link": "https://kr.christianitydaily.com/articles/112329/20220302/%EA%B5%BF%EB%84%A4%EC%9D%B4%EB%B2%84%EC%8A%A4-%EC%9A%B0%ED%81%AC%EB%9D%BC%EC%9D%B4%EB%82%98-%EC%95%84%EB%8F%99-%EC%A7%80%EC%9B%90-30%EB%A7%8C%EB%8B%AC%EB%9F%AC-%EA%B7%9C%EB%AA%A8-%EA%B5%AC%ED%98%B8-%ED%99%9C%EB%8F%99.htm",
+          "title": "굿네이버스, '우크라이나 아동 지원' 30만 달러 규모 긴급 구호 활동 ...",
+          "date": "Mar 2, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 118,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/thomas.lindner.526/",
+          "title": "Thomas Lindner - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 119,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/Nicaraguacomunic/posts/loultimo-los-cristianos-ucranianos-oran-al-aire-libre-en-la-nieve-por-su-pa%C3%ADs-en/1099856610797890/",
+          "title": "#LOULTIMO Los cristianos ucranianos oran al aire libre, en la nieve ...",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 120,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/Nicaraguacomunic/photos/loultimo-los-cristianos-ucranianos-oran-al-aire-libre-en-la-nieve-por-su-pa%C3%ADs-en/1099856584131226/",
+          "title": "Nicaragua - #LOULTIMO Los cristianos ucranianos oran al aire libre ...",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 121,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/841225m/photos/1987832481388817/?locale=he_IL",
+          "title": "Cuba noticias# los ucranianos oran al aire libre en la nieve por su ...",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 122,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/841225m/photos/cuba-noticiaslos-ucranianos-oran-al-aire-libre-en-la-nieve-por-su-pais-en-peligr/1987832481388817/",
+          "title": "Cuba noticias# los ucranianos oran al aire libre en la nieve por su ...",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 123,
+          "source": "MyGoPen",
+          "link": "https://www.mygopen.com/2022/03/war-photo.html",
+          "title": "【誤導】網傳烏克蘭民眾在雪中跪下祈禱的照片？2019舊照非近期狀況",
+          "date": "Mar 3, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 124,
+          "source": "Acontecer Cristiano",
+          "link": "https://www.acontecercristiano.net/2019/10/ucranianos-oran-de-rodillas-en-plaza-publica-contra-comunismo.html",
+          "title": "Ucranianos oran de rodillas en plaza pública de Járkov contra el ...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 125,
+          "source": "ZENIT - Espanol - El mundo visto desde Roma",
+          "link": "https://es.zenit.org/2022/09/12/todas-las-iglesias-de-europa-se-pondran-de-rodillas-el-14-de-septiembre/",
+          "title": "Todas las iglesias de Europa se pondrán de rodillas el 14 ... - ZENIT",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 126,
+          "source": "원처치 뉴질랜드",
+          "link": "https://www.onechurch.nz/?mid=news_world&order_type=asc&category=7254&page=45&document_srl=88641",
+          "title": "국제/한국 뉴스 - 눈밭에 무릎 꿇고 기도하는 우크라이나 성도들",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 127,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/ALDIA.com.ec/posts/en-ucrania-millones-de-personas-claman-al-todopoderoso-jehov%C3%A1-dios-ante-ataque-a/984432312233013/?locale=ms_MY",
+          "title": "En Ucrania millones de Personas claman al todopoderoso Jehová ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 128,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/ALDIA.com.ec/photos/984432055566372/",
+          "title": "ALDIA - ALDIA added a new photo. - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 129,
+          "source": "크리스천투데이",
+          "link": "https://www.christiantoday.co.kr/news/346129",
+          "title": "“러시아 침공, 종교적 갈망과 규제의 위협 동시에 초래” : 국제",
+          "date": "Mar 10, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 130,
+          "source": "복음기도신문",
+          "link": "https://gpnews.org/archives/52326",
+          "title": "공산주의에서 깨어난 우크라이나, 5년째 기도용사들 모이다",
+          "date": "Oct 22, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 131,
+          "source": "Sotwe",
+          "link": "https://www.sotwe.com/fulllifextra",
+          "title": "Full Life Extraordinary @fulllifextra - Twitter Profile | Sotwe",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 132,
+          "source": "《時代論壇》Christian Times",
+          "link": "https://christiantimes.org.hk/Common/Reader/News/ShowNews.jsp?Nid=168085&Pid=115&Version=0&Cid=2144&Charset=gb2312&AuthorName=%E8%94%A1%E9%94%A6%E5%9B%BE",
+          "title": "廿一世纪的乌克兰教会",
+          "date": "Mar 1, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 133,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/parroquiasantamaria.demerida/posts/recemos-por-la-paz-en-el-mundo-especialmente-en-gaza-ucrania-siria-yemen-sud%C3%A1n-h/1073827368214883/",
+          "title": "RECEMOS POR LA PAZ en el mundo, especialmente en Gaza ...",
+          "date": "Aug 10, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 134,
+          "source": "IUVENES Pastoral Juvenil",
+          "link": "https://www.iuvenes.org/oracion-por-la-paz/",
+          "title": "Oración por la paz. Camino de misericordia y justicia - Iuvenes",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 135,
+          "source": "《時代論壇》Christian Times",
+          "link": "https://christiantimes.org.hk/Common/Reader/News/ShowNews.jsp?Nid=168085&Pid=0&Version=0&Cid=2053&Charset=big5_hkscs",
+          "title": "廿一世紀的烏克蘭教會 - 時代論壇",
+          "date": "Mar 1, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 136,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/hcnoticias/",
+          "title": "HC Noticias (@hcnoticias) - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 137,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/LaGacetaCotopaxi/photos/6987390534669314/",
+          "title": "La Gaceta Cotopaxi added a new photo. - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 138,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/LaGacetaCotopaxi/posts/internacional-guerra-rusia-ucrania-bombardeada-as%C3%AD-qued%C3%B3-una-de-las-instalacione/6987390984669269/",
+          "title": "#INTERNACIONAL #GUERRA #RUSIA #UCRANIA ... - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 139,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/mariagecouplespoire/photos/les-chr%C3%A9tiens-ukrainiens-prient-%C3%A0-lext%C3%A9rieur-dans-la-neige-pour-leur-pays-dans-c/5104299279613764/",
+          "title": "Dieu - Facebook",
+          "date": "Feb 19, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 140,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/canal8alaskatv/posts/imagenes-que-impactanvelad-y-oradporque-como-ladron-de-la-nocheasi-vendra-el-hij/1978769392325262/",
+          "title": "Imagenes que impactan Velad y Orad... Porque como ladron de la ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 141,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/basangoyambokacongo/permalink/2192351767608576/?comment_id=2192421467601606",
+          "title": "Les chrétiens Ukrainiens prient à genou dans les rues ... - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 142,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100066513194564/photos/mikukv%C3%B8ldi%C3%B0-2-mars-kl-20-er-serligt-b%C3%B8narm%C3%B8ti-fyri-ukreina-bi%C3%B0i%C3%B0-ver%C3%B0ur-fyri-st%C3%B8/2216221728530362/",
+          "title": "Mikukvøldið, 2. mars kl. 20 er serligt bønarmøti fyri Ukreina. Biðið ...",
+          "date": "Mar 1, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 143,
+          "source": "크리스천라이프",
+          "link": "https://christianlife.nz/archives/19517",
+          "title": "죽어야 내가 산다고 - 크리스천라이프",
+          "date": "Mar 6, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 144,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1419532308592597/permalink/1598538630691963/?rdid=DsPoYNFa8nxbWxJQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2FSgepr2scfNhdmhE5%2F",
+          "title": "JOUR D'INDÉPENDANCE DE L'UKRAINE Au cas de la pluie l ...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 145,
+          "source": "자유일보",
+          "link": "https://www.jayupress.com/news/articleView.html?idxno=3833",
+          "title": "하나님은 '섭리'...러·우크라 전쟁은 '제2의 홍해의 기적' 될 수도 - 자유일보",
+          "date": "Apr 1, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 146,
+          "source": "Meta.mk",
+          "link": "https://meta.mk/en/truthmeter-older-photograph-of-open-air-religious-rite-in-ukraine-being-shared-amid-russian-invasion/c3ae59345460333dbd25de8bff885100f9b8378c-molitva-ukrainci-na-kolenici-se-molat-2/",
+          "title": "c3ae59345460333dbd25de8bff8...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 147,
+          "source": "Norge IDAG",
+          "link": "https://idag.no/folk-ligger-pa-kne-i-kiev-og-roper-til-gud/19.38782",
+          "title": "Ukrainere søker Gud midt i krisen: – Folk ligger på kne i Kiev og ...",
+          "date": "Feb 18, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 148,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/PortaliDrenicaSot/posts/n%C3%AB-prag-t%C3%AB-luft%C3%ABs-qytetar%C3%ABt-e-ukrain%C3%ABs-luten-jasht%C3%AB-sht%C3%ABpive-t%C3%AB-tyre-n%C3%AB-bor%C3%AB-p%C3%ABr/5000892023338965/",
+          "title": "Në prag të luftës, qytetarët e Ukrainës luten jashtë shtëpive të tyre ...",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 149,
+          "source": "세계일보",
+          "link": "https://www.segye.com/newsView/20220225513446",
+          "title": "전쟁의 포화 속 우크라이나의 가슴 아픈 이별들 - 세계일보",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 150,
+          "source": "Suara.com",
+          "link": "https://www.suara.com/news/2022/03/07/141014/cek-fakta-umat-kristiani-di-ukraina-berdoa-di-atas-jalan-bersalju-saat-konflik-ukraina-rusia-benarkah",
+          "title": "CEK FAKTA: Umat Kristiani di Ukraina Berdoa di Atas Jalan Bersalju ...",
+          "date": "Mar 7, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 151,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/PlusFakte/posts/1584257088621415/",
+          "title": "Recent Posts - FaktePlus",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 152,
+          "source": "Misión Centroamericana",
+          "link": "https://misioncentroamericana.org/wp/2022/01/30/266/",
+          "title": "En medio de los rumores de guerra en Ucrania, «la gente está ...",
+          "date": "Jan 30, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 153,
+          "source": "Observatório Evangélico",
+          "link": "https://www.observatorioevangelico.org/lideres-religiosos-ucranianos-imploram-por-apoio-continuo-contra-a-invasao-russa-e-outras-noticias-internacionais/",
+          "title": "Líderes religiosos ucranianos imploram por apoio contínuo contra a ...",
+          "date": "Nov 5, 2023",
+          "has_thumbnail": true
+        },
+        {
+          "i": 154,
+          "source": "Polígrafo",
+          "link": "https://poligrafo.sapo.pt/fact-check/imagem-que-mostra-ucranianos-a-rezar-na-neve-esta-relacionada-com-a-invasao-russa-atual/",
+          "title": "Imagem que mostra ucranianos a rezar na neve está relacionada ...",
+          "date": "Feb 27, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 155,
+          "source": "Udfordringen",
+          "link": "https://udfordringen.dk/2023/03/ukraine-har-en-unik-hunger-efter-gud/",
+          "title": "'Ukraine har en unik hunger efter Gud' - Udfordringen",
+          "date": "Mar 24, 2023",
+          "has_thumbnail": true
+        },
+        {
+          "i": 156,
+          "source": "Guiame",
+          "link": "https://guiame.com.br/gospel/mundo-cristao/orem-pelos-russos-tambem-pede-crista-apos-ver-realidade-na-russia.html",
+          "title": "\"Orem pelos russos também\", pede cristã após ver a realidade na ...",
+          "date": "Mar 9, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 157,
+          "source": "Udfordringen",
+          "link": "https://udfordringen.dk/2022/03/bibelselskaber-ukraines-kirker-er-desperate-efter-flere-bibler/",
+          "title": "Bibelselskaber: Ukraines kirker er desperate efter flere bibler",
+          "date": "Mar 11, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 158,
+          "source": "크리스천투데이",
+          "link": "https://www.christiantoday.co.kr/sections/inter/page358.htm",
+          "title": "국제 - 종교신문 1위 크리스천투데이 Christian Today",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 159,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/digiplustvecuador/posts/digiplus_te_informa_al_instante_internacional-internacional-guerra-rusia-ucrania/316362383846428/",
+          "title": "DIGIPLUS_TE_INFORMA_AL_IN...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 160,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/digiplustvecuador/photos/316362177179782/",
+          "title": "Digiplus Ecuador added a new photo. - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 161,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/MiradaProfunda.Bolivia/photos/2510891519054836/",
+          "title": "Mirada Profunda added a new photo. - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 162,
+          "source": "La Corriente | Una voz en movimiento",
+          "link": "https://lacorriente.com/la-oracion-reconocida-como-el-arma-mas-poderosa-en-el-conflicto-rusia-ucrania/",
+          "title": "La oración, reconocida como arma más poderosa en el conflicto ...",
+          "date": "Jan 7, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 163,
+          "source": "Open Doors Polska",
+          "link": "https://www.opendoors.pl/wiadomosci/najnowsze-informacje/ukraina-swiatlo-w-obliczu-horroru-wojny",
+          "title": "UKRAINA: ŚWIATŁO W OBLICZU HORRORU WOJNY - Open Doors",
+          "date": "Feb 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 164,
+          "source": "자유일보",
+          "link": "https://www.jayupress.com/news/articleView.html?idxno=2754",
+          "title": "우크라이나 기독교인들, 나라 위해 눈밭에서 기도 - 선교 - 자유일보",
+          "date": "Feb 23, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 165,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/fakteplus/posts/n%C3%AB-prag-t%C3%AB-luft%C3%ABs-qytetar%C3%ABt-e-ukrain%C3%ABs-luten-jasht%C3%AB-sht%C3%ABpive-t%C3%AB-tyre-n%C3%AB-bor%C3%AB-p%C3%ABr/2258042844347794/",
+          "title": "Në prag të luftës, qytetarët e Ukrainës luten jashtë shtëpive të tyre ...",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 166,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/digiplustvecuador/albums/206942161455118/",
+          "title": "Digiplus Ecuador (@digiplustvecuador) - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 167,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100044055222744/posts/amigos-ya-est%C3%A1n-llegando-las-ucranianas-a-m%C3%A9xico-/682545409779720/",
+          "title": "Amigos, ya están llegando las Ucranianas a México - Facebook",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 168,
+          "source": "hoithanh.com",
+          "link": "https://hoithanh.com/61837/cac-co-doc-nhan-ukraine-cau-nguyen-giua-troi-tuyet-cho-dat-nuoc-cua-minh.html",
+          "title": "Các Cơ Đốc Nhân Ukraine Cầu Nguyện Giữa Trời Tuyết Cho Đất ...",
+          "date": "Feb 23, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 169,
+          "source": "Istinomer",
+          "link": "https://www.istinomer.rs/facebook-provere/fotografija-ukrajinaca-koji-se-mole-u-snegu-stara-je-skoro-tri-godine/",
+          "title": "Fotografija Ukrajinaca koji se mole u snegu stara je skoro tri godine",
+          "date": "Feb 26, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 170,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/7215105505272256/posts/27943428715346632/",
+          "title": "Christians ! I ask you to pray for the protection of Ukraine! Many ...",
+          "date": "Jul 23, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 171,
+          "source": "Blog.hu",
+          "link": "https://gorbiczt.blog.hu/",
+          "title": "Görbicz Tamás",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 172,
+          "source": "Ástjarnarkirkja",
+          "link": "https://astjarnarkirkja.is/gudsthjonusta-27-februar-kl-1700/",
+          "title": "Guðsþjónusta 27. febrúar kl. 17:00 - Ástjarnarkirkja",
+          "date": "Feb 26, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 173,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100063897019520/photos/330060505567579/",
+          "title": "ECWA Missionary Reach out - Facebook",
+          "date": "Sep 11, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 174,
+          "source": "同福堂",
+          "link": "https://www.tungfook.com/blog/%E6%88%91%E5%80%91%E8%A6%81%E7%82%BA%E7%83%8F%E5%85%8B%E8%98%AD%E6%B1%82%E5%B9%B3%E5%AE%89%EF%BC%8C%E5%88%87%E5%88%87%E7%A6%B1%E5%91%8A%EF%BC%81/",
+          "title": "我們要為烏克蘭求平安，切切禱告！ - 播道會同福堂",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 175,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/PortaliDrenicaSot/photos/n%C3%AB-prag-t%C3%AB-luft%C3%ABs-qytetar%C3%ABt-e-ukrain%C3%ABs-luten-jasht%C3%AB-sht%C3%ABpive-t%C3%AB-tyre-n%C3%AB-bor%C3%AB-p%C3%ABr/5000891966672304/",
+          "title": "Drenica - Në prag të luftës, qytetarët e Ukrainës luten jashtë ...",
+          "date": "Feb 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 176,
+          "source": "크리스천투데이",
+          "link": "https://www.christiantoday.co.kr/news/345835",
+          "title": "눈밭에 무릎 꿇고 기도하는 우크라이나 성도들 - 크리스천투데이",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 177,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/psteanne/",
+          "title": "Paroisse Ste-Anne - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 178,
+          "source": "네이트",
+          "link": "https://news.nate.com/view/20220225n25277",
+          "title": "전쟁의 포화 속 우크라이나의 가슴 아픈 이별들 - 네이트 뉴스",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 179,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/423358274859539/posts/2270682243460457/",
+          "title": "La Iglesia de Jesucristo de los Santos de los Últimos Días emitió ...",
+          "date": "Feb 28, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 180,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/470013753795492/posts/1939732426823610/",
+          "title": "Sinon que Yémen,gaza, Syrie, Palestine et Ukraine prient aussi bien ...",
+          "date": "Aug 7, 2025",
+          "has_thumbnail": true
+        },
+        {
+          "i": 181,
+          "source": "hoithanh.com",
+          "link": "https://hoithanh.com/61899/tai-sao-ukraine-quan-trong-va-can-duoc-cau-nguyen.html",
+          "title": "Tại Sao Ukraine Quan Trọng Và Cần Được Cầu Nguyện?",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 182,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/wwwFRASESBIBLICASPARAMATRIMONIOS/albums/651490613017573/",
+          "title": "Reflexiones Frases Biblicas de Motivacion Matrimonio y ... - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 183,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/DiosTuYYo2/",
+          "title": "Dios Tu Y Yo | Cusco - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 184,
+          "source": "CroExpress │ Informativni medij Hrvata izvan Republike Hrvatske",
+          "link": "https://www.croexpress.eu/svi-strahuju-od-napada-ukrajinci-na-koljenima-mole-boga-za-pomoc",
+          "title": "SVI STRAHUJU OD NAPADA: Ukrajinci na koljenima mole Boga za ...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 185,
+          "source": "الشروق أونلاين",
+          "link": "https://www.echoroukonline.com/%D8%B5%D9%88%D8%B1%D8%A9-%D9%84%D8%A7%D9%88%D9%83%D8%B1%D8%A7%D9%86%D9%8A%D9%8A%D9%86-%D9%8A%D8%B5%D9%84%D9%88%D9%86-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%AB%D9%84%D8%AC-%D8%AE%D9%88%D9%81%D8%A7-%D9%85",
+          "title": "صورة لاوكرانيين يصلون على الثلج خوفا من الغزو الروسي تحدث جدلا",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 186,
+          "source": "Trúboðin",
+          "link": "https://trubodin.fo/kirkjur-fra-saer-sjalvum-eftir-fleiri-biblium/",
+          "title": "Kirkjur frá sær sjálvum eftir fleiri Bíblium - Trúboðin",
+          "date": "Mar 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 187,
+          "source": "Noticias 24 Carabobo",
+          "link": "https://noticias24carabobo.com/rusia-en-la-onu/",
+          "title": "Rusia en la ONU hizo la siguiente denuncia y pide ser escuchada",
+          "date": "Feb 22, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 188,
+          "source": "READr 讀+",
+          "link": "https://www.readr.tw/post/2902",
+          "title": "俄烏戰爭的第二戰場：臺灣成假訊息受害者攻擊美國、仰賴中國成主力",
+          "date": "Mar 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 189,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/merakipatrika/",
+          "title": "मेराकी Meraki (@merakipatrika) - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 190,
+          "source": "Guiame",
+          "link": "https://guiame.com.br/gospel/mundo-cristao/ha-cinco-anos-ucranianos-oram-de-joelhos-em-praca-publica-contra-volta-do-comunismo.html",
+          "title": "Há cinco anos, ucranianos oram de joelhos em praça pública contra ...",
+          "date": "Oct 10, 2019",
+          "has_thumbnail": true
+        },
+        {
+          "i": 191,
+          "source": "Religión Digital",
+          "link": "https://www.religiondigital.org/el_blog_de_x-_pikaza/Ensonacion-Adviento-Descartes-Kant-Hegel_7_2516518326.html",
+          "title": "Ensoñación de Adviento, con Descartes, Kant y Hegel",
+          "date": "Dec 20, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 192,
+          "source": "Guiame",
+          "link": "https://guiame.com.br/gospel/noticias/igrejas-mantem-esperanca-e-fe-em-meio-tensoes-na-fronteira-ucrania-russia-diz-pastor.html",
+          "title": "'Igrejas mantêm esperança e fé em meio a tensões na fronteira ...",
+          "date": "Feb 16, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 193,
+          "source": "Redesteptare si reforma",
+          "link": "https://www.redesteptaresireforma.ro/tag/rugaciune-unita/",
+          "title": "Arhive rugaciune unita - Redesteptare si reforma",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 194,
+          "source": "Katolički tjednik",
+          "link": "https://www.nedjelja.ba/hr/vijesti/svijet/ako-uvjeti-ne-dopustaju-otici-na-ispovijed-oprostenje-se-moze-dobiti-kroz-cin-savrsenog-pokajanja/24511",
+          "title": "Ako uvjeti ne dopuštaju otići na ispovijed, oproštenje se može dobiti ...",
+          "date": "Mar 14, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 195,
+          "source": "Bjørn O.Hansen",
+          "link": "http://bjornolav.blogspot.com/2022/02/ukrainske-kristne-ber-pa-sine-knr.html",
+          "title": "Ukrainske kristne ber på sine knær - Bjørn O.Hansen",
+          "date": "Feb 15, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 196,
+          "source": "Andhrajyothy",
+          "link": "https://www.andhrajyothy.com/2022/prathyekam/poem-by-aluri-bairagimrgsprathyekam-615077.html",
+          "title": "యుద్ధమంటే కారునలుపు... చావు పిలుపు! | poem by aluri bairagi-MRGS ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 197,
+          "source": "NguyenUoc.com",
+          "link": "https://nguyenuoc.com/thien-than-xuat-hien-tren-bau-troi-ukraine-trong-chien-tranh-nga-ukraine-34740.html",
+          "title": "Thiên thần và ác quỷ xuất hiện trên bầu trời Ukraine",
+          "date": "Apr 30, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 198,
+          "source": "LinkedIn",
+          "link": "https://www.linkedin.com/in/michael-jeantet-273013238",
+          "title": "Michael Jeantet - -- | LinkedIn",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 199,
+          "source": "Norge IDAG",
+          "link": "https://idag.no/samfunn/fra/4424/29.1.2",
+          "title": "Samfunn - Norge IDAG",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 200,
+          "source": "EFG Aue-Lauter",
+          "link": "https://www.efg-aue-lauter.de/wp-content/uploads/2022/03/GemBrief_2022_April-Juni_web.pdf",
+          "title": "GEMEINDEbRIEF - EFG Aue-Lauter",
+          "date": "Apr 30, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 201,
+          "source": "Expressen",
+          "link": "https://www.expressen.se/nyheter/6-fejkade-bilder-fran-invasionen-i-ukraina/",
+          "title": "6 fejkade bilder från invasionen i Ukraina - Expressen",
+          "date": "Feb 26, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 202,
+          "source": "Demotywatory.pl",
+          "link": "https://demotywatory.pl/5126653/Chrzescijanie-zabijaja-i-morduja-chrzescijan-Tyle-sa-warte-w",
+          "title": "Chrześcijanie zabijają i mordują chrześcijan Tyle są warte w ...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 203,
+          "source": "CroExpress │ Informativni medij Hrvata izvan Republike Hrvatske",
+          "link": "https://www.croexpress.eu/oznaka/ukrajinci",
+          "title": "Ukrajinci | CroExpress Informativni medij Hrvata izvan Republike ...",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 204,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/chinaza.faustina.ezeagha/posts/nigeria-citizens-rejected-and-refused-the-offer-by-the-nigeria-government-to-com/162633356112247/",
+          "title": "Nigeria citizens, rejected and refused the offer by the ... - Facebook",
+          "date": "Feb 26, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 205,
+          "source": "Δρόμος της Αριστεράς",
+          "link": "https://edromos.gr/pes-pes-kati-tha-meinei/",
+          "title": "Πες, πες, κάτι θα μείνει… - Δρόμος της Αριστεράς",
+          "date": "Mar 9, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 206,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/ogwueleka/posts/why-are-you-all-y0rubas-running-to-the-uk-if-nigeria-is-good-so-many-of-you-die-/10244436441110354/",
+          "title": "Why are you all Y0rubas running to the UK if Nigeria is good? So ...",
+          "date": "Sep 5, 2026",
+          "has_thumbnail": true
+        },
+        {
+          "i": 207,
+          "source": "X",
+          "link": "https://x.com/_Akash_13___/status/1496778611747033088",
+          "title": "Akash on X: \"This is heartbreaking #UkraineRussiaCrisis ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 208,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/TheChristianAngle/photos/vir-annatjie-ons-mooiste-blom-rus-sagthe-lord-has-sent-me-to-comfort-those-who-m/728806037195046/",
+          "title": "The Christian - Facebook",
+          "date": "Nov 11, 2014",
+          "has_thumbnail": true
+        },
+        {
+          "i": 209,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/cityofrefugeeirpen/posts/1962421387561936/",
+          "title": "We pray for our brothers and sisters in Ukraine! May Jesus protect ...",
+          "date": "Aug 7, 2024",
+          "has_thumbnail": true
+        },
+        {
+          "i": 210,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/TheChristianAngle/photos/403811321929411/",
+          "title": "The Christian Angle updated their... - Facebook",
+          "date": "Sep 28, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 211,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/christiansintheukraine/posts/1023009454957095/",
+          "title": "Greetings from Faroe Islands. I am praying for you Ukrainian ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 212,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1146692608751396/posts/4847800131973940/",
+          "title": "About our \"I AM\" Prayer's In \"Jesus\" Our Father's Business ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 213,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/1623311621245639/posts/3533260486917400/",
+          "title": "UE Amor de Dios, realizando la actividad del 22 de febrero, dia de ...",
+          "date": "Feb 24, 2023",
+          "has_thumbnail": true
+        },
+        {
+          "i": 214,
+          "source": "X",
+          "link": "https://x.com/_Akash_13___/status/1496778611747033088?lang=cs",
+          "title": "Akash na platformě X: „This is heartbreaking #UkraineRussiaCrisis ...",
+          "date": "Feb 24, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 215,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100038005428897/posts/3082752255271269/",
+          "title": "Bruna Blandino percorsi di focusing - Facebook",
+          "date": "Feb 15, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 216,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/2985538541761582/posts/3581096412205789/",
+          "title": "pour chercher un positionnement, une notoriété, pour avoir une ...",
+          "date": "Oct 10, 2023",
+          "has_thumbnail": true
+        },
+        {
+          "i": 217,
+          "source": "Phanxico",
+          "link": "https://phanxico.vn/2022/02/25/o-ukraina-chung-toi-phai-doi-dien-voi-van-de-pham-gia-con-nguoi/",
+          "title": "“Ở Ukraina, chúng tôi phải đối diện với vấn đề phẩm giá con người ...",
+          "date": "Feb 25, 2022",
+          "has_thumbnail": true
+        }
+      ],
+      "match_keys": [
+        "actual_image_height",
+        "actual_image_width",
+        "date",
+        "link",
+        "position",
+        "source",
+        "source_icon",
+        "thumbnail",
+        "title"
+      ],
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    },
+    {
+      "case": "c3-japan-tsunami",
+      "bytes": 36994,
+      "sha256": "acf697ee5263dca8b82629794fc13daae8475926b26247388c76c146ca97a76c",
+      "phash": "57d9ac8d405760a7",
+      "signed_url_len": 424,
+      "signed_get": {
+        "status": 200,
+        "identical_bytes": true,
+        "content_type": "image/jpeg"
+      },
+      "lens_ms": 3876,
+      "lens_http": 200,
+      "lens_status": "Success",
+      "lens_error": null,
+      "fixture": "fixtures\\c3-japan-tsunami\\google_lens-2b5dd5c66468f116.json",
+      "exact_matches": 40,
+      "matches": [
+        {
+          "i": 0,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/dawndotcom/posts/unprecedented-heavy-monsoon-rains-lashed-karachi-on-tuesday-claiming-at-least-si/1183489447156025/",
+          "title": "Unprecedented heavy monsoon rains lashed Karachi on Tuesday ...",
+          "date": "Aug 19, 2025",
+          "has_thumbnail": true,
+          "thumb": "bafe2270f1795491.jpg",
+          "hamming": 12,
+          "confirmed": false
+        },
+        {
+          "i": 1,
+          "source": "Newschecker",
+          "link": "https://newschecker.in/fact-check/visuals-of-pakistan-floods-false",
+          "title": "Old, Unrelated Videos Shared As Visuals Of Pakistan Floods Aftermath",
+          "date": "Sep 5, 2022",
+          "has_thumbnail": true,
+          "thumb": "ba8a015c85fcb78e.jpg",
+          "hamming": 28,
+          "confirmed": false
+        },
+        {
+          "i": 2,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/category/international/page/57/",
+          "title": "International Archives - Page 57 of 60 - Fact Crescendo Sri Lanka",
+          "date": "Dec 3, 2020",
+          "has_thumbnail": true,
+          "thumb": "2598e61949df83fb.jpg",
+          "hamming": 28,
+          "confirmed": false
+        },
+        {
+          "i": 3,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/Brandsynario/posts/yesterday-the-skies-opened-over-karachi-and-as-expected-the-city-drowned-what-sh/1227443196092976/",
+          "title": "Brandsynario - Facebook",
+          "date": "Aug 20, 2025",
+          "has_thumbnail": true,
+          "thumb": "f44ceb095e0d1b47.jpg",
+          "hamming": 12,
+          "confirmed": false
+        },
+        {
+          "i": 4,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/ca.starofficial/posts/31957074157224561/",
+          "title": "Karachi Drowns Again! On August 19, 2025, heavy monsoon rains ...",
+          "date": "Aug 19, 2025",
+          "has_thumbnail": true,
+          "thumb": "1902a7b0c6ddfffb.jpg",
+          "hamming": 12,
+          "confirmed": false
+        },
+        {
+          "i": 5,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/scenes-from-2011-tsunami-that-hit-japan-shared-as-recent-karachi-floods/",
+          "title": "FACT CHECK: 2011 Video of Tsunami in Japan Shared as Recent ...",
+          "date": "Dec 3, 2020",
+          "has_thumbnail": true,
+          "thumb": "0b4c66bf6032fd52.jpg",
+          "hamming": 28,
+          "confirmed": false
+        },
+        {
+          "i": 6,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/thecurrentpk/posts/khi-underwateragaintodays-current-tea-opens-with-karachis-flooding-over-700-feed/1506773764578894/",
+          "title": "KHI underwater...again. Today's Current Tea opens with Karachi's ...",
+          "date": "Apr 2, 2026",
+          "has_thumbnail": true,
+          "thumb": "b9d5d7b017a67d97.jpg",
+          "hamming": 12,
+          "confirmed": false
+        },
+        {
+          "i": 7,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/bulamuherbal55/videos/802489247858097/",
+          "title": "Bulamu Tv Uganda on Reels - Facebook",
+          "date": "Aug 4, 2022",
+          "has_thumbnail": true,
+          "thumb": "8ab27f92a097cdee.jpg",
+          "hamming": 4,
+          "confirmed": true
+        },
+        {
+          "i": 8,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/author/sahan-p/page/2/",
+          "title": "Author: Sahan Perera - Fact Crescendo Sri Lanka",
+          "date": "Dec 3, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 9,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/category/international/page/59/",
+          "title": "International Archives - Page 59 of 63 - Fact Crescendo Sri Lanka",
+          "date": "Dec 3, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 10,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/tag/pakistan/",
+          "title": "Pakistan Archives | The leading fact-checking website",
+          "date": "Dec 3, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 11,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/BuzzAyiti/videos/gwo-dega-nan-peyi-pakistan-pou-dimanch-13-septanm-2020/606383346916989/?__so__=permalink&__rv__=related_videos",
+          "title": "GWO DEGA NAN PEYI PAKISTAN pou dimanch 13 septanm 2020",
+          "date": "Sep 13, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 12,
+          "source": "Instagram",
+          "link": "https://www.instagram.com/p/B_aUgNIpAWS/",
+          "title": "Photo by fundi bomba (@paulchelse) · April 25, 2020 - Instagram",
+          "date": "Apr 25, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 13,
+          "source": "Fact Crescendo Sri Lanka",
+          "link": "https://srilanka.factcrescendo.com/english/tag/japan/page/3/",
+          "title": "Japan Archives - Page 3 of 3 | The leading fact-checking website",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 14,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100064789278344/videos/gade-sa-kap-pase-pakistan-jodia-si-c-ha%C3%AFti-nou-tt-mouri-wi-mezanmi/550334429717414/",
+          "title": "gade sa kap pase Pakistan jodia si c Haïti nou tt mouri wi mezanmi",
+          "date": "Aug 24, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 15,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/opradre/posts/fbcaad37/1785216231643491/",
+          "title": "OpraDre.com's post - Facebook",
+          "date": "Sep 20, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 16,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/groups/Redistribute/posts/3314892141928823/",
+          "title": "Extreme weather conditions worldwide on Sept. 20, 2020 - Facebook",
+          "date": "Sep 22, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 17,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/opradre/videos/fbcaad37/327644908449306/",
+          "title": "| OpraDre.com | Facebook",
+          "date": "Sep 20, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 18,
+          "source": "Instagram",
+          "link": "https://www.instagram.com/reel/Cg1_bxMIeU0/",
+          "title": "سیل پاکستان دیروز - Instagram",
+          "date": "Aug 4, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 19,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/NEWSTVINFO/posts/men-sa-ki-pase-nan-peyi-pakistan-jodiatsaunamiann-gade-ansanmpa-bliye-patajel/1264682183891985/",
+          "title": "Men sa ki pase nan peyi Pakistan jodia. Tsaunami. Ann gade ...",
+          "date": "Sep 13, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 20,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/educationsnew/videos/yadda-ruwa-ya-yi-ambaliya-a-karaci-kasar-fakistan/264943678553910/?locale=ne_NP&_rdr",
+          "title": "Yadda ruwa ya yi ambaliya a karaci kasar fakistan. | Zinder 24 TV",
+          "date": "Aug 25, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 21,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/dhaqanenews/posts/roobab-laxaad-leh-oo-ka-daay-wadanka-pakistan-iyo-karachi-oo-daadad-qaadeen/1033033317152512/",
+          "title": "ROOBAB LAXAAD LEH OO KA DA'AY WADANKA PAKISTAN IYO ...",
+          "date": "Sep 10, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 22,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/soukekowlajenes/videos/eske-se-vre-sam-w%C3%A8-a/2728791870716514/",
+          "title": "Eske se vre Sam wè a? | babocelltechnology - Facebook",
+          "date": "Sep 13, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 23,
+          "source": "Instagram",
+          "link": "https://www.instagram.com/reel/Cg41P_SKzg0/",
+          "title": "واقعاً تا کنون سیل اینجوری مشاهده کرده بودید ؟؟؟ اگر این سیل در یکی از ...",
+          "date": "Aug 5, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 24,
+          "source": "Facebook",
+          "link": "https://m.facebook.com/Free-Lebanese-Weather-Forecast-768758033249776/videos/%D8%A7%D9%84%D8%B9%D8%A7%D8%B5%D9%85%D8%A9-%D8%A7%D9%84%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86%D9%8A%D8%A9-%D9%83%D8%A7%D8%B1%D8%A7%D8%AA%D8%B4%D9%8A/193930708933321/",
+          "title": "العاصمة الباكستانية كراتشي | Free Lebanese Weather Forecast",
+          "date": "Nov 26, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 25,
+          "source": "BOOM Bangladesh",
+          "link": "https://www.boombd.com/fake-news/the-video-is-not-about-floods-in-pakistan-19251",
+          "title": "জাপানের সুনামির ভিডিও পাকিস্তানের বন্যার বলে প্রচার",
+          "date": "Sep 13, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 26,
+          "source": "X",
+          "link": "https://x.com/Natuman66705462",
+          "title": "Nyesiga Andrew (@Natuman66705462) / Posts / X - Twitter",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 27,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/soukekowlajenes/",
+          "title": "babocelltechnology (@soukekowlajenes) - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 28,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/p/%D8%B1%D9%88%DB%8C%D8%AF%D8%A7%D8%AF-%D9%87%D8%A7%DB%8C-%D8%B1%D9%88%D8%B2-100083356996104/",
+          "title": "رویداد های روز - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 29,
+          "source": "آپارات",
+          "link": "https://www.aparat.com/v/p4102me",
+          "title": "سیل وحشتناک در پاکستان - آپارات",
+          "date": "Dec 4, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 30,
+          "source": "آپارات",
+          "link": "https://www.aparat.com/v/OKQmR",
+          "title": "چه سونامی شدیدیه - آپارات",
+          "date": "Dec 7, 2020",
+          "has_thumbnail": true
+        },
+        {
+          "i": 31,
+          "source": "Newschecker",
+          "link": "https://newschecker.in/bn/fact-checks/pakistan-flood-unrealted-video-viral",
+          "title": "পাকিস্তান বন্যার নামে ছড়ালো জাপানের সুনামির ভিডিও - Newschecker",
+          "date": "Sep 9, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 32,
+          "source": "موقع مسبار",
+          "link": "https://www.misbar.com/factcheck/2022/01/05/%D9%85%D9%82%D8%B7%D8%B9-%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D9%84%D9%8A%D8%B3-%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D8%AC%D8%B1%D9%81%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D9%81%D9%8A-%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86",
+          "title": "مقطع الفيديو ليس لسيول جرفت السيارات في باكستان - موقع مسبار",
+          "date": "Jan 4, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 33,
+          "source": "YouTube",
+          "link": "https://www.youtube.com/@kuatsupriyadi1683/videos",
+          "title": "kuat supriyadi - YouTube",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 34,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100064065156417/photos/",
+          "title": "সিরাজুল উলুম মহিলা মাদ্রাসা (@100064065156417) - Photos",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 35,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/p/%E0%A6%B8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%9C%E0%A7%81%E0%A6%B2-%E0%A6%89%E0%A6%B2%E0%A7%81%E0%A6%AE-%E0%A6%AE%E0%A6%B9%E0%A6%BF%E0%A6%B2%E0%A6%BE-%E0%A6%AE%E0%A6%BE%E0%A6%A6%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE-100064065156417/",
+          "title": "সিরাজুল উলুম মহিলা মাদ্রাসা - Facebook",
+          "date": null,
+          "has_thumbnail": true
+        },
+        {
+          "i": 36,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100064789278344/posts/gade-sa-kap-pase-pakistan-jodia-si-c-ha%C3%AFti-nou-tt-mouri-wi-mezanmi/832572464068002/",
+          "title": "gade sa kap pase Pakistan jodia si c Haïti nou tt mouri wi mezanmi",
+          "date": "Aug 24, 2021",
+          "has_thumbnail": true
+        },
+        {
+          "i": 37,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100083356996104/videos/%DA%A9%D8%B1%D8%A7%DA%86%DB%8C-%D9%BE%D8%A7%DA%A9%D8%B3%D8%AA%D8%A7%D9%86%DA%86%D9%88%D8%A8-%D8%AE%D8%AF%D8%A7-%D8%B5%D8%AF%D8%A7-%D9%86%D8%AF%D8%A7%D8%B1%D9%87/623917452232578/",
+          "title": "کراچی پاکستان چوب خدا صدا نداره | رویداد های روز - Facebook",
+          "date": "Jul 29, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 38,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/100083356996104/posts/%DA%A9%D8%B1%D8%A7%DA%86%DB%8C-%D9%BE%D8%A7%DA%A9%D8%B3%D8%AA%D8%A7%D9%86%DA%86%D9%88%D8%A8-%D8%AE%D8%AF%D8%A7-%D8%B5%D8%AF%D8%A7-%D9%86%D8%AF%D8%A7%D8%B1%D9%87/116991864413369/",
+          "title": "کراچی پاکستان چوب خدا صدا نداره - Facebook",
+          "date": "Jul 29, 2022",
+          "has_thumbnail": true
+        },
+        {
+          "i": 39,
+          "source": "Facebook",
+          "link": "https://www.facebook.com/bigfanofjoker/videos/pakistan-flood/605022149299531/",
+          "title": "Pakistan flood | Muhammad Ahmad | Facebook",
+          "date": "Oct 30, 2025",
+          "has_thumbnail": true
+        }
+      ],
+      "match_keys": [
+        "actual_image_height",
+        "actual_image_width",
+        "date",
+        "link",
+        "position",
+        "source",
+        "source_icon",
+        "thumbnail",
+        "title"
+      ],
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    },
+    {
+      "case": "c6-kolkata-lathicharge",
+      "bytes": 69051,
+      "sha256": "6ace531bcd0393abb65be3248a6a66cc47e2c91a70aede5b5fe42264e93a9444",
+      "phash": "461f23290977b62e",
+      "signed_url_len": 424,
+      "signed_get": {
+        "status": 200,
+        "identical_bytes": true,
+        "content_type": "image/jpeg"
+      },
+      "lens_ms": 4177,
+      "lens_http": 200,
+      "lens_status": "Success",
+      "lens_error": "Google Lens hasn't returned any results for this query.",
+      "fixture": "fixtures\\c6-kolkata-lathicharge\\google_lens-d671a1c3849c168f.json",
+      "exact_matches": 0,
+      "matches": [],
+      "match_keys": [],
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    }
+  ]
+}

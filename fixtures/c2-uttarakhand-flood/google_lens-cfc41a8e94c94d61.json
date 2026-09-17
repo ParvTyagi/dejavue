@@ -1,0 +1,194 @@
+{
+  "search_metadata": {
+    "status": "Success",
+    "markdown_endpoint": "https://serpapi.com/searches/S47hPgl1rytBjjDFL95Uf6_C3Q7qHnbX5J9wKIa9md8/6aab98af2f47f8a7b4b3d085.md",
+    "created_at": "2026-09-17 07:37:19 UTC",
+    "processed_at": "2026-09-17 07:37:19 UTC",
+    "google_lens_url": "https://lens.google.com/uploadbyurl?url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Flens-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9sZW5zLWNoZWNrL2FlYzAzODRmZWM1YTA3MmQuanBnIiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4OTYzMDYzOCwiZXhwIjoxNzg5NjMxNTM4fQ.B3zpW_GVKkQxJUhsAX7ZYMz2T7kvm0lMYsRTTGqxzbE3x3UVvfN2KUWk94NI5N6eOrJ70eg7Bpm-Qs2ojGPqqA",
+    "total_time_taken": 11.09
+  },
+  "search_parameters": {
+    "engine": "google_lens",
+    "url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/lens-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "type": "exact_matches"
+  },
+  "exact_matches": [
+    {
+      "position": 1,
+      "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق #بغداد-#سانا ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/sana.gov/posts/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA-%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%B3%D8%A7%D9%86%D8%A7%D9%84%D9%82%D9%8A-%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%85/663949254988155/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/m6tLwAyz12fUAHkKjLr1PV___FYh674U6Gr72t4inSY.jpeg",
+      "date": "Dec 17, 2021",
+      "actual_image_width": 660,
+      "actual_image_height": 330
+    },
+    {
+      "position": 2,
+      "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق #بغداد-#سانا ...",
+      "source": "Facebook",
+      "source_icon": "https://serpapi.com/images/i/UklGRqoBAABXRUJQVlA4IJ4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0yhHA3lfFBO1wAOUA_QD3LbivzzOpj3kDygCma-Rh7ANX--unhjJOlma5yFBwxABGtbBmfGruNiAAA_vYOb16QPF2AohybdBK44SXhExiRjqi-kNM3hHu_Yw7AJrL-7rM8d_rijdiRy0j-ZeW7w6RIRuMqgm_RO4f6lRIhYknlxf6mMoXAQaj6_tRkMRwBV5EdP_uMw4kqy2ZhqPi3PG5PpxthXgQWj6H4uUXexYHFqh3xYBX5dL6Dsx0kaiR__FvN_6m7_QiD5ix90ybowZPZ4EJjzU2ag7SQJ4wrf_2kwO1hPlzmly6sn4r0HSBDYT_CBJqgzjphFkqJAiVh_RCXqM9h1YZk1Q4HA5xuHo3rNsBGkg4DVoQb6lPRqlYEs1YLGkTSOA-pXnCCv-FX4cz9i_E71o22GBeX206C3AI8KMZxPikjU93MZF-5b_bVPypp2kWlnV7cYdOVJ_T0iqe1D8CmirqI-Ktb5K_S123btql4LlRpp_0gELOp_50DZ4WlAAA.webp",
+      "link": "https://www.facebook.com/sana.gov/photos/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA-%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF-%D8%B3%D8%A7%D9%86%D8%A7%D9%84%D9%82%D9%8A-%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%85/663949228321491/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/MElytu2xJH88YZHpHvGBy62TURyijlKYjSJyr4GsD98.jpeg",
+      "date": "Dec 17, 2021",
+      "actual_image_width": 660,
+      "actual_image_height": 330
+    },
+    {
+      "position": 3,
+      "title": "الدفاع المدني يعاق على قدرة استيعاب السدود لموجة السيول ... - بغداد اليوم",
+      "source": "وكالة بغداد اليوم الاخبارية",
+      "source_icon": "https://serpapi.com/images/i/UklGRkwBAABXRUJQVlA4IEABAABwBQCdASogAA4APtEutFooIagoGAEAGglsALsMFHmEIrD-uX_CSO-C_tJAChe0lBxRZOxgAP749GzVvm7ZmZdM5oHlIwbm9Yg_-e__-v2JOXVRZE__qwE7ZejNdX_pj9jpqyvna55PXD_x2__ybc5YfTSmW_8EIPzo__y1_X_6Gd1RHeOvMnw_Di_w77i9T0aI_i5sFN7LCeV7AP6HrJ739lY5DNhpj5niTbzQBFo9On_mPFepR7keVfsu424u3Akj6lz_ImZs4WYuiy_cMUSuiVlbNwFxtiv712OroJp1EPZdYUYKG5zTMtyB4srS32IvX36D6TPgOawa6xDiTb489OvYTnap2eKqAq0GPQYR_39lseNEXcam0SnKo9NgVlbXbCf_CP7ySW7f8r74yF8RICWm3Jr6sZPWOSPDlAAAAA.webp",
+      "link": "https://baghdadtoday.news/176120-.html",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/Wv5TzdJ0h3HPq96VWByys9k9Wc-Rs9YkGrP3ZZJpzvg.jpeg",
+      "date": "Dec 17, 2021",
+      "actual_image_width": 750,
+      "actual_image_height": 450
+    },
+    {
+      "position": 4,
+      "title": "عشرات الضحايا جراء السيول في اليمن - اذاعة صوت الشباب",
+      "source": "Sawtshabab",
+      "source_icon": "https://serpapi.com/images/i/UklGRsoBAABXRUJQVlA4IL4BAABwCQCdASocABwAPtEutFooIagoGAEAGglsAJ0zMveNwG2A3AG8S7x_MZdmCaDDBYy_P6z5agHSQGrBgNIM5fh-t2m_AQ2R1gzqynvNoju5sITLwAAA_vYT3ttIR5cOux9du4ZGo9rGMm-vatzYkVvL_NWOzrFNXZJxaZ-HeX0FYcQx7tMotZi_6DScnX_OU05nMZTTau6LRlHIkxUi5tFf49wL6umS_UCv8YdVL1y2PlMX68W7PP_-LJnmcnLoF4M0Qb0fujfwkinPfJX1qjp3zXX-mcOCThSr6tPkh39HCgMMEPW70GwSggY-JnLZ6lXPuF37iO51vfSv74wa-8XFAfexBe-CXkel_Wo0ffq7Eoc4gaytDoCPZAIjJWMN0lyaoVctOudazNKo39xPFmPL293SnoCT_m1QbxaRN_pswwzyBVjkQt2tlW0TAwVpAyY0M8VJ4-1DInYtWQIulPKhy_uFVkSPbFOOPaFC7YNt58zNkm0m4v2m_2Mto4v55lutgdAcP4Shwtse642vS6b5lzlm38IFDjtWobbHMTPb78yfLRqW9_PIL4V3A2FVGkWAOrhAerdNaLm89gAAAA.webp",
+      "link": "https://www.sawtshabab.ps/%D8%B9%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B6%D8%AD%D8%A7%D9%8A%D8%A7-%D8%AC%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D9%8A%D9%85%D9%86/%D8%B9%D8%B4%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%B6%D8%AD%D8%A7%D9%8A%D8%A7-%D8%AC%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D9%8A%D9%85%D9%86/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/gcUekxNmdexCwKw0HJKR8vsoQdrQEUkDuwxN0uFLHUk.jpeg",
+      "date": "Aug 14, 2022",
+      "actual_image_width": 800,
+      "actual_image_height": 450
+    },
+    {
+      "position": 5,
+      "title": "العراق.. سيول تجتاح إقليم كردستان (فيديو) - شبكة رؤية الإخبارية",
+      "source": "شبكة رؤية الإخبارية",
+      "source_icon": "https://serpapi.com/images/i/UklGRooBAABXRUJQVlA4IH4BAACQBwCdASocABwAPtEutFooIagoGAEAGglsAJ0y44D_0eGq20rGIUsB6g2eD-QG-KdCYCf577RniQAxXaG3c_nRQUjBx1AA_vYF5ezZypFnP_3wBlsjLtOG-NnJ6UKhyWrlSTf2w2yfJp8VcXL7g7r7FVfgAaoW9c1O1rNOssvQmirJRy_JWj0MWlA-af5BScSeiIoF-BYO4z93aQgEu5Mkz837iRDUN4Nlzn3rCik95__dT__qAUUv9wATiCyPJc6P1kcXWf7kfzttf-D3rKMPqBqhUQkEFP7gWakEzPDXc5fj7p0inQ8qmufi0oQ5zIlUfP58FQf5tr2mOxmyIDU5tLphydOGtTR6CWHl0OGFtHnM7PD24h704OwEJGH68-LfxU_-LoW93SeyivnqlD8eqgfwVbLAHvdNHvqj62S3DLc430y45CcKHBMCasqzE3qPl2GHlXn_YTzcM7xoMzXn1C64evE9AkLXXeijhLVpn9PHXkH-YZ_P2XxZeAAA.webp",
+      "link": "https://roayahnews.com/%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82-%D8%B3%D9%8A%D9%88%D9%84-%D8%AA%D8%AC%D8%AA%D8%A7%D8%AD-%D8%A5%D9%82%D9%84%D9%8A%D9%85-%D9%83%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86-%D9%81%D9%8A%D8%AF%D9%8A%D9%88/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/eGYA0EWVEUy1mlrP13qJ7XXk3zMyULfMQqhbkz0wT0o.jpeg",
+      "date": "Jan 13, 2022",
+      "actual_image_width": 1028,
+      "actual_image_height": 578
+    },
+    {
+      "position": 6,
+      "title": "مصرع 8 أشخاص وإصابة 4 آخرين جراء فيضانات شمال العراق - هوى الشام",
+      "source": "Hawaalsham",
+      "source_icon": "https://serpapi.com/images/i/UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQABAAAsBMJQAAYtTLQuZDUAD--iy0MBwkFjhr00Q0m9YLtu8l1BCM_1za6gwAJ5KMAQxIqnNpT4cus4y11QDQaf9O9IslhdiW6EAA.webp",
+      "link": "https://www.hawaalsham.com/%D9%85%D8%B5%D8%B1%D8%B9-8-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D9%88%D8%A5%D8%B5%D8%A7%D8%A8%D8%A9-4-%D8%A2%D8%AE%D8%B1%D9%8A%D9%86-%D8%AC%D8%B1%D8%A7%D8%A1-%D9%81%D9%8A%D8%B6%D8%A7%D9%86%D8%A7%D8%AA/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/PPM_sH6-PtBimZ6WWJrp9WUpclx8ZdN7x8IOau8fBPE.jpeg",
+      "date": "Dec 17, 2021",
+      "actual_image_width": 696,
+      "actual_image_height": 463
+    },
+    {
+      "position": 7,
+      "title": "مياه الامطار تحاصر مقر إقامة مسعود البارزاني في أربيل » تودي نيوز",
+      "source": "تودي نيوز",
+      "source_icon": "https://serpapi.com/images/i/UklGRg4BAABXRUJQVlA4IAIBAADwBACdASogAA0APtEwtFooIigoGAEAGglpABPAVC87JWoH0Y1ZAZk6lY8udxzTwQAA_vpZ81pif_a9HCUaDQn3_-Hn_vULlxo4evMVoJ4h9tNqfBGYUpZkOPpNR-XhP_4a0GKWk1MESPxuy_n96dvaJud2-XEL8nT2na_-Etz_5Un4j_5zeoxtqdc1-gV-i2FbGIYVH-w2jT-fJBl6sqmlG_MIdtC43XvKvzSJVoZmfdTDj9TrogXtCd3X93ioDdVCJPHU7AvIy8kzDjK65HmTmO7afbG-b6RExwx5iR3mF-rG07-idJHub7h_10DvQd0HA6fvVQRvKCmqYO4H1YAAAAA.webp",
+      "link": "https://www.todaynewsiq.net/63661--.html",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/VMt-z5SSX5lCDc4V0z945lF1gMIkLd0FvAK1t2OS8uQ.jpeg",
+      "date": "Jan 13, 2022",
+      "actual_image_width": 750,
+      "actual_image_height": 430
+    },
+    {
+      "position": 8,
+      "title": "محافظ أربيل يعلن حالة الطوارئ جراء السيول التي تجتاح مناطق عدة في ...",
+      "source": "قناة افاق الفضائية",
+      "source_icon": "https://serpapi.com/images/i/UklGRiwBAABXRUJQVlA4ICABAACQBQCdASogABAAPtEutFooIagoGAEAGglAF2XQAqwL5nybp7Ny7npKswOWCIEu39PLIUdiAAD-_pqdqf11VAAvKBu70vL_2Wy2oYhUIlboXxdcS5XMfbP8xn_-ObLc6-PG9EQp3iJ1rdhIWYaX88eql2jNqL78v0mTwm4mlxFpGbf8Buodu-a75zjJULeZZeM_gFQfPaP4Zplv4nXLA6Mr_ly5uhiiGwkv4zDfan_8uD0cC431_2Ar7j4APJxPFl11fZ2p4zh-NAUQnNhp28vQzEoGG7uuShIcny6BPu-Y_Wlv5v6VdYw6M0oaJjFdVQ5-9NQuCLC2a7ZPU6TguP8i91eKnad_rjUI7l4PKMQDwvRO6v5HaZdmALVXAiwAAAA.webp",
+      "link": "https://afaq.iq/contents/view/details?id=166341",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/Vr9QX8M2vZc4SEm1no8WHdzCC4ECfhHwu079vTqoAiQ.jpeg",
+      "actual_image_width": 1028,
+      "actual_image_height": 578
+    },
+    {
+      "position": 9,
+      "title": "مشاهد من سيول جارفة اجتاحت أربيل | محليات - Alsumaria TV",
+      "source": "Alsumaria",
+      "source_icon": "https://serpapi.com/images/i/UklGRo4BAABXRUJQVlA4IIIBAABQCQCdASogACAAPtE-tFooIigoFAEAGglsAJ0vPmzOpl4AGUgcIB_gP6TwAHlE-yf5G93XpAUAHu6ov-mkwG5vdLVBSGI8WBs82ULcELwmQSc8AAD-_S_z55weIWS9vVU9IYuMs_19fsy6mj1ENv5nud9bQpTfUugD31m0Lz2cYMnjTy5uxMWYoVKpkLn_H7Ws-ES7IH9w1Hdgh_9h983Un1_KmvwV84feiif8Ym69J31L7wgXJ15WvtL6PT1WS-ZLFrHit4GqFCJeDGOY7V01BzthdQIpksu2tCpRxEGwMfVb1WfKQtm217Oze7Lrx0HzfEumWZtlJpCc9DCFMa_v0lXE-H84ONODdH6v2GMFYGd1n0r8hpYTgmm0kZfYCQ9Ti__D6yZkDY6Ae3krJqdBH6K_M5XU_4fkeqdxPnFvZUvs1Ly2cGD2no385SbZRUn_M_Pb7xt7z6IeMniSGx5-V_2hjiHtQekrtQDa12fZQe-c04KunujfcHS7jipn-VAAAA.webp",
+      "link": "https://www.alsumaria.tv/news/localnews/406134/%D9%85%D8%B4%D8%A7%D9%87%D8%AF-%D9%85%D9%86-%D8%B3%D9%8A%D9%88%D9%84-%D8%AC%D8%A7%D8%B1%D9%81%D8%A9-%D8%A7%D8%AC%D8%AA%D8%A7%D8%AD%D8%AA-%D8%A3%D8%B1%D8%A8%D9%8A%D9%84",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/woP-6tP3-1CMPt-FVmaxn8phH07jz-hpgi2B80rGQ1U.jpeg",
+      "date": "Dec 17, 2021",
+      "actual_image_width": 1028,
+      "actual_image_height": 578
+    },
+    {
+      "position": 10,
+      "title": "سيول جارفة تودي بحياة 8 أشخاص في أربيل - تلفزيون فلسطين",
+      "source": "تلفزيون فلسطين",
+      "source_icon": "https://serpapi.com/images/i/UklGRtIAAABXRUJQVlA4IMYAAACwBQCdASocABwAPrkurlcnIacnG_DgFwlAGfQ3wH8r9HbO3zK_0zK9rHYLfeTBCi-p8zLQuAAA_vkKqLt5qoRqLsjM9jbxIxHz_Da3bhO9xGjU9MpyzZ9kn7u4cnD87x8PPzjNJ_SESXxcQ9-x8iNJ89si75qg65F-es33bhMpfr7keKFLa-xNjcXf_1PredxPMi4VQ3oufUgLbJqeGMfhHnpTx5uXfu-f2gBu40PI0gTEJ3A3cIQ7U-5m8z-d9yRUp-QAAAA.webp",
+      "link": "https://www.pbc.ps/6459-2/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/WooTSG6jNagCV5DVDoftlvLCNcwrZ0MEhkjPHsC1g1g.jpeg",
+      "actual_image_width": 780,
+      "actual_image_height": 470
+    },
+    {
+      "position": 11,
+      "title": "آخر الأخبار » صفحة 6776 » وكالة بغداد اليوم الاخبارية",
+      "source": "وكالة بغداد اليوم الاخبارية",
+      "source_icon": "https://serpapi.com/images/i/UklGRkwBAABXRUJQVlA4IEABAABwBQCdASogAA4APtEutFooIagoGAEAGglsALsMFHmEIrD-uX_CSO-C_tJAChe0lBxRZOxgAP749GzVvm7ZmZdM5oHlIwbm9Yg_-e__-v2JOXVRZE__qwE7ZejNdX_pj9jpqyvna55PXD_x2__ybc5YfTSmW_8EIPzo__y1_X_6Gd1RHeOvMnw_Di_w77i9T0aI_i5sFN7LCeV7AP6HrJ739lY5DNhpj5niTbzQBFo9On_mPFepR7keVfsu424u3Akj6lz_ImZs4WYuiy_cMUSuiVlbNwFxtiv712OroJp1EPZdYUYKG5zTMtyB4srS32IvX36D6TPgOawa6xDiTb489OvYTnap2eKqAq0GPQYR_39lseNEXcam0SnKo9NgVlbXbCf_CP7ySW7f8r74yF8RICWm3Jr6sZPWOSPDlAAAAA.webp",
+      "link": "https://baghdadtoday.news/lastnews/page/6776/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/IFchoYRIoI9kPDAtcxxFkYF2KiUzzg_cXh2WAibmOL0.jpeg",
+      "actual_image_width": 750,
+      "actual_image_height": 450
+    },
+    {
+      "position": 12,
+      "title": "مياه الامطار تحاصر مقر إقامة مسعود البارزاني في أربيل - وكالة تنوع نيوز",
+      "source": "وكالة تنوع نيوز",
+      "source_icon": "https://serpapi.com/images/i/UklGRtQAAABXRUJQVlA4IMgAAACQBACdASocABEAPtE-tFooIigoFAEAGglsALsR_-LXSOf8bbR30VmaovqBbAAA_vVJw1x9blliCfYayu_MFUXOfY16hzsfXcTHymFx86SZx0QlBqGv-PDH0DlZSrSKW7x0SMJYwRKJWHD9gEF7ArN5GI6z2fKzi1JfOE08gEOHtitge2u6oMci5taaty-4S3AiRmxOrd4I6ofAcWLr8MNdeMwUqiq9LeQbTcOIo7MealOKoagB5y96woqO1mKWru3nDFQ0yWAAAA.webp",
+      "link": "https://tanawue.com/32223--.html",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/C6ZO62Z5HBgFMLqrJWLETldiPOXYLVoRHU1szeQtIcE.jpeg",
+      "date": "Jan 13, 2022",
+      "actual_image_width": 750,
+      "actual_image_height": 430
+    },
+    {
+      "position": 13,
+      "title": "بسبب غزارة الامطار..إعلان حالة الطوارئ في اربيل - وكالة نون الخبرية",
+      "source": "وكالة نون الخبرية",
+      "source_icon": "https://serpapi.com/images/i/UklGRm4BAABXRUJQVlA4IGIBAADQBwCdASocABwAPtEutFooIagoGAEAGglsALElQN55sBLFe8sS1VLge1-grGufGAdHfY_9HB0P9xOdIt6KE2pcvuS2aXaAAAD-9glwuL86VIz4ImVUEXv2hdH1JsyibMs8YlGoNITZo1UIGakvmTYfvoz86YyZV7g_5eIKRiGk0AoI5ctmp8e8-aOUiycgKy_KHkq0HbxV6-mx5H4pL_FKtPF0fbO-7mCiqgGQurmaWAWa3xm4jZzIGCu3ffuyBq_Lhe2-N9P_bbtZK_8DqUV7bHr_gKS5G6pB3YLP4jbpoDC_YYz2Lfgip9NX0b08j-3ABe0xuqdM0_K7IfodYONHTttVksroNj7XXzHlLGWgAFETwmAl6MfyEYBkiU5TZ13Jk4x-v7_7Nf9B_nMYV48xG0G2w6z32wTD8I5Wyp0UXJBmftDMPeTDPmmthTKPw2d2LN8-1PISQEnInxs-ZvqegAA.webp",
+      "link": "https://non14.net/143516",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/1L9HRTtc2qOSIk7ajELUmafh5ALrkdcmG6KNbiO275w.jpeg",
+      "date": "Jan 13, 2022",
+      "actual_image_width": 1028,
+      "actual_image_height": 578
+    },
+    {
+      "position": 14,
+      "title": "Maltempo e alluvioni in Iraq: almeno 8 morti per le piogge torrenziali ...",
+      "source": "MeteoWeb",
+      "source_icon": "https://serpapi.com/images/i/UklGRqAAAABXRUJQVlA4IJQAAABwBACdASocABwAPtEutFooIagoGAEAGglsAABc60vowZ3rRPFLz7erglbk0AD-9gEpjUWPWffeZJSw6iKlNFhL-u_-cS62Jn2Dhs9QBkTXM2yky0dco7arZLz9dHU550sgPOLoBp3xf8idgOVZOoHAVq-lW3Ov9bEWt-kfNfMRu0qBSnJR4Y2ULjt_SRBFEu_1kAAA.webp",
+      "link": "https://www.meteoweb.eu/2021/12/maltempo-e-alluvioni-in-iraq-almeno-8-morti-per-le-piogge-torrenziali-a-erbi/1748483/",
+      "thumbnail": "https://serpapi.com/searches/6aab98af2f47f8a7b4b3d085/images/4E4p7IOD4uyZ_Qk0m4Y25bgj2JeXhs37FZaQ9mmiyWg.jpeg",
+      "date": "Dec 18, 2021",
+      "actual_image_width": 1024,
+      "actual_image_height": 576
+    },
+    {
+      "position": 15,
+      "title": "الانواء الجوية - وكالة نون الخبرية",
+      "source": "وكالة نون الخبرية",
+      "source_icon": "https://serpapi.com/images/i/UklGRm4BAABXRUJQVlA4IGIBAADQBwCdASocABwAPtEutFooIagoGAEAGglsALElQN55sBLFe8sS1VLge1-grGufGAdHfY_9HB0P9xOdIt6KE2pcvuS2aXaAAAD-9glwuL86VIz4ImVUEXv2hdH1JsyibMs8YlGoNITZo1UIGakvmTYfvoz86YyZV7g_5eIKRiGk0AoI5ctmp8e8-aOUiycgKy_KHkq0HbxV6-mx5H4pL_FKtPF0fbO-7mCiqgGQurmaWAWa3xm4jZzIGCu3ffuyBq_Lhe2-N9P_bbtZK_8DqUV7bHr_gKS5G6pB3YLP4jbpoDC_YYz2Lfgip9NX0b08j-3ABe0xuqdM0_K7IfodYONHTttVksroNj7XXzHlLGWgAFETwmAl6MfyEYBkiU5TZ13Jk4x-v7_7Nf9B_nMYV48xG0G2w6z32wTD8I5Wyp0UXJBmftDMPeTDPmmthTKPw2d2LN8-1PISQEnInxs-ZvqegAA.webp",
+      "link": "https://non14.net/tag/1847?page=10",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSyGCMhfoqfCSgg_XCqi0WJCf1JH73p67tEFVf0I8JSoqtoh22PUe-kweI&s",
+      "actual_image_width": 1028,
+      "actual_image_height": 578
+    },
+    {
+      "position": 16,
+      "title": "Hawa Alsham - الصفحة 371 من 714 - هوى الشام",
+      "source": "Hawaalsham",
+      "source_icon": "https://serpapi.com/images/i/UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQABAAAsBMJQAAYtTLQuZDUAD--iy0MBwkFjhr00Q0m9YLtu8l1BCM_1za6gwAJ5KMAQxIqnNpT4cus4y11QDQaf9O9IslhdiW6EAA.webp",
+      "link": "https://www.hawaalsham.com/author/hawa-r/page/371/",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmUSmNFinvIaQtA5-OxfQqTr76_5Xgi0YyLMF4nChRY4jKA6tThwmawFjn&s",
+      "actual_image_width": 696,
+      "actual_image_height": 463
+    }
+  ],
+  "_dejavue": {
+    "recorded_at": "2026-09-17T13:07:30+0530",
+    "image_sha256": "aec0384fec5a072d3867e96f8a2907e69e1e5708138807dd0899fbbff39348b5",
+    "input_phash": "176e7c2677c88b10",
+    "note": "search_parameters.url was a 15-minute Supabase signed URL (token redacted)"
+  }
+}
