@@ -13,6 +13,12 @@ import type { Store } from '@/lib/store/types';
 export function fakeRedis(clock: () => Date): RedisCommands {
   const values = new Map<string, { value: string; expiresAt: number }>();
   const sets = new Map<string, Set<string>>();
+  const lists = new Map<string, { items: string[]; expiresAt: number }>();
+  const list = (key: string) => {
+    const l = lists.get(key);
+    if (l && l.expiresAt <= clock().getTime()) lists.delete(key);
+    return lists.get(key);
+  };
   const alive = (key: string) => {
     const item = values.get(key);
     if (item && item.expiresAt <= clock().getTime()) values.delete(key);
@@ -27,8 +33,16 @@ export function fakeRedis(clock: () => Date): RedisCommands {
       return next;
     },
     pexpire: async (key, ms) => {
-      const item = alive(key);
+      const item = alive(key) ?? list(key);
       if (item) item.expiresAt = clock().getTime() + ms;
+    },
+    rpush: async (key, value) => {
+      const l = list(key) ?? lists.set(key, { items: [], expiresAt: Infinity }).get(key)!;
+      return l.items.push(value);
+    },
+    lrange: async (key, start, stop) => {
+      const items = list(key)?.items ?? [];
+      return items.slice(start, stop === -1 ? undefined : stop + 1);
     },
     sadd: async (key, member) => void (sets.get(key) ?? sets.set(key, new Set()).get(key)!).add(member),
     smembers: async (key) => [...(sets.get(key) ?? [])],

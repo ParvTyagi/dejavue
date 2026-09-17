@@ -1,5 +1,5 @@
 import { isSameImage } from '@/lib/media/phash';
-import type { Dossier } from '@/lib/shared/types';
+import type { AuditEvent, Dossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 /**
@@ -14,6 +14,8 @@ export interface RedisCommands {
   sadd(key: string, member: string): Promise<unknown>;
   smembers(key: string): Promise<string[]>;
   srem(key: string, member: string): Promise<unknown>;
+  rpush(key: string, value: string): Promise<number>;
+  lrange(key: string, start: number, stop: number): Promise<string[]>;
 }
 
 const LEDGER_RETENTION_MS = 40 * 86_400_000;
@@ -74,6 +76,20 @@ export function createRedisStore(redis: RedisCommands): Store {
     },
     async getAudit(id) {
       return parse(await redis.get(redisKey('audit', id)));
+    },
+    async appendEvent(auditId, event, ttlMs) {
+      const key = redisKey('events', auditId);
+      if ((await redis.rpush(key, JSON.stringify(event))) === 1) await redis.pexpire(key, ttlMs);
+    },
+    async readEvents(auditId, from) {
+      const raw = await redis.lrange(redisKey('events', auditId), from, -1);
+      return raw.map((r) => JSON.parse(r) as AuditEvent);
+    },
+    async countHit(key, windowMs) {
+      const counter = redisKey('hits', key);
+      const count = await redis.incr(counter);
+      if (count === 1) await redis.pexpire(counter, windowMs);
+      return count;
     },
   };
 }

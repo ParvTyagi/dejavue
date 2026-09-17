@@ -1,4 +1,4 @@
-import type { Dossier, EngineId, Evidence, GeoPoint, SceneReading } from '@/lib/shared/types';
+import type { AuditEvent, Dossier, EngineId, Evidence, GeoPoint, SceneReading } from '@/lib/shared/types';
 
 export interface MediaCacheEntry {
   pHash: string;
@@ -32,6 +32,14 @@ export interface Store {
   ledgerStats(monthStart: string): Promise<LedgerStats>;
   putAudit(dossier: Dossier, ttlMs: number): Promise<void>;
   getAudit(id: string): Promise<Dossier | undefined>;
+  /**
+   * Live progress, shared by every server instance: the audit appends events in order,
+   * and any stream request reads them from an index onwards.
+   */
+  appendEvent(auditId: string, event: AuditEvent, ttlMs: number): Promise<void>;
+  readEvents(auditId: string, from: number): Promise<AuditEvent[]>;
+  /** Counts a hit in a fixed window and returns the count so far. */
+  countHit(key: string, windowMs: number): Promise<number>;
 }
 
 export const TTL = {
@@ -43,6 +51,8 @@ export const TTL = {
   mediaMs: 7 * 86_400_000,
   /** Finished dossiers stay reloadable for 7 days. */
   auditMs: 7 * 86_400_000,
+  /** Live events only matter while someone is watching. */
+  eventsMs: 3_600_000,
 } as const;
 
 export const monthKey = (iso: string) => iso.slice(0, 7);

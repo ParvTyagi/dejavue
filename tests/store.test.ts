@@ -51,6 +51,30 @@ describe.each(STORE_KINDS)('%s store', (kind) => {
     expect(await store.ledgerStats('2026-09-01T00:00:00.000Z')).toEqual({ creditsThisMonth: 2, cachedThisMonth: 1, totalCalls: 4 });
   });
 
+  it('keeps an ordered event log that any reader can resume from an index', async () => {
+    const { store, at } = setup();
+    const events = [
+      { type: 'stage', data: { stage: 'claim' } },
+      { type: 'stage', data: { stage: 'scene' } },
+      { type: 'credit', data: { engine: 'google_lens', cached: false, totalCredits: 1, maxCredits: 6 } },
+    ] as const;
+    for (const e of events) await store.appendEvent('dv_0000abcd', e, TTL.eventsMs);
+    expect(await store.readEvents('dv_0000abcd', 0)).toEqual(events);
+    expect(await store.readEvents('dv_0000abcd', 2)).toEqual([events[2]]);
+    expect(await store.readEvents('dv_ffff0000', 0)).toEqual([]);
+    at(TTL.eventsMs + 1);
+    expect(await store.readEvents('dv_0000abcd', 0)).toEqual([]);
+  });
+
+  it('counts hits per fixed window', async () => {
+    const { store, at } = setup();
+    expect(await store.countHit('ip:1', 600_000)).toBe(1);
+    expect(await store.countHit('ip:1', 600_000)).toBe(2);
+    expect(await store.countHit('ip:2', 600_000)).toBe(1);
+    at(600_001);
+    expect(await store.countHit('ip:1', 600_000)).toBe(1);
+  });
+
   it('keeps dossiers reloadable for 7 days after saving, whatever time the audit itself used', async () => {
     const { store, at } = setup();
     // A replayed audit carries the time its case was recorded, years earlier.

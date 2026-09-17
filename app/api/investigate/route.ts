@@ -1,5 +1,5 @@
 import { randomBytes } from 'node:crypto';
-import { NextResponse } from 'next/server';
+import { after, NextResponse } from 'next/server';
 import { matchCase } from '@/lib/fixtures/source';
 import { AuditError, runAudit } from '@/lib/orchestrator/pipeline';
 import { appStore, createAuditDeps, fetchAndHash, FIXTURES_DIR, fixtureMode } from '@/lib/server/deps';
@@ -12,22 +12,25 @@ import {
 } from '@/lib/server/http';
 import { deleteTemporaryFrames, isTemporaryStoreUrl } from '@/lib/server/mediaStore';
 import { allowAudit } from '@/lib/server/rateLimit';
-import { openAudit } from '@/lib/server/registry';
 import { assertPublicHttpsUrl } from '@/lib/server/ssrf';
 import { auditInputSchema } from '@/lib/shared/schema';
-import type { AuditInput } from '@/lib/shared/types';
+import type { AuditInput, Emit } from '@/lib/shared/types';
+import { TTL } from '@/lib/store/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+// The audit keeps running after the response (up to its own 25 s deadline plus narration).
+export const maxDuration = 60;
 
 /** Starts an audit and returns its id; progress is streamed from /api/investigate/:id/stream. */
 export async function POST(req: Request) {
   const parsed = auditInputSchema.safeParse(await req.json().catch(() => undefined));
   if (!parsed.success) return apiError(400, 'INVALID_INPUT', 'The request did not match the expected shape.', parsed.error.flatten());
-  if (!allowAudit(clientIp(req))) return apiError(429, 'RATE_LIMITED', 'Too many audits from this address. Try again in a few minutes.');
-
   const mode = fixtureMode();
   const store = appStore();
+  if (!(await allowAudit(store, clientIp(req)))) {
+    return apiError(429, 'RATE_LIMITED', 'Too many audits from this address. Try again in a few minutes.');
+  }
   const body = parsed.data;
   let caseId: string | undefined;
   // Replay runs at the moment the case was recorded, so dates in its fixtures mean what they meant then.
@@ -72,22 +75,28 @@ export async function POST(req: Request) {
     },
   };
   const auditId = `dv_${randomBytes(4).toString('hex')}`;
-  const emit = openAudit(auditId);
+  // Events go to the shared store in order, so a stream served by any instance can follow the audit.
+  let logged = Promise.resolve();
+  const emit: Emit = (event) => {
+    logged = logged.then(() => store.appendEvent(auditId, event, TTL.eventsMs)).catch((err) => console.error(err));
+  };
   const replayDelayMs = Number(process.env.REPLAY_PACE_MS ?? 700);
   const deps = { ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs }), newId: () => auditId };
 
-  void runAudit(input, emit, deps)
-    .catch((err) => {
+  // after() keeps a serverless function alive until the audit is done.
+  after(async () => {
+    try {
+      await runAudit(input, emit, deps);
+    } catch (err) {
       const code = err instanceof AuditError ? err.code : 'UPSTREAM_FAILED';
       const message = err instanceof AuditError ? err.message : 'The audit failed unexpectedly.';
       if (!(err instanceof AuditError)) console.error(err);
       emit({ type: 'error', data: { code, message, recoverable: false } });
-    })
-    .finally(() => {
-      if (mode !== 'replay') {
-        deleteTemporaryFrames(input.media.frames.map((f) => f.url)).catch(() => {});
-      }
-    });
+    } finally {
+      await logged;
+      if (mode !== 'replay') await deleteTemporaryFrames(input.media.frames.map((f) => f.url)).catch(() => {});
+    }
+  });
 
   return NextResponse.json({ auditId, mode, caseId });
 }

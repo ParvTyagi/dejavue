@@ -37,10 +37,16 @@ export function appStore(): Store {
   if (g.__dejavueStore) return g.__dejavueStore;
   const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
-  g.__dejavueStore =
-    url && token
-      ? createRedisStore(new Redis({ url, token, automaticDeserialization: false }))
-      : createSqliteStore(path.join(process.cwd(), 'data', 'dejavue.db'));
+  if (!url || !token) {
+    if (process.env.VERCEL) {
+      console.warn('DejaVue: no Upstash Redis configured; using per-instance /tmp storage. Live progress may not reach every instance.');
+    }
+    // Serverless file systems are read-only except /tmp.
+    const dir = process.env.VERCEL ? '/tmp' : path.join(process.cwd(), 'data');
+    g.__dejavueStore = createSqliteStore(path.join(dir, 'dejavue.db'));
+    return g.__dejavueStore;
+  }
+  g.__dejavueStore = createRedisStore(new Redis({ url, token, automaticDeserialization: false }));
   return g.__dejavueStore;
 }
 

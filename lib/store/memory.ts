@@ -1,5 +1,5 @@
 import { isSameImage } from '@/lib/media/phash';
-import type { Dossier } from '@/lib/shared/types';
+import type { AuditEvent, Dossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 interface Expiring<T> {
@@ -12,6 +12,8 @@ export function createMemoryStore(clock: () => Date = () => new Date()): Store {
   const media = new Map<string, Expiring<MediaCacheEntry>>();
   const ledger: { cached: boolean; at: string }[] = [];
   const audits = new Map<string, Expiring<Dossier>>();
+  const events = new Map<string, Expiring<AuditEvent[]>>();
+  const hits = new Map<string, Expiring<number>>();
 
   const expiring = <T>(value: T, ttlMs: number): Expiring<T> => ({ value, expiresAt: clock().getTime() + ttlMs });
   const live = <T>(item: Expiring<T> | undefined) => (item && item.expiresAt > clock().getTime() ? item.value : undefined);
@@ -38,5 +40,15 @@ export function createMemoryStore(clock: () => Date = () => new Date()): Store {
     },
     putAudit: async (d, ttlMs) => void audits.set(d.id, expiring(d, ttlMs)),
     getAudit: async (id) => live(audits.get(id)),
+    appendEvent: async (id, event, ttlMs) => {
+      const log = live(events.get(id)) ?? [];
+      events.set(id, expiring([...log, event], ttlMs));
+    },
+    readEvents: async (id, from) => (live(events.get(id)) ?? []).slice(from),
+    countHit: async (key, windowMs) => {
+      const count = (live(hits.get(key)) ?? 0) + 1;
+      hits.set(key, count === 1 ? expiring(count, windowMs) : { ...hits.get(key)!, value: count });
+      return count;
+    },
   };
 }

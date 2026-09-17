@@ -1,14 +1,14 @@
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { isSameImage } from '@/lib/media/phash';
-import type { Dossier } from '@/lib/shared/types';
+import type { AuditEvent, Dossier } from '@/lib/shared/types';
 import { monthKey, type MediaCacheEntry, type Store } from './types';
 
 // Node's built-in SQLite, loaded at runtime so bundlers don't try to resolve it.
 type DatabaseSync = import('node:sqlite').DatabaseSync;
 const { DatabaseSync } = process.getBuiltinModule('node:sqlite') as typeof import('node:sqlite');
 
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 /** Local store for running on one machine. Cached data is disposable, so schema changes rebuild it. */
 export function createSqliteStore(file: string, clock: () => Date = () => new Date()): Store {
@@ -20,9 +20,14 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
       DROP TABLE IF EXISTS serp_cache;
       DROP TABLE IF EXISTS media_cache;
       DROP TABLE IF EXISTS audits;
+      DROP TABLE IF EXISTS audit_events;
+      DROP TABLE IF EXISTS rate_hits;
       CREATE TABLE serp_cache (key TEXT PRIMARY KEY, response_json TEXT NOT NULL, fetched_at TEXT NOT NULL, expires_at INTEGER NOT NULL);
       CREATE TABLE media_cache (phash TEXT PRIMARY KEY, payload_json TEXT NOT NULL, expires_at INTEGER NOT NULL);
       CREATE TABLE audits (id TEXT PRIMARY KEY, dossier_json TEXT NOT NULL, expires_at INTEGER NOT NULL);
+      CREATE TABLE audit_events (audit_id TEXT NOT NULL, seq INTEGER NOT NULL, event_json TEXT NOT NULL, expires_at INTEGER NOT NULL,
+        PRIMARY KEY (audit_id, seq));
+      CREATE TABLE rate_hits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS credit_ledger (id INTEGER PRIMARY KEY AUTOINCREMENT, audit_id TEXT NOT NULL,
         engine TEXT NOT NULL, cached INTEGER NOT NULL, at TEXT NOT NULL);
       PRAGMA user_version = ${SCHEMA_VERSION};
@@ -30,7 +35,7 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
   }
 
   const now = () => clock().getTime();
-  const purge = (table: 'serp_cache' | 'media_cache' | 'audits') =>
+  const purge = (table: 'serp_cache' | 'media_cache' | 'audits' | 'audit_events' | 'rate_hits') =>
     db.prepare(`DELETE FROM ${table} WHERE expires_at <= ?`).run(now());
 
   return {
@@ -79,6 +84,26 @@ export function createSqliteStore(file: string, clock: () => Date = () => new Da
     async putAudit(dossier: Dossier, ttlMs) {
       purge('audits');
       db.prepare('INSERT OR REPLACE INTO audits VALUES (?, ?, ?)').run(dossier.id, JSON.stringify(dossier), now() + ttlMs);
+    },
+    async appendEvent(auditId, event, ttlMs) {
+      db.prepare(
+        `INSERT INTO audit_events (audit_id, seq, event_json, expires_at)
+         VALUES (?, (SELECT COALESCE(MAX(seq) + 1, 0) FROM audit_events WHERE audit_id = ?), ?, ?)`,
+      ).run(auditId, auditId, JSON.stringify(event), now() + ttlMs);
+    },
+    async readEvents(auditId, from) {
+      const rows = db
+        .prepare('SELECT event_json FROM audit_events WHERE audit_id = ? AND seq >= ? AND expires_at > ? ORDER BY seq')
+        .all(auditId, from, now()) as { event_json: string }[];
+      return rows.map((r) => JSON.parse(r.event_json) as AuditEvent);
+    },
+    async countHit(key, windowMs) {
+      purge('rate_hits');
+      db.prepare(
+        `INSERT INTO rate_hits (key, count, expires_at) VALUES (?, 1, ?)
+         ON CONFLICT(key) DO UPDATE SET count = count + 1`,
+      ).run(key, now() + windowMs);
+      return (db.prepare('SELECT count FROM rate_hits WHERE key = ?').get(key) as { count: number }).count;
     },
     async getAudit(id) {
       const row = db
