@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { isFinalEvent, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
 
 export interface AuditState {
@@ -46,11 +46,14 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
 const EVENT_TYPES: AuditEvent['type'][] = ['stage', 'evidence', 'signal', 'credit', 'short_circuit', 'dossier', 'error'];
 
 /** Follows an audit over Server-Sent Events until the dossier or a fatal error arrives. */
-export function useAuditStream(id: string): AuditState {
-  const [state, dispatch] = useReducer(reducer, initial);
+export function useAuditStream(id: string, initialEvents: AuditEvent[] = []): AuditState {
+  const [state, dispatch] = useReducer(reducer, initialEvents, (events) => events.reduce(reducer, initial));
+  // Read once: the server's snapshot seeds the state, and the stream continues after it.
+  const [snapshot] = useState(() => ({ count: initialEvents.length, finished: initialEvents.some(isFinalEvent) }));
 
   useEffect(() => {
-    const es = new EventSource(`/api/investigate/${id}/stream`);
+    if (snapshot.finished) return;
+    const es = new EventSource(`/api/investigate/${id}/stream?from=${snapshot.count}`);
     let finished = false;
     for (const type of EVENT_TYPES) {
       es.addEventListener(type, (msg) => {
@@ -69,7 +72,7 @@ export function useAuditStream(id: string): AuditState {
       }
     };
     return () => es.close();
-  }, [id]);
+  }, [id, snapshot]);
 
   return state;
 }

@@ -29,14 +29,14 @@ export const ENGINE_ICON: Record<EngineId, LucideIcon> = {
 
 /** A recognisable tint per engine. */
 export const ENGINE_COLOR: Record<EngineId, string> = {
-  google_lens: '#d4f75c',
-  bing_reverse_image: '#5eead4',
-  yandex_images: '#fbbf24',
-  google: '#a78bfa',
-  google_news: '#60a5fa',
-  google_maps: '#f472b6',
-  youtube: '#ff6b4f',
-  google_trends: '#94a3b8',
+  google_lens: '#171717',
+  bing_reverse_image: '#404040',
+  yandex_images: '#525252',
+  google: '#262626',
+  google_news: '#404040',
+  google_maps: '#525252',
+  youtube: '#262626',
+  google_trends: '#737373',
 };
 
 export const STAGE_ICON: Record<Stage, LucideIcon> = {

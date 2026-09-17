@@ -9,7 +9,8 @@ import { STAGE_ICON } from './icons';
 type StepState = 'done' | 'active' | 'pending' | 'skipped' | 'failed';
 
 /** Vertical progress rail with a filling connector and per-step states. */
-export function StageRail({ state }: { state: AuditState }) {
+// Takes only the fields it reads, so evidence and credit events don't re-render it.
+export function StageRail(state: Pick<AuditState, 'stage' | 'dossier' | 'fatal'>) {
   const current = state.dossier ? STAGES.length : Math.max(0, STAGES.findIndex((s) => s.id === state.stage));
   const tiersRun = state.dossier?.metrics.tiersRun;
 
@@ -28,7 +29,7 @@ export function StageRail({ state }: { state: AuditState }) {
       <div className="absolute top-3 bottom-3 left-[13px] w-px bg-line" aria-hidden />
       <motion.div
         aria-hidden
-        className="absolute top-3 left-[13px] w-px origin-top bg-gradient-to-b from-accent to-accent/40"
+        className="absolute top-3 left-[13px] w-px origin-top bg-accent"
         style={{ bottom: 12 }}
         initial={{ scaleY: 0 }}
         animate={{ scaleY: progress }}

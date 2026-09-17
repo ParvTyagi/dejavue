@@ -36,7 +36,7 @@ export function Toaster({ notices }: { notices: Notice[] }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, x: 40 }}
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-            className="pointer-events-auto flex items-start gap-3 rounded-xl border border-warn/30 bg-[#16130c]/95 p-3 text-sm shadow-2xl shadow-black/60 backdrop-blur"
+            className="pointer-events-auto flex items-start gap-3 rounded-xl border border-warn/30 bg-bg/95 p-3 text-sm shadow-lg shadow-black/5"
             role="status"
           >
             <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warn" />

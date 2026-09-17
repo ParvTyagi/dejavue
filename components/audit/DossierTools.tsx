@@ -7,6 +7,11 @@ import type { Dossier } from '@/lib/shared/types';
 import { Panel } from './Panel';
 import { ShareCard } from './ShareCard';
 
+async function renderPng(node: HTMLElement) {
+  const { toPng } = await import('html-to-image');
+  return toPng(node, { pixelRatio: 1, cacheBust: true, backgroundColor: '#ffffff' });
+}
+
 type Check = { state: 'idle' } | { state: 'checking' } | { state: 'valid' } | { state: 'invalid' } | { state: 'error'; message: string };
 
 export function DossierTools({ dossier }: { dossier: Dossier }) {
@@ -25,12 +30,9 @@ export function DossierTools({ dossier }: { dossier: Dossier }) {
   const downloadCard = async () => {
     if (!card.current) return;
     setRendering(true);
-    try {
-      const { toPng } = await import('html-to-image');
-      save(await toPng(card.current, { pixelRatio: 1, cacheBust: true, backgroundColor: '#08080a' }), `${dossier.id}-dejavue.png`);
-    } finally {
-      setRendering(false);
-    }
+    await renderPng(card.current)
+      .then((png) => save(png, `${dossier.id}-dejavue.png`))
+      .finally(() => setRendering(false));
   };
 
   const verify = async () => {

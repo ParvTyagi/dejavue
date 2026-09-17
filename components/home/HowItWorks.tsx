@@ -1,13 +1,13 @@
 'use client';
 
-import { AnimatePresence, motion, useInView } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
-import { Reveal, SpotlightCard } from '@/components/ui/motion';
+import { AnimatePresence, motion } from 'motion/react';
+import { useRef, useState } from 'react';
+import { Reveal, SpotlightCard, useVisibleInterval } from '@/components/ui/motion';
 import { ENGINE_LABEL } from '@/lib/client/labels';
 
 export function HowItWorks() {
   return (
-    <section id="how" className="wash mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28">
+    <section id="how" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">How it works</p>
         <h2 className="mt-3 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">
@@ -17,17 +17,17 @@ export function HowItWorks() {
 
       <div className="mt-12 grid gap-4 md:grid-cols-3">
         <Reveal delay={0}>
-          <Step n="01" color="#d4f75c" title="Fingerprint" body="Your browser shrinks the media and computes a 64-bit perceptual hash. Only resized frames ever leave your device.">
+          <Step n="01" color="#171717" title="Fingerprint" body="Your browser shrinks the media and computes a 64-bit perceptual hash. Only resized frames ever leave your device.">
             <BitGrid />
           </Step>
         </Reveal>
         <Reveal delay={0.1}>
-          <Step n="02" color="#5eead4" title="Escalate, don't broadcast" body="Google Lens first. Bing and Yandex only if needed, then News, Maps and YouTube. It stops the moment the evidence is decisive.">
+          <Step n="02" color="#171717" title="Escalate, don't broadcast" body="Google Lens first. Bing and Yandex only if needed, then News, Maps and YouTube. It stops the moment the evidence is decisive.">
             <TierLadder />
           </Step>
         </Reveal>
         <Reveal delay={0.2}>
-          <Step n="03" color="#ff6b4f" title="Judge by rules" body="Every match is re-verified by its thumbnail. Deterministic rules pick the verdict; the AI only writes the explanation.">
+          <Step n="03" color="#171717" title="Judge by rules" body="Every match is re-verified by its thumbnail. Deterministic rules pick the verdict; the AI only writes the explanation.">
             <VerdictCycle />
           </Step>
         </Reveal>
@@ -41,7 +41,7 @@ function Step({ n, color, title, body, children }: { n: string; color: string; t
     <SpotlightCard className="flex h-full flex-col">
       <div
         className="relative flex h-44 items-center justify-center overflow-hidden border-b border-line"
-        style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}26, transparent 70%)` }}
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}0a, transparent 70%)` }}
       >
         <div aria-hidden className="absolute inset-x-10 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
         {children}
@@ -60,25 +60,17 @@ function Step({ n, color, title, body, children }: { n: string; color: string; t
 /** 8×8 bits flickering, then settling into a hash. */
 function BitGrid() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref);
   const [bits, setBits] = useState<boolean[]>(() => Array.from({ length: 64 }, (_, i) => (i * 37) % 5 < 2));
-
-  useEffect(() => {
-    if (!inView) return;
-    const id = setInterval(() => {
-      setBits((prev) => prev.map((b) => (Math.random() < 0.12 ? !b : b)));
-    }, 180);
-    return () => clearInterval(id);
-  }, [inView]);
+  useVisibleInterval(ref, () => setBits((prev) => prev.map((b) => (Math.random() < 0.12 ? !b : b))), 360);
 
   return (
     <div ref={ref} className="grid grid-cols-8 gap-1" aria-hidden>
       {bits.map((on, i) => (
-        <motion.span
+        <span
           key={i}
-          animate={{ backgroundColor: on ? (i % 9 === 0 ? 'rgb(94 234 212)' : 'rgb(212 247 92)') : 'rgb(255 255 255 / 0.06)', scale: on ? 1 : 0.8 }}
-          transition={{ duration: 0.25 }}
-          className="size-3.5 rounded-[3px]"
+          className={`size-3.5 rounded-[3px] transition-[background-color,transform] duration-300 ${
+            on ? (i % 9 === 0 ? 'scale-100 bg-muted' : 'scale-100 bg-ink') : 'scale-80 bg-black/[0.06]'
+          }`}
         />
       ))}
     </div>
@@ -93,20 +85,18 @@ const TIERS = [
 
 /** A search pulse climbing the tiers and stopping early. */
 function TierLadder() {
+  const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setActive((a) => (a + 1) % 4), 1100);
-    return () => clearInterval(id);
-  }, []);
+  useVisibleInterval(ref, () => setActive((a) => (a + 1) % 4), 1100);
 
   return (
-    <div className="w-56 space-y-2" aria-hidden>
+    <div ref={ref} className="w-56 space-y-2" aria-hidden>
       {TIERS.map((t, i) => {
         const lit = i < active;
         return (
           <div key={t.label} className="relative overflow-hidden rounded-lg border border-line px-3 py-2 text-xs">
             <motion.div
-              className="absolute inset-0 origin-left bg-gradient-to-r from-teal/30 to-accent/20"
+              className="absolute inset-0 origin-left bg-black/[0.06]"
               animate={{ scaleX: lit ? 1 : 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             />
@@ -143,24 +133,24 @@ const VERDICTS = [
 
 /** Verdict stamps landing one after another. */
 function VerdictCycle() {
+  const ref = useRef<HTMLDivElement>(null);
   const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((n) => (n + 1) % VERDICTS.length), 1600);
-    return () => clearInterval(id);
-  }, []);
+  useVisibleInterval(ref, () => setI((n) => (n + 1) % VERDICTS.length), 1600);
   const v = VERDICTS[i];
   return (
-    <AnimatePresence mode="popLayout" initial={false}>
-      <motion.span
-        key={v.label}
-        initial={{ opacity: 0, scale: 1.7, rotate: -16 }}
-        animate={{ opacity: 1, scale: 1, rotate: -6 }}
-        exit={{ opacity: 0, scale: 0.6, rotate: 8, transition: { duration: 0.25 } }}
-        transition={{ type: 'spring', stiffness: 360, damping: 15 }}
-        className={`rounded-lg border-2 px-4 py-1.5 font-mono text-sm font-bold tracking-[0.18em] uppercase ${v.cls}`}
-      >
-        {v.label}
-      </motion.span>
-    </AnimatePresence>
+    <div ref={ref} className="flex items-center justify-center">
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={v.label}
+          initial={{ opacity: 0, scale: 1.7, rotate: -16 }}
+          animate={{ opacity: 1, scale: 1, rotate: -6 }}
+          exit={{ opacity: 0, scale: 0.6, rotate: 8, transition: { duration: 0.25 } }}
+          transition={{ type: 'spring', stiffness: 360, damping: 15 }}
+          className={`rounded-lg border-2 px-4 py-1.5 font-mono text-sm font-bold tracking-[0.18em] uppercase ${v.cls}`}
+        >
+          {v.label}
+        </motion.span>
+      </AnimatePresence>
+    </div>
   );
 }

@@ -187,9 +187,10 @@ async function auditWithinDeadline(
 
   const confirmed = () => evidence.filter((e) => e.match?.confirmed);
 
-  // Stage 0: claim and scene.
+  // Stage 0: claim and scene. They don't depend on each other, so the claim is parsed
+  // while the media cache is checked and, on a miss, the scene is read.
   emit({ type: 'stage', data: { stage: 'claim' } });
-  const claim: Claim = await parseClaimSafe(
+  const claimParsed: Promise<Claim> = parseClaimSafe(
     deps.llm,
     {
       text: input.claim.text,
@@ -199,6 +200,11 @@ async function auditWithinDeadline(
     },
     llmMs(),
   );
+  const sceneRead = (async () => {
+    const hit = deps.useMediaCache ? await deps.store.findMedia(inputHashes) : undefined;
+    return { hit, reading: hit ? hit.scene : await readSceneSafe(deps.llm, sharpest.url, llmMs()) };
+  })();
+  const [claim, { hit: cached, reading }] = await Promise.all([claimParsed, sceneRead]);
 
   // Decisive uses the same rule as T₀, applied to copies older than 48 h: a
   // trusted archive on its own, or two domains within 30 days of each other.
@@ -207,23 +213,18 @@ async function auditWithinDeadline(
     return !!computeFirstSeen(older, deps.clock()).firstSeen;
   };
 
-  const cached = deps.useMediaCache ? await deps.store.findMedia(inputHashes) : undefined;
-  let scene: SceneReading | undefined;
-  let sceneGeo: GeoPoint | undefined;
+  const scene: SceneReading | undefined = reading;
+  let sceneGeo: GeoPoint | undefined = cached?.sceneGeo;
 
   /** Reverse-image engines answered from the media cache; only the missing ones are searched. */
   const fromCache = new Set(cached?.engines ?? []);
 
   emit({ type: 'stage', data: { stage: 'scene' } });
   if (cached) {
-    scene = cached.scene;
-    sceneGeo = cached.sceneGeo;
     for (const ev of structuredClone(cached.evidence)) {
       evidence.push(ev);
       emit({ type: 'evidence', data: ev });
     }
-  } else {
-    scene = await readSceneSafe(deps.llm, sharpest.url, llmMs());
   }
 
   let shortCircuited = false;

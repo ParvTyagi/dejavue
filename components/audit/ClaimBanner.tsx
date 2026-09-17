@@ -30,11 +30,11 @@ export function ClaimBanner({ intro, dossier }: { intro?: AuditIntro; dossier?: 
               initial={{ opacity: 0, rotate: 0, y: 10 }}
               animate={{ opacity: 1, rotate: (i - 1) * 6, y: 0 }}
               transition={{ delay: 0.1 + i * 0.08, type: 'spring', stiffness: 200, damping: 18 }}
-              className="relative size-24 overflow-hidden rounded-xl border border-line-strong shadow-xl shadow-black/50 sm:size-28"
+              className="relative size-24 overflow-hidden rounded-xl border border-line-strong shadow-sm sm:size-28"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt="" className="size-full object-cover" />
-              {!dossier && <div className="absolute inset-x-0 h-8 animate-scan bg-gradient-to-b from-transparent via-accent/30 to-transparent" />}
+              {!dossier && <div className="scan-band animate-scan" />}
             </motion.div>
           ))}
         </div>

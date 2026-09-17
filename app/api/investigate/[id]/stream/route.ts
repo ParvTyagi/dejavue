@@ -28,7 +28,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   const { id } = await params;
   if (!/^dv_[0-9a-f]{8}$/.test(id)) return apiError(404, 'NOT_FOUND', 'Unknown audit id.');
   const store = appStore();
-  const resumeFrom = Number(req.headers.get('last-event-id') ?? -1) + 1;
+  // A reconnect sends Last-Event-ID; the first request says with ?from= how many events the page already has.
+  const lastId = req.headers.get('last-event-id');
+  const resumeFrom = lastId !== null ? Number(lastId) + 1 : Number(new URL(req.url).searchParams.get('from') ?? 0);
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {

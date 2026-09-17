@@ -19,15 +19,6 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
       className="relative mt-8 overflow-hidden rounded-3xl border bg-surface p-6 sm:p-8"
       style={{ borderColor: `color-mix(in oklab, ${color} 35%, transparent)` }}
     >
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -left-24 size-[480px] rounded-full blur-3xl"
-        style={{ background: `radial-gradient(closest-side, color-mix(in oklab, ${color} 28%, transparent), transparent)` }}
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.4, ease: EASE_OUT }}
-      />
-
       <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
         <div className="min-w-0">
           <motion.div
@@ -35,7 +26,7 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
             animate={{ opacity: 1, scale: 1, rotate: -4 }}
             transition={{ type: 'spring', stiffness: 320, damping: 14, delay: 0.15 }}
             className="inline-block rounded-lg border-2 px-3 py-1 font-mono text-xs font-bold tracking-[0.25em] uppercase"
-            style={{ borderColor: color, color, boxShadow: `0 0 36px -8px ${color}` }}
+            style={{ borderColor: color, color }}
           >
             {label.stamp}
           </motion.div>
@@ -51,8 +42,8 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
           )}
 
           <motion.h2
-            initial={{ opacity: 0, y: 10, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: EASE_OUT }}
             className="mt-5 font-serif text-4xl leading-none sm:text-6xl"
           >
@@ -133,7 +124,6 @@ function ConfidenceRing({ value, band, color }: { value: number; band: string; c
           initial={{ pathLength: 0 }}
           animate={{ pathLength: value / 100 }}
           transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT }}
-          style={{ filter: `drop-shadow(0 0 8px ${color})` }}
         />
         {Array.from({ length: 40 }, (_, i) => (
           <line

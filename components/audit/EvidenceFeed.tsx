@@ -28,7 +28,7 @@ export function EvidenceFeed({
       <ul className="space-y-2">
         <AnimatePresence initial={false}>
           {ordered.map((ev) => (
-            <EvidenceCard key={ev.id} ev={ev} firstSeen={ev.id === firstSeenId} inputPreview={inputPreview} />
+            <EvidenceCard key={ev.id} ev={ev} firstSeen={ev.id === firstSeenId} inputPreview={inputPreview} animateIn={searching} />
           ))}
         </AnimatePresence>
       </ul>
@@ -36,7 +36,7 @@ export function EvidenceFeed({
         <div className="mt-2 space-y-2" aria-hidden>
           {[0, 1].map((i) => (
             <div key={i} className="relative h-16 overflow-hidden rounded-xl border border-line bg-surface">
-              <div className="absolute inset-y-0 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" style={{ animationDelay: `${i * 0.3}s` }} />
+              <div className="absolute inset-y-0 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-black/[0.04] to-transparent" style={{ animationDelay: `${i * 0.3}s` }} />
             </div>
           ))}
         </div>
@@ -46,19 +46,19 @@ export function EvidenceFeed({
   );
 }
 
-function EvidenceCard({ ev, firstSeen, inputPreview }: { ev: Evidence; firstSeen: boolean; inputPreview?: string }) {
+function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence; firstSeen: boolean; inputPreview?: string; animateIn: boolean }) {
   const Icon = ENGINE_ICON[ev.engine];
   const confirmed = ev.match?.confirmed;
 
   return (
     <motion.li
       id={`ev-${ev.id}`}
-      layout
-      initial={{ opacity: 0, y: 12, scale: 0.98 }}
+      // Only cards arriving live slide in; a finished audit's full list appears at once.
+      initial={animateIn ? { opacity: 0, y: 12, scale: 0.98 } : false}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45, ease: EASE_OUT }}
-      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-black/20 p-3.5 transition-colors hover:bg-surface-2 target:border-accent ${
+      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-bg p-3.5 [contain-intrinsic-size:auto_96px] [content-visibility:auto] transition-colors hover:bg-surface-2 target:border-accent ${
         confirmed ? 'border-good/25' : 'border-line'
       }`}
     >

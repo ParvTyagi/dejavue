@@ -1,22 +1,17 @@
-'use client';
-
-import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import type { FixtureMode } from '@/lib/shared/types';
 import { LogoMark } from './Logo';
 
 export function SiteNav({ mode }: { mode: FixtureMode }) {
-  const { scrollY } = useScroll();
-  const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
   const replay = mode === 'replay';
 
   return (
-    <motion.header className="sticky top-0 z-50 backdrop-blur-xl" style={{ backgroundColor: 'rgb(8 8 10 / 0.72)' }}>
+    <header className="sticky top-0 z-50 bg-bg/95">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="group flex items-center gap-2.5">
-          <motion.span whileHover={{ rotate: -18 }} transition={{ type: 'spring', stiffness: 300, damping: 12 }}>
+          <span className="transition-transform duration-300 ease-out group-hover:-rotate-[18deg]">
             <LogoMark className="size-7" />
-          </motion.span>
+          </span>
           <span className="text-[15px] font-semibold tracking-tight">DejaVue</span>
         </Link>
         <nav className="flex items-center gap-2 sm:gap-5">
@@ -44,7 +39,7 @@ export function SiteNav({ mode }: { mode: FixtureMode }) {
           </span>
         </nav>
       </div>
-      <motion.div className="h-px bg-line" style={{ opacity: borderOpacity }} />
-    </motion.header>
+      <div className="nav-rule h-px bg-line" />
+    </header>
   );
 }

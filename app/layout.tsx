@@ -15,12 +15,10 @@ export const metadata: Metadata = {
   description: 'Checks whether a viral image or video is really from where and when it claims, using search engines as evidence.',
 };
 
-export const dynamic = 'force-dynamic';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
-      <body className="grain min-h-screen overflow-x-clip font-sans antialiased">
+      <body className="min-h-screen overflow-x-clip font-sans antialiased">
         <Providers>
           <SiteNav mode={fixtureMode()} />
           <main>{children}</main>

@@ -1,9 +1,6 @@
-'use client';
-
 import { ArrowDown, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 import { Backdrop } from '@/components/site/Backdrop';
-import { EASE_OUT, NumberTicker, ShimmerButton, WordReveal } from '@/components/ui/motion';
+import { NumberTicker, ShimmerButton } from '@/components/ui/motion';
 import { EngineMarquee } from './EngineMarquee';
 import { HeroPreview } from './HeroPreview';
 
@@ -13,54 +10,42 @@ const STATS = [
   { value: 0, label: 'verdicts decided by AI', suffix: '' },
 ];
 
+const delay = (s: number) => ({ '--rise-delay': `${s}s` }) as React.CSSProperties;
+
+/**
+ * Server-rendered so the headline, the page's largest paint, is visible in the first HTML
+ * rather than after hydration. Entrances are CSS; only the ticker and button hydrate.
+ */
 export function Hero() {
   return (
     <section className="relative isolate overflow-x-clip">
       <Backdrop />
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pt-16 pb-10 sm:px-6 sm:pt-24 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         <div>
-          <motion.a
+          <a
             href="#how"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: EASE_OUT }}
-            className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-3 pl-1 text-xs text-muted backdrop-blur hover:border-line-strong"
+            className="rise group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-3 pl-1 text-xs text-muted hover:border-line-strong"
           >
-            <span className="rounded-full bg-gradient-to-r from-accent/25 to-teal/25 px-2 py-0.5 font-mono text-[10px] font-medium tracking-wide text-accent uppercase">
+            <span className="rounded-full border border-line bg-surface-2 px-2 py-0.5 font-mono text-[10px] font-medium tracking-wide text-ink uppercase">
               SerpApi
             </span>
             Six search engines, one evidence trail
             <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
-          </motion.a>
+          </a>
 
           <h1 className="mt-6 font-serif text-[clamp(2.9rem,5.6vw,5rem)] leading-[0.95] tracking-[-0.02em]">
-            <WordReveal text="Has this photo been" className="whitespace-nowrap" wordClassName="text-gradient" />
+            <span className="whitespace-nowrap">Has this photo been</span>
             <br />
-            <motion.span
-              className="text-shine inline-block pr-2 italic"
-              initial={{ opacity: 0, y: '0.3em', filter: 'blur(12px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.9, delay: 0.35, ease: EASE_OUT }}
-            >
-              seen before?
-            </motion.span>
+            <span className="inline-block pr-2 italic">seen before?</span>
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55, ease: EASE_OUT }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
+          <p style={delay(0.1)} className="rise mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
             Most viral misinformation isn&apos;t AI. It&apos;s a real photo with a new caption. DejaVue finds where
             media appeared first, then shows you every piece of evidence behind the verdict.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: EASE_OUT }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+          <div style={delay(0.2)} className="rise mt-8 flex flex-wrap items-center gap-3"
           >
             <a href="#check">
               <ShimmerButton type="button" className="flex items-center gap-2">
@@ -74,24 +59,20 @@ export function Hero() {
             >
               How it works
             </a>
-          </motion.div>
+          </div>
 
-          <motion.dl
-            initial="hidden"
-            animate="show"
-            variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.9 } } }}
-            className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6"
+          <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6"
           >
-            {STATS.map((s) => (
-              <motion.div key={s.label} variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+            {STATS.map((s, i) => (
+              <div key={s.label} style={delay(0.3 + i * 0.08)} className="rise">
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="text-shine font-serif text-4xl">
+                <dd className="font-serif text-4xl">
                   <NumberTicker value={s.value} />
                 </dd>
                 <dd className="mt-1 text-xs leading-snug text-faint">{s.label}</dd>
-              </motion.div>
+              </div>
             ))}
-          </motion.dl>
+          </dl>
         </div>
 
         <HeroPreview />

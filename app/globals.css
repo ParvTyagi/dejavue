@@ -29,7 +29,6 @@
   --animate-marquee: marquee 38s linear infinite;
   --animate-shimmer: shimmer 2.6s ease-in-out infinite;
   --animate-scan: scan 2.2s ease-in-out infinite;
-  --animate-drift: drift 22s ease-in-out infinite alternate;
   --animate-pulse-ring: pulse-ring 1.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
 
   @keyframes marquee {
@@ -49,18 +48,10 @@
   @keyframes scan {
     0%,
     100% {
-      top: 0%;
+      transform: translate3d(0, -50%, 0);
     }
     50% {
-      top: 100%;
-    }
-  }
-  @keyframes drift {
-    from {
-      transform: translate3d(-6%, -4%, 0) scale(1);
-    }
-    to {
-      transform: translate3d(6%, 5%, 0) scale(1.15);
+      transform: translate3d(0, 50%, 0);
     }
   }
   @keyframes pulse-ring {
@@ -75,30 +66,30 @@
   }
 }
 
-/* DejaVue is a dark, forensic-lab interface: ink black, hairline borders and a
-   highlighter accent for evidence. */
+/* DejaVue is a quiet, minimal interface: white paper, soft black ink and
+   hairline greys. Colour is kept only for verdict meaning, and muted. */
 :root {
-  --bg: #08080a;
-  --surface: rgb(255 255 255 / 0.028);
-  --surface-2: rgb(255 255 255 / 0.055);
-  --line: rgb(255 255 255 / 0.08);
-  --line-strong: rgb(255 255 255 / 0.16);
-  --ink: #f5f5f2;
-  --muted: #b8b8b2;
-  --faint: #7d7d78;
-  --accent: #d4f75c;
-  --accent-ink: #0b0d02;
-  --teal: #5eead4;
-  --violet: #a78bfa;
-  --bad: #ff6b4f;
-  --bad-soft: rgb(255 107 79 / 0.12);
-  --warn: #ffb547;
-  --warn-soft: rgb(255 181 71 / 0.12);
-  --good: #4ade9a;
-  --good-soft: rgb(74 222 154 / 0.12);
-  --info: #6cb4ff;
-  --info-soft: rgb(108 180 255 / 0.12);
-  color-scheme: dark;
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --surface-2: #f3f3f3;
+  --line: rgb(0 0 0 / 0.08);
+  --line-strong: rgb(0 0 0 / 0.16);
+  --ink: #171717;
+  --muted: #525252;
+  --faint: #8a8a8a;
+  --accent: #171717;
+  --accent-ink: #ffffff;
+  --teal: #525252;
+  --violet: #8a8a8a;
+  --bad: #b42318;
+  --bad-soft: rgb(180 35 24 / 0.07);
+  --warn: #9a5b00;
+  --warn-soft: rgb(154 91 0 / 0.08);
+  --good: #1f7a45;
+  --good-soft: rgb(31 122 69 / 0.08);
+  --info: #404040;
+  --info-soft: rgb(0 0 0 / 0.05);
+  color-scheme: light;
 }
 
 html {
@@ -115,17 +106,6 @@ body {
   color: var(--accent-ink);
 }
 
-/* Film grain over the whole page. */
-.grain::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 60;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 .grid-bg {
   background-image:
     linear-gradient(to right, var(--line) 1px, transparent 1px),
@@ -135,83 +115,57 @@ body {
 }
 
 /* Applied to each animated word (clipped text can't paint through child layers). */
+/* Entrance that runs from the first paint, without waiting for JavaScript. */
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--rise-delay, 0s) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* The nav's bottom rule fades in over the first 80px of scroll, on the compositor. */
+.nav-rule {
+  opacity: 1;
+}
+@supports (animation-timeline: scroll()) {
+  .nav-rule {
+    animation: nav-rule linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 80px;
+  }
+  @keyframes nav-rule {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
 .text-gradient {
-  background: linear-gradient(180deg, #fff 30%, rgb(255 255 255 / 0.62));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--ink);
 }
 
 .text-shine {
-  background: linear-gradient(90deg, var(--accent), var(--teal), var(--violet), var(--accent));
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 9s linear infinite;
-}
-@keyframes shine {
-  to {
-    background-position: 300% 0;
-  }
+  color: var(--ink);
 }
 
-/* A light that travels around the element's border. */
-@property --glow-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-.glow-border {
-  position: relative;
-  isolation: isolate;
-}
-.glow-border::before {
-  content: '';
+/* A light band sweeping down over media. Full-height so it can move with transform alone. */
+.scan-band {
   position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(from var(--glow-angle), transparent 0 55%, var(--accent) 70%, var(--teal) 80%, var(--violet) 90%, transparent 100%);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: glow-spin 6s linear infinite;
+  inset: 0;
   pointer-events: none;
-}
-@keyframes glow-spin {
-  to {
-    --glow-angle: 360deg;
-  }
-}
-
-/* Soft colour wash behind a section. */
-.wash {
-  position: relative;
-  isolation: isolate;
-}
-.wash::before {
-  content: '';
-  position: absolute;
-  inset: -120px calc(50% - 50vw);
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(600px 300px at 15% 20%, rgb(94 234 212 / 0.07), transparent 70%),
-    radial-gradient(500px 300px at 85% 60%, rgb(167 139 250 / 0.08), transparent 70%);
+  background: linear-gradient(to bottom, transparent 40%, rgb(23 23 23 / 0.22) 50%, transparent 60%);
+  will-change: transform;
 }
 
 .leaflet-container {
   font-family: inherit;
-  background: #0d0d10;
+  background: #f5f5f5;
 }
 .leaflet-tooltip {
-  background: #111114;
+  background: #ffffff;
   color: var(--ink);
   border: 1px solid var(--line-strong);
   border-radius: 8px;
@@ -223,19 +177,19 @@ body {
   display: none;
 }
 .leaflet-control-attribution {
-  background: rgb(8 8 10 / 0.7) !important;
+  background: rgb(255 255 255 / 0.8) !important;
   color: var(--faint) !important;
 }
 .leaflet-control-attribution a {
   color: var(--muted) !important;
 }
 .leaflet-bar a {
-  background: #111114 !important;
+  background: #ffffff !important;
   color: var(--ink) !important;
   border-color: var(--line) !important;
 }
 .dark-tiles {
-  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.35);
+  filter: grayscale(1) contrast(0.92) brightness(1.03);
 }
 .dash-flow {
   animation: dash 1.4s linear infinite;
@@ -254,6 +208,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
   }
 }

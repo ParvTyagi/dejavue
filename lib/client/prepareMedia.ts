@@ -2,7 +2,7 @@
 
 import { laplacianVariance, pickKeyframes, rgbHistogram, type FrameStats } from '@/lib/media/keyframes';
 import { pHash, toGray } from '@/lib/media/phash';
-import { MEDIA_LIMITS } from '@/lib/shared/schema';
+import { MEDIA_LIMITS } from '@/lib/shared/limits';
 
 export interface PreparedFrame {
   blob: Blob;

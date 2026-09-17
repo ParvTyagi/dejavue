@@ -32,7 +32,7 @@ export const ShareCard = forwardRef<HTMLDivElement, { dossier: Dossier }>(functi
       <div
         ref={ref}
         className="relative flex h-[630px] w-[1200px] flex-col overflow-hidden p-16 font-sans text-ink"
-        style={{ background: 'radial-gradient(900px 500px at 0% 0%, color-mix(in oklab, ' + color + ' 22%, #08080a), #08080a 70%)' }}
+        style={{ background: '#ffffff' }}
       >
         <div className="grid-bg absolute inset-0 opacity-40" />
         <div className="relative flex items-center justify-between">

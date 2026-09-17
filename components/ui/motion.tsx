@@ -1,6 +1,6 @@
 'use client';
 
-import { animate, motion, useInView, useMotionTemplate, useMotionValue, useReducedMotion, type HTMLMotionProps } from 'motion/react';
+import { animate, motion, useInView, useReducedMotion, type HTMLMotionProps } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 export const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -10,8 +10,8 @@ export function Reveal({ delay = 0, y = 16, className, children }: { delay?: num
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y, filter: 'blur(6px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.7, delay, ease: EASE_OUT }}
     >
@@ -20,40 +20,10 @@ export function Reveal({ delay = 0, y = 16, className, children }: { delay?: num
   );
 }
 
-/**
- * Headline that blurs in word by word. `wordClassName` is applied to each word,
- * which is where clipped-text effects such as gradients must go.
- */
-export function WordReveal({
-  text,
-  className,
-  wordClassName = '',
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  wordClassName?: string;
-  delay?: number;
-}) {
-  return (
-    <span className={className}>
-      {text.split(' ').map((word, i) => (
-        <motion.span
-          key={i}
-          className={`inline-block whitespace-pre ${wordClassName}`}
-          initial={{ opacity: 0, y: '0.35em', filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.8, delay: delay + i * 0.07, ease: EASE_OUT }}
-        >
-          {word + ' '}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
 /** Counts up to a number when it first becomes visible, and animates later changes. */
-export function NumberTicker({ value, className, format = (n) => Math.round(n).toLocaleString() }: { value: number; className?: string; format?: (n: number) => string }) {
+const formatInteger = (n: number) => Math.round(n).toLocaleString();
+
+export function NumberTicker({ value, className, format = formatInteger }: { value: number; className?: string; format?: (n: number) => string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
   const reduce = useReducedMotion();
@@ -114,41 +84,37 @@ export function ScrambleText({ text, className, duration = 900 }: { text: string
   return <span className={className}>{out}</span>;
 }
 
-/** Card whose border and surface light up under the cursor. */
+/** Card whose border darkens on hover. Pure CSS, so moving the pointer costs nothing. */
 export function SpotlightCard({ className = '', children, ...props }: HTMLMotionProps<'div'> & { children: React.ReactNode }) {
-  const x = useMotionValue(-400);
-  const y = useMotionValue(-400);
-  const glow = useMotionTemplate`radial-gradient(320px circle at ${x}px ${y}px, rgb(212 247 92 / 0.10), transparent 70%)`;
-  const ring = useMotionTemplate`radial-gradient(220px circle at ${x}px ${y}px, rgb(212 247 92 / 0.55), transparent 70%)`;
-
   return (
     <motion.div
       {...props}
-      onPointerMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        x.set(e.clientX - r.left);
-        y.set(e.clientY - r.top);
-      }}
-      onPointerLeave={() => {
-        x.set(-400);
-        y.set(-400);
-      }}
-      className={`group relative isolate overflow-hidden rounded-2xl border border-line bg-surface ${className}`}
+      className={`group relative isolate overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-300 hover:border-line-strong ${className}`}
     >
-      <motion.div aria-hidden className="pointer-events-none absolute inset-0 -z-10" style={{ background: glow }} />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] p-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: ring,
-          WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
-        }}
-      />
       {children}
     </motion.div>
   );
+}
+
+/**
+ * Calls `tick` every `ms` while the element is on screen and the tab is visible,
+ * so decorative loops stop re-rendering when nobody can see them.
+ */
+export function useVisibleInterval(ref: React.RefObject<Element | null>, tick: () => void, ms: number) {
+  const inView = useInView(ref);
+  const reduce = useReducedMotion();
+  const saved = useRef(tick);
+  useEffect(() => {
+    saved.current = tick;
+  });
+
+  useEffect(() => {
+    if (!inView || reduce) return;
+    const id = setInterval(() => {
+      if (!document.hidden) saved.current();
+    }, ms);
+    return () => clearInterval(id);
+  }, [inView, reduce, ms]);
 }
 
 /** Primary button with a light sweep and a springy press. */
@@ -159,9 +125,9 @@ export function ShimmerButton({ className = '', children, ...props }: HTMLMotion
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 400, damping: 22 }}
       {...props}
-      className={`relative isolate overflow-hidden rounded-xl bg-gradient-to-r from-accent via-[#c2f56a] to-teal px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_0_0_1px_rgb(212_247_92/0.4),0_10px_40px_-10px_rgb(212_247_92/0.55)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none ${className}`}
+      className={`relative isolate overflow-hidden rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-accent-ink hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none ${className}`}
     >
-      <span aria-hidden className="absolute inset-y-0 left-0 -z-10 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+      <span aria-hidden className="absolute inset-y-0 left-0 -z-10 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       {children}
     </motion.button>
   );

@@ -43,6 +43,26 @@ describe('audit stream', () => {
       true,
     ]);
   });
+
+  it('reads the scene while the claim is still being parsed', async () => {
+    const calls: string[] = [];
+    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (base) => ({
+      llm: llmWith(base.llm, {
+        parseClaim: async (req, signal) => {
+          calls.push('claim:start');
+          await new Promise((r) => setTimeout(r, 20));
+          calls.push('claim:end');
+          return base.llm.parseClaim(req, signal);
+        },
+        readScene: async (url, signal) => {
+          calls.push('scene:start');
+          return base.llm.readScene(url, signal);
+        },
+      }),
+    }));
+    expect(dossier).toBeDefined();
+    expect(calls.indexOf('scene:start')).toBeLessThan(calls.indexOf('claim:end'));
+  });
 });
 
 describe('engine failures', () => {

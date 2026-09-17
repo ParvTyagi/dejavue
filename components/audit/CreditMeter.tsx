@@ -8,7 +8,8 @@ import { ENGINE_COLOR, ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
 
 /** Live SerpApi search meter: six slots that fill as searches are spent. */
-export function CreditMeter({ state }: { state: AuditState }) {
+// Takes only the fields it reads, so evidence and stage events don't re-render it.
+export function CreditMeter(state: Pick<AuditState, 'credits' | 'maxCredits' | 'shortCircuit' | 'creditLog'>) {
   const used = state.credits;
   const MAX = state.maxCredits ?? DEFAULT_MAX_CREDITS;
   return (
@@ -28,7 +29,7 @@ export function CreditMeter({ state }: { state: AuditState }) {
         {Array.from({ length: MAX }, (_, i) => (
           <div key={i} className="h-2 overflow-hidden rounded-full bg-surface-2">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-accent to-teal"
+              className="h-full rounded-full bg-accent"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: i < used ? 1 : 0 }}
               style={{ originX: 0 }}

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { fixtureMode } from '@/lib/server/deps';
 import { apiError } from '@/lib/server/http';
 import { putTemporaryFrame } from '@/lib/server/mediaStore';
-import { MEDIA_LIMITS } from '@/lib/shared/schema';
+import { MEDIA_LIMITS } from '@/lib/shared/limits';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

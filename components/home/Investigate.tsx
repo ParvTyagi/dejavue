@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { EASE_OUT, Reveal, ScrambleText, ShimmerButton, SpotlightCard } from '@/components/ui/motion';
 import { saveAuditIntro } from '@/lib/client/auditIntro';
-import { MediaError, prepareImage, prepareVideo, type PreparedUpload } from '@/lib/client/prepareMedia';
+import type { PreparedUpload } from '@/lib/client/prepareMedia';
 import type { AuditInput, FixtureMode } from '@/lib/shared/types';
 import { demoTheme } from './demoThemes';
 
@@ -21,6 +21,29 @@ type Source = 'demo' | 'upload' | 'url';
 
 const REPLAY_FRAME_URL = (i: number) => `https://replay.dejavue.invalid/upload/frame-${i}.jpg`;
 
+/** Uploads the prepared frames in parallel (or, in replay, stands in fixed URLs), keeping their order. */
+async function uploadFrames(prepared: PreparedUpload, replay: boolean, onStatus: (s: string) => void) {
+  const count = prepared.frames.length;
+  if (!replay) onStatus(`Uploading ${count} frame${count === 1 ? '' : 's'}…`);
+  return Promise.all(
+    prepared.frames.map(async (f, i) => {
+      let url = REPLAY_FRAME_URL(i);
+      if (!replay) {
+        const form = new FormData();
+        form.append('frame', f.blob, `frame-${i}.jpg`);
+        const res = await fetch('/api/upload', { method: 'POST', body: form });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data?.error?.message ?? 'Upload failed.');
+        url = data.url;
+      }
+      return { url, pHash: f.pHash, sharpness: f.sharpness, tMs: f.tMs };
+    }),
+  );
+}
+
+/** Loaded on first use: most visitors never pick a file. */
+const loadMediaPrep = () => import('@/lib/client/prepareMedia');
+
 async function postJson(url: string, body: unknown) {
   const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   const data = await res.json().catch(() => ({}));
@@ -29,7 +52,7 @@ async function postJson(url: string, body: unknown) {
 }
 
 const field =
-  'w-full rounded-xl border border-line bg-black/30 px-3.5 py-2.5 text-sm text-ink placeholder:text-faint transition-colors outline-none focus:border-accent/60 focus:ring-4 focus:ring-accent/10';
+  'w-full rounded-xl border border-line bg-bg px-3.5 py-2.5 text-sm text-ink placeholder:text-faint transition-colors outline-none focus:border-accent/60 focus:ring-4 focus:ring-accent/10';
 
 export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCase[] }) {
   const router = useRouter();
@@ -50,19 +73,12 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
     setError(undefined);
     setPrepared(undefined);
     if (!file) return;
-    try {
-      if (file.type.startsWith('video/')) {
-        setStatus('Picking keyframes…');
-        setPrepared(await prepareVideo(file, (f) => setStatus(`Picking keyframes… ${Math.round(f * 100)}%`)));
-      } else {
-        setStatus('Fingerprinting image…');
-        setPrepared(await prepareImage(file));
-      }
-    } catch (err) {
-      setError(err instanceof MediaError ? err.message : "Couldn't read this file.");
-    } finally {
-      setStatus(undefined);
-    }
+    const video = file.type.startsWith('video/');
+    setStatus(video ? 'Picking keyframes…' : 'Fingerprinting image…');
+    const { MediaError, prepareImage, prepareVideo } = await loadMediaPrep();
+    await (video ? prepareVideo(file, (f) => setStatus(`Picking keyframes… ${Math.round(f * 100)}%`)) : prepareImage(file))
+      .then(setPrepared, (err) => setError(err instanceof MediaError ? err.message : "Couldn't read this file."))
+      .finally(() => setStatus(undefined));
   }
 
   async function start(input: AuditInput | Record<string, unknown>, previews: string[] = []) {
@@ -72,59 +88,48 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
     router.push(`/audit/${auditId}`);
   }
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(undefined);
+  function fail(err: unknown) {
+    setError((err as Error).message);
+    setStatus(undefined);
+  }
+
+  async function submit() {
     const claimBody = {
       text: claim.trim(),
       ...(place.trim() ? { place: place.trim() } : {}),
       ...(date ? { date: new Date(date).toISOString() } : {}),
     };
-    try {
-      if (source === 'upload') {
-        if (!prepared) throw new Error('Choose an image or video first.');
-        const frames = [];
-        for (const [i, f] of prepared.frames.entries()) {
-          let url = REPLAY_FRAME_URL(i);
-          if (!replay) {
-            setStatus(`Uploading frame ${i + 1} of ${prepared.frames.length}…`);
-            const form = new FormData();
-            form.append('frame', f.blob, `frame-${i}.jpg`);
-            const res = await fetch('/api/upload', { method: 'POST', body: form });
-            const data = await res.json().catch(() => ({}));
-            if (!res.ok) throw new Error(data?.error?.message ?? 'Upload failed.');
-            url = data.url;
-          }
-          frames.push({ url, pHash: f.pHash, sharpness: f.sharpness, tMs: f.tMs });
-        }
-        setStatus('Starting audit…');
-        await start(
-          {
-            media: { kind: prepared.kind, frames, exif: useExif ? (prepared.exif ?? null) : null },
-            claim: claimBody,
-            options: { maxCredits: 6, useExifLocation: useExif && !!prepared.exif?.gps },
-          },
-          prepared.frames.map((f) => f.previewUrl),
-        );
-      } else if (source === 'url') {
-        setStatus('Starting audit…');
-        await start({ media: { kind: 'image', frames: [{ url: imageUrl.trim(), sharpness: 0 }] }, claim: claimBody }, [imageUrl.trim()]);
+    if (source === 'upload') {
+      if (!prepared) {
+        setError('Choose an image or video first.');
+        return;
       }
-    } catch (err) {
-      setError((err as Error).message);
-      setStatus(undefined);
+      const frames = await uploadFrames(prepared, replay, setStatus);
+      setStatus('Starting audit…');
+      await start(
+        {
+          media: { kind: prepared.kind, frames, exif: useExif ? (prepared.exif ?? null) : null },
+          claim: claimBody,
+          options: { maxCredits: 6, useExifLocation: useExif && !!prepared.exif?.gps },
+        },
+        prepared.frames.map((f) => f.previewUrl),
+      );
+    } else if (source === 'url') {
+      setStatus('Starting audit…');
+      await start({ media: { kind: 'image', frames: [{ url: imageUrl.trim(), sharpness: 0 }] }, claim: claimBody }, [imageUrl.trim()]);
     }
+  }
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(undefined);
+    await submit().catch(fail);
   }
 
   async function runDemo(demo: DemoCase) {
     setError(undefined);
     setStatus(`Opening “${demo.title}”…`);
-    try {
-      await start(demo.input);
-    } catch (err) {
-      setError((err as Error).message);
-      setStatus(undefined);
-    }
+    await start(demo.input).catch(fail);
   }
 
   const tabs: { id: Source; label: string; icon: typeof Upload }[] = [
@@ -134,7 +139,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
   ];
 
   return (
-    <section id="check" className="wash mx-auto max-w-6xl scroll-mt-20 px-4 pb-24 sm:px-6">
+    <section id="check" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-24 sm:px-6">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check media</p>
         <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
@@ -143,8 +148,8 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
       </Reveal>
 
       <Reveal delay={0.1} className="mt-10">
-        <div className="rounded-3xl border border-line bg-surface p-2 backdrop-blur">
-          <div role="tablist" className="flex gap-1 rounded-2xl bg-black/30 p-1">
+        <div className="rounded-3xl border border-line bg-surface p-2">
+          <div role="tablist" className="flex gap-1 rounded-2xl bg-surface-2 p-1">
             {tabs.map((t) => (
               <button
                 key={t.id}
@@ -206,24 +211,19 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                             >
                               <div
                                 className="relative flex h-24 items-center justify-center overflow-hidden border-b border-line"
-                                style={{ background: `linear-gradient(135deg, ${theme.from}33, ${theme.to}14 60%, transparent)` }}
+                                style={{ background: 'var(--surface-2)' }}
                               >
-                                <div
-                                  aria-hidden
-                                  className="absolute -top-10 -right-6 size-32 rounded-full opacity-50 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
-                                  style={{ background: theme.from }}
-                                />
                                 <div className="grid-bg absolute inset-0 opacity-30" />
                                 <theme.icon
-                                  className="relative size-9 drop-shadow-[0_0_18px_currentColor] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
-                                  style={{ color: theme.to }}
+                                  className="relative size-9 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                                  style={{ color: 'var(--ink)' }}
                                   strokeWidth={1.5}
                                 />
-                                <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-0.5 text-[10px] text-ink backdrop-blur">
+                                <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full border border-line bg-bg/80 px-2 py-0.5 text-[10px] text-ink">
                                   {d.kind === 'video' ? <Film className="size-3" /> : <ImageIcon className="size-3" />}
                                   {d.kind}
                                 </span>
-                                <ArrowUpRight className="absolute top-2.5 right-2.5 size-4 text-white/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                                <ArrowUpRight className="absolute top-2.5 right-2.5 size-4 text-faint transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink" />
                               </div>
                               <div className="flex flex-1 flex-col gap-3 p-4">
                                 <span className="text-sm leading-snug font-medium text-ink">{d.title}</span>
@@ -253,7 +253,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                               onFile(e.dataTransfer.files?.[0]);
                             }}
                             className={`relative flex min-h-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-2xl border border-dashed p-6 text-center transition-all duration-300 ${
-                              dragging ? 'scale-[1.01] border-accent bg-accent/5' : 'border-line-strong bg-black/20 hover:border-accent/50'
+                              dragging ? 'scale-[1.01] border-accent bg-accent/5' : 'border-line-strong bg-bg hover:border-accent/50'
                             }`}
                           >
                             <input
@@ -277,7 +277,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                                     >
                                       {/* eslint-disable-next-line @next/next/no-img-element */}
                                       <img src={f.previewUrl} alt={`Prepared frame ${i + 1}`} className="h-36 w-auto max-w-44 object-cover" />
-                                      <div className="absolute inset-x-0 h-8 animate-scan bg-gradient-to-b from-transparent via-accent/30 to-transparent" />
+                                      <div className="scan-band animate-scan" />
                                     </motion.div>
                                   ))}
                                 </div>
@@ -305,7 +305,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                             )}
                           </label>
                           {prepared?.exif && (
-                            <label className="flex items-start gap-3 rounded-xl border border-line bg-black/20 p-3 text-xs text-muted">
+                            <label className="flex items-start gap-3 rounded-xl border border-line bg-surface p-3 text-xs text-muted">
                               <input type="checkbox" checked={useExif} onChange={(e) => setUseExif(e.target.checked)} className="mt-0.5 accent-[var(--accent)]" />
                               <span>
                                 This photo contains

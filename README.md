@@ -55,6 +55,8 @@ A search result only counts as a visual match after DejaVue re-hashes its thumbn
 | `record` | Calls SerpApi for real and saves scrubbed responses as fixtures |
 | `live` | Calls SerpApi with a 24 h query cache, media cache and credit ledger |
 
+The home page is prerendered at build time, so its demo cases and the mode badge in the header reflect `FIXTURE_MODE` as it was when you ran `npm run build`. Rebuild after changing it. (On Vercel, changing an environment variable already needs a redeploy.) The API always reads the current value.
+
 Live mode needs `SERPAPI_API_KEY`, `GEMINI_API_KEY` and Supabase Storage for temporary frames. It refuses new audits when fewer than 20 of `MONTHLY_CREDIT_LIMIT` searches remain.
 
 ## Caching and storage
