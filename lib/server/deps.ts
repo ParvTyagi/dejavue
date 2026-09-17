@@ -20,12 +20,9 @@ import type { Store } from '@/lib/store/types';
 import { signDossier } from './sign';
 import { assertPublicHttpsUrl } from './ssrf';
 
-export const FIXTURES_DIR = path.join(process.cwd(), 'fixtures');
+import { FIXTURES_DIR } from './mode';
 
-export function fixtureMode(): FixtureMode {
-  const m = process.env.FIXTURE_MODE?.trim();
-  return m === 'live' || m === 'record' ? m : 'replay';
-}
+export { FIXTURES_DIR, fixtureMode } from './mode';
 
 const g = globalThis as { __dejavueStore?: Store };
 export function appStore(): Store {
