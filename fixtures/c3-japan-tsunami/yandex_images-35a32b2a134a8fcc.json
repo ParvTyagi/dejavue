@@ -1,0 +1,1832 @@
+{
+  "search_metadata": {
+    "status": "Success",
+    "markdown_endpoint": "https://serpapi.com/searches/hsuTCrJP8kVlVTuMTTVGnmWQ3SMDpu8xeWl4T4cnh2A/6aab9a53421b08735f2aada6.md",
+    "created_at": "2026-09-17 07:44:19 UTC",
+    "processed_at": "2026-09-17 07:44:19 UTC",
+    "yandex_images_url": "https://yandex.com/images/search/?url=https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>&rpt=imageview",
+    "total_time_taken": 3.95
+  },
+  "search_parameters": {
+    "engine": "yandex_images",
+    "url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "tab": "about"
+  },
+  "image_preview": {
+    "image": {
+      "link": "https://avatars.mds.yandex.net/get-images-cbir/4530768/I3DBYpxqoHOrto4uDBHT_Q1060/orig",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig",
+      "width": 558,
+      "height": 383
+    },
+    "crops": [
+      {
+        "category": "машина",
+        "crop_id": 0,
+        "crop": "0.2718985677;0.7938207388;0.3828468919;0.9656244516",
+        "serpapi_link": "https://serpapi.com/search.json?crop_id=0&engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig"
+      }
+    ]
+  },
+  "image_results": [
+    {
+      "title": "Fact Check: This video from Japan shows horrific 2011 tsunami, not recent floods in Pakistan - India Today",
+      "snippet": "Social media is full of videos and photos of the destructive deluge in Pakistan. ",
+      "link": "https://www.indiatoday.in/fact-check/story/fact-check-video-japan-shows-horrific-2011-tsunami-not-recent-floods-pakistan-1995809-2022-09-02?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "indiatoday.in",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=dc5c20411a0c57e5dd1f46372fc9e8c762189b08-10115282-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Ddc5c20411a0c57e5dd1f46372fc9e8c762189b08-10115282-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202209/Cover_1200x768.jpeg?VersionId=3KJjNa3IgSt3W182.LgY6.39moaiXIqJ",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fakm-img-a-in.tosshub.com%2Findiatoday%2Fimages%2Fstory%2F202209%2FCover_1200x768.jpeg%3FVersionId%3D3KJjNa3IgSt3W182.LgY6.39moaiXIqJ",
+        "height": 675,
+        "width": 1200
+      }
+    },
+    {
+      "title": "Fact Check: Video of 2011 Japan Tsunami Passed off as Floods in Pakistan in 2020 - Vishvas News",
+      "snippet": "The video showing cars being washed away by floodwaters is from a tsunami that hit Japan in 2011. ",
+      "link": "https://www.vishvasnews.com/english/viral/fact-check-video-of-2011-japan-tsunami-passed-off-as-floods-in-pakistan-in-2020/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "vishvasnews.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=4e0cfed73470ade9466994ed609e6b9ba861a0df6cd17efb-5331336-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D4e0cfed73470ade9466994ed609e6b9ba861a0df6cd17efb-5331336-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://www.vishvasnews.com/wp-content/uploads/2020/12/Fake_News_December30_5.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fwww.vishvasnews.com%2Fwp-content%2Fuploads%2F2020%2F12%2FFake_News_December30_5.jpg",
+        "height": 522,
+        "width": 696
+      }
+    },
+    {
+      "title": "В Пакистане из-за сильных дождей разрушены дома, есть погибшие В мире СТВ",
+      "snippet": "В Пакистане из-за ливней погибли по меньшей мере семь человек. ",
+      "link": "https://ctv.by/news/v-mire/v-pakistane-iz-za-livnej-pogibli-po-menshej-mere-sem-chelovek?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "ctv.by",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=6e16b7e6ffd9267ff4ef59edd9a085f14b6a5322-3719127-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D6e16b7e6ffd9267ff4ef59edd9a085f14b6a5322-3719127-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://api.ctv.by/uploads/images/vlcsnap-2026-06-15-10h48m59s325_1.jpg?width=1200/height=675",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fapi.ctv.by%2Fuploads%2Fimages%2Fvlcsnap-2026-06-15-10h48m59s325_1.jpg%3Fwidth%3D1200%2Fheight%3D675",
+        "height": 596,
+        "width": 1060
+      }
+    },
+    {
+      "title": "Heavy Rain In Karachi Today Monsoon Rain Updates Weather Forecast Cloudy Weather In Karachi - YouTube",
+      "snippet": "HUM News ",
+      "link": "https://www.youtube.com/watch?v=HVRguI20cNI&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=a0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/HVRguI20cNI/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHVRguI20cNI%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "How Much Rain Today In Karachi at Rusty Wilcox blog",
+      "snippet": "Karachi Weather update How much Rains Expected in 24 Hours? ",
+      "link": "https://storage.googleapis.com/ddlipqwonagnfe/how-much-rain-today-in-karachi.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "storage.googleapis.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=a0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/HVRguI20cNI/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHVRguI20cNI%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Heavy Rain In Karachi Today Monsoon Rain Updates Weather Forecast Cloudy Weather In Karachi - YouTube",
+      "snippet": "Pakistani News Live, karachi rain, heavy rain in karachi, rain in karachi, karachi weather, rain news karachi, karachi weather update today, karahi rain, heavy rain prediction in karachi... http://bit.ly/HumUpdates\\ Subscribe to stay updated with HUM NEWS LIVE Karachi weather update: Light rain likely in metropolis today.Monsoon Rain Alert ! ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=HVRguI20cNI&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=a0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/HVRguI20cNI/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHVRguI20cNI%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Майор от пакистанската армия беше убит в Куета, Белуджистан, след като убиец на мотоциклет прикрепи взривно устройство към колат",
+      "snippet": "Источник: VK Видео · Смотрите онлайн «Майор от пакистанската армия беше убит в Куета, Белуджистан, след като убиец на мотоциклет прикрепи взривно устройство към колат» от автора Pravda BG | Новини от България. ",
+      "link": "https://yandex.ru/video/preview/15238094950890003363?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "yandex.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=87f6524c4f0b62d96d3ad5410e29cb7d035970af-5210229-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D87f6524c4f0b62d96d3ad5410e29cb7d035970af-5210229-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "http://avatars.mds.yandex.net/get-vthumb/786723/0feda0dbf40261a1ef2d0e0dd6573448/800x450",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=http%3A%2F%2Favatars.mds.yandex.net%2Fget-vthumb%2F786723%2F0feda0dbf40261a1ef2d0e0dd6573448%2F800x450",
+        "height": 450,
+        "width": 800
+      }
+    },
+    {
+      "title": "Крым.mp4 - Видео от Международная панорама VK Видео",
+      "snippet": "Видео от Международная панорама ",
+      "link": "https://vkvideo.ru/video-212278341_456310650?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "vkvideo.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=ec349eccdce7335e62d6dae524413d1576c55b3f-5857999-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dec349eccdce7335e62d6dae524413d1576c55b3f-5857999-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://iv.okcdn.ru/getVideoPreview?id=8507159874119&idx=6&type=39&tkn=ATYDFsqT9Nxacursr_zkxMvQB6s&fn=vid_w",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fiv.okcdn.ru%2FgetVideoPreview%3Fid%3D8507159874119%26idx%3D6%26type%3D39%26tkn%3DATYDFsqT9Nxacursr_zkxMvQB6s%26fn%3Dvid_w",
+        "height": 720,
+        "width": 960
+      }
+    },
+    {
+      "title": "Видео от Клуба Международного - Видео от Международная панорама VK Видео",
+      "snippet": "Видео от Клуба Международного. ",
+      "link": "https://vkvideo.ru/video-212278341_456290361?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "vkvideo.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=ec349eccdce7335e62d6dae524413d1576c55b3f-5857999-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dec349eccdce7335e62d6dae524413d1576c55b3f-5857999-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://iv.okcdn.ru/getVideoPreview?id=8507159874119&idx=6&type=39&tkn=ATYDFsqT9Nxacursr_zkxMvQB6s&fn=vid_w",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fiv.okcdn.ru%2FgetVideoPreview%3Fid%3D8507159874119%26idx%3D6%26type%3D39%26tkn%3DATYDFsqT9Nxacursr_zkxMvQB6s%26fn%3Dvid_w",
+        "height": 720,
+        "width": 960
+      }
+    },
+    {
+      "title": "Irandaki sel felaketi - YouTube",
+      "snippet": "Haber48K. ",
+      "link": "https://www.youtube.com/watch?v=9qtfsaDlfdQ&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b3c36e0be074805e3e9ac98ab264968aa7228a60-6696526-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db3c36e0be074805e3e9ac98ab264968aa7228a60-6696526-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i1.ytimg.com/vi/AjJ4IzPf1cQ/hqdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi1.ytimg.com%2Fvi%2FAjJ4IzPf1cQ%2Fhqdefault.jpg",
+        "height": 360,
+        "width": 480
+      }
+    },
+    {
+      "title": "Видео от Женские тайны - Видео от Женские тайны - смотреть онлайн в поиске Яндекса по Видео",
+      "snippet": "- Женский клуб. ",
+      "link": "https://yandex.ru/video/preview/8339737934833701687?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "yandex.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=68fea8f672b84f77f382796fa4d1573c592e2c79-7016263-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D68fea8f672b84f77f382796fa4d1573c592e2c79-7016263-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://avatars.mds.yandex.net/get-video_thumb_fresh/1338607/eff75c3bd844847e1ec7eb79119bca331005_rt/564x318_1",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-video_thumb_fresh%2F1338607%2Feff75c3bd844847e1ec7eb79119bca331005_rt%2F564x318_1",
+        "height": 318,
+        "width": 564
+      }
+    },
+    {
+      "title": "Filmagem Impressionante Mostra o Poder Devastador De Um Tsunami",
+      "snippet": "O japão é um dos países que mais sofre com catástrofes naturais como terramotos e tsunamis, mas por mais que estes fenómenos sejam frequentes, é sempre um ",
+      "link": "https://www.desconcertante.com/filmagem-impressionante-poder-devastador-tsunami/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "desconcertante.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=18e5b09ae3dc5e80fce1f89db8b13332b8601583-5656392-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D18e5b09ae3dc5e80fce1f89db8b13332b8601583-5656392-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://www.desconcertante.com/wp-content/uploads/2018/07/18784.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fwww.desconcertante.com%2Fwp-content%2Fuploads%2F2018%2F07%2F18784.jpg",
+        "height": 500,
+        "width": 930
+      }
+    },
+    {
+      "title": "Discover 15 Great seljuk and islam flag ideas islamic flag design inspiration, black flag islam, white shahada flag and more",
+      "snippet": "Pakistan Tavola da surf, Design ",
+      "link": "https://ru.pinterest.com/shafiqurrehman580/great-seljuk/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "ru.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=52d0aebbb8aec1e382b07c5fb8ce1b285622907c-2771387-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D52d0aebbb8aec1e382b07c5fb8ce1b285622907c-2771387-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/originals/43/ae/9e/43ae9ec03aecbdb594b40ad31ba70fa4.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F43%2Fae%2F9e%2F43ae9ec03aecbdb594b40ad31ba70fa4.jpg",
+        "height": 1755,
+        "width": 1379
+      }
+    },
+    {
+      "title": "Pin by AsfandYar Abbasi on Pakistan Pakistan pictures, Pakistan independence day, Great seljuk",
+      "snippet": "Pin by AsfandYar Abbasi on Pakistan | Pakistan pictures, Pakistan independence day, Great seljuk ",
+      "link": "https://www.pinterest.com/pin/pinterest--602426887660105158/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=52c92ea362fd202aa3f87a0fb8b6e6e11b224ddb-5282144-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D52c92ea362fd202aa3f87a0fb8b6e6e11b224ddb-5282144-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/f2/38/7b/f2387b1d1bb8487af614fd4ff61f38ed.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff2%2F38%2F7b%2Ff2387b1d1bb8487af614fd4ff61f38ed.jpg",
+        "height": 848,
+        "width": 720
+      }
+    },
+    {
+      "title": "Pakistan independence day Scottish independence, Pakistan picture, Precious",
+      "snippet": "Save. ",
+      "link": "https://in.pinterest.com/pin/independence-day--740771838716929946/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "in.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=77fc0c03140e11d964aded0fc407aa44f7a5eb98-16479585-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D77fc0c03140e11d964aded0fc407aa44f7a5eb98-16479585-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/474x/43/ae/9e/43ae9ec03aecbdb594b40ad31ba70fa4.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F474x%2F43%2Fae%2F9e%2F43ae9ec03aecbdb594b40ad31ba70fa4.jpg",
+        "height": 603,
+        "width": 474
+      }
+    },
+    {
+      "title": "Heavy Rain in Kuwait Kuwait Flood Kuwait Weather Today - YouTube",
+      "snippet": "In this video, we bring you the latest news from Kuwait, where heavy rains have caused flooding in several areas of the country. ",
+      "link": "https://www.youtube.com/watch?v=t9C3bGVwLnk&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=1fde3ca8ee0be3b3ca71a723d30e6762a457d03b-9137660-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D1fde3ca8ee0be3b3ca71a723d30e6762a457d03b-9137660-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/t9C3bGVwLnk/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ft9C3bGVwLnk%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Heavy Rain in Kuwait - Current Affairs Videos",
+      "snippet": "Watch video of Heavy Rain in Kuwait submitted by Owais Mirza on Mar 27, 2023. ",
+      "link": "https://videos.hamariweb.com/current-affairs/heavy-rain-in-kuwait_40756?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "videos.hamariweb.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=3310be01d5f77c6bd11318368bee6ff28dddc251-10792867-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D3310be01d5f77c6bd11318368bee6ff28dddc251-10792867-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i4.ytimg.com/vi/t9C3bGVwLnk/hqdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi4.ytimg.com%2Fvi%2Ft9C3bGVwLnk%2Fhqdefault.jpg",
+        "height": 360,
+        "width": 480
+      }
+    },
+    {
+      "title": "Latest Situation of Karachi’s Highways Traffic Blocked & Roads Flooded",
+      "snippet": "Spread The Viralist ",
+      "link": "https://www.theviralist.com/2025/08/22/latest-situation-of-karachis-highways-traffic-blocked-roads-flooded/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "theviralist.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=7a53794c530b99e98460485ee2190c999d5e3eae-4568535-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7a53794c530b99e98460485ee2190c999d5e3eae-4568535-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://www.theviralist.com/wp-content/uploads/2025/08/Latest-Situation-of-Karachis-Highways-Traffic-Blocked-Roads-818x490.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fwww.theviralist.com%2Fwp-content%2Fuploads%2F2025%2F08%2FLatest-Situation-of-Karachis-Highways-Traffic-Blocked-Roads-818x490.jpg",
+        "height": 490,
+        "width": 818
+      }
+    },
+    {
+      "title": "incredible tsunami",
+      "snippet": "A videographer captured a city block being rapidly inundated by fast-moving water at Ishinomaki Gas, located a third of a mile inland from Ishinomaki port. ",
+      "link": "https://extremeplanet.wordpress.com/tag/incredible-tsunami/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "extremeplanet.wordpress.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=a954aa7313fb2dd6abb349ec07c547318e6edcc4-4376341-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da954aa7313fb2dd6abb349ec07c547318e6edcc4-4376341-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://extremeplanet.wordpress.com/wp-content/uploads/2014/02/ishinomaki-tsunami1.png",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fextremeplanet.wordpress.com%2Fwp-content%2Fuploads%2F2014%2F02%2Fishinomaki-tsunami1.png",
+        "height": 386,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Dubai Floods के बाद Karachi Pakistan में Heavy Rain and Floods Alert, Disaster Management Warning... - video Dailymotion",
+      "snippet": "Dubai Floods : यूएई में सोमवार रात और मंगलवार के बीच जोरदार बारिश हुई, जिससे दुबई में भयंकर बाढ़ आ गई. ",
+      "link": "https://www.dailymotion.com/video/x8wzno4?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "dailymotion.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=9a87a62826ca7d715f60e5af944516cf3a0dacc9-5009205-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D9a87a62826ca7d715f60e5af944516cf3a0dacc9-5009205-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://s1.dmcdn.net/v/W8gAK1clUFHVwDszI/x720",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fs1.dmcdn.net%2Fv%2FW8gAK1clUFHVwDszI%2Fx720",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Dubai Rains: Orange Alert Issued as Rainfall Intensify, Flights Cancelled & Schools Shut Oneindia - video Dailymotion",
+      "snippet": "Dubai Floods के बाद Karachi Pakistan में Heavy Rain and Floods Alert, Disaster Management Warning. ",
+      "link": "https://www.dailymotion.com/video/x8xvuje?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "dailymotion.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=f49704692bd04b94afc8a57a16307fd117dffa44b28cc196-12523300-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Df49704692bd04b94afc8a57a16307fd117dffa44b28cc196-12523300-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://s1.dmcdn.net/v/W8gAK1c8EXWf-QUh1/x120",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fs1.dmcdn.net%2Fv%2FW8gAK1c8EXWf-QUh1%2Fx120",
+        "height": 120,
+        "width": 213
+      }
+    },
+    {
+      "title": "Pakistani Flag Pakistani flag, Pakistan pictures, Pakistan day",
+      "snippet": "Pakistani Flag | Pakistani flag, Pakistan pictures, Pakistan day ",
+      "link": "https://www.pinterest.com/pin/pakistani-flag-flying-high--582231058069030242/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/e2/a7/b3/e2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fe2%2Fa7%2Fb3%2Fe2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "height": 640,
+        "width": 640
+      }
+    },
+    {
+      "title": "Pakistani Flag Flying High",
+      "snippet": "kashmir bany ga pakistan 💚 💛 ",
+      "link": "https://in.pinterest.com/pin/pakistani-flag-flying-high--582231058069030242/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "in.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/e2/a7/b3/e2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fe2%2Fa7%2Fb3%2Fe2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "height": 640,
+        "width": 640
+      }
+    },
+    {
+      "title": "Pakistani Flag Pakistani flag, Pakistan flag, Pakistan independence day",
+      "snippet": "Pakistani Flag | Pakistani flag, Pakistan flag, Pakistan independence day ",
+      "link": "https://www.pinterest.ca/pin/pakistani-flag--500673683581783156/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pinterest.ca",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/e2/a7/b3/e2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fe2%2Fa7%2Fb3%2Fe2a7b3f858b9b6fe4d711ebf1773df8a.jpg",
+        "height": 640,
+        "width": 640
+      }
+    },
+    {
+      "title": "Maximum Amount of Rain Recorded in Lahore - YouTube",
+      "snippet": "Maximum Amount of Rain Recorded in Lahore ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=0jJFYNZPPUg&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=bedda34c84d56486444dae0a4ced71cca6d2a220-8370529-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbedda34c84d56486444dae0a4ced71cca6d2a220-8370529-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/0jJFYNZPPUg/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0jJFYNZPPUg%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "More rain than usual expected this monsoon season: MET Dept Pakistan Today",
+      "snippet": "heavy-rain-in-lahore-city-1500061969-6840 ",
+      "link": "https://www.pakistantoday.com.pk/2024/07/11/more-rain-than-usual-expected-this-monsoon-season-met-dept/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pakistantoday.com.pk",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=adb6204955e04471b6b74c080137b370d3b3a5ab-5177970-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dadb6204955e04471b6b74c080137b370d3b3a5ab-5177970-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://www.pakistantoday.com.pk/wp-content/uploads/2024/07/heavy-rain-in-lahore-city-1500061969-6840-768x432.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fwww.pakistantoday.com.pk%2Fwp-content%2Fuploads%2F2024%2F07%2Fheavy-rain-in-lahore-city-1500061969-6840-768x432.jpg",
+        "height": 432,
+        "width": 768
+      }
+    },
+    {
+      "title": "Samaa News Headlines 6PM SAMAA TV 11 July 2023 ver video en línea",
+      "snippet": "Agregó el usuario SAMAA TV. ",
+      "link": "https://4k-video.ru/es/id-video/dAmi434wRZc/samaa-news-headlines-6pm-samaa-tv-11-july-2023?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "4k-video.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=8907a6449d0e5ebbb43b07fd1f2f01c81859c473-4569751-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8907a6449d0e5ebbb43b07fd1f2f01c81859c473-4569751-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://image.4k-video.ru/id-video/dAmi434wRZc",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fimage.4k-video.ru%2Fid-video%2FdAmi434wRZc",
+        "height": 180,
+        "width": 320
+      }
+    },
+    {
+      "title": "Pakistan’da Etkili Olan Muson Yağmurları Yıkıma Yol Açtı: 25 Ölü - YouTube",
+      "snippet": "Haber, İhlas Haber Ajansı, iha, Ihlas News Agency, son dakika, iha youtube, haberler, gündem, haber izle, son dakika haber ",
+      "link": "https://www.youtube.com/watch?v=vyVY2M8VjwA&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=fbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/vyVY2M8VjwA/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FvyVY2M8VjwA%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Pakistan’da Etkili Olan Muson Yağmurları Yıkıma Yol Açtı: 25 Ölü - Hürsöz Gazetesi",
+      "snippet": "Pakistan’da etkili olan şiddetli yağışların neden olduğu sel ve yıkımlar nedeniyle son 24 saatte 25 kişi hayatını kaybetti. ",
+      "link": "https://www.hursozgazetesi.com/video/pakistanda-etkili-olan-muson-yagmurlari-yikima-yol-acti-25-olu?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "hursozgazetesi.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=fbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://img.youtube.com/vi/vyVY2M8VjwA/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fimg.youtube.com%2Fvi%2FvyVY2M8VjwA%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Karachi Heavy Rain Prediction Pakistan Weather Update Breaking News - YouTube",
+      "snippet": "BOL News Breakings ",
+      "link": "https://www.youtube.com/watch?v=poCsi5bQQzc&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=da67210b92f2feeb3eb686408fbb741df4878086-5228234-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dda67210b92f2feeb3eb686408fbb741df4878086-5228234-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/poCsi5bQQzc/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FpoCsi5bQQzc%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Breaking News Toofani barish ki waja say sindh hukumat ka aam tateel ka elan Aaj News - Videos - Aaj English TV",
+      "snippet": "Aaj English TV ",
+      "link": "https://english.aaj.tv/news/30293494/code.jquery.com?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "english.aaj.tv",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/FHTbsJv4kYM/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFHTbsJv4kYM%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Breaking News Toofani barish ki waja say sindh hukumat ka aam tateel ka elan Aaj News - Videos - Aaj English TV",
+      "snippet": "Breaking News | Toofani barish ki waja say sindh hukumat ka aam tateel ka elan | Aaj News ",
+      "link": "https://english.aaj.tv/news/30293494/cdnjs.cloudflare.com?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "english.aaj.tv",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/FHTbsJv4kYM/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFHTbsJv4kYM%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Exclusive! Stormy Rain Do Destruction Everywhere - YouTube",
+      "snippet": "Exclusive! ",
+      "link": "https://www.youtube.com/watch?v=oDfLQ9G74kk&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=587948a94f70650dde9102b7574a4cf2948ff5e9-12927189-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D587948a94f70650dde9102b7574a4cf2948ff5e9-12927189-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/oDfLQ9G74kk/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FoDfLQ9G74kk%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "WATCH: Several cars swept away as cloudburst triggers flash flood in Islamabad",
+      "snippet": "WATCH: Several cars swept away as cloudburst triggers flash flood in Islamabad ",
+      "link": "https://en.dailypakistan.com.pk/28-Jul-2021/watch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "en.dailypakistan.com.pk",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=c2a1b9a1284bdbeb4acec5a7de0b9069eb53599b-13486952-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dc2a1b9a1284bdbeb4acec5a7de0b9069eb53599b-13486952-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://en.dailypakistan.com.pk/wp-content/uploads/2021/07/watch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad-s-e11-1627452102-7939.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fen.dailypakistan.com.pk%2Fwp-content%2Fuploads%2F2021%2F07%2Fwatch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad-s-e11-1627452102-7939.jpg",
+        "height": 435,
+        "width": 920
+      }
+    },
+    {
+      "title": "Several cars swept away as cloudburst triggers flash flood in Islamabad - DNA News Agency",
+      "snippet": "Several cars swept away as cloudburst triggers flash flood in Islamabad - DNA News Agency ",
+      "link": "https://dnanews.com.pk/several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "dnanews.com.pk",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=bd4c1510c427d41ad2b4f4a06c283db69fc630be-8162448-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbd4c1510c427d41ad2b4f4a06c283db69fc630be-8162448-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://dnanews.com.pk/wp-content/uploads/2021/07/watch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad-s-e11-1627452102-7939-1.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fdnanews.com.pk%2Fwp-content%2Fuploads%2F2021%2F07%2Fwatch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad-s-e11-1627452102-7939-1.jpg",
+        "height": 378,
+        "width": 800
+      }
+    },
+    {
+      "title": "Heavy rain causes urban flooding, disrupts life in Karachi - YouTube",
+      "snippet": "heavy rain, heavy rain in karachi, heavy rain prediction in karachi, heavy rain in lahore, karachi heavy rain, pakistan flooding, heavy monsoon rains trigger floods in karachi pakistan, pakistan floods in karachi after heavy rain, rain in karachi, massive flooding in karachi as heavy monsoon rains strikes pakistan, rain in pakistan, rain, flooding in pakistan, monsoon rains in pakistan, election news today live,pakistan news live election, ED-SH-TH-KR-UL-KR-CP-KR ",
+      "link": "https://www.youtube.com/watch?v=3oE8F442VXg&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=845cd607e16495976490bb9484ab0cabbc103772-11835812-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D845cd607e16495976490bb9484ab0cabbc103772-11835812-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/3oE8F442VXg/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3oE8F442VXg%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Ливни затопили центр Ашхабада",
+      "snippet": "&#x41B;&#x438;&#x432;&#x43D;&#x438; &#x437;&#x430;&#x442;&#x43E;&#x43F;&#x438;&#x43B;&#x438; &#x446;&#x435;&#x43D;&#x442;&#x440; &#x410;&#x448;&#x445;&#x430;&#x431;&#x430;&#x434;&#x430; ",
+      "link": "https://www.azattyqasia.org/a/29230278.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "azattyqasia.org",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://gdb.rferl.org/01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fgdb.rferl.org%2F01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "height": 630,
+        "width": 1200
+      }
+    },
+    {
+      "title": "В Ашхабаде ликвидируют последствия ливня",
+      "snippet": "Туркменистан ",
+      "link": "https://www.azattyqasia.org/a/29231924.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "azattyqasia.org",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://gdb.rferl.org/01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fgdb.rferl.org%2F01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "height": 630,
+        "width": 1200
+      }
+    },
+    {
+      "title": "В Ашхабаде ликвидируют последствия ливня (видео)",
+      "snippet": "В Ашхабаде ликвидируют последствия ливня (видео) ",
+      "link": "https://www.centralasian.org/a/29232779.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "centralasian.org",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://gdb.rferl.org/01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fgdb.rferl.org%2F01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg",
+        "height": 630,
+        "width": 1200
+      }
+    },
+    {
+      "title": "Heavy rainfall forecast for Karachi - YouTube",
+      "snippet": "Heavy rainfall forecast for KarachiGTV News brings you live coverage of everything you need to know across business, finance, technology, politics, sports an... ",
+      "link": "https://www.youtube.com/watch?v=VvQWpjWVq2Y&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/VvQWpjWVq2Y/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvQWpjWVq2Y%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Heavy rainfall forecast for Karachi - YouTube",
+      "snippet": "Heavy rainfall forecast for Karachi - YouTube ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=VvQWpjWVq2Y&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/VvQWpjWVq2Y/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvQWpjWVq2Y%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Pakistan'da sel felaketi: Can kaybı 312’ye yükseldi - VİDEONUZ",
+      "snippet": "Pakistan&#039;da sel felaketi: Can kaybı 312’ye yükseldi ",
+      "link": "https://videonuz.ensonhaber.com/izle/pakistanda-sel-felaketi-can-kaybi-312ye-yukseldi?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "videonuz.ensonhaber.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=f11896533e0b2ebece32cd4fb6ba0c1291aa21ff-9068918-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Df11896533e0b2ebece32cd4fb6ba0c1291aa21ff-9068918-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://cdnvideonuz.ensonhaber.com/crop/800x450/thumb/kok/2022/07/24/pakistanda-sel-felaketi-can-kaybi-312ye-yukseldi_3096.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fcdnvideonuz.ensonhaber.com%2Fcrop%2F800x450%2Fthumb%2Fkok%2F2022%2F07%2F24%2Fpakistanda-sel-felaketi-can-kaybi-312ye-yukseldi_3096.jpg",
+        "height": 450,
+        "width": 800
+      }
+    },
+    {
+      "title": "Heavy Rain Inflooding In Karachi Weather Forecast Breaking News - YouTube",
+      "snippet": "Heavy Rain Inflooding In Karachi Weather Forecast Breaking News ",
+      "link": "https://www.youtube.com/watch?v=keLJnE3jlmQ&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/keLJnE3jlmQ/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FkeLJnE3jlmQ%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Heavy Rain Inflooding In Karachi Weather Forecast Breaking News - YouTube",
+      "snippet": "Heavy Rain, Heavy Rain in Karachi, Karachi heavy rain, today rain news, rain news today, PMD Weather Predictions, karachi weather, karachi weather news, karachi weather update, karachi weather today, karachi weather live, karachi rain, Karachi Rain Updates, | BOL, BOL News Breakings, Latest News, Breaking News, Pakistan News, Pakistan Latest News, Pakistan News Today, Pakistan Breaking News, News Update, BOL News Update, Headlines, NewsHeadlines, BOL News ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=keLJnE3jlmQ&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/keLJnE3jlmQ/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FkeLJnE3jlmQ%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Heavy Rain In Pakistan Pakistan Weather Latest New Updates Rain In Karachi Breaking News - YouTube",
+      "snippet": "BOL News ",
+      "link": "https://www.youtube.com/watch?v=0DVlLZPTYvE&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=7de6c12f64c0374e096f249239702e62d6aac88fa491b295-13315631-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7de6c12f64c0374e096f249239702e62d6aac88fa491b295-13315631-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/0DVlLZPTYvE/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0DVlLZPTYvE%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "پاکستان اور پاکستانی وقم",
+      "snippet": "یہ لاقانونیت. ",
+      "link": "https://www.pinterest.com/pin/1121396375945498945/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=87885ad535ca266a3f6f16858d32855fcd1ca8aa-5434958-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D87885ad535ca266a3f6f16858d32855fcd1ca8aa-5434958-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/2a/de/df/2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2F2a%2Fde%2Fdf%2F2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "height": 771,
+        "width": 712
+      }
+    },
+    {
+      "title": "چله جهانی استغاثه فرج Mola ali wiladat 13 rajab videos, 13 rajab imam ali wiladat video, Ghadeer e khum video",
+      "snippet": "Imam Mehdi Video. ",
+      "link": "https://au.pinterest.com/pin/599963981619422774/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "au.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=c8709040188e942e3e67d5a76197efcc28148090-4436930-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dc8709040188e942e3e67d5a76197efcc28148090-4436930-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/474x/2a/de/df/2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F474x%2F2a%2Fde%2Fdf%2F2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "height": 513,
+        "width": 474
+      }
+    },
+    {
+      "title": "نگه دار صفحه رو ببین برات چی نوشته شده Video Youtube template video editing pakistan, Video editing template background pakistan",
+      "snippet": "Selected board cover image ",
+      "link": "https://ca.pinterest.com/pin/video--889320257684079877/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "ca.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=c8709040188e942e3e67d5a76197efcc28148090-4436930-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dc8709040188e942e3e67d5a76197efcc28148090-4436930-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/474x/2a/de/df/2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F474x%2F2a%2Fde%2Fdf%2F2adedf6d9a41b1656dc9498efcd17faf.jpg",
+        "height": 513,
+        "width": 474
+      }
+    },
+    {
+      "title": "Видео Цунами в Японии.mp4 OK.RU",
+      "snippet": "Видео Цунами в Японии.mp4 OK.RU ",
+      "link": "https://m.ok.ru/video/151545621952695-1?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "m.ok.ru",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=9f69c948d644f71ed874bdda234c31b8f11a2599-5233431-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D9f69c948d644f71ed874bdda234c31b8f11a2599-5233431-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.okcdn.ru/videoPreview?id=2945853950497&type=32&idx=0&tkn=i5qHzJCSyfrqg3Yhb41DyDNRUGs&fn=external_8",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.okcdn.ru%2FvideoPreview%3Fid%3D2945853950497%26type%3D32%26idx%3D0%26tkn%3Di5qHzJCSyfrqg3Yhb41DyDNRUGs%26fn%3Dexternal_8",
+        "height": 405,
+        "width": 720
+      }
+    },
+    {
+      "title": "Viral: Video of 2011 tsunami in Japan shared as that of Kerala by Mutiple - Alt News",
+      "snippet": "had posted a video, \"Dangerous floods in... ",
+      "link": "https://www.altnews.in/viral-video-of-2011-tsunami-in-japan-shared-as-that-of-kerala/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "altnews.in",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=c5387babbd1712d9044fae039d30d2c51d85097f-3940630-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dc5387babbd1712d9044fae039d30d2c51d85097f-3940630-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "http://www.altnews.in/wp-content/uploads/2018/08/Sikh-Army.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=http%3A%2F%2Fwww.altnews.in%2Fwp-content%2Fuploads%2F2018%2F08%2FSikh-Army.jpg",
+        "height": 1704,
+        "width": 3250
+      }
+    },
+    {
+      "title": "2011 के जापान सुनामी का वीडियो केरल का बताकर वायरल by धर्मेन्द्र ठाकुर - Alt News",
+      "snippet": "एक फेसबुक यूजर ने... ",
+      "link": "https://www.altnews.in/hindi/viral-video-of-2011-tsunami-in-japan-shared-as-that-of-kerala/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "altnews.in",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=c5387babbd1712d9044fae039d30d2c51d85097f-3940630-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dc5387babbd1712d9044fae039d30d2c51d85097f-3940630-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://www.altnews.in/hindi/wp-content/uploads/2018/08/Sikh-Army.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fwww.altnews.in%2Fhindi%2Fwp-content%2Fuploads%2F2018%2F08%2FSikh-Army.jpg",
+        "height": 1704,
+        "width": 3250
+      }
+    },
+    {
+      "title": "Pakistan'da selde ölenlerin sayısı artıyor Ankara Masası",
+      "snippet": "Pakistan'daki muson yağmurlarının yol açtığı sel felaketinde vefat edenlerin sayısı bin 545'e yükseldi. ",
+      "link": "https://www.ankaramasasi.com.tr/haber/1786209/pakistanda-selde-olenlerin-sayisi-artiyor?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "ankaramasasi.com.tr",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=bae61f50f3ffdbe87c681c3094f006684bdb874a-12472308-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbae61f50f3ffdbe87c681c3094f006684bdb874a-12472308-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://cdn.ankaramasasi.com/2022/9/11/pakistanda-selde-olenlerin-sayisi-artiyor.gif",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fcdn.ankaramasasi.com%2F2022%2F9%2F11%2Fpakistanda-selde-olenlerin-sayisi-artiyor.gif",
+        "height": 557,
+        "width": 1000
+      }
+    },
+    {
+      "title": "Dubai And Sharjah Situation 3 Days After Rains - Cloud Seeding Caused Rains in Dubai? - YouTube",
+      "snippet": "Dubai And Sharjah Situation 3 Days After Rains - Cloud Seeding Caused Rains in Dubai?Witness the astonishing scenes of Dubai and Sharjah, three days after to... ",
+      "link": "https://www.youtube.com/watch?v=1XQOA03XUro&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=50ae3e797362b9033e1e9fd1d4d3a62973b75b2035cfd2ee-10869598-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D50ae3e797362b9033e1e9fd1d4d3a62973b75b2035cfd2ee-10869598-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/1XQOA03XUro/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1XQOA03XUro%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "दिल्ली-NCR में तापमान गिरा, अगले कुछ दिनों तक जारी रहेगा बारिश का दौर",
+      "snippet": "IMD, Weather, Rainfall, Rainfall in India, Weather Update, Weather News in Hindi, Weather Today, IMD Weather Forecast, Rainfall in Delhi, Weather in Delhi, आईएमडी, मौसम, वर्षा, न्यूज़ नेशन, news nation, news nation live tv, news nation live, news nation videos ",
+      "link": "https://www.newsnationtv.com/india/news/imd-weather-forecast-today-rainfall-in-india-delhi-weather-update-254101.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "newsnationtv.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=a79489d38fd483cf2554fb32f5152353b89cc360-5274026-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da79489d38fd483cf2554fb32f5152353b89cc360-5274026-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://img-cdn.publive.online/fit-in/1200x675/newsnation/media/post_attachments/images/2022/02/26/weather-40.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fimg-cdn.publive.online%2Ffit-in%2F1200x675%2Fnewsnation%2Fmedia%2Fpost_attachments%2Fimages%2F2022%2F02%2F26%2Fweather-40.jpg",
+        "height": 675,
+        "width": 1200
+      }
+    },
+    {
+      "title": "will be next two day rain fall in Gujarat As Forecast",
+      "snippet": "19 અને 20 ઓગસ્ટે ગુજરાતમાં સાર્વત્રિક વરસાદની આગાહી, 19મીએ દક્ષિણ ગુજરાતમાં ભારેથી અતિભારે અને સૌરાષ્ટ્રમાં હળવાથી મધ્યમ વરસાદની શક્યતા. ",
+      "link": "https://www.divyabhaskar.co.in/local/gujarat/gandhinagar/news/universal-rains-forecast-in-gujarat-in-2-days-heavy-to-very-heavy-rains-in-south-gujarat-tomorrow-and-light-to-moderate-rains-in-saurashtra-128826480.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "divyabhaskar.co.in",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=30dfbb4408983a78597e1cab1fccfa6db019ee0f-11004571-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D30dfbb4408983a78597e1cab1fccfa6db019ee0f-11004571-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://images.bhaskarassets.com/web2images/960/2021/08/18/20_1629302137.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fimages.bhaskarassets.com%2Fweb2images%2F960%2F2021%2F08%2F18%2F20_1629302137.jpg",
+        "height": 548,
+        "width": 730
+      }
+    },
+    {
+      "title": "Pakistan'da Şiddetli Yağmur Vatandaşları Evinden Etti! / A Haber A Haber - YouTube",
+      "snippet": "A haber, A haber canlı, a haber canlı izle, A haber izle, a haber son dakika, a haber canlı yayın, haber, son dakika, son dakika haberleri, haberler, gündem, A haber son dakika, son dakika gündem, gündem de son dakika haberleri, Türkiye&#39;de gündem, dünya gündemi, pakistan da şiddetli muson yağmurları, pakistan da şiddetli yağmur, muson yağmurları, pakistan muson yağmurları ",
+      "link": "https://www.youtube.com/watch?v=sWlW3elYolk&app=desktop&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=2a0000017a05ecfbae4e565044c656e79d5b-4079523-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2a0000017a05ecfbae4e565044c656e79d5b-4079523-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/sWlW3elYolk/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FsWlW3elYolk%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "PMD Predicts Massive Floods in Monsoon 2023",
+      "snippet": "As the monsoon season is approaching the PMD advises farmers and government agencies to beware of possible floods. ",
+      "link": "https://blogpakistan.pk/monsoon-alert-pmd-predicts-floods-above-average-temperatures/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "blogpakistan.pk",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=e1b4fa82c9633759900176da4d39d596962edb44-9068512-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3De1b4fa82c9633759900176da4d39d596962edb44-9068512-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://blogpakistan.pk/wp-content/uploads/2023/06/Heres-When-Monsoon-Will-Start-in-Pakistan-1.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fblogpakistan.pk%2Fwp-content%2Fuploads%2F2023%2F06%2FHeres-When-Monsoon-Will-Start-in-Pakistan-1.jpg",
+        "height": 750,
+        "width": 1920
+      }
+    },
+    {
+      "title": "Heavy Rains in Saudi Arabia Saudi Arabia Weather Update Breaking News Dawn News - YouTube",
+      "snippet": "Dawn, Dawn News live, headlines, pakistan news live, pakistani news live, latest pakistani news, news headlines, live news update, latest headline, breaking news, dawn news, Dawn News Urdu, Urdu news, Pakistan news today, Pakistan News urdu, live news pakistan, pakistan news dawn, news, Heavy Rains in Saudi Arabia, Saudi Arabia Weather Update, rain in saudi arabia, saudi arabia rains, saudi arabia weather, dawn",
+      "link": "https://www.youtube.com/watch?v=_nxfQWwwevs&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=5797025a98161b0ad40b094e95e61e5602bf9496116eb6b1-8334027-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D5797025a98161b0ad40b094e95e61e5602bf9496116eb6b1-8334027-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/_nxfQWwwevs/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_nxfQWwwevs%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Pakistan floods: Over 30 million people affected; death toll crosses 1,000 %%title",
+      "snippet": "Floods have caused devastation across Pakistan and displaced tens of thousands of people. ",
+      "link": "https://thefederal.com/videos/pakistan-floods-over-30-million-people-affected-death-toll-crosses-1000?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "thefederal.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=be55260a0128b89d5156a447e1166c1ee87f233b-10350650-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbe55260a0128b89d5156a447e1166c1ee87f233b-10350650-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://thefederal.com/file/2022/08/Pakistan.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fthefederal.com%2Ffile%2F2022%2F08%2FPakistan.jpg",
+        "height": 540,
+        "width": 960
+      }
+    },
+    {
+      "title": "Karachi Rain news Latest Update Heavy Rain in Karachi Weather Update - 26 JULY 2022 - YouTube",
+      "snippet": "Asal Haqeeqat ",
+      "link": "https://www.youtube.com/watch?v=1KaYCwi5keI&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=ef685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Def685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/1KaYCwi5keI/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1KaYCwi5keI%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Karachi Rain news Latest Update Heavy Rain in Karachi Weather Update - 26 JULY 2022 - YouTube",
+      "snippet": "Karachi Rain news Latest Update, Karachi Rain news, Heavy Rain in Karachi, Karachi Weather Update, karachi weather update, Karachi, Heavy Rain Update, 26 JULY 2022, karachi weather, karachi... ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=1KaYCwi5keI&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=ef685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Def685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/1KaYCwi5keI/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1KaYCwi5keI%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Top News-Uragani Ida godet SHBA-në/Mbi 1 milion banesa pa energji elektrike - YouTube",
+      "snippet": "Top Channel Albania ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=pfSMYgkVB1M&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=d5cb3b7babd700e971330d7712b5de8a6cf9765c-9068298-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dd5cb3b7babd700e971330d7712b5de8a6cf9765c-9068298-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/pfSMYgkVB1M/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&amp;rs=AOn4CLDdwNPJxsyownfN5kOdmhjnDdLGfQ",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FpfSMYgkVB1M%2Fhqdefault.jpg%3Fsqp%3D-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8%3D%26amp%3Brs%3DAOn4CLDdwNPJxsyownfN5kOdmhjnDdLGfQ",
+        "height": 360,
+        "width": 480
+      }
+    },
+    {
+      "title": "Ураган \"Ида\" обрушился на побережье Луизианы - Август 30, 2021",
+      "snippet": "Ураган «Ида» обрушился на побережье Луизианы - Август 30, 2021 ",
+      "link": "https://castbox.fm/episode/%D0%A3%D1%80%D0%B0%D0%B3%D0%B0%D0%BD-%C2%AB%D0%98%D0%B4%D0%B0%C2%BB-%D0%BE%D0%B1%D1%80%D1%83%D1%88%D0%B8%D0%BB%D1%81%D1%8F-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D1%8C%D0%B5-%D0%9B%D1%83%D0%B8%D0%B7%D0%B8%D0%B0%D0%BD%D1%8B---%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82-30%2C-2021-id580412-id418846245?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "castbox.fm",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=4d344060d09cda4268b6bea2e98c2429181036e2d4f5fc1d-3948343-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D4d344060d09cda4268b6bea2e98c2429181036e2d4f5fc1d-3948343-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://gdb.voanews.com/840b115d-a8a9-4b13-b0a0-9900f1601a0e_tv_w640_h360.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fgdb.voanews.com%2F840b115d-a8a9-4b13-b0a0-9900f1601a0e_tv_w640_h360.jpg",
+        "height": 360,
+        "width": 640
+      }
+    },
+    {
+      "title": "الإعصار \"أيدا\" يضرب لويزيانا ويغرق نيو أورلينز في الظلام - فيديو Dailymotion",
+      "snippet": "ضرب الإعصار \"أيدا\" ولاية لويزيانا الأميركية فأدى إلى مقتل شخص على الأقل وانقطاع الطاقة عن أكثر من مليون. ",
+      "link": "https://www.dailymotion.com/video/x83u1w2?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "dailymotion.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=e8961d9b1637b687e1f8c445f70d0205ebd772a5-5211644-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3De8961d9b1637b687e1f8c445f70d0205ebd772a5-5211644-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://s2.dmcdn.net/v/TDsWI1clSR6Yo0-BI/x720",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fs2.dmcdn.net%2Fv%2FTDsWI1clSR6Yo0-BI%2Fx720",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Dr. Nabiha Women Card Khel Rahi, Blackmail Kar Rahi - Khula Notice Ke Baad Haris Khokhar Ka Reaction - YouTube",
+      "snippet": "11:11. views * 2 hours agoLivePlaylist. ",
+      "link": "https://www.youtube.com/watch?v=qDmSgvFQdXM&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=afa132fadb7cee1fd2c68309699b347303169658-12011291-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dafa132fadb7cee1fd2c68309699b347303169658-12011291-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i1.ytimg.com/vi/8A8c1MRoUmg/hqdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi1.ytimg.com%2Fvi%2F8A8c1MRoUmg%2Fhqdefault.jpg",
+        "height": 360,
+        "width": 480
+      }
+    },
+    {
+      "title": "لاہور میں شدید بارش: جوہر ٹاؤن لاہور کی سڑکیں باریش کے پانی میں ڈوب گئی لاہور میں بارش کی تازہ ترین - اردو پوائنٹ ویڈیوز",
+      "snippet": "دیکھئے اردو پوائنٹ کی موسمی معلومات، لاہور میں شدید بارش: جوہر ٹاؤن لاہور کی سڑکیں باریش کے پانی میں ڈوب گئی | لاہور میں بارش کی تازہ ترین اس ویڈیو میں۔ ",
+      "link": "https://www.urdupoint.com/videos/ur/28209.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "urdupoint.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=de48bf3194fd3de4a11ca57b68bc90ef66f12dd5-5305442-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dde48bf3194fd3de4a11ca57b68bc90ef66f12dd5-5305442-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://photo-cdn.urdupoint.com/show_img_new/videos/content_video_images/2026/1200x672/1784711704_8269_vid_icon.jpg._2",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2026%2F1200x672%2F1784711704_8269_vid_icon.jpg._2",
+        "height": 672,
+        "width": 1200
+      }
+    },
+    {
+      "title": "Gujranwala's Jinnah Stadium Turns Into A Lake After Record Rain Shocking Flood Scenes - UrduPoint Video",
+      "snippet": "Heavy Rain In Lahore: Johar Town Lahore Ki Roads Barish Ke Pani Mein Doob Gai Lahore Rain Update ",
+      "link": "https://www.urdupoint.com/videos/gujranwalas-jinnah-stadium-turns-into-a-lake-after-record-rain-shocking-flood-scenes.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "urdupoint.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=b65f3b43a2bb554c5772f351a8c5e0a4822b8d7c-5150987-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db65f3b43a2bb554c5772f351a8c5e0a4822b8d7c-5150987-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://photo-cdn.urdupoint.com/show_img_new/videos/content_video_images/2026/300x205/1784711704_8269_vid_icon.jpg._3",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2026%2F300x205%2F1784711704_8269_vid_icon.jpg._3",
+        "height": 205,
+        "width": 300
+      }
+    },
+    {
+      "title": "Heavy Rain in Saudi Arabia - Infrastructure Behtar Hone Se Shehri Tabahi Se Bach Gaye - YouTube",
+      "snippet": "urdupoint, urdupoint.com, urdu point, Heavy Rain in Saudi Arabia, rain in saudi arabia yesterday, rain in saudi arabia desert, rain in saudi desert, rain in saudi arabia 2024, rain in madina, rain in madinah today, rain in madina munawara, heavy rain in madina 🔴 water on roads madinah life, heavy rain in saudi arabia today, heavy rain in riyadh saudi arabia today",
+      "link": "https://www.youtube.com/watch?v=dwYkNv7Zk2M&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=7ef7d7fdcb34a99a91a45d39122a02efb06e2b9e-10879920-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7ef7d7fdcb34a99a91a45d39122a02efb06e2b9e-10879920-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/dwYkNv7Zk2M/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FdwYkNv7Zk2M%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "سعودی عرب میں طوفانی بارشیں - انفراسٹرکچر بہتر ہونے سے شہر تباہی سے بچ گئے - اردو پوائنٹ ویڈیوز",
+      "snippet": "سعودی عرب میں طوفانی بارشیں - انفراسٹرکچر بہتر ہونے سے شہر تباہی سے بچ گئے - اردو پوائنٹ ویڈیوز ",
+      "link": "https://www.urdupoint.com/videos/ur/21902.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "urdupoint.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=88b5f88d4de4eedbe6d611476c4826e4c9a36058-4572087-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D88b5f88d4de4eedbe6d611476c4826e4c9a36058-4572087-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://photo-cdn.urdupoint.com/show_img_new/videos/content_video_images/2024/1200x672/1714664703_vid_icon.jpg._2",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2024%2F1200x672%2F1714664703_vid_icon.jpg._2",
+        "height": 672,
+        "width": 1200
+      }
+    },
+    {
+      "title": "Heavy Rain In Saudi Arabia - Infrastructure Behtar Hone Se Shehri Tabahi Se Bach Gaye - UrduPoint Video",
+      "snippet": "Watch International Video Heavy Rain In Saudi Arabia - Infrastructure Behtar Hone Se Shehri Tabahi Se Bach Gaye on UrduPoint. ",
+      "link": "https://www.urdupoint.com/videos/heavy-rain-in-saudi-arabia-infrastructure-behtar-hone-se-shehri-tabahi-se-bach-gaye.html?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "urdupoint.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=88b5f88d4de4eedbe6d611476c4826e4c9a36058-4572087-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D88b5f88d4de4eedbe6d611476c4826e4c9a36058-4572087-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://photo-cdn.urdupoint.com/show_img_new/videos/content_video_images/2024/1200x672/1714664703_vid_icon.jpg._2",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2024%2F1200x672%2F1714664703_vid_icon.jpg._2",
+        "height": 672,
+        "width": 1200
+      }
+    },
+    {
+      "title": "Nagan Chowrangi Main Selaab Agaya Today Heavy Rain In Karachi 2nd Eid Day Rain 11-7-2022 - YouTube",
+      "snippet": "Nagan Chowrangi Main Selaab Agaya | Today Heavy Rain In Karachi | 2nd Eid Day Rain 11-7-2022#rain #barish #karachibarish #raininkaraachi #heavyrain #heavyrai... ",
+      "link": "https://www.youtube.com/watch?v=nMsrsvVmqHY&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=8f23ee69ee4bdc3336c11ce45584395d20b70839-6898416-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8f23ee69ee4bdc3336c11ce45584395d20b70839-6898416-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/nMsrsvVmqHY/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FnMsrsvVmqHY%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Monsoon Rain Begins in Karachi Karachi Weather Updates Breaking News - YouTube",
+      "snippet": "Monsoon, Monsoon News, Weather update, Karachi weather update, Karachi, Rain In Karachi, Heavy Rain In Karachi, Weather, Today Weather, Karachi And Sindh, Sindh, And Karachi, Today Weather Update, Heavy Rain Prediction, PMD, Rain News Karachi, Heavy Rain News, Heavy Rain Updates, BOL, BOL News Breakings, Latest News, Breaking News, Pakistan News, Pakistan Latest News, Pakistan News Today, Pakistan Breaking News, News Update, BOLNews Update, Headlines, News Headlines, BOL News ",
+      "link": "https://www.youtube.com/watch?v=6BrCW-OmBKo&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=d047d01acc83fe0d529b60a3cbd3a112fcc3b457-8544532-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dd047d01acc83fe0d529b60a3cbd3a112fcc3b457-8544532-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/6BrCW-OmBKo/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6BrCW-OmBKo%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "🟢 Dubai Floods 2024 LIVE Dubai Floods Latest News Today : Dubai Struggles To Recover From Floods - YouTube",
+      "snippet": "Heavy rain lashed several parts of the United Arab Emirates on Tuesday, dumping over a year and a half’s worth of rain on the desert city-state of Dubai in h... ",
+      "link": "https://www.youtube.com/watch?v=GQiDcFOJn3I&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=fff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/GQiDcFOJn3I/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FGQiDcFOJn3I%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "Awesome stories 1",
+      "snippet": "ผ ล ส ล า ก ก น แ บ ง ร ฐ บ า ล ว น ท 1 พ ย. 2567 ",
+      "link": "https://www.flash-mini.com/p1271021.world?id=p1271021%3Fid%3Dp1271021%3Fid%3Dp1271021%3Fid%3Dp1271021&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "flash-mini.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=31ebb1e3aef56534e1273aa7896a3b1c3ff163af-9097650-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D31ebb1e3aef56534e1273aa7896a3b1c3ff163af-9097650-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/efseRNhJj38/hqdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FefseRNhJj38%2Fhqdefault.jpg",
+        "height": 360,
+        "width": 480
+      }
+    },
+    {
+      "title": "🟢 Dubai LIVE: Heavy rain lashes in Dubai causing flash floods Dubai Police UAE News News18 - YouTube",
+      "snippet": "Dubai LIVE: Heavy rain lashes in Dubai causing flash floods | Dubai Police | UAE News | News18#dubaiflood #uae #arab #news18urdu News18 Urdu is one of India’... ",
+      "link": "https://www.youtube.com/watch?app=desktop&v=qi2qPc2ZwOA&utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "youtube.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=fff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.ytimg.com/vi/qi2qPc2ZwOA/maxresdefault.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fqi2qPc2ZwOA%2Fmaxresdefault.jpg",
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "title": "11 Pakistan army ideas pakistan army, pakistan, pakistan armed forces",
+      "snippet": "a man is walking down the street with an umbrella in the rain while it's raining ",
+      "link": "https://ru.pinterest.com/qasimsahi12/pakistan-army/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "ru.pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=e314eeaa756efe7295d7a1f0ce3bd88a2cd818fc-12155438-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3De314eeaa756efe7295d7a1f0ce3bd88a2cd818fc-12155438-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/736x/81/80/8f/81808fef1605ba109c24316518691c46.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F736x%2F81%2F80%2F8f%2F81808fef1605ba109c24316518691c46.jpg",
+        "height": 891,
+        "width": 712
+      }
+    },
+    {
+      "title": "1 best Twitter u/dkinpk images on Pholder Lone Pakistani veteran walking back from the sundown ceremony at Wagah Border - head h",
+      "snippet": "twitter/@DKinPK. ",
+      "link": "https://pholder.com/twitter/u/dkinpk/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pholder.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=7a5e42e5cc24bef27151fedceb7ad6698bbcb913-9234963-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7a5e42e5cc24bef27151fedceb7ad6698bbcb913-9234963-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://pbs.twimg.com/media/DxcJP2EWwAEvbuV.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDxcJP2EWwAEvbuV.jpg",
+        "height": 1200,
+        "width": 837
+      }
+    },
+    {
+      "title": "16 Pakistan army ideas pakistan army, pakistan armed forces, general knowledge book",
+      "snippet": "Love Is Pakistan Pak army soldiers, Pakistan army, Pakistan armed forces. ",
+      "link": "https://www.pinterest.com/qamarhina61/pakistan-army/?utm_medium=organic&utm_source=yandexsmartcamera",
+      "source": "pinterest.com",
+      "thumbnail": {
+        "link": "https://avatars.mds.yandex.net/i?id=83b9c36d85b6ffbf9637156451bfeadf23452856-5875771-images-thumbs&n=13&w=296&h=180",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D83b9c36d85b6ffbf9637156451bfeadf23452856-5875771-images-thumbs%26n%3D13%26w%3D296%26h%3D180",
+        "height": 90,
+        "width": 148
+      },
+      "original_image": {
+        "link": "https://i.pinimg.com/236x/81/80/8f/81808fef1605ba109c24316518691c46.jpg",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Fi.pinimg.com%2F236x%2F81%2F80%2F8f%2F81808fef1605ba109c24316518691c46.jpg",
+        "height": 295,
+        "width": 236
+      }
+    }
+  ],
+  "image_tags": [
+    {
+      "text": "pakistan flood",
+      "link": "https://yandex.com/images/search?text=pakistan%20flood",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&text=pakistan+flood"
+    },
+    {
+      "text": "karachi pakistan",
+      "link": "https://yandex.com/images/search?text=karachi%20pakistan",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&text=karachi+pakistan"
+    },
+    {
+      "text": "pakistan pakistan",
+      "link": "https://yandex.com/images/search?text=pakistan%20pakistan",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&text=pakistan+pakistan"
+    },
+    {
+      "text": "karachi weather",
+      "link": "https://yandex.com/images/search?text=karachi%20weather",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&text=karachi+weather"
+    },
+    {
+      "text": "today pakistan",
+      "link": "https://yandex.com/images/search?text=today%20pakistan",
+      "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&text=today+pakistan"
+    }
+  ],
+  "similar_images": [
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=dc5c20411a0c57e5dd1f46372fc9e8c762189b08-10115282-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Ddc5c20411a0c57e5dd1f46372fc9e8c762189b08-10115282-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fakm-img-a-in.tosshub.com%2Findiatoday%2Fimages%2Fstory%2F202209%2FCover_1200x768.jpeg%3FVersionId%3D3KJjNa3IgSt3W182.LgY6.39moaiXIqJ&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=4e0cfed73470ade9466994ed609e6b9ba861a0df6cd17efb-5331336-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D4e0cfed73470ade9466994ed609e6b9ba861a0df6cd17efb-5331336-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 427
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.vishvasnews.com%2Fwp-content%2Fuploads%2F2020%2F12%2FFake_News_December30_5.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=6e16b7e6ffd9267ff4ef59edd9a085f14b6a5322-3719127-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D6e16b7e6ffd9267ff4ef59edd9a085f14b6a5322-3719127-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fapi.ctv.by%2Fuploads%2Fimages%2Fvlcsnap-2026-06-15-10h48m59s325_1.jpg%3Fwidth%3D1200%2Fheight%3D675&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=a0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da0e342a7cd291533372654d9cc44a66f10cc2956-9148169-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHVRguI20cNI%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=87f6524c4f0b62d96d3ad5410e29cb7d035970af-5210229-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D87f6524c4f0b62d96d3ad5410e29cb7d035970af-5210229-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fiv.okcdn.ru%2FgetVideoPreview%3Fid%3D8333940034303%26idx%3D6%26type%3D39%26tkn%3DwAia3APfRCO7Bz3WHrCAtmiRVpY%26fn%3Dvid_w&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=b3c36e0be074805e3e9ac98ab264968aa7228a60-6696526-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db3c36e0be074805e3e9ac98ab264968aa7228a60-6696526-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 427
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.desconcertante.com%2Fwp-content%2Fuploads%2F2018%2F07%2F18784.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=52d0aebbb8aec1e382b07c5fb8ce1b285622907c-2771387-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D52d0aebbb8aec1e382b07c5fb8ce1b285622907c-2771387-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 251
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F43%2Fae%2F9e%2F43ae9ec03aecbdb594b40ad31ba70fa4.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=1fde3ca8ee0be3b3ca71a723d30e6762a457d03b-9137660-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D1fde3ca8ee0be3b3ca71a723d30e6762a457d03b-9137660-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ft9C3bGVwLnk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=7a53794c530b99e98460485ee2190c999d5e3eae-4568535-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7a53794c530b99e98460485ee2190c999d5e3eae-4568535-images-thumbs%26n%3D13",
+        "height": 288,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.theviralist.com%2Fwp-content%2Fuploads%2F2025%2F08%2FLatest-Situation-of-Karachis-Highways-Traffic-Blocked-Roads-818x490.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=a954aa7313fb2dd6abb349ec07c547318e6edcc4-4376341-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da954aa7313fb2dd6abb349ec07c547318e6edcc4-4376341-images-thumbs%26n%3D13",
+        "height": 145,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fextremeplanet.wordpress.com%2Fwp-content%2Fuploads%2F2014%2F02%2Fishinomaki-tsunami1.png&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=9a87a62826ca7d715f60e5af944516cf3a0dacc9-5009205-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D9a87a62826ca7d715f60e5af944516cf3a0dacc9-5009205-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fs1.dmcdn.net%2Fv%2FW8gAK1clUFHVwDszI%2Fx720&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2e4a89462403b8f116db437fbee688afd16491b0-7741114-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 320
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fe2%2Fa7%2Fb3%2Fe2a7b3f858b9b6fe4d711ebf1773df8a.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=bedda34c84d56486444dae0a4ced71cca6d2a220-8370529-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbedda34c84d56486444dae0a4ced71cca6d2a220-8370529-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FtdR4xd5w4VU%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=fbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfbb526063ec58b96f0c047439f28f9eb61b4b660-8265302-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fimg.youtube.com%2Fvi%2FvyVY2M8VjwA%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=da67210b92f2feeb3eb686408fbb741df4878086-5228234-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dda67210b92f2feeb3eb686408fbb741df4878086-5228234-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FpoCsi5bQQzc%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8fcdf8b374758384ac4853e1d850bb9ad4792ed5-10473632-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFHTbsJv4kYM%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=587948a94f70650dde9102b7574a4cf2948ff5e9-12927189-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D587948a94f70650dde9102b7574a4cf2948ff5e9-12927189-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FoDfLQ9G74kk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=845cd607e16495976490bb9484ab0cabbc103772-11835812-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D845cd607e16495976490bb9484ab0cabbc103772-11835812-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3oE8F442VXg%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=b66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db66d5c2757f4515db418f79e9fc4495c9707f54c-9241287-images-thumbs%26n%3D13",
+        "height": 252,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fgdb.rferl.org%2F01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=b9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Db9d9a527005cc2e70c7365c00c94f810baedd765-5312564-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvQWpjWVq2Y%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=f11896533e0b2ebece32cd4fb6ba0c1291aa21ff-9068918-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Df11896533e0b2ebece32cd4fb6ba0c1291aa21ff-9068918-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fcdnvideonuz.ensonhaber.com%2Fcrop%2F800x450%2Fthumb%2Fkok%2F2022%2F07%2F24%2Fpakistanda-sel-felaketi-can-kaybi-312ye-yukseldi_3096.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D280b32d285d37a5bbf2f21de84c03a2fa30b979a-4776319-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FkeLJnE3jlmQ%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=7de6c12f64c0374e096f249239702e62d6aac88fa491b295-13315631-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7de6c12f64c0374e096f249239702e62d6aac88fa491b295-13315631-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0DVlLZPTYvE%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=87885ad535ca266a3f6f16858d32855fcd1ca8aa-5434958-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D87885ad535ca266a3f6f16858d32855fcd1ca8aa-5434958-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 296
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2F736x%2F2a%2Fde%2Fdf%2F2adedf6d9a41b1656dc9498efcd17faf.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=9f69c948d644f71ed874bdda234c31b8f11a2599-5233431-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D9f69c948d644f71ed874bdda234c31b8f11a2599-5233431-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.altnews.in%2Fhindi%2Fwp-content%2Fuploads%2F2018%2F08%2FSikh-Army.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=bae61f50f3ffdbe87c681c3094f006684bdb874a-12472308-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbae61f50f3ffdbe87c681c3094f006684bdb874a-12472308-images-thumbs%26n%3D13",
+        "height": 267,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fcdn.ankaramasasi.com%2F2022%2F9%2F11%2Fpakistanda-selde-olenlerin-sayisi-artiyor.gif&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=50ae3e797362b9033e1e9fd1d4d3a62973b75b2035cfd2ee-10869598-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D50ae3e797362b9033e1e9fd1d4d3a62973b75b2035cfd2ee-10869598-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1XQOA03XUro%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=a79489d38fd483cf2554fb32f5152353b89cc360-5274026-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Da79489d38fd483cf2554fb32f5152353b89cc360-5274026-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fimg-cdn.publive.online%2Ffit-in%2F1200x675%2Fnewsnation%2Fmedia%2Fpost_attachments%2Fimages%2F2022%2F02%2F26%2Fweather-40.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=2a0000017a05ecfbae4e565044c656e79d5b-4079523-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D2a0000017a05ecfbae4e565044c656e79d5b-4079523-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FsWlW3elYolk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=e1b4fa82c9633759900176da4d39d596962edb44-9068512-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3De1b4fa82c9633759900176da4d39d596962edb44-9068512-images-thumbs%26n%3D13",
+        "height": 188,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fblogpakistan.pk%2Fwp-content%2Fuploads%2F2023%2F06%2FHeres-When-Monsoon-Will-Start-in-Pakistan-1.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=5797025a98161b0ad40b094e95e61e5602bf9496116eb6b1-8334027-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D5797025a98161b0ad40b094e95e61e5602bf9496116eb6b1-8334027-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_nxfQWwwevs%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=be55260a0128b89d5156a447e1166c1ee87f233b-10350650-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dbe55260a0128b89d5156a447e1166c1ee87f233b-10350650-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fthefederal.com%2Ffile%2F2022%2F08%2FPakistan.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=ef685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Def685a592c07925c693043e5f54abc7c524a450b-5467611-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1KaYCwi5keI%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=d5cb3b7babd700e971330d7712b5de8a6cf9765c-9068298-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dd5cb3b7babd700e971330d7712b5de8a6cf9765c-9068298-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 427
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fs2.dmcdn.net%2Fv%2FTDsWI1clSR6Yo0-BI%2Fx720&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=afa132fadb7cee1fd2c68309699b347303169658-12011291-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dafa132fadb7cee1fd2c68309699b347303169658-12011291-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 427
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2026%2F1200x672%2F1784711704_8269_vid_icon.jpg._2&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=7ef7d7fdcb34a99a91a45d39122a02efb06e2b9e-10879920-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D7ef7d7fdcb34a99a91a45d39122a02efb06e2b9e-10879920-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FdwYkNv7Zk2M%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=8f23ee69ee4bdc3336c11ce45584395d20b70839-6898416-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3D8f23ee69ee4bdc3336c11ce45584395d20b70839-6898416-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FnMsrsvVmqHY%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=d047d01acc83fe0d529b60a3cbd3a112fcc3b457-8544532-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dd047d01acc83fe0d529b60a3cbd3a112fcc3b457-8544532-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6BrCW-OmBKo%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=fff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3Dfff325806ed8134ac386b4c0aa3800405e290913e1ffbabb-11776591-images-thumbs%26n%3D13",
+        "height": 270,
+        "width": 480
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FGQiDcFOJn3I%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    },
+    {
+      "image": {
+        "link": "https://avatars.mds.yandex.net/i?id=e314eeaa756efe7295d7a1f0ce3bd88a2cd818fc-12155438-images-thumbs&n=13",
+        "serpapi_link": "https://serpapi.com/search.json?engine=yandex_images&tab=about&url=https%3A%2F%2Favatars.mds.yandex.net%2Fi%3Fid%3De314eeaa756efe7295d7a1f0ce3bd88a2cd818fc-12155438-images-thumbs%26n%3D13",
+        "height": 320,
+        "width": 256
+      },
+      "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDxcJP2EWwAEvbuV.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar"
+    }
+  ],
+  "_dejavue": {
+    "recorded_at": "2026-09-17T13:14:22+0530",
+    "image_sha256": "acf697ee5263dca8b82629794fc13daae8475926b26247388c76c146ca97a76c",
+    "input_phash": "57d9ac8d405760a7",
+    "note": "url was a 15-minute Supabase signed URL (token redacted)"
+  }
+}

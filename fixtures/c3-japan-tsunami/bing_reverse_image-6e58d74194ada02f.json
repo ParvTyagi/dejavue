@@ -1,0 +1,788 @@
+{
+  "search_metadata": {
+    "status": "Success",
+    "markdown_endpoint": "https://serpapi.com/searches/gXcUJT9bS45MKOwGoZfrcOMAT6f0XJGl3I2tzDAG-kg/6aab9a4e73bf59d0f3f12af9.md",
+    "created_at": "2026-09-17 07:44:14 UTC",
+    "processed_at": "2026-09-17 07:44:14 UTC",
+    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&view=detailv2&iss=sbi",
+    "total_time_taken": 2.28
+  },
+  "search_parameters": {
+    "engine": "bing_reverse_image",
+    "image_url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "mkt": "en-US"
+  },
+  "search_information": {
+    "total_estimated_matches": 419
+  },
+  "image_info": {
+    "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO",
+    "source": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "original": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/acf697ee5263dca8.jpg?token=<redacted>",
+    "domain": "yqgkrdewrggomkcabeie.supabase.co",
+    "width": 558,
+    "height": 383,
+    "format": "jpeg",
+    "file_size": "36994 B"
+  },
+  "related_content": [
+    {
+      "position": 1,
+      "title": "2011 video of Japan Tsunami devastation revived again as visuals of ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4D4D469E9ADC72257B8C9BD47986859992712D04&simid=608014822009347166",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.OncroSbKPzlfLRJsPrTmRAHaFD?r=0&pid=Api",
+      "date": "2021-11-29T09:04:00Z",
+      "source": "https://factly.in/2011-video-of-japan-tsunami-devastation-revived-again-as-visuals-of-floods-in-pakistan/",
+      "original": "https://factly.in/wp-content/uploads/2021/11/Floods-in-Pakistan-Claim.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.3a772ba126ca3f395f2d126c3eb4e644?rik=BC1xkpmFhnnUmw&pid=ImgRaw&r=0",
+      "domain": "factly.in",
+      "width": 764,
+      "height": 522,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 323,
+      "file_size": "52592 B"
+    },
+    {
+      "position": 2,
+      "title": "Tsunami Vedio : Free Download, Borrow, and Streaming : Internet Archive",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=21C8C71D228223D8733DF4706CAFA734278B07E5&simid=608004346522178934",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.vZjcDsKWRIU-X0y37eAGUQHaEJ?r=0&pid=Api",
+      "date": "2021-07-14T22:51:00Z",
+      "source": "https://archive.org/details/tsunami-vedio",
+      "original": "https://archive.org/download/tsunami-vedio/tsunami-vedio.thumbs/tsunami%20vedio_000029.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.bd98dc0ec29644853e5f4cb7ede00651?rik=5QeLJzSnr2xw9A&pid=ImgRaw&r=0",
+      "domain": "archive.org",
+      "width": 720,
+      "height": 404,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 265,
+      "file_size": "65817 B"
+    },
+    {
+      "position": 3,
+      "title": "Fact Check: This video from Japan shows horrific 2011 tsunami, not ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=44F97127C0CC60647A110B622F1B7F0BEE9B06A1&simid=608045801619283326",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.2_x4UFvX5RuztR27VyiAbAHaGc?r=0&pid=Api",
+      "date": "2022-09-02T15:28:00Z",
+      "source": "https://www.indiatoday.in/fact-check/story/fact-check-video-japan-shows-horrific-2011-tsunami-not-recent-floods-pakistan-1995809-2022-09-02",
+      "original": "https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202209/Pic_1-1200x1114.jpeg?5luaHZeScjB2jLwxN1qtrwMbgiZusl9V?size=750:*",
+      "cdn_original": "https://th.bing.com/th/id/R.dbfc78505bd7e51bb3b51dbb5728806c?rik=oQab7gt%2fGy9iCw&pid=ImgRaw&r=0",
+      "domain": "akm-img-a-in.tosshub.com",
+      "width": 1200,
+      "height": 1044,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 412,
+      "file_size": "127174 B"
+    },
+    {
+      "position": 4,
+      "title": "Ary news | Imran Khan | haqeqi azadi | 25 5 2022 - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=DD6517660A238D8A8F49FE3F4CF7B97561203FF1&simid=608015358886165444",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.YG9mnf_05fbnX_Q0mimg3wHaEK?r=0&pid=Api",
+      "date": "2022-05-25T10:33:00Z",
+      "source": "https://www.youtube.com/watch?v=CW9qadsXWlM",
+      "original": "https://i.ytimg.com/vi/CW9qadsXWlM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGH8gEygTMA8=&rs=AOn4CLBlZZAqjuokDex3-4qMYe-5eydeQw",
+      "cdn_original": "https://th.bing.com/th/id/R.606f669dfff4e5f6e75ff4349a29a0df?rik=8T8gYXW590w%2f%2fg&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "97630 B"
+    },
+    {
+      "position": 5,
+      "title": "Delhi-Multan road in shambles due to recent rains - Aaj News - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=E7322B83D854A4274699BD7D709DC81588D86AEA&simid=608051767314501154",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.KoLk-_wIrxmyJg2SyefmwgHaEK?r=0&pid=Api",
+      "date": "2024-09-18T05:44:00Z",
+      "source": "https://www.youtube.com/watch?v=i6czirvdoh4",
+      "original": "https://i.ytimg.com/vi/i6czirvdoh4/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.2a82e4fbfc08af19b2260d92c9e7e6c2?rik=6mrYiBXInXB9vQ&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "126706 B"
+    },
+    {
+      "position": 6,
+      "title": "Breaking News: PTI leader killed | Latest news | Pakistan news live ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=FE99D5E661C286EB4428843D404A59ACCD5C6E88&simid=608004402388800853",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.oUQm38pNA7Es1ad0_riMQgHaEK?r=0&pid=Api",
+      "date": "2024-01-11T11:56:00Z",
+      "source": "https://www.youtube.com/watch?v=zxMlDbl-H5I",
+      "original": "https://i.ytimg.com/vi/zxMlDbl-H5I/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.a14426dfca4d03b12cd5a774feb88c42?rik=iG5czaxZSkA9hA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "133386 B"
+    },
+    {
+      "position": 7,
+      "title": "Lyari Gang War now Spread to Dalmia as well - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=B44C7577C9B953958EAA5489A552419ADFD27AC0&simid=608005751027867611",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.wfLXkiqJaUBgY9k-RnB7AAHaFj?r=0&pid=Api",
+      "date": "2009-10-13T12:00:00Z",
+      "source": "https://www.youtube.com/watch?v=ib7gNYM9Qd8",
+      "original": "https://i.ytimg.com/vi/ib7gNYM9Qd8/hqdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.c1f2d7922a8969406063d93e46707b00?rik=wHrS35pBUqWJVA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 480,
+      "height": 360,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 355,
+      "file_size": "15057 B"
+    },
+    {
+      "position": 8,
+      "title": "Nawaz Sharif, Maryam Nawaz arrest Updates: Pakistan set for turmoil ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=FCC8790DEC820F0A51FED105C305E7B47F3AF715&simid=608047047129252287",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.kvH-lBUF17sBgk4ryznTRwHaER?r=0&pid=Api",
+      "date": "2018-07-13T07:04:00Z",
+      "source": "https://www.financialexpress.com/world-news/live-updates-nawaz-sharif-marayam-nawaz-sharif-daughter-arrested-lahore-pakistan/1243148/",
+      "original": "https://pbs.twimg.com/media/Dh_FrjxXUAEUUlE.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.92f1fe941505d7bb01824e2bcb39d347?rik=Ffc6f7TnBcMF0Q&pid=ImgRaw&r=0",
+      "domain": "pbs.twimg.com",
+      "width": 1200,
+      "height": 692,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 273,
+      "file_size": "94808 B"
+    },
+    {
+      "position": 9,
+      "title": "Karachi Traffic Accidents Continue: 258 Lives Lost in 100 Days - Aaj ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=025380275DE7A8F149C8A22088D5AD063576A57D&simid=607992784538901505",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.sktk419aSL6G0lTGq3sNtgHaEK?r=0&pid=Api",
+      "date": "2025-04-10T08:02:00Z",
+      "source": "https://english.aaj.tv/news/330410924/karachi-traffic-accidents-continue-258-lives-lost-in-100-days-aaj-news",
+      "original": "https://i.ytimg.com/vi/cgcDVjbHIDM/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.b24b64e35f5a48be86d254c6ab7b0db6?rik=faV2NQat1Yggog&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "129650 B"
+    },
+    {
+      "position": 10,
+      "title": "Firing Incident Occurred During Eid Gathering in America | Breaking ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7506EB45F56D01DDE26CCBAD15C442C410351CE5&simid=608055628491923296",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.f_GolQWhYdMN-7C_r8RVHQHaEK?r=0&pid=Api",
+      "date": "2024-04-11T05:21:00Z",
+      "source": "https://www.youtube.com/watch?v=vvv7OfKPB84",
+      "original": "https://i.ytimg.com/vi/vvv7OfKPB84/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.7ff1a89505a161d30dfbb0bfafc4551d?rik=5Rw1EMRCxBWtyw&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "135675 B"
+    },
+    {
+      "position": 11,
+      "title": "johar chowrangi underpass update | Karachi Johar Chowrangi Underpass ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=C1C8A112D3D465C44DD72F5195E22A8C2B313522&simid=608016797715358514",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.Rtah4E-vTUOrTqX1Mk9Y2QHaEK?r=0&pid=Api",
+      "date": "2023-07-20T05:13:00Z",
+      "source": "https://www.youtube.com/watch?v=LVWCojN7T1A",
+      "original": "https://i.ytimg.com/vi/LVWCojN7T1A/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.46d6a1e04faf4d43ab4ea5f5324f58d9?rik=IjUxK4wq4pVRLw&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "169699 B"
+    },
+    {
+      "position": 12,
+      "title": "क्लाउडबर्स्ट नीलम घाटी में 22 व्यक्तियों को मारता है Klaudabarst Neelam ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1F18336BEC23846BD12DD6FB99231555BC96679E&simid=608041257554551535",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.B8cr4GN3fpxbIpc92nUixgHaEK?r=0&pid=Api",
+      "date": "2019-07-15T10:10:00Z",
+      "source": "https://archive.org/details/22klaudabarstneelamghaateemein22vyaktiyonkomaaratahai",
+      "original": "https://archive.org/download/22klaudabarstneelamghaateemein22vyaktiyonkomaaratahai/22klaudabarstneelamghaateemein22vyaktiyonkomaaratahai.thumbs/%E0%A4%95%E0%A5%8D%E0%A4%B2%E0%A4%BE%E0%A4%89%E0%A4%A1%E0%A4%AC%E0%A4%B0%E0%A5%8D%E0%A4%B8%E0%A5%8D%E0%A4%9F%20%E0%A4%A8%E0%A5%80%E0%A4%B2%E0%A4%AE%20%E0%A4%98%E0%A4%BE%E0%A4%9F%E0%A5%80%20%E0%A4%AE%E0%A5%87%E0%A4%82%2022%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%95%E0%A5%8D%E0%A4%A4%E0%A4%BF%E0%A4%AF%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%8B%20%E0%A4%AE%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A4%BE%20%E0%A4%B9%E0%A5%88%20klaudabarst%20neelam%20ghaatee%20mein%2022%20vyaktiyon%20ko%20maarata%20hai_000030.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.07c72be063777e9c5b22973dda7522c6?rik=nmeWvFUVI5n71g&pid=ImgRaw&r=0",
+      "domain": "archive.org",
+      "width": 640,
+      "height": 360,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "47862 B"
+    },
+    {
+      "position": 13,
+      "title": "Online Vehicle Registration system to be launched soon - PakWheels Blog",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7FBBC01A694983C754044673355AE66AB22E67F4&simid=608020577265678931",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.X8JWmV1zZdhxO_qT8UGDxQHaGU?r=0&pid=Api",
+      "date": "2019-08-22T11:54:00Z",
+      "source": "https://www.pakwheels.com/blog/online-vehicle-registration-system-launched-soon/",
+      "original": "https://static.pakwheels.com/2019/08/Screenshot_20190822_104650-500x427.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.5fc256995d7365d8713bfa93f14183c5?rik=9GcusmrmWjVzRg&pid=ImgRaw&r=0",
+      "domain": "static.pakwheels.com",
+      "width": 500,
+      "height": 427,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 404,
+      "file_size": "26869 B"
+    },
+    {
+      "position": 14,
+      "title": "Walking tour Vlog | Karachi Street Walk | Street Walking at Sadar ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=D0605DD290350779C2C2CC5E0A39A601F5428603&simid=608036039140395443",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.2heikM-DMPAsVEkN7hXEfAHaEK?r=0&pid=Api",
+      "date": "2024-07-06T19:08:00Z",
+      "source": "https://www.youtube.com/watch?v=ESOdq_ZtJS8",
+      "original": "https://i.ytimg.com/vi/ESOdq_ZtJS8/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.da17a290cf8330f02c54490dee15c47c?rik=A4ZC9QGmOQpezA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "147874 B"
+    },
+    {
+      "position": 15,
+      "title": "Karachi’s Night Road Trip | City Lights | Full Moon Vlogs | 4K UHD ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=EE6ED50EAAF9EDAF089641058E8D4A85D83D066B&simid=607997796752633970",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.Rju3PppNhwBUC_vbEiMAGgHaEK?r=0&pid=Api",
+      "date": "2024-08-01T10:40:00Z",
+      "source": "https://www.youtube.com/watch?v=io216hAbQU4",
+      "original": "https://i.ytimg.com/vi/io216hAbQU4/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.463bb73e9a4d8700540bfbdb1223001a?rik=awY92IVKjY4FQQ&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "124428 B"
+    },
+    {
+      "position": 16,
+      "title": "Heavy Rain Hits Karachi | Monsoon || ARY News 02 PM Headlines | 20th ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5D5FF2F1E1E56057C483E36A3EB378F5B970ACA5&simid=607998415214369138",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.KZqmf74oxZZ5p6FSVxSoqgHaEK?r=0&pid=Api",
+      "date": "2025-08-20T09:40:00Z",
+      "source": "https://www.youtube.com/watch?v=A82IfJfuMQ0",
+      "original": "https://i.ytimg.com/vi/A82IfJfuMQ0/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.299aa67fbe28c59679a7a1525714a8aa?rik=paxwufV4sz5q4w&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "113148 B"
+    },
+    {
+      "position": 17,
+      "title": "Sindh announces relaxed Covid-19 curbs from today - Daily Times",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1E53324DFB9C0A104810A57765263B70D77FE4F2&simid=607994012877747836",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.5o1R5JHeYfOCax0AwmBTZQHaEO?r=0&pid=Api",
+      "date": "2021-08-09T01:24:00Z",
+      "source": "https://dailytimes.com.pk/802787/sindh-announces-relaxed-covid-19-curbs-from-today/",
+      "original": "https://dailytimes.com.pk/assets/uploads/2021/08/sindh.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.e68d51e491de61f3826b1d00c2605365?rik=8uR%2f13A7JmV3pQ&pid=ImgRaw&r=0",
+      "domain": "dailytimes.com.pk",
+      "width": 700,
+      "height": 400,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 270,
+      "file_size": "57946 B"
+    },
+    {
+      "position": 18,
+      "title": "Islamabad Rain - Latest News Updates - Breaking News - Weather Updates ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7958B9DDD5F83094894834687896067F93B6E3CD&simid=608012820547900431",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.b_KpwSJZQsgLNhP35OMY_gHaEK?r=0&pid=Api",
+      "date": "2025-09-01T15:23:00Z",
+      "source": "https://www.youtube.com/watch?v=7nU99o-p2MY",
+      "original": "https://i.ytimg.com/vi/7nU99o-p2MY/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.6ff2a9c1225942c80b3613f7e4e318fe?rik=zeO2k38GlnhoNA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "109087 B"
+    },
+    {
+      "position": 19,
+      "title": "Breaking News - Darya e Kabul mein intehai unchay darjaye ka selaab ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4C9349178EEA61C1C2C86F8F83FEEA24531748AF&simid=608023085496149937",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.6XUoNQ-jtVFguBnCrGZKxQHaEK?r=0&pid=Api",
+      "date": "2022-08-27T03:59:00Z",
+      "source": "https://www.youtube.com/watch?v=XM0hIFxpRSQ",
+      "original": "https://i.ytimg.com/vi/XM0hIFxpRSQ/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.e97528350fa3b55160b819c2ac664ac5?rik=r0gXUyTq%2foOPbw&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "118319 B"
+    },
+    {
+      "position": 20,
+      "title": "Used Cars For Sale In Pakistan | Used Cars Prices | Carvan Motors - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A3719D6D7A32859DCE452E39FC08D30596AEA6EF&simid=608054129563629255",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.FftY1BRTDGSP1LZGClbu_QHaEK?r=0&pid=Api",
+      "date": "2023-10-29T17:35:00Z",
+      "source": "https://www.youtube.com/watch?v=CuayEwEyfZQ",
+      "original": "https://i.ytimg.com/vi/CuayEwEyfZQ/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.15fb58d414530c648fd4b6460a56eefd?rik=76aulgXTCPw5Lg&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "166675 B"
+    },
+    {
+      "position": 21,
+      "title": "PAKISTANI KASHMIRI AZADI KYON MANG RAHAY HAIN? - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=51D54FE49AF67D625EEA5715199A73B95BD3E4BE&simid=607985959865289190",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.j9zt21pFSXbHFeYQjn6-rQHaEK?r=0&pid=Api",
+      "date": "2024-05-14T13:16:00Z",
+      "source": "https://www.youtube.com/watch?v=VbZtHTDyBiQ",
+      "original": "https://i.ytimg.com/vi/VbZtHTDyBiQ/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.8fdceddb5a454976c715e6108e7ebead?rik=vuTTW7lzmhkVVw&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "136252 B"
+    },
+    {
+      "position": 22,
+      "title": "MET Office Forecast Regarding Rain in Pakistan? | Latest Weather Update ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=11DC18D87AC101C5C87E526C07FD7FCEFAC5C072&simid=608010926457976476",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.oWrHwyrN88JkhKgOUXe5GwHaEK?r=0&pid=Api",
+      "date": "2025-05-21T13:27:00Z",
+      "source": "https://www.youtube.com/watch?v=tvRignW2GLk",
+      "original": "https://i.ytimg.com/vi/tvRignW2GLk/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.a16ac7c32acdf3c26484a80e5177b91b?rik=csDF%2bs5%2f%2fQdsUg&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "136517 B"
+    },
+    {
+      "position": 23,
+      "title": "Today's Weather of Faisalabad - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5D60BFF7879F10DA5F2F74965BA12C9D9F205A33&simid=608016621591286185",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.Ns-9B_qiCfBvli90SZnxcQHaEK?r=0&pid=Api",
+      "date": "2018-01-01T12:00:00Z",
+      "source": "https://www.youtube.com/watch?v=y49SdwkKsGM",
+      "original": "https://i.ytimg.com/vi/y49SdwkKsGM/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.36cfbd07faa209f06f962f744999f171?rik=M1ogn50soVuWdA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "117842 B"
+    },
+    {
+      "position": 24,
+      "title": "PTI protest, Motorway M1 completely closed - Aaj News - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=71EB0A3F4003EF638380406BD45E3E869107E65D&simid=608004415250500502",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.zRlKJ-zle31v8AC6yQ96MAHaEK?r=0&pid=Api",
+      "date": "2024-09-28T09:45:00Z",
+      "source": "https://www.youtube.com/watch?v=aHDGAh4ArFE",
+      "original": "https://i.ytimg.com/vi/aHDGAh4ArFE/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.cd194a27ece57b7d6ff000bac90f7a30?rik=XeYHkYY%2bXtRrQA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "141998 B"
+    },
+    {
+      "position": 25,
+      "title": "Protests are still going on in Karachi, many roads are blocked - Aaj ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=EDF63DC7E0A871D6F8B850DB34E5E907FD7D5E5D&simid=608034742056138791",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.GAa3q9RHG2oUagk7uV21CAHaEK?r=0&pid=Api",
+      "date": "2024-06-29T04:05:00Z",
+      "source": "https://www.youtube.com/watch?v=cf9orgfg-K8",
+      "original": "https://i.ytimg.com/vi/cf9orgfg-K8/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.1806b7abd4471b6a146a093bb95db508?rik=XV59%2fQfp5TTbUA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "163991 B"
+    },
+    {
+      "position": 26,
+      "title": "Saudi Arabia Breaking News From Riyadh City Saudi Expats News By SAFI ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=82934216EE516933B6B45B740AC0B64B24414ED3&simid=608038062026537378",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.bzhJpQUksTUTaHOixVDt7wHaEK?r=0&pid=Api",
+      "date": "2023-04-08T14:47:00Z",
+      "source": "https://www.youtube.com/watch?v=3nZOH2Sfg1M",
+      "original": "https://i.ytimg.com/vi/3nZOH2Sfg1M/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.6f3849a50524b135136873a2c550edef?rik=005BJEu2wAp0Ww&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "133185 B"
+    },
+    {
+      "position": 27,
+      "title": "Indus filling station pa pakar lia || Adil Shah Karachi to Dikhan part ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=15A2C47E4328D4C7E1A4B4A93445F754E9D7391D&simid=608028407008225917",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.ze_XMnXO8wQxGj1uNdouXwHaFj?r=0&pid=Api",
+      "date": "2022-08-16T14:31:00Z",
+      "source": "https://www.youtube.com/watch?v=muGuEsfx8sE",
+      "original": "https://i.ytimg.com/vi/muGuEsfx8sE/hqdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.cdefd73275cef304311a3d6e35da2e5f?rik=HTnX6VT3RTSptA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 480,
+      "height": 360,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 355,
+      "file_size": "31476 B"
+    },
+    {
+      "position": 28,
+      "title": "Grand operation against Kache ke Daku | Geo News - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=78CB0F948F04B9926B71240DA1997473CD63D6DC&simid=608031396266974771",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.adGIzJi-D24A01EvixwR4QHaEK?r=0&pid=Api",
+      "date": "2024-05-05T09:48:00Z",
+      "source": "https://www.youtube.com/watch?v=4d73ivyTmxw",
+      "original": "https://i.ytimg.com/vi/4d73ivyTmxw/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.69d188cc98be0f6e00d3512f8b1c11e1?rik=3NZjzXN0maENJA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "129163 B"
+    },
+    {
+      "position": 29,
+      "title": "Karachi Weather update| Rains ⛈️ Expected in next 72 Hours| Karachi ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=6B791262F9B687E18CDDB12D2F4967201E5E92A6&simid=608045333454063025",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.xHyegND-qYzX9Wjh4C7dFgHaEK?r=0&pid=Api",
+      "date": "2024-07-06T18:08:00Z",
+      "source": "https://www.youtube.com/watch?v=3Y7Sb9gaVhc",
+      "original": "https://i.ytimg.com/vi/3Y7Sb9gaVhc/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.c47c9e80d0fea98cd7f568e1e02edd16?rik=ppJeHiBnSS8tsQ&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "112848 B"
+    },
+    {
+      "position": 30,
+      "title": "Motorways Closed In Punjab Due To Fog | Pakistan Weather Updates ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=CD7D25CB6CAD8BD0247A60FBB7FCC3038E898F63&simid=607998230531625320",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.4bHztY1W0WSzbXLplAslVQHaEK?r=0&pid=Api",
+      "date": "2022-12-17T02:20:00Z",
+      "source": "https://www.youtube.com/watch?v=3b-r5SNRRA8",
+      "original": "https://i.ytimg.com/vi/3b-r5SNRRA8/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.e1b1f3b58d56d164b36d72e9940b2555?rik=Y4%2bJjgPD%2fLf7YA&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "119232 B"
+    },
+    {
+      "position": 31,
+      "title": "Breaking: Smog Situation Worsens in Lahore – Updated Weather Report ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=6A4AE781F7E749FD8BC5BE64E14083A1529C2BDB&simid=608009092514532187",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.dR3NyfNiBWjX9xodURiRQQHaEK?r=0&pid=Api",
+      "date": "2025-10-07T07:19:00Z",
+      "source": "https://www.youtube.com/watch?v=nSnUE6WIIBU",
+      "original": "https://i.ytimg.com/vi/nSnUE6WIIBU/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.751dcdc9f3620568d7f71a1d51189141?rik=2yucUqGDQOFkvg&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "175247 B"
+    },
+    {
+      "position": 32,
+      "title": "How to avoid Somebody in a hurry who comes at You and makes You worry # ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A9F7A0FD62E9C1D60A770CBFB1D430164C01D0AA&simid=608027049776463308",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.hmsE8Tzqdo7egwMQbhT7yQHaEK?r=0&pid=Api",
+      "date": "2023-03-16T22:05:00Z",
+      "source": "https://www.pinterest.com/pin/how-to-avoid-somebody-in-a-hurry-who-comes-at-you-and-makes-you-worry-shorts--1022176446656711089/",
+      "original": "https://i.pinimg.com/736x/8c/ec/5d/8cec5d3a9cb7909c141a768e662c266a.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.866b04f13cea768ede8303106e14fbc9?rik=qtABTBYw1LG%2fDA&pid=ImgRaw&r=0",
+      "domain": "i.pinimg.com",
+      "width": 736,
+      "height": 414,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "26597 B"
+    },
+    {
+      "position": 33,
+      "title": "shahrah-e-faisal road karachi | karachi Street view - YouTube",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=BF89FF8321F1A757DC4ED26E6E2364A6A720F8AC&simid=608008027383620574",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.aKSA685I7SIg6G-kDlU9KwHaEK?r=0&pid=Api",
+      "date": "2023-08-19T13:45:00Z",
+      "source": "https://www.youtube.com/watch?v=RW4FfErnFo4",
+      "original": "https://i.ytimg.com/vi/RW4FfErnFo4/maxresdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.68a480ebce48ed2220e86fa40e553d2b?rik=rPggp6ZkI25u0g&pid=ImgRaw&r=0",
+      "domain": "i.ytimg.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "148785 B"
+    },
+    {
+      "position": 34,
+      "title": "Biparjoy Cyclone: Dua hotel HawksBay - Current Affairs Videos",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=C530A4891366A5596DA87FEC2BBB88A9D042FFE2&simid=608012781877543788",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.8k3DbYUb-msgzgEbdTFQxQHaFj?r=0&pid=Api",
+      "date": "2023-06-16T04:56:00Z",
+      "source": "https://videos.hamariweb.com/current-affairs/biparjoy-cyclone-dua-hotel-hawksbay_40970",
+      "original": "https://i4.ytimg.com/vi/Rox-x-F9NJo/hqdefault.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.f24dc36d851bfa6b20ce011b753150c5?rik=4v9C0KmIuyvsfw&pid=ImgRaw&r=0",
+      "domain": "i4.ytimg.com",
+      "width": 480,
+      "height": 360,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 355,
+      "file_size": "31349 B"
+    },
+    {
+      "position": 35,
+      "title": "New Day With Alisyn Camerota and John Berman : CNNW : May 22, 2020 4 ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=DA932002456F5787912484B0DF1FC41C9E0D0BB9&simid=608043070011685065",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.4gFGWhywuUSGVCluHEN2YQHaEI?r=0&pid=Api",
+      "date": "2020-05-22T12:00:00Z",
+      "source": "https://archive.org/details/CNNW_20200522_110000_New_Day_With_Alisyn_Camerota_and_John_Berman",
+      "original": "https://archive.org/download/CNNW_20200522_110000_New_Day_With_Alisyn_Camerota_and_John_Berman/CNNW_20200522_110000_New_Day_With_Alisyn_Camerota_and_John_Berman.thumbs/CNNW_20200522_110000_New_Day_With_Alisyn_Camerota_and_John_Berman_000028.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.e201465a1cb0b9448654296e1c437661?rik=uQsNnhzEH9%2bwhA&pid=ImgRaw&r=0",
+      "domain": "archive.org",
+      "width": 720,
+      "height": 402,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 264,
+      "file_size": "49954 B"
+    }
+  ],
+  "text_recognition": [
+    {
+      "text": "Karachi",
+      "bounding_box": {
+        "top_left": {
+          "x": 0.09677419,
+          "y": 0.041775458
+        },
+        "top_right": {
+          "x": 0.35842294,
+          "y": 0.041775458
+        },
+        "bottom_right": {
+          "x": 0.35842294,
+          "y": 0.1462141
+        },
+        "bottom_left": {
+          "x": 0.09677419,
+          "y": 0.1462141
+        }
+      },
+      "words": [
+        {
+          "text": "Karachi",
+          "bounding_box": {
+            "top_left": {
+              "x": 0.09856631,
+              "y": 0.041775458
+            },
+            "top_right": {
+              "x": 0.35842294,
+              "y": 0.041775458
+            },
+            "bottom_right": {
+              "x": 0.35842294,
+              "y": 0.14882506
+            },
+            "bottom_left": {
+              "x": 0.09856631,
+              "y": 0.14882506
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Pakistan",
+      "bounding_box": {
+        "top_left": {
+          "x": 0.021505376,
+          "y": 0.1853786
+        },
+        "top_right": {
+          "x": 0.31182796,
+          "y": 0.19060053
+        },
+        "bottom_right": {
+          "x": 0.31003585,
+          "y": 0.30287206
+        },
+        "bottom_left": {
+          "x": 0.021505376,
+          "y": 0.3002611
+        }
+      },
+      "words": [
+        {
+          "text": "Pakistan",
+          "bounding_box": {
+            "top_left": {
+              "x": 0.025089607,
+              "y": 0.18798956
+            },
+            "top_right": {
+              "x": 0.3046595,
+              "y": 0.19582245
+            },
+            "bottom_right": {
+              "x": 0.3046595,
+              "y": 0.30287206
+            },
+            "bottom_left": {
+              "x": 0.021505376,
+              "y": 0.30287206
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Today",
+      "bounding_box": {
+        "top_left": {
+          "x": 0.109318994,
+          "y": 0.34725848
+        },
+        "top_right": {
+          "x": 0.32437277,
+          "y": 0.3524804
+        },
+        "bottom_right": {
+          "x": 0.32258064,
+          "y": 0.45691907
+        },
+        "bottom_left": {
+          "x": 0.10752688,
+          "y": 0.4543081
+        }
+      },
+      "words": [
+        {
+          "text": "Today",
+          "bounding_box": {
+            "top_left": {
+              "x": 0.12007169,
+              "y": 0.34725848
+            },
+            "top_right": {
+              "x": 0.32258064,
+              "y": 0.34986946
+            },
+            "bottom_right": {
+              "x": 0.32258064,
+              "y": 0.45691907
+            },
+            "bottom_left": {
+              "x": 0.11827957,
+              "y": 0.4543081
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "crops": [
+    {
+      "name": "human_made_object | vehicle | land_vehicle | car",
+      "cat": 0.45582464,
+      "cal": 0.0070241704,
+      "car": 0.38074046,
+      "cab": 0.67527395,
+      "serpapi_link": "https://serpapi.com/search.json?cab=0.67527395&cal=0.0070241704&car=0.38074046&cat=0.45582464&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+    },
+    {
+      "name": "##TextRecognition",
+      "cat": 0,
+      "cal": 0,
+      "car": 1,
+      "cab": 1,
+      "serpapi_link": "https://serpapi.com/search.json?cab=1&cal=0&car=1&cat=0&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "wXr1y3icFcxNjpswAIZh9SxdBwoZaKlUVSmQBBqbTjKEMZsRGMcYY34dIF72KpW66ol6mtLtp_d7fv66D_Xfd39KKbvxs64_esqHgswDpa3gOMsJI9p477I8G4mGW32U7ZBRok-G3uYVwVIfGW30glTZdCcbKTqdNJQ1ZINLgrme4ZvtfCTEMu1tgbNPWtXRr7LlpPlCHuGQJc8sYsEM1bcamL5KLwZPBTBOL88q9XyJkpCji1GiyreQomYqfAMeAnZywzI_4PUbBrGKF8BCR1tBA4v5_8jTpCuL5lqfXs8Su06di6LLRSyRWdbIHCeUQAErvk2T2AAVUukBlpFr9XhFV1wh05nTS2AH4jwVpjXm5p4HbGZZsv8QVO0CFbVgBRbgxWrta3Lcsajyt5HHTaB8C75AR-vPp9Iurl6LgB8sXcg6a94EgMDcavgkXJTnjzdHfj96S28t1-w2-fXw2h8pfNv3P2yqnpbddFlcZXhRHaHliQP7sPvd3m4jke__ASxqnPo",
+    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US&next_page_token=wXr1y3icFcxNjpswAIZh9SxdBwoZaKlUVSmQBBqbTjKEMZsRGMcYY34dIF72KpW66ol6mtLtp_d7fv66D_Xfd39KKbvxs64_esqHgswDpa3gOMsJI9p477I8G4mGW32U7ZBRok-G3uYVwVIfGW30glTZdCcbKTqdNJQ1ZINLgrme4ZvtfCTEMu1tgbNPWtXRr7LlpPlCHuGQJc8sYsEM1bcamL5KLwZPBTBOL88q9XyJkpCji1GiyreQomYqfAMeAnZywzI_4PUbBrGKF8BCR1tBA4v5_8jTpCuL5lqfXs8Su06di6LLRSyRWdbIHCeUQAErvk2T2AAVUukBlpFr9XhFV1wh05nTS2AH4jwVpjXm5p4HbGZZsv8QVO0CFbVgBRbgxWrta3Lcsajyt5HHTaB8C75AR-vPp9Iurl6LgB8sXcg6a94EgMDcavgkXJTnjzdHfj96S28t1-w2-fXw2h8pfNv3P2yqnpbddFlcZXhRHaHliQP7sPvd3m4jke__ASxqnPo",
+    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Facf697ee5263dca8.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWNmNjk3ZWU1MjYzZGNhOC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDUzLCJleHAiOjE3ODk2MzE5NTN9.qRLh6dVDoYMEIxpJip5w-IMeNb5nkvmCYbby_9tKHDxq5xVafvElrXqHgN_FqP6gz4xAvSxCz1DOlOYx4kM6GA&mkt=en-US"
+  },
+  "_dejavue": {
+    "recorded_at": "2026-09-17T13:14:16+0530",
+    "image_sha256": "acf697ee5263dca8b82629794fc13daae8475926b26247388c76c146ca97a76c",
+    "input_phash": "57d9ac8d405760a7",
+    "note": "image_url was a 15-minute Supabase signed URL (token redacted)"
+  }
+}

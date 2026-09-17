@@ -1,0 +1,2616 @@
+{
+  "credits_before": 246,
+  "reports": [
+    {
+      "case": "c2-uttarakhand-flood",
+      "engines": {
+        "bing_reverse_image": {
+          "http": 200,
+          "ms": 3073,
+          "status": "Success",
+          "error": null,
+          "top_keys": [
+            "search_information",
+            "image_info",
+            "related_content",
+            "related_searches",
+            "serpapi_pagination"
+          ],
+          "fixture": "fixtures\\c2-uttarakhand-flood\\bing_reverse_image-ea458eeeac50a77a.json",
+          "sections": {
+            "related_content": 35,
+            "related_searches": 50
+          },
+          "item_keys": {
+            "related_content": [
+              "cdn_original",
+              "date",
+              "domain",
+              "file_size",
+              "format",
+              "height",
+              "link",
+              "original",
+              "position",
+              "source",
+              "thumbnail",
+              "thumbnail_height",
+              "thumbnail_width",
+              "title",
+              "width"
+            ],
+            "related_searches": [
+              "link",
+              "name",
+              "serpapi_link",
+              "thumbnail"
+            ]
+          },
+          "rows": [
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A3D635B1BB57024BA41FE1530C659A8116D4BE69&simid=608019022495225136",
+              "source": "https://www.vecteezy.com/free-photos/flood-damage?page=5",
+              "title": "Flood Damage Stock Photos, Images and Backgrounds for Free Download",
+              "date": "2023-02-04T20:45:00Z",
+              "hamming": 26
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A8826A4F10385CDAC09F8D5BE01BC2EF2D1E83E8&simid=608052609116345413",
+              "source": "https://www.financialexpress.com/auto/car-news/five-must-follow-steps-to-rescue-flooded-car/3536370/",
+              "title": "Five must-follow steps to rescue flooded car - Car News | The Financial ...",
+              "date": "2024-06-27T06:37:00Z",
+              "hamming": 30
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=8AD17658414EC651AEAFB8DAF17AC93ABF5501B4&simid=608043817322026803",
+              "source": "https://indianexpress.com/photos/india-news/heavy-rainfall-batters-uttarakhand-7580319/",
+              "title": "Death toll reaches 52, Uttarakhand reels under rain aftermath | India ...",
+              "date": "2021-10-19T18:00:00Z",
+              "hamming": 40
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7A7FA3A3E613F237934075D1FAA4C775684AAD1A&simid=607997229806931627",
+              "source": "https://storage.googleapis.com/diflrdlaagprxe/how-does-a-flash-flood-start.html",
+              "title": "How Does A Flash Flood Start at Tayla Sligo blog",
+              "date": "2025-03-18T22:00:00Z",
+              "hamming": 30
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=AA5F03076BAB28B2BCD9E9DCDBF1074A40BDD6DF&simid=608020328144770172",
+              "source": "https://www.abc.net.au/news/2017-03-30/brisbane-prepares-for-big-wet-cyclone-debbie-drenching-p/8400124",
+              "title": "Cyclone Debbie: Brisbane drenched as system moves through south-east ...",
+              "date": "2017-03-29T23:53:00Z",
+              "hamming": 32
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=76EBFAA86C4A5E349C11BB6FD0E444FD65D7B1C7&simid=608019701092402799",
+              "source": "https://www.independent.co.uk/news/kenya-ap-nairobi-tanzania-mombasa-b2441336.html",
+              "title": "2 killed as flooding hits Kenya, sweeping away homes and destroying ...",
+              "date": "2023-11-03T18:34:00Z",
+              "hamming": 26
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7AECB9631E939F3FB52D9A80207D74346522D41A&simid=608034544497358458",
+              "source": "https://www.carlist.my/news/apa-nak-buat-jika-terperangkap-dalam-kereta-banjir-kereta-terjunam-ke-dalam-air-dan-kanak-kanak-yang-ditinggalkan-84169/84169/",
+              "title": "Apa Nak Buat Jika Terperangkap Dalam Kereta – Banjir, Kereta Terjunam ...",
+              "date": "2021-09-13T12:02:00Z",
+              "hamming": 28
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=CFDC32DB2071254AE13B6A09C07B7864F43EEB6D&simid=608054009274383269",
+              "source": "https://www.guardian.co.tt/life/after-the-flood-6.2.696985.918fecf780",
+              "title": "After the Flood - Trinidad Guardian",
+              "date": "2018-10-23T04:39:00Z",
+              "hamming": 38
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5BA45113CD6358BFE9B594D40CC123F551080694&simid=608011222791381321",
+              "source": "https://www.pinterest.com/pin/recordbreaking-rains-flood-parts-of-karnataka-2018-monsoon-arrives-with-a-bang--199917670942968126/",
+              "title": "Record-breaking rains flood parts of Karnataka, 2018 Monsoon arrives ...",
+              "date": "2023-03-05T19:44:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0D7FB1DA1F7EC2036E46862B8984168C91668C13&simid=608043512381113632",
+              "source": "https://www.gettyimages.com/photos/china-floods",
+              "title": "5,815 China Floods Photos & High Res Pictures - Getty Images",
+              "date": "2018-01-17T01:28:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7806521F3A06B7EA3FD0ABE4B9DEBD99864B40C2&simid=608021041122266379",
+              "source": "https://www.business-standard.com/article/current-affairs/in-pics-kerala-battered-by-heavy-rains-death-toll-reaches-26-118081000367_1.html",
+              "title": "In pics: Kerala battered by heavy rains, death toll reaches 26",
+              "date": "2018-08-10T08:29:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=06C747733C4DEAA479E6F1C2A67F52C50B197B6E&simid=608033578142668620",
+              "source": "https://www.abc.net.au/news/2019-09-05/australian-women-in-hurricane-dorian-describe-bahamas-damage/11481182",
+              "title": "Hurricane Dorian's Australian survivors describe ocean swallowing ...",
+              "date": "2019-09-05T03:14:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=8F64EFAEC0EF522FBDD126375D77841B1CA92BB9&simid=607987196778387409",
+              "source": "https://www.indiatvnews.com/photos/india-yearender-2021-natural-calamities-natural-disasters-india-earthquakes-floods-cyclones-landslides-cloudbursts-chamoli-disaster-landslide-in-himachal-751836",
+              "title": "Yearender: Natural disasters that 'shook' and 'stuck' India in 2021 ...",
+              "date": "2021-12-30T08:33:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0D9534C18A8B82FA042460155F834EF9870E1BE9&simid=608008409624489249",
+              "source": "https://www.nbcnews.com/id/wbna32673628",
+              "title": "Tens of thousands flee West Africa floods",
+              "date": "2021-02-09T12:24:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=802949D34536E3618398A99D2E11A0781B1EAE9D&simid=607995490363519445",
+              "source": "https://www.thehansindia.com/news/international/tanzania-suffers-69-million-crop-loss-from-el-nino-floods-918386",
+              "title": "Tanzania suffers $69 million crop loss from El Nino floods",
+              "date": "2024-10-31T06:46:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=20791347AC3B2DE0C81664A7F294E8C29E9A6B23&simid=608004200527173101",
+              "source": "https://cpministries.org/news/flooding-in-sierra-leone-crossroads-staff-volunteers-safe",
+              "title": "Flooding in Sierra Leone: Crossroads Staff, Volunteers Safe",
+              "date": "2017-08-16T01:21:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=9FE91AC7ACC297D5840AD0A843D4541B6332B65C&simid=608005729610442257",
+              "source": "https://paultan.org/2022/08/02/johor-bahru-hit-by-flash-floods-following-two-hours-of-heavy-rain-cars-submerged-water-levels-waist-high/",
+              "title": "Johor Bahru hit by flash floods following two hours of heavy rain ...",
+              "date": "2022-08-02T10:43:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=74FE6734574A82A595239E5CEDE68855A5F94B11&simid=607991667824997682",
+              "source": "https://www.carsifu.my/news/flood-insurance-coverage-take-up-rate-still-low",
+              "title": "News: Flood insurance coverage take up rate still low | CarSifu",
+              "date": "2022-06-23T09:02:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=244A82875252DC4CF6C108E3FCFB1A738CB32D4C&simid=608044233961972691",
+              "source": "https://www.itv.com/news/london/2016-06-23/flooding-hits-london-and-the-south-east-on-eu-polling-day",
+              "title": "Flooding hits London and the South East on EU polling day | ITV News London",
+              "date": "2016-06-23T11:55:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=973037D8046F8CC5C4F844392792E0DE0F39540F&simid=608031349017498290",
+              "source": "https://www.rediff.com/news/report/photos-more-flooding-but-this-is-not-kashmir/20140910.htm",
+              "title": "Photos: More flooding, but this is Vadodara, not Kashmir - Rediff.com ...",
+              "date": "2014-09-10T09:18:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=F8E37DCCC67C7B166EC3CED87C01528B2680C9ED&simid=608054589126159211",
+              "source": "https://www.goodmorningamerica.com/news/video/watch-devastating-flood-88009420",
+              "title": "What to watch out for after a devastating flood - Good Morning America",
+              "date": "2022-08-05T12:00:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=D3AD1073AD6FC740BF7EAFB3EE6F8B435E9A0043&simid=608055804570846117",
+              "source": "https://www.nbcnews.com/news/latino/puerto-ricos-power-crisis-worsens-lawmakers-probing-outages-seek-answe-rcna2920",
+              "title": "As Puerto Rico's power crisis worsens, lawmakers probing outages seek ...",
+              "date": "2021-10-13T15:48:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=F78DFB5B07C18128F9FF7C58A6073AAD5D050F42&simid=608020852152216075",
+              "source": "https://www.sinardaily.my/article/731930/focus/national/malaysian-senior-citizens-stranded-in-flooded-hatyai-urgently-seek-medical-aid-evacuation",
+              "title": "Malaysian senior citizens stranded in flooded Hatyai urgently seek ...",
+              "date": "2025-11-24T08:04:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4577D0F227FC4806379E9FB3B67FCF1452D86342&simid=607989082260338247",
+              "source": "https://www.pakwheels.com/blog/monsoon-season-what-to-do-when-your-car-gets-flooded/",
+              "title": "Monsoon Season: What To Do When Your Car Gets Flooded - PakWheels Blog",
+              "date": "2015-07-08T13:48:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=BDEEC10F626BF71A12C75BE566621D5D49071F79&simid=608007138292822835",
+              "source": "https://www.naharnet.com/stories/en/286487",
+              "title": "Foreigners among 11 Killed in Iraqi Kurdistan Floods — Naharnet",
+              "date": "2021-12-17T12:53:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=9CD5FF32D759D5E4BCFBBD1B2F296087071C751C&simid=607998428076314241",
+              "source": "https://news.sky.com/story/india-floods-14-dead-and-100-missing-after-sudden-rainfall-swamps-several-towns-12977243",
+              "title": "India floods: 14 dead and 100 missing after sudden rainfall swamps ...",
+              "date": "2023-10-05T08:25:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0B85AD288628104E852958C8B0FDD2D9B290654B&simid=607987308419026675",
+              "source": "https://www.prokerala.com/news/photos/kutch-a-partially-submerged-car-on-a-waterlogged-residence-after-heavy-3538016.html",
+              "title": ": Kutch : A partially submerged car on a waterlogged residence after ...",
+              "date": "2023-06-16T11:35:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=01E93FFA6BEAEE56FD67DD8AA158949DFC8CCCFE&simid=608043757193740325",
+              "source": "https://www.goldcoastbulletin.com.au/lifestyle/extropical-cyclone-debbie-gold-coast-could-see-flash-floods-and-wild-surf-offshore/news-story/34182999aedc14085accd3bf91b6ce2b",
+              "title": "Flood warning issued for Coast rivers | Gold Coast Bulletin",
+              "date": "2017-03-29T14:09:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5BF7B8ECD5DFD4EC6B2C82AB20FA3731E8935C49&simid=608022050429160223",
+              "source": "https://people.com/politics/joe-biden-visits-puerto-rico-following-hurricane-fiona/",
+              "title": "President Biden Visits Puerto Rico in Wake of Hurricane Fiona",
+              "date": "2022-10-03T15:56:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=77AF3AE8EBDEE6F2057A1343C37EF3E33827DAA1&simid=608025765543432455",
+              "source": "https://www.financialexpress.com/life/science-whats-causing-floods-in-pune-check-all-about-number-of-rivers-and-dams-in-the-district-2297813/",
+              "title": "What’s causing floods in Pune? Check all about number of rivers and ...",
+              "date": "2021-07-26T09:49:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1BDDB5877D37290DA2C9CEFEC2428D6AAF209AC9&simid=608009199904179542",
+              "source": "https://www.theatlantic.com/photo/2018/09/photos-the-aftermath-of-super-typhoon-mangkhut/570490/",
+              "title": "Typhoon Mangkhut: Photos of the Aftermath - The Atlantic",
+              "date": "2018-09-17T18:48:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0C6D64B576917FE0671947322E1B0D7D82943EE1&simid=608044826626578926",
+              "source": "https://www.independent.co.uk/news/world/africa/sierra-leone-mudslides-flooding-death-toll-uk-support-dfid-a7894461.html",
+              "title": "Sierra Leone mudslides: Death toll rises to 300 as UK offers support to ...",
+              "date": "2017-08-15T13:15:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=232C4460461E05F457E52464A030884BB25BD1AA&simid=607993201133697016",
+              "source": "https://www.abc.net.au/news/2014-11-27/severe-storms-pummel-s-e-qld/5923950",
+              "title": "Severe storms pummel south-east Qld - ABC News",
+              "date": "2023-03-22T02:00:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=793E6329AD3C9E0A9298D69F07AB1F52DD0EB744&simid=608035085614517819",
+              "source": "https://news.sky.com/story/kenyan-tour-guide-rescues-14-tourists-after-devastating-floods-crash-through-the-maasai-mara-13128179",
+              "title": "Kenyan tour guide rescues 14 tourists after devastating floods crash ...",
+              "date": "2024-05-03T16:45:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=139A4AC013EF05799E3D15EEAA868A9A6B007DE3&simid=608048344227646038",
+              "source": "https://www.pinterest.com/pin/litalia-alluvionata-una-metafora-del-paese--320248223481180600/",
+              "title": "L’Italia alluvionata, una metafora del Paese | Blog | Southeastern ...",
+              "date": "2024-08-15T19:42:00Z"
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Map&mmreqh=4KvthAKFO5O7I5avhR0KKxBmgM96vz0sQ2wI5EfBC1M%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Thailand&mmreqh=0eqjIjYMr4HGJ5PmDR%2b87uRDDV49fBKHX%2bry6E%2bIc9M%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Province&mmreqh=AmCzO5VfiF79s3Mzy%2fuj%2bQirmUyCYJkBmCS8rA5i408%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Tower&mmreqh=rdscTzhzhARgVSz0x6O04qFk0jbp%2bbDRFG%2bcb1gzvXg%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Temple&mmreqh=gUezoC8S3QoRPAXYg2Y4YQd6KhUZZKZhpQRKed9bN98%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Border&mmreqh=CFKTHDGiiVPfqUUVV3AY0D4Hi6S9yggL6YD2xY3qEqA%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Airport&mmreqh=1qbKOw8LX3elAL9PfRsdnRq%2bvfTLlcpbn51sw2T0pBM%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Mape&mmreqh=qe36K836GMhqaQJnNQJYkYNoNd0gCASlQXWxJRAuwKQ%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Sign&mmreqh=2q2aJ1UfNQTyE0me9Ba%2f%2bMEcQ0a2wa7kYc1Xtss%2bRbg%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Rhailand&mmreqh=6AZTqtl8el5a9aHEYuEmbOge7NL3rwbHPrE0SdbQ63g%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Naga+Mukdahan&mmreqh=wCOtbm0xPyANMwhTYjNsO77Or6O6HZco4d5Bb9zPXNQ%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Savannakhet+Laos&mmreqh=P40xG%2fO2JydcLTdPSfoZQLahrB9mblY1lj%2fFutFR7YE%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Condo+Mukdahan&mmreqh=lFfnuvzPqmDf7IDC9BJmmXrS9kCMZwYuj4ZynfCjHCg%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+View&mmreqh=kVKr23DhMF%2fRpVO6Fx9tzobpFRB2eGjWfpDOILRrjwM%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Lao+Thai+Bridges&mmreqh=HjfzuynposbWCabqyZyMjQOxS%2b9GPf8BM7Js%2b97H6ig%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Lao+Thai+Friendship&mmreqh=%2bZ%2fAcAfDT32A1lNTg6jj3bUTHffl93%2bY9fJMR%2fJKEMs%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Providence+Map&mmreqh=clHQXSwqFhApeh%2bkzkOAATCvm7glVPj2anYdHn89pbs%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Crash&mmreqh=fDO2swKGQ2crtV71A0qSZZHcA9a85B%2bdME9MvezxEnQ%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Surin+Thailand&mmreqh=LBp9Cq70hK2%2b2bkP1YacTmgFAlcEoI5A6lzDkdd29DU%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Thailand+City&mmreqh=9%2bVsufAj7n9UuWZ%2bn1xS90ceidebSzi4rqTrmJBkx1U%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Logo&mmreqh=VumyHKzLoOR299xdKdtezaS%2bdBw3MDHFCa%2fHTn8iwC8%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Phayao+Thailand&mmreqh=iErCoGNIsAP7ec79YMgrazoQZnrnAXTm6fEvxhcLnk0%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Huawei+Mukdahan&mmreqh=SrT%2bJd6sO6yuuPPr436e6o4hsYCnsPDVd3vJI5qAVzU%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Nong+Khai+Thailand&mmreqh=viyber%2belKFbsQj51vA04ZZuWJzSuuIk4Kb32Q3JzxM%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Thai+Bus&mmreqh=QFugb6xiOcenh8ldtQOINCXA6FrlPmRDEnXfw2ykC5Q%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+International+Hospital&mmreqh=AGF1oPMW5VDCehiUBtaVlfei9P4Eoz4n3z%2bjCLZv%2bC8%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Thailand+Hotels&mmreqh=ZReDZN3FFWf95WMn2th4qzcjTr64zlJrPcnrAghLH44%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Things+to+See+Mukdahan&mmreqh=wt%2bUDs63O%2b%2f5SVUKkLRWl80Y8iOdX9o%2bzIZdXOtG55g%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Monk+Tragedy&mmreqh=3t6VXTXuazI4WytXgcCx%2fH2GxSPdNp1hcxbCePZ6jqQ%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Where+Is+Mukdahan+Thailand&mmreqh=efZRB9Fb5DZveNnRKnZM2U6kLoB%2bbTdU118uaKGmMs8%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Loei+Thailand+Map&mmreqh=J943WT6HXbhUSTlzyXQ1rcTYucwPMyw9seqvqR8K%2fII%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mekong+River+View+From+Mukdahan&mmreqh=YB7XVbxG2g9sd6Zchwd14W%2fMu6uhJjyWqYJBFsh%2fH2Y%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Khon+Kaen&mmreqh=sFZP8meIoU190uzEjSzplXBsUzGA1qtlZNMMk3EUDn4%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Pilgrims+in+Mukdahan&mmreqh=TCTHRTbOOmRt1rVTEEHHFrO2TvWOA7ybpG4qbRGEAks%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Maryters&mmreqh=kP3GsGXa%2fyfuHqXS3OifUuM%2bCTbXypnMJdoKEFbIAf4%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Friendship+Bridge&mmreqh=8UkT%2bICO7765KkuULe9R0Gm179kvdTefBbOK5Lj9Ahc%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Na+Mukdahan+Thailand&mmreqh=oaWexIIjHz8rZ%2bbmiQ5K%2f7bI%2f7NvGI0dE18LJba8nls%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Laos+Trip&mmreqh=u0fOMq0Be4qQrXsZPyez86n%2blT94mJRqyn5yPGLmKn8%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Ubon+Ratchathani+Map&mmreqh=wdLWRBJCmiZUwsMkW8D0ZwtUAgouFTWM%2f3o8HZhexUc%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Thailad&mmreqh=p4G98bbVsrhK58mPGY4GekuAv5SyYjw5M1R3W6xN6Ec%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Provinces+of+Thailand&mmreqh=KgAUg7XRyonsGsrvibfl0lrefgTYWiscaOHqOpM5nuI%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Viking+Radar+Site+Mukdahan+Thailand+Map&mmreqh=3T1iZ13UCtG0JWvNhpBJ8SGren0iJjwTqERPRC4KtS8%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Malls+in+Mukdahan&mmreqh=2ptPVtTCXnDeBy7DaVugz8oV2SInpXUyIyV8Vmx4Qks%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Pattaya+Bus&mmreqh=Ra2jl5Pry7yNPWVkBXbDXG3me6CdyUdAyX9mHGaJ%2foA%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Isaan+Thailand&mmreqh=Ive0HoLabQBQ35cDsJ0xk1934KAsXWh0jK%2bPX%2b%2bQDAk%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Border+Checkpoint&mmreqh=aEqpsOM3iyGTrbAaFuD22BqizFPdf7t8GK2lr%2b9UR%2b4%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=East+Thailand&mmreqh=Uewm5iQZN2yUexQGgw%2fPZlQTxq5Iqlf5W0sFP2fzNmY%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Yasothon+Thailand&mmreqh=yI42jayJstCFn46JhPi984VbktYwvfM%2bxDTSBo%2bJOsQ%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Thailand+Beautiful+Places&mmreqh=mDi1jpssBv8TyoPFFiJzP1vP2BVTxPzSfYTOUqHC7Vc%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "related_searches",
+              "link": "https://www.bing.com/images/search?q=Mukdahan+Province+Farming+Life&mmreqh=F8eURDrnex2VY08JM50r%2be%2fd1qYhJmtmG3JKRPdgIaE%3d&FORM=IDINTS",
+              "source": null,
+              "title": "",
+              "date": null
+            }
+          ]
+        },
+        "yandex_images": {
+          "http": 200,
+          "ms": 4813,
+          "status": "Success",
+          "error": null,
+          "top_keys": [
+            "image_preview",
+            "knowledge_graph",
+            "image_results",
+            "image_sizes",
+            "image_tags",
+            "similar_images"
+          ],
+          "fixture": "fixtures\\c2-uttarakhand-flood\\yandex_images-29a27c241d39cacb.json",
+          "sections": {
+            "image_preview.crops": 1,
+            "knowledge_graph": 1,
+            "image_results": 30,
+            "image_sizes.medium": 3,
+            "image_sizes.small": 6,
+            "image_tags": 5,
+            "similar_images": 40
+          },
+          "item_keys": {
+            "image_preview.crops": [
+              "category",
+              "crop",
+              "crop_id",
+              "serpapi_link"
+            ],
+            "knowledge_graph": [
+              "description",
+              "link",
+              "source",
+              "thumbnail",
+              "title"
+            ],
+            "image_results": [
+              "link",
+              "original_image",
+              "snippet",
+              "source",
+              "thumbnail",
+              "title"
+            ],
+            "image_sizes.medium": [
+              "link",
+              "serpapi_link",
+              "size"
+            ],
+            "image_sizes.small": [
+              "link",
+              "serpapi_link",
+              "size"
+            ],
+            "image_tags": [
+              "link",
+              "serpapi_link",
+              "text"
+            ],
+            "similar_images": [
+              "image",
+              "link"
+            ]
+          },
+          "rows": [
+            {
+              "sec": "image_preview.crops",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "knowledge_graph",
+              "link": "https://bigenc.ru/wiki/%D0%9D%D0%B0%D0%B2%D0%BE%D0%B4%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "bigenc.ru",
+              "title": "Наводнение",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.dailyhunt.in/news/bangladesh/malayalam/malayalivartha+new-epaper-malvart/utharakhandil+mazhayilum+vellappokkathilum+pett+marichavarude+ennam+72aayi+therachil+thudarunnu-newsid-n326919454?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.dailyhunt.in",
+              "title": "ഉ ത ത ര ഖ ണ ഡ ല മ ഴ യ ല വ ള ള പ പ ക ക ത ത ല പ ട ട മ ര ച",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.dailyhunt.in/news/bangladesh/malayalam/marunadan+malayali-epaper-marunada/mallappalli+kulathur+thukkupalam+thakarnn+veenu-newsid-n324466764?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.dailyhunt.in",
+              "title": "മ ല ല പ പ ള ള ക ള ത ത ര ത ക ക പ ല ത ക ര ന ന വ ണ - Marunadan Malayali DailyHunt",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.turkiyegazetesi.com.tr/dunya/hindistan-sele-teslim-oldu-15-olu-50-kayip-var-882366?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "turkiyegazetesi.com.tr",
+              "title": "Hindistan sele teslim oldu: 15 ölü, 50 kayıp var Türkiye Gazetesi",
+              "date": null,
+              "hamming": 30
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.alalam.ir/news/5953553/%D8%A3%D8%B1%D8%A8%D9%8A%D9%84-%D8%AA%D8%AE%D8%B5%D8%B5-%D9%85%D9%84%D9%8A%D8%A7%D8%B1-%D8%AF%D9%8A%D9%86%D8%A7%D8%B1-%D9%84%D9%85%D9%88%D8%A7%D8%AC%D9%87%D8%A9-%D8%AA%D8%AF%D8%A7%D8%B9%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%B3%D9%8A%D9%88%D9%84?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "alalam.ir",
+              "title": "أربيل تخصص مليار دينار لمواجهة تداعيات السيول - قناة العالم الاخبارية",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://arabicradio.net/news/115841?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "arabicradio.net",
+              "title": "العراق.. اجتماع طارئ في أربيل لمناقشة أزمة السيول",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.turkiyegazetesi.com.tr/dunya/hindistanda-selde-olenlerin-sayisi-100u-asti-876705?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "turkiyegazetesi.com.tr",
+              "title": "Hindistan'da selde ölenlerin sayısı 100'ü aştı Türkiye Gazetesi",
+              "date": null,
+              "hamming": 30
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.dailyhunt.in/news/india/malayalam/keralakaumudi-epaper-dh25a7c3d3df99474c8c1b4fda99c0e101/utharakhand+pralayam+47+maranam+rakshapravarthanam+thudarunnu-newsid-n325369824?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.dailyhunt.in",
+              "title": "ഉ ത ത ര ഖ ണ ഡ പ ര ള യ; 47 മ ര ണ, ര ക ഷ പ ര വ ര ത ത ന ത ട ര",
+              "date": null,
+              "hamming": 34
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.priyo.com/e/3611522-%E0%A6%AD%E0%A6%BE%E0%A6%B0%E0%A6%A4-%E0%A6%A8%E0%A7%87%E0%A6%AA%E0%A6%BE%E0%A6%B2%E0%A7%87-%E0%A6%AC%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%BE-%E0%A6%AD%E0%A7%82%E0%A6%AE%E0%A6%BF%E0%A6%A7%E0%A6%B8%E0%A7%87-%E0%A6%AE%E0%A7%83%E0%A6%A4%E0%A7%8D%E0%A6%AF%E0%A7%81-%E0%A7%A8%E0%A7%A6%E0%A7%A6-%E0%A6%9B%E0%A6%BE%E0%A7%9C%E0%A6%BF%E0%A7%9F%E0%A7%87%E0%A6%9B%E0%A7%87?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.priyo.com",
+              "title": "প্রিয় ইন্টারনেট লাইফ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.yeniakit.com.tr/haber/hindistandaki-sellerde-son-24-saatte-10-kisi-hayatini-kaybetti-1668276.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "yeniakit.com.tr",
+              "title": "Hindistan'daki sellerde son 24 saatte 10 kişi hayatını kaybetti - Yeni Akit",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://arabicradio.net/tag/9725/2?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "arabicradio.net",
+              "title": "سيول",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=HZz1CmlYFhE&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Iraq: Flash Floods sweep across Kurdistan - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.theviralist.com/author/dashcam_and_fights_usa/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "theviralist.com",
+              "title": "DashCam And Fights USA",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://pipedot.org/article/5QXP9?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pipedot.org",
+              "title": "Floods, landslides kill more than 100 in India and Nepal - Pipedot",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://storage.googleapis.com/ddlipqwonagnfe/car-flooded-no-insurance.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "storage.googleapis.com",
+              "title": "Car Flooded No Insurance at Rusty Wilcox blog",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.haber7.com/etiket/eyalet?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.haber7.com",
+              "title": "Eyalet Haberleri ve Son Dakika Gelişmeleri Haber 7",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.theviralist.com/tag/fact-tube/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "theviralist.com",
+              "title": "Fact tube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.gazetesok.com/haber/?keyword=&contentcat_id=&alt=293110&sayfa=29312&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "gazetesok.com",
+              "title": "Haber Arşivi - Şok Gazetesi",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.gazetesok.com/haber/guncel-10-ekim-koronavirus-tablosu_380492?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "gazetesok.com",
+              "title": "10 Ekim koronavirüs Son 24 saatte korona virüsten 196 kişi hayatını kaybetti",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://xn--80aaademhwo0czaihgp8c1exb.xn--p1ai/watch/gAkxF9c4-X4?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "скачатьвидеосютуба.рф",
+              "title": "Скачать с ютуб видео 30 Minutes 30 News Kannada Top 30 Headlines July 23, 2022 News18 Kann",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=DV6507GFob4&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Banjir Bandang Irak Porak-porandakan Rumah dan Kendaraan Warga - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.misbar.com/en/factcheck/2021/12/19/photo-was-taken-during-recent-floods-india-not-erbil-1?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "misbar.com",
+              "title": "This Photo Was Taken During Recent Floods in India, Not Erbil",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.naharnet.com/stories/en/286487?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "naharnet.com",
+              "title": "Foreigners among 11 Killed in Iraqi Kurdistan Floods - Naharnet",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.alsumaria.tv/news/%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9/406577/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%AA%D8%B6%D8%A7%D9%85%D9%86-%D9%85%D8%B9-%D8%A7%D9%84%D8%B9%D8%B1%D9%82?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "alsumaria.tv",
+              "title": "السعودية تتضامن مع العراق سياسة",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.alsumaria.tv/news/localnews/406134/%D9%85%D8%B4%D8%A7%D9%87%D8%AF-%D9%85%D9%86-%D8%B3%D9%8A%D9%88%D9%84-%D8%AC%D8%A7%D8%B1%D9%81%D8%A9-%D8%A7%D8%AC%D8%AA%D8%A7%D8%AD%D8%AA-%D8%A3%D8%B1%D8%A8%D9%8A%D9%84?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "alsumaria.tv",
+              "title": "مشاهد من سيول جارفة اجتاحت أربيل محليات",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.faceiraq.org/inews.php?id=8334086&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "faceiraq.org",
+              "title": "الموارد المائية تعلن انتهاء موسم الجفاف الذي استمر ثلاثة مواسم",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.brhme.com/2021/12/blog-post_57.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "brhme.com",
+              "title": "مشاهد من سيول جارفة اجتاحت أربيل - مدونة ابراهيم مهدي",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.radionawa.com/all-detail.aspx?Jimare=27134&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "radionawa.com",
+              "title": "رئيس اقليم كردستان يخصص مليار دينار لمواجهة تداعيات السيول",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.kitabat.info/print.php?id=162943&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "kitabat.info",
+              "title": "كتابات في الميزان / موجة الأمطار مستمرة في أربيل وستتجه نحو السليمانية",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.viva.co.id/berita/dunia/1428073-perjuangan-dua-sahabat-asal-indonesia-tinggal-di-australia?page=6&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "viva.co.id",
+              "title": "Perjuangan Dua Sahabat Asal Indonesia Tinggal di Australia Halaman 6",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.naharnet.com/?openform=&4B348F45725C0CD6C22572420045CBCE=&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "naharnet.com",
+              "title": "Naharnet - Lebanon's leading news destination",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.medium",
+              "link": "https://webimages.oneindia.com/wp-content/uploads/sites/8/2023/05/cropped-what-to-do-when-your-car-is-flooded-monsoon-safety-tips-9.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.medium",
+              "link": "https://media.alalam.ir/uploads/855x495/2021/12/18/163981106454049600.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.medium",
+              "link": "https://media.arabicradio.net/original/2021/12/17/637753668916050874.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://assets-news-bcdn.dailyhunt.in/cmd/resize/400x400_80/fetchdata16/images/82/cf/76/82cf763aee0d5c009b8c8cf37e3e6a8ce5af2923b2a57766e7a4f2703731f2fb.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://i.turkiyegazetesi.com.tr/images/haberler/2022_06/buyuk/hindistan-da-dogal-afet-selde-olenlerin-sayisi-100-u-asti-1655986648.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://assets-news-bcdn.dailyhunt.in/cmd/resize/1200x630_75/fetchdata16/images/da/a4/65/daa465ae76588c90184f66d639d81c068946b980419b69540a11656f5056c842.webp",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://www.daily-bangladesh.com/media/imgAll/2021March/india-nepal-2110211932.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://cdn.yeniakit.com.tr/images/news/625/hindistandaki-sellerde-son-24-saatte-10-kisi-hayatini-kaybetti-h1656101472-2874aa.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_sizes.small",
+              "link": "https://img.gazetesok.com/images/content/382000/381889/sel-fena-vurdu_16347558058.jpg",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=%D0%BD%D0%B0%D0%B2%D0%BE%D0%B4%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=flash%20flood",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=%D0%BD%D0%B0%D0%B2%D0%BE%D0%B4%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BE%20%D0%B2%D1%8C%D0%B5%D1%82%D0%BD%D0%B0%D0%BC%D0%B5",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=floods%20in%20india",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=flood%20s%20flood",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fmedia.alalam.ir%2Fuploads%2F855x495%2F2021%2F12%2F18%2F163981106454049600.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fi.turkiyegazetesi.com.tr%2Fimages%2F25-04%2F20%2Fhindistanda-sel-bilancosu-agirlasti-cok-sayida-can-ve-mal-kaybi-var-17451496714676.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F-hdViiIX0_g%2Fmaxresdefault.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.aljazeera.com%2Fwp-content%2Fuploads%2F2025%2F11%2Fafp_691f46610e68-1763657313.jpg%3Fresize%3D1920%252C1440&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.deccanchronicle.com%2Fh-upload%2F2025%2F11%2F20%2F1980635-aa-5968234.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.havadiskibris.com%2Fwp-content%2Fuploads%2F2021%2F12%2Fhindistan-sel.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fcafefcdn.com%2F203337114487263232%2F2023%2F10%2F7%2Ftp-tac-duong-2556-1696670682362-16966706826501571484083.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.sabahpost.net%2Fwp-content%2Fuploads%2F2024%2F07%2Fbanjir.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fmummyohsem.wordpress.com%2Fwp-content%2Fuploads%2F2020%2F10%2F20201005_1639557460647769923329543.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fstormnews.ru%2Fwp-content%2Fuploads%2F2018%2F01%2F20180126my.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fstatic.daktilo.com%2Fsites%2F942%2Fuploads%2F2023%2F09%2F13%2F3988068.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fimages2.thanhnien.vn%2F528068263637045248%2F2023%2F7%2F12%2Fh3-1689151343614527792187.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.faceofmalawi.com%2Fwp-content%2Fuploads%2F2024%2F02%2FFlash-floods-in-Nkhotakota.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fassets.hmetro.com.my%2Fimages%2Farticles%2Fbanjirkilatkk-o_HMfield_image_socialmedia.var_1601865904.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Favatars.dzeninfra.ru%2Fget-zen_doc%2F271828%2Fpub_6a34c891629b1a1fd28d0143_6a3532790b2d3957c38c842a%2Fscale_1200&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.kosmo.com.my%2Fwp-content%2Fuploads%2F2024%2F12%2FWhatsApp-Image-2024-12-30-at-10.17.55-AM.jpeg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.nairaland.com%2Fattachments%2F5707988_fbimg15008127565991_jpeg1ae86e1a8106518bfe8bec1be9752353&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.expresskerala.com%2Fwp-content%2Fuploads%2F2018%2F08%2FINDONESHIA1.gif&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.bellanaija.com%2Fwp-content%2Fuploads%2F2017%2F06%2FIbadan-Flood.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Flivedoor.blogimg.jp%2Ftozanch%2Fimgs%2F1%2F9%2F19d60fc6.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FgAqMY6DO5Ak%2Fmaxresdefault.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fcdn.vovlive.vn%2F2024%2F09%2F09%2Fcdn-i.vtcnews.vn-upload-2024-09-09-_lao-cai1-19344829.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fnypost.com%2Fwp-content%2Fuploads%2Fsites%2F2%2F2025%2F11%2F2025-shows-flood-waters-submerging-116343088.jpg%3Fresize%3D424&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwatchers.news%2Fwp-content%2Fuploads%2F2024%2F06%2Fabidjan-ivory-coast-flood-june-13-2024.webp&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.edisi9.com.my%2Fwp-content%2Fuploads%2F2022%2F01%2Fbanjir-kereta-696x435.png&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fcdn5.cdn-telegram.org%2Ffile%2FbgoQVhWAEMdRNe5cBUhZxdqV6D2J9yZ6BEJKJZ0yBClX85WSe3r6JvgCllCRn5RZ0BezoZOadaKkcVtHzxDXd19KsbCQZSW0VruX-53NtWdbIqCc45MsXV5FCqU3DZcfxLJIKl6h6gb2g0p_zHPb1zRKCajNZx1V098zizKiL62sImmjHPx7ezMQ9kQjXPzq-pAAmcfFDUGvTme30XSgg5gs2kELYuFAtbAvp5HpgjKKi-FvK0ZIlajmuRl3SWUOPmDdLE0FLipAG3b6Ubgq5ZSDEdWMBYIa7mDCkYBZOAWKDQfYT9W7n_qmk7ypHAIbG4XQTXcd06nEl06HY4J0Sg.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fmarikinacity.wordpress.com%2Fwp-content%2Fuploads%2F2014%2F09%2Fmarioph-floods-sto-nino-marikina.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=http%3A%2F%2Fnypost.com%2Fwp-content%2Fuploads%2Fsites%2F2%2F2023%2F10%2FNYPICHPDPICT000056306991.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fr2.mt.ru%2Fr18%2Fphoto5F9C%2F20672463277-0%2Fjpg%2Fbp.jpeg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fimg-s-msn-com.akamaized.net%2Ftenant%2Famp%2Fentityid%2FAA1RnRuE.img%3Fw%3D2400%26h%3D1600%26m%3D4%26q%3D99&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fhnstorage.tek4tv.vn%2F2026%2F7%2F18%2F9%2F682498283_boxaydung.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fafamilycdn.com%2Fthumb_w%2F1200%2F150157425591193600%2F2024%2F6%2F10%2Fphoto-1-17179964291871504643975-1718002552061-17180025522392027390556-132-0-498-700-crop-17180037511091703801809.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fc8.alamy.com%2Fcomp%2F2RPCTDM%2F190712-kathmandu-july-12-2019-vehicles-are-submerged-in-balkhu-river-in-kathmandu-nepal-july-12-2019-many-areas-in-nepal-were-inundated-by-the-swollen-balkhu-river-following-torrential-rains-since-thursday-night-nepal-kathmandu-rain-flood-sunilxsharma-publicationxnotxinxchn-2RPCTDM.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fgundemkibriscom.teimg.com%2Fcrop%2F1280x720%2Fgundemkibris-com%2Fimages%2Fhaberler%2F2019%2F07%2Fnepal-de-sel-ve-toprak-kaymalari-21-olu_d6d4f.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.diyarbakirolay.com.tr%2Fdiyarbakirolay-com-tr%2Fuploads%2F2025%2F01%2Fbrezilyada-siddetli-yagislar-can-kayiplarina-neden-oldu.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FXcbMxpDMpc0%2Fmaxresdefault.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fstatic.cdntap.com%2Ftap-assets-prod%2Fwp-content%2Fuploads%2Fsites%2F6%2F2023%2F11%2Fbanjir-new-650x322.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwww.afrogazette.co.zw%2Fwp-content%2Fuploads%2F2022%2F06%2Fb-angladesh.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fwatchers.news%2Fwp-content%2Fuploads%2F2024%2F06%2Fvietnam-flood-june-2024-vna-vns.webp&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042%2Forig&img_url=https%3A%2F%2Fcdn5.vedomosti.ru%2Fimage%2F2017%2F6a%2F11t42t%2Foriginal-1d01.jpg&rpt=imageview&lr=202&cbir_id=1688324%2FdG3pefsLPb2Ajv4ICKb_ug1042&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            }
+          ]
+        }
+      },
+      "signed_identical": true,
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    },
+    {
+      "case": "c3-japan-tsunami",
+      "engines": {
+        "bing_reverse_image": {
+          "http": 200,
+          "ms": 2616,
+          "status": "Success",
+          "error": null,
+          "top_keys": [
+            "search_information",
+            "image_info",
+            "related_content",
+            "text_recognition",
+            "crops",
+            "serpapi_pagination"
+          ],
+          "fixture": "fixtures\\c3-japan-tsunami\\bing_reverse_image-6e58d74194ada02f.json",
+          "sections": {
+            "related_content": 35,
+            "text_recognition": 3,
+            "crops": 2
+          },
+          "item_keys": {
+            "related_content": [
+              "cdn_original",
+              "date",
+              "domain",
+              "file_size",
+              "format",
+              "height",
+              "link",
+              "original",
+              "position",
+              "source",
+              "thumbnail",
+              "thumbnail_height",
+              "thumbnail_width",
+              "title",
+              "width"
+            ],
+            "text_recognition": [
+              "bounding_box",
+              "text",
+              "words"
+            ],
+            "crops": [
+              "cab",
+              "cal",
+              "car",
+              "cat",
+              "name",
+              "serpapi_link"
+            ]
+          },
+          "rows": [
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4D4D469E9ADC72257B8C9BD47986859992712D04&simid=608014822009347166",
+              "source": "https://factly.in/2011-video-of-japan-tsunami-devastation-revived-again-as-visuals-of-floods-in-pakistan/",
+              "title": "2011 video of Japan Tsunami devastation revived again as visuals of ...",
+              "date": "2021-11-29T09:04:00Z",
+              "hamming": 38
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=21C8C71D228223D8733DF4706CAFA734278B07E5&simid=608004346522178934",
+              "source": "https://archive.org/details/tsunami-vedio",
+              "title": "Tsunami Vedio : Free Download, Borrow, and Streaming : Internet Archive",
+              "date": "2021-07-14T22:51:00Z",
+              "hamming": 38
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=44F97127C0CC60647A110B622F1B7F0BEE9B06A1&simid=608045801619283326",
+              "source": "https://www.indiatoday.in/fact-check/story/fact-check-video-japan-shows-horrific-2011-tsunami-not-recent-floods-pakistan-1995809-2022-09-02",
+              "title": "Fact Check: This video from Japan shows horrific 2011 tsunami, not ...",
+              "date": "2022-09-02T15:28:00Z",
+              "hamming": 32
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=DD6517660A238D8A8F49FE3F4CF7B97561203FF1&simid=608015358886165444",
+              "source": "https://www.youtube.com/watch?v=CW9qadsXWlM",
+              "title": "Ary news | Imran Khan | haqeqi azadi | 25 5 2022 - YouTube",
+              "date": "2022-05-25T10:33:00Z",
+              "hamming": 28
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=E7322B83D854A4274699BD7D709DC81588D86AEA&simid=608051767314501154",
+              "source": "https://www.youtube.com/watch?v=i6czirvdoh4",
+              "title": "Delhi-Multan road in shambles due to recent rains - Aaj News - YouTube",
+              "date": "2024-09-18T05:44:00Z",
+              "hamming": 32
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=FE99D5E661C286EB4428843D404A59ACCD5C6E88&simid=608004402388800853",
+              "source": "https://www.youtube.com/watch?v=zxMlDbl-H5I",
+              "title": "Breaking News: PTI leader killed | Latest news | Pakistan news live ...",
+              "date": "2024-01-11T11:56:00Z",
+              "hamming": 28
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=B44C7577C9B953958EAA5489A552419ADFD27AC0&simid=608005751027867611",
+              "source": "https://www.youtube.com/watch?v=ib7gNYM9Qd8",
+              "title": "Lyari Gang War now Spread to Dalmia as well - YouTube",
+              "date": "2009-10-13T12:00:00Z",
+              "hamming": 30
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=FCC8790DEC820F0A51FED105C305E7B47F3AF715&simid=608047047129252287",
+              "source": "https://www.financialexpress.com/world-news/live-updates-nawaz-sharif-marayam-nawaz-sharif-daughter-arrested-lahore-pakistan/1243148/",
+              "title": "Nawaz Sharif, Maryam Nawaz arrest Updates: Pakistan set for turmoil ...",
+              "date": "2018-07-13T07:04:00Z",
+              "hamming": 32
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=025380275DE7A8F149C8A22088D5AD063576A57D&simid=607992784538901505",
+              "source": "https://english.aaj.tv/news/330410924/karachi-traffic-accidents-continue-258-lives-lost-in-100-days-aaj-news",
+              "title": "Karachi Traffic Accidents Continue: 258 Lives Lost in 100 Days - Aaj ...",
+              "date": "2025-04-10T08:02:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7506EB45F56D01DDE26CCBAD15C442C410351CE5&simid=608055628491923296",
+              "source": "https://www.youtube.com/watch?v=vvv7OfKPB84",
+              "title": "Firing Incident Occurred During Eid Gathering in America | Breaking ...",
+              "date": "2024-04-11T05:21:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=C1C8A112D3D465C44DD72F5195E22A8C2B313522&simid=608016797715358514",
+              "source": "https://www.youtube.com/watch?v=LVWCojN7T1A",
+              "title": "johar chowrangi underpass update | Karachi Johar Chowrangi Underpass ...",
+              "date": "2023-07-20T05:13:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1F18336BEC23846BD12DD6FB99231555BC96679E&simid=608041257554551535",
+              "source": "https://archive.org/details/22klaudabarstneelamghaateemein22vyaktiyonkomaaratahai",
+              "title": "क्लाउडबर्स्ट नीलम घाटी में 22 व्यक्तियों को मारता है Klaudabarst Neelam ...",
+              "date": "2019-07-15T10:10:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7FBBC01A694983C754044673355AE66AB22E67F4&simid=608020577265678931",
+              "source": "https://www.pakwheels.com/blog/online-vehicle-registration-system-launched-soon/",
+              "title": "Online Vehicle Registration system to be launched soon - PakWheels Blog",
+              "date": "2019-08-22T11:54:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=D0605DD290350779C2C2CC5E0A39A601F5428603&simid=608036039140395443",
+              "source": "https://www.youtube.com/watch?v=ESOdq_ZtJS8",
+              "title": "Walking tour Vlog | Karachi Street Walk | Street Walking at Sadar ...",
+              "date": "2024-07-06T19:08:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=EE6ED50EAAF9EDAF089641058E8D4A85D83D066B&simid=607997796752633970",
+              "source": "https://www.youtube.com/watch?v=io216hAbQU4",
+              "title": "Karachi’s Night Road Trip | City Lights | Full Moon Vlogs | 4K UHD ...",
+              "date": "2024-08-01T10:40:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5D5FF2F1E1E56057C483E36A3EB378F5B970ACA5&simid=607998415214369138",
+              "source": "https://www.youtube.com/watch?v=A82IfJfuMQ0",
+              "title": "Heavy Rain Hits Karachi | Monsoon || ARY News 02 PM Headlines | 20th ...",
+              "date": "2025-08-20T09:40:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1E53324DFB9C0A104810A57765263B70D77FE4F2&simid=607994012877747836",
+              "source": "https://dailytimes.com.pk/802787/sindh-announces-relaxed-covid-19-curbs-from-today/",
+              "title": "Sindh announces relaxed Covid-19 curbs from today - Daily Times",
+              "date": "2021-08-09T01:24:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7958B9DDD5F83094894834687896067F93B6E3CD&simid=608012820547900431",
+              "source": "https://www.youtube.com/watch?v=7nU99o-p2MY",
+              "title": "Islamabad Rain - Latest News Updates - Breaking News - Weather Updates ...",
+              "date": "2025-09-01T15:23:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4C9349178EEA61C1C2C86F8F83FEEA24531748AF&simid=608023085496149937",
+              "source": "https://www.youtube.com/watch?v=XM0hIFxpRSQ",
+              "title": "Breaking News - Darya e Kabul mein intehai unchay darjaye ka selaab ...",
+              "date": "2022-08-27T03:59:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A3719D6D7A32859DCE452E39FC08D30596AEA6EF&simid=608054129563629255",
+              "source": "https://www.youtube.com/watch?v=CuayEwEyfZQ",
+              "title": "Used Cars For Sale In Pakistan | Used Cars Prices | Carvan Motors - YouTube",
+              "date": "2023-10-29T17:35:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=51D54FE49AF67D625EEA5715199A73B95BD3E4BE&simid=607985959865289190",
+              "source": "https://www.youtube.com/watch?v=VbZtHTDyBiQ",
+              "title": "PAKISTANI KASHMIRI AZADI KYON MANG RAHAY HAIN? - YouTube",
+              "date": "2024-05-14T13:16:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=11DC18D87AC101C5C87E526C07FD7FCEFAC5C072&simid=608010926457976476",
+              "source": "https://www.youtube.com/watch?v=tvRignW2GLk",
+              "title": "MET Office Forecast Regarding Rain in Pakistan? | Latest Weather Update ...",
+              "date": "2025-05-21T13:27:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5D60BFF7879F10DA5F2F74965BA12C9D9F205A33&simid=608016621591286185",
+              "source": "https://www.youtube.com/watch?v=y49SdwkKsGM",
+              "title": "Today's Weather of Faisalabad - YouTube",
+              "date": "2018-01-01T12:00:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=71EB0A3F4003EF638380406BD45E3E869107E65D&simid=608004415250500502",
+              "source": "https://www.youtube.com/watch?v=aHDGAh4ArFE",
+              "title": "PTI protest, Motorway M1 completely closed - Aaj News - YouTube",
+              "date": "2024-09-28T09:45:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=EDF63DC7E0A871D6F8B850DB34E5E907FD7D5E5D&simid=608034742056138791",
+              "source": "https://www.youtube.com/watch?v=cf9orgfg-K8",
+              "title": "Protests are still going on in Karachi, many roads are blocked - Aaj ...",
+              "date": "2024-06-29T04:05:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=82934216EE516933B6B45B740AC0B64B24414ED3&simid=608038062026537378",
+              "source": "https://www.youtube.com/watch?v=3nZOH2Sfg1M",
+              "title": "Saudi Arabia Breaking News From Riyadh City Saudi Expats News By SAFI ...",
+              "date": "2023-04-08T14:47:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=15A2C47E4328D4C7E1A4B4A93445F754E9D7391D&simid=608028407008225917",
+              "source": "https://www.youtube.com/watch?v=muGuEsfx8sE",
+              "title": "Indus filling station pa pakar lia || Adil Shah Karachi to Dikhan part ...",
+              "date": "2022-08-16T14:31:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=78CB0F948F04B9926B71240DA1997473CD63D6DC&simid=608031396266974771",
+              "source": "https://www.youtube.com/watch?v=4d73ivyTmxw",
+              "title": "Grand operation against Kache ke Daku | Geo News - YouTube",
+              "date": "2024-05-05T09:48:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=6B791262F9B687E18CDDB12D2F4967201E5E92A6&simid=608045333454063025",
+              "source": "https://www.youtube.com/watch?v=3Y7Sb9gaVhc",
+              "title": "Karachi Weather update| Rains ⛈️ Expected in next 72 Hours| Karachi ...",
+              "date": "2024-07-06T18:08:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=CD7D25CB6CAD8BD0247A60FBB7FCC3038E898F63&simid=607998230531625320",
+              "source": "https://www.youtube.com/watch?v=3b-r5SNRRA8",
+              "title": "Motorways Closed In Punjab Due To Fog | Pakistan Weather Updates ...",
+              "date": "2022-12-17T02:20:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=6A4AE781F7E749FD8BC5BE64E14083A1529C2BDB&simid=608009092514532187",
+              "source": "https://www.youtube.com/watch?v=nSnUE6WIIBU",
+              "title": "Breaking: Smog Situation Worsens in Lahore – Updated Weather Report ...",
+              "date": "2025-10-07T07:19:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A9F7A0FD62E9C1D60A770CBFB1D430164C01D0AA&simid=608027049776463308",
+              "source": "https://www.pinterest.com/pin/how-to-avoid-somebody-in-a-hurry-who-comes-at-you-and-makes-you-worry-shorts--1022176446656711089/",
+              "title": "How to avoid Somebody in a hurry who comes at You and makes You worry # ...",
+              "date": "2023-03-16T22:05:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=BF89FF8321F1A757DC4ED26E6E2364A6A720F8AC&simid=608008027383620574",
+              "source": "https://www.youtube.com/watch?v=RW4FfErnFo4",
+              "title": "shahrah-e-faisal road karachi | karachi Street view - YouTube",
+              "date": "2023-08-19T13:45:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=C530A4891366A5596DA87FEC2BBB88A9D042FFE2&simid=608012781877543788",
+              "source": "https://videos.hamariweb.com/current-affairs/biparjoy-cyclone-dua-hotel-hawksbay_40970",
+              "title": "Biparjoy Cyclone: Dua hotel HawksBay - Current Affairs Videos",
+              "date": "2023-06-16T04:56:00Z"
+            },
+            {
+              "sec": "related_content",
+              "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=DA932002456F5787912484B0DF1FC41C9E0D0BB9&simid=608043070011685065",
+              "source": "https://archive.org/details/CNNW_20200522_110000_New_Day_With_Alisyn_Camerota_and_John_Berman",
+              "title": "New Day With Alisyn Camerota and John Berman : CNNW : May 22, 2020 4 ...",
+              "date": "2020-05-22T12:00:00Z"
+            },
+            {
+              "sec": "text_recognition",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "text_recognition",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "text_recognition",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "crops",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "crops",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            }
+          ]
+        },
+        "yandex_images": {
+          "http": 200,
+          "ms": 4417,
+          "status": "Success",
+          "error": null,
+          "top_keys": [
+            "image_preview",
+            "image_results",
+            "image_tags",
+            "similar_images"
+          ],
+          "fixture": "fixtures\\c3-japan-tsunami\\yandex_images-35a32b2a134a8fcc.json",
+          "sections": {
+            "image_preview.crops": 1,
+            "image_results": 78,
+            "image_tags": 5,
+            "similar_images": 40
+          },
+          "item_keys": {
+            "image_preview.crops": [
+              "category",
+              "crop",
+              "crop_id",
+              "serpapi_link"
+            ],
+            "image_results": [
+              "link",
+              "original_image",
+              "snippet",
+              "source",
+              "thumbnail",
+              "title"
+            ],
+            "image_tags": [
+              "link",
+              "serpapi_link",
+              "text"
+            ],
+            "similar_images": [
+              "image",
+              "link"
+            ]
+          },
+          "rows": [
+            {
+              "sec": "image_preview.crops",
+              "link": null,
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.indiatoday.in/fact-check/story/fact-check-video-japan-shows-horrific-2011-tsunami-not-recent-floods-pakistan-1995809-2022-09-02?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "indiatoday.in",
+              "title": "Fact Check: This video from Japan shows horrific 2011 tsunami, not recent floods in Pakist",
+              "date": null,
+              "hamming": 26
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.vishvasnews.com/english/viral/fact-check-video-of-2011-japan-tsunami-passed-off-as-floods-in-pakistan-in-2020/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "vishvasnews.com",
+              "title": "Fact Check: Video of 2011 Japan Tsunami Passed off as Floods in Pakistan in 2020 - Vishvas",
+              "date": null,
+              "hamming": 34
+            },
+            {
+              "sec": "image_results",
+              "link": "https://ctv.by/news/v-mire/v-pakistane-iz-za-livnej-pogibli-po-menshej-mere-sem-chelovek?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "ctv.by",
+              "title": "В Пакистане из-за сильных дождей разрушены дома, есть погибшие В мире СТВ",
+              "date": null,
+              "hamming": 36
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=HVRguI20cNI&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain In Karachi Today Monsoon Rain Updates Weather Forecast Cloudy Weather In Karach",
+              "date": null,
+              "hamming": 30
+            },
+            {
+              "sec": "image_results",
+              "link": "https://storage.googleapis.com/ddlipqwonagnfe/how-much-rain-today-in-karachi.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "storage.googleapis.com",
+              "title": "How Much Rain Today In Karachi at Rusty Wilcox blog",
+              "date": null,
+              "hamming": 30
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=HVRguI20cNI&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain In Karachi Today Monsoon Rain Updates Weather Forecast Cloudy Weather In Karach",
+              "date": null,
+              "hamming": 30
+            },
+            {
+              "sec": "image_results",
+              "link": "https://yandex.ru/video/preview/15238094950890003363?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "yandex.ru",
+              "title": "Майор от пакистанската армия беше убит в Куета, Белуджистан, след като убиец на мотоциклет",
+              "date": null,
+              "hamming": 28
+            },
+            {
+              "sec": "image_results",
+              "link": "https://vkvideo.ru/video-212278341_456310650?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "vkvideo.ru",
+              "title": "Крым.mp4 - Видео от Международная панорама VK Видео",
+              "date": null,
+              "hamming": 34
+            },
+            {
+              "sec": "image_results",
+              "link": "https://vkvideo.ru/video-212278341_456290361?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "vkvideo.ru",
+              "title": "Видео от Клуба Международного - Видео от Международная панорама VK Видео",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=9qtfsaDlfdQ&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Irandaki sel felaketi - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://yandex.ru/video/preview/8339737934833701687?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "yandex.ru",
+              "title": "Видео от Женские тайны - Видео от Женские тайны - смотреть онлайн в поиске Яндекса по Виде",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.desconcertante.com/filmagem-impressionante-poder-devastador-tsunami/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "desconcertante.com",
+              "title": "Filmagem Impressionante Mostra o Poder Devastador De Um Tsunami",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://ru.pinterest.com/shafiqurrehman580/great-seljuk/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "ru.pinterest.com",
+              "title": "Discover 15 Great seljuk and islam flag ideas islamic flag design inspiration, black flag ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pinterest.com/pin/pinterest--602426887660105158/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pinterest.com",
+              "title": "Pin by AsfandYar Abbasi on Pakistan Pakistan pictures, Pakistan independence day, Great se",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://in.pinterest.com/pin/independence-day--740771838716929946/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "in.pinterest.com",
+              "title": "Pakistan independence day Scottish independence, Pakistan picture, Precious",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=t9C3bGVwLnk&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain in Kuwait Kuwait Flood Kuwait Weather Today - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://videos.hamariweb.com/current-affairs/heavy-rain-in-kuwait_40756?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "videos.hamariweb.com",
+              "title": "Heavy Rain in Kuwait - Current Affairs Videos",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.theviralist.com/2025/08/22/latest-situation-of-karachis-highways-traffic-blocked-roads-flooded/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "theviralist.com",
+              "title": "Latest Situation of Karachi’s Highways Traffic Blocked & Roads Flooded",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://extremeplanet.wordpress.com/tag/incredible-tsunami/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "extremeplanet.wordpress.com",
+              "title": "incredible tsunami",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.dailymotion.com/video/x8wzno4?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "dailymotion.com",
+              "title": "Dubai Floods के बाद Karachi Pakistan में Heavy Rain and Floods Alert, Disaster Management ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.dailymotion.com/video/x8xvuje?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "dailymotion.com",
+              "title": "Dubai Rains: Orange Alert Issued as Rainfall Intensify, Flights Cancelled & Schools Shut O",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pinterest.com/pin/pakistani-flag-flying-high--582231058069030242/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pinterest.com",
+              "title": "Pakistani Flag Pakistani flag, Pakistan pictures, Pakistan day",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://in.pinterest.com/pin/pakistani-flag-flying-high--582231058069030242/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "in.pinterest.com",
+              "title": "Pakistani Flag Flying High",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pinterest.ca/pin/pakistani-flag--500673683581783156/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pinterest.ca",
+              "title": "Pakistani Flag Pakistani flag, Pakistan flag, Pakistan independence day",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=0jJFYNZPPUg&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Maximum Amount of Rain Recorded in Lahore - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pakistantoday.com.pk/2024/07/11/more-rain-than-usual-expected-this-monsoon-season-met-dept/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pakistantoday.com.pk",
+              "title": "More rain than usual expected this monsoon season: MET Dept Pakistan Today",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://4k-video.ru/es/id-video/dAmi434wRZc/samaa-news-headlines-6pm-samaa-tv-11-july-2023?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "4k-video.ru",
+              "title": "Samaa News Headlines 6PM SAMAA TV 11 July 2023 ver video en línea",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=vyVY2M8VjwA&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Pakistan’da Etkili Olan Muson Yağmurları Yıkıma Yol Açtı: 25 Ölü - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.hursozgazetesi.com/video/pakistanda-etkili-olan-muson-yagmurlari-yikima-yol-acti-25-olu?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "hursozgazetesi.com",
+              "title": "Pakistan’da Etkili Olan Muson Yağmurları Yıkıma Yol Açtı: 25 Ölü - Hürsöz Gazetesi",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=poCsi5bQQzc&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Karachi Heavy Rain Prediction Pakistan Weather Update Breaking News - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://english.aaj.tv/news/30293494/code.jquery.com?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "english.aaj.tv",
+              "title": "Breaking News Toofani barish ki waja say sindh hukumat ka aam tateel ka elan Aaj News - Vi",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://english.aaj.tv/news/30293494/cdnjs.cloudflare.com?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "english.aaj.tv",
+              "title": "Breaking News Toofani barish ki waja say sindh hukumat ka aam tateel ka elan Aaj News - Vi",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=oDfLQ9G74kk&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Exclusive! Stormy Rain Do Destruction Everywhere - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://en.dailypakistan.com.pk/28-Jul-2021/watch-several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "en.dailypakistan.com.pk",
+              "title": "WATCH: Several cars swept away as cloudburst triggers flash flood in Islamabad",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://dnanews.com.pk/several-cars-swept-away-as-cloudburst-triggers-flash-flood-in-islamabad/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "dnanews.com.pk",
+              "title": "Several cars swept away as cloudburst triggers flash flood in Islamabad - DNA News Agency",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=3oE8F442VXg&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy rain causes urban flooding, disrupts life in Karachi - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.azattyqasia.org/a/29230278.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "azattyqasia.org",
+              "title": "Ливни затопили центр Ашхабада",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.azattyqasia.org/a/29231924.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "azattyqasia.org",
+              "title": "В Ашхабаде ликвидируют последствия ливня",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.centralasian.org/a/29232779.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "centralasian.org",
+              "title": "В Ашхабаде ликвидируют последствия ливня (видео)",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=VvQWpjWVq2Y&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy rainfall forecast for Karachi - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=VvQWpjWVq2Y&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy rainfall forecast for Karachi - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://videonuz.ensonhaber.com/izle/pakistanda-sel-felaketi-can-kaybi-312ye-yukseldi?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "videonuz.ensonhaber.com",
+              "title": "Pakistan'da sel felaketi: Can kaybı 312’ye yükseldi - VİDEONUZ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=keLJnE3jlmQ&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain Inflooding In Karachi Weather Forecast Breaking News - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=keLJnE3jlmQ&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain Inflooding In Karachi Weather Forecast Breaking News - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=0DVlLZPTYvE&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain In Pakistan Pakistan Weather Latest New Updates Rain In Karachi Breaking News -",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pinterest.com/pin/1121396375945498945/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pinterest.com",
+              "title": "پاکستان اور پاکستانی وقم",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://au.pinterest.com/pin/599963981619422774/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "au.pinterest.com",
+              "title": "چله جهانی استغاثه فرج Mola ali wiladat 13 rajab videos, 13 rajab imam ali wiladat video, G",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://ca.pinterest.com/pin/video--889320257684079877/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "ca.pinterest.com",
+              "title": "نگه دار صفحه رو ببین برات چی نوشته شده Video Youtube template video editing pakistan, Vide",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://m.ok.ru/video/151545621952695-1?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "m.ok.ru",
+              "title": "Видео Цунами в Японии.mp4 OK.RU",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.altnews.in/viral-video-of-2011-tsunami-in-japan-shared-as-that-of-kerala/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "altnews.in",
+              "title": "Viral: Video of 2011 tsunami in Japan shared as that of Kerala by Mutiple - Alt News",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.altnews.in/hindi/viral-video-of-2011-tsunami-in-japan-shared-as-that-of-kerala/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "altnews.in",
+              "title": "2011 के जापान सुनामी का वीडियो केरल का बताकर वायरल by धर्मेन्द्र ठाकुर - Alt News",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.ankaramasasi.com.tr/haber/1786209/pakistanda-selde-olenlerin-sayisi-artiyor?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "ankaramasasi.com.tr",
+              "title": "Pakistan'da selde ölenlerin sayısı artıyor Ankara Masası",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=1XQOA03XUro&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Dubai And Sharjah Situation 3 Days After Rains - Cloud Seeding Caused Rains in Dubai? - Yo",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.newsnationtv.com/india/news/imd-weather-forecast-today-rainfall-in-india-delhi-weather-update-254101.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "newsnationtv.com",
+              "title": "दिल्ली-NCR में तापमान गिरा, अगले कुछ दिनों तक जारी रहेगा बारिश का दौर",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.divyabhaskar.co.in/local/gujarat/gandhinagar/news/universal-rains-forecast-in-gujarat-in-2-days-heavy-to-very-heavy-rains-in-south-gujarat-tomorrow-and-light-to-moderate-rains-in-saurashtra-128826480.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "divyabhaskar.co.in",
+              "title": "will be next two day rain fall in Gujarat As Forecast",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=sWlW3elYolk&app=desktop&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Pakistan'da Şiddetli Yağmur Vatandaşları Evinden Etti! / A Haber A Haber - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://blogpakistan.pk/monsoon-alert-pmd-predicts-floods-above-average-temperatures/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "blogpakistan.pk",
+              "title": "PMD Predicts Massive Floods in Monsoon 2023",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=_nxfQWwwevs&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rains in Saudi Arabia Saudi Arabia Weather Update Breaking News Dawn News - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://thefederal.com/videos/pakistan-floods-over-30-million-people-affected-death-toll-crosses-1000?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "thefederal.com",
+              "title": "Pakistan floods: Over 30 million people affected; death toll crosses 1,000 %%title",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=1KaYCwi5keI&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Karachi Rain news Latest Update Heavy Rain in Karachi Weather Update - 26 JULY 2022 - YouT",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=1KaYCwi5keI&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Karachi Rain news Latest Update Heavy Rain in Karachi Weather Update - 26 JULY 2022 - YouT",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=pfSMYgkVB1M&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Top News-Uragani Ida godet SHBA-në/Mbi 1 milion banesa pa energji elektrike - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://castbox.fm/episode/%D0%A3%D1%80%D0%B0%D0%B3%D0%B0%D0%BD-%C2%AB%D0%98%D0%B4%D0%B0%C2%BB-%D0%BE%D0%B1%D1%80%D1%83%D1%88%D0%B8%D0%BB%D1%81%D1%8F-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D1%8C%D0%B5-%D0%9B%D1%83%D0%B8%D0%B7%D0%B8%D0%B0%D0%BD%D1%8B---%D0%90%D0%B2%D0%B3%D1%83%D1%81%D1%82-30%2C-2021-id580412-id418846245?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "castbox.fm",
+              "title": "Ураган \"Ида\" обрушился на побережье Луизианы - Август 30, 2021",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.dailymotion.com/video/x83u1w2?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "dailymotion.com",
+              "title": "الإعصار \"أيدا\" يضرب لويزيانا ويغرق نيو أورلينز في الظلام - فيديو Dailymotion",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=qDmSgvFQdXM&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Dr. Nabiha Women Card Khel Rahi, Blackmail Kar Rahi - Khula Notice Ke Baad Haris Khokhar K",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.urdupoint.com/videos/ur/28209.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "urdupoint.com",
+              "title": "لاہور میں شدید بارش: جوہر ٹاؤن لاہور کی سڑکیں باریش کے پانی میں ڈوب گئی لاہور میں بارش کی ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.urdupoint.com/videos/gujranwalas-jinnah-stadium-turns-into-a-lake-after-record-rain-shocking-flood-scenes.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "urdupoint.com",
+              "title": "Gujranwala's Jinnah Stadium Turns Into A Lake After Record Rain Shocking Flood Scenes - Ur",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=dwYkNv7Zk2M&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Heavy Rain in Saudi Arabia - Infrastructure Behtar Hone Se Shehri Tabahi Se Bach Gaye - Yo",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.urdupoint.com/videos/ur/21902.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "urdupoint.com",
+              "title": "سعودی عرب میں طوفانی بارشیں - انفراسٹرکچر بہتر ہونے سے شہر تباہی سے بچ گئے - اردو پوائنٹ و",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.urdupoint.com/videos/heavy-rain-in-saudi-arabia-infrastructure-behtar-hone-se-shehri-tabahi-se-bach-gaye.html?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "urdupoint.com",
+              "title": "Heavy Rain In Saudi Arabia - Infrastructure Behtar Hone Se Shehri Tabahi Se Bach Gaye - Ur",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=nMsrsvVmqHY&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Nagan Chowrangi Main Selaab Agaya Today Heavy Rain In Karachi 2nd Eid Day Rain 11-7-2022 -",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=6BrCW-OmBKo&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "Monsoon Rain Begins in Karachi Karachi Weather Updates Breaking News - YouTube",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?v=GQiDcFOJn3I&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "🟢 Dubai Floods 2024 LIVE Dubai Floods Latest News Today : Dubai Struggles To Recover From ",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.flash-mini.com/p1271021.world?id=p1271021%3Fid%3Dp1271021%3Fid%3Dp1271021%3Fid%3Dp1271021&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "flash-mini.com",
+              "title": "Awesome stories 1",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.youtube.com/watch?app=desktop&v=qi2qPc2ZwOA&utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "youtube.com",
+              "title": "🟢 Dubai LIVE: Heavy rain lashes in Dubai causing flash floods Dubai Police UAE News News18",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://ru.pinterest.com/qasimsahi12/pakistan-army/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "ru.pinterest.com",
+              "title": "11 Pakistan army ideas pakistan army, pakistan, pakistan armed forces",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://pholder.com/twitter/u/dkinpk/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pholder.com",
+              "title": "1 best Twitter u/dkinpk images on Pholder Lone Pakistani veteran walking back from the sun",
+              "date": null
+            },
+            {
+              "sec": "image_results",
+              "link": "https://www.pinterest.com/qamarhina61/pakistan-army/?utm_medium=organic&utm_source=yandexsmartcamera",
+              "source": "pinterest.com",
+              "title": "16 Pakistan army ideas pakistan army, pakistan armed forces, general knowledge book",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=pakistan%20flood",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=karachi%20pakistan",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=pakistan%20pakistan",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=karachi%20weather",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "image_tags",
+              "link": "https://yandex.com/images/search?text=today%20pakistan",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fakm-img-a-in.tosshub.com%2Findiatoday%2Fimages%2Fstory%2F202209%2FCover_1200x768.jpeg%3FVersionId%3D3KJjNa3IgSt3W182.LgY6.39moaiXIqJ&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.vishvasnews.com%2Fwp-content%2Fuploads%2F2020%2F12%2FFake_News_December30_5.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fapi.ctv.by%2Fuploads%2Fimages%2Fvlcsnap-2026-06-15-10h48m59s325_1.jpg%3Fwidth%3D1200%2Fheight%3D675&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHVRguI20cNI%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fiv.okcdn.ru%2FgetVideoPreview%3Fid%3D8333940034303%26idx%3D6%26type%3D39%26tkn%3DwAia3APfRCO7Bz3WHrCAtmiRVpY%26fn%3Dvid_w&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.desconcertante.com%2Fwp-content%2Fuploads%2F2018%2F07%2F18784.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F43%2Fae%2F9e%2F43ae9ec03aecbdb594b40ad31ba70fa4.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2Ft9C3bGVwLnk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.theviralist.com%2Fwp-content%2Fuploads%2F2025%2F08%2FLatest-Situation-of-Karachis-Highways-Traffic-Blocked-Roads-818x490.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fextremeplanet.wordpress.com%2Fwp-content%2Fuploads%2F2014%2F02%2Fishinomaki-tsunami1.png&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fs1.dmcdn.net%2Fv%2FW8gAK1clUFHVwDszI%2Fx720&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fe2%2Fa7%2Fb3%2Fe2a7b3f858b9b6fe4d711ebf1773df8a.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FtdR4xd5w4VU%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fimg.youtube.com%2Fvi%2FvyVY2M8VjwA%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FpoCsi5bQQzc%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFHTbsJv4kYM%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FoDfLQ9G74kk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3oE8F442VXg%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fgdb.rferl.org%2F01e5f24b-564e-47ad-932f-238d3801193c_tv_w1200_h630.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVvQWpjWVq2Y%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fcdnvideonuz.ensonhaber.com%2Fcrop%2F800x450%2Fthumb%2Fkok%2F2022%2F07%2F24%2Fpakistanda-sel-felaketi-can-kaybi-312ye-yukseldi_3096.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FkeLJnE3jlmQ%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0DVlLZPTYvE%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.pinimg.com%2F736x%2F2a%2Fde%2Fdf%2F2adedf6d9a41b1656dc9498efcd17faf.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fwww.altnews.in%2Fhindi%2Fwp-content%2Fuploads%2F2018%2F08%2FSikh-Army.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fcdn.ankaramasasi.com%2F2022%2F9%2F11%2Fpakistanda-selde-olenlerin-sayisi-artiyor.gif&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1XQOA03XUro%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fimg-cdn.publive.online%2Ffit-in%2F1200x675%2Fnewsnation%2Fmedia%2Fpost_attachments%2Fimages%2F2022%2F02%2F26%2Fweather-40.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FsWlW3elYolk%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fblogpakistan.pk%2Fwp-content%2Fuploads%2F2023%2F06%2FHeres-When-Monsoon-Will-Start-in-Pakistan-1.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F_nxfQWwwevs%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fthefederal.com%2Ffile%2F2022%2F08%2FPakistan.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F1KaYCwi5keI%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fs2.dmcdn.net%2Fv%2FTDsWI1clSR6Yo0-BI%2Fx720&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fphoto-cdn.urdupoint.com%2Fshow_img_new%2Fvideos%2Fcontent_video_images%2F2026%2F1200x672%2F1784711704_8269_vid_icon.jpg._2&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FdwYkNv7Zk2M%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FnMsrsvVmqHY%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6BrCW-OmBKo%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FGQiDcFOJn3I%2Fmaxresdefault.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            },
+            {
+              "sec": "similar_images",
+              "link": "https://yandex.com/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060%2Forig&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FDxcJP2EWwAEvbuV.jpg&rpt=imageview&lr=20991&cbir_id=4530768%2FI3DBYpxqoHOrto4uDBHT_Q1060&cbir_page=similar",
+              "source": null,
+              "title": "",
+              "date": null
+            }
+          ]
+        }
+      },
+      "signed_identical": true,
+      "cleanup": {
+        "delete_http": 200,
+        "signed_get_after_delete": 400
+      }
+    }
+  ],
+  "credits_after": 242
+}

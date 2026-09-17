@@ -1,0 +1,938 @@
+{
+  "search_metadata": {
+    "status": "Success",
+    "markdown_endpoint": "https://serpapi.com/searches/5D9mUsTgCNXIPtZHUbj6RgWOooqRXzW-NyBgX8rYJkg/6aab9a3d8ffd7b8f8e015241.md",
+    "created_at": "2026-09-17 07:43:57 UTC",
+    "processed_at": "2026-09-17 07:43:57 UTC",
+    "bing_reverse_image_url": "https://www.bing.com/images/search?q=imgurl:https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&view=detailv2&iss=sbi",
+    "total_time_taken": 2.59
+  },
+  "search_parameters": {
+    "engine": "bing_reverse_image",
+    "image_url": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "mkt": "en-US"
+  },
+  "search_information": {
+    "total_estimated_matches": 496
+  },
+  "image_info": {
+    "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO",
+    "source": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "original": "https://yqgkrdewrggomkcabeie.supabase.co/storage/v1/object/sign/dejavue-tmp/engine-check/aec0384fec5a072d.jpg?token=<redacted>",
+    "domain": "yqgkrdewrggomkcabeie.supabase.co",
+    "width": 463,
+    "height": 543,
+    "format": "jpeg",
+    "file_size": "61374 B"
+  },
+  "related_content": [
+    {
+      "position": 1,
+      "title": "Flood Damage Stock Photos, Images and Backgrounds for Free Download",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A3D635B1BB57024BA41FE1530C659A8116D4BE69&simid=608019022495225136",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.5hK5f_QUt1Ljt7vJhdrpnAHaEK?r=0&pid=Api",
+      "date": "2023-02-04T20:45:00Z",
+      "source": "https://www.vecteezy.com/free-photos/flood-damage?page=5",
+      "original": "https://static.vecteezy.com/system/resources/thumbnails/023/669/863/small_2x/aerial-pov-view-depiction-of-flooding-devastation-wrought-after-massive-natural-disasters-at-bekasi-indonesia-photo.JPG",
+      "cdn_original": "https://th.bing.com/th/id/R.e612b97ff414b752e3b7bbc985dae99c?rik=ab7UFoGaZQxT4Q&pid=ImgRaw&r=0",
+      "domain": "static.vecteezy.com",
+      "width": 711,
+      "height": 400,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "77286 B"
+    },
+    {
+      "position": 2,
+      "title": "Five must-follow steps to rescue flooded car - Car News | The Financial ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=A8826A4F10385CDAC09F8D5BE01BC2EF2D1E83E8&simid=608052609116345413",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.EdONggFDqXktQpwpVH8AAgHaEK?r=0&pid=Api",
+      "date": "2024-06-27T06:37:00Z",
+      "source": "https://www.financialexpress.com/auto/car-news/five-must-follow-steps-to-rescue-flooded-car/3536370/",
+      "original": "https://www.financialexpress.com/wp-content/uploads/2024/06/car-flood-1.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.11d38d820143a9792d429c29547f0002?rik=6IMeLe%2fCG%2bBbjQ&pid=ImgRaw&r=0",
+      "domain": "www.financialexpress.com",
+      "width": 1200,
+      "height": 675,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "83099 B"
+    },
+    {
+      "position": 3,
+      "title": "Death toll reaches 52, Uttarakhand reels under rain aftermath | India ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=8AD17658414EC651AEAFB8DAF17AC93ABF5501B4&simid=608043817322026803",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.heLZVyZxkRP_qhsDH_6G0wAAAA?r=0&pid=Api",
+      "date": "2021-10-19T18:00:00Z",
+      "source": "https://indianexpress.com/photos/india-news/heavy-rainfall-batters-uttarakhand-7580319/",
+      "original": "https://images.indianexpress.com/2021/10/AP10_19_2021_000082B-1.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.85e2d95726719113ffaa1b031ffe86d3?rik=tAFVvzrJevHauA&pid=ImgRaw&r=0",
+      "domain": "images.indianexpress.com",
+      "width": 474,
+      "height": 263,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 263,
+      "file_size": "135682 B"
+    },
+    {
+      "position": 4,
+      "title": "How Does A Flash Flood Start at Tayla Sligo blog",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7A7FA3A3E613F237934075D1FAA4C775684AAD1A&simid=607997229806931627",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.DtUt9_dzrkrDjul5TofWXQHaE8?r=0&pid=Api",
+      "date": "2025-03-18T22:00:00Z",
+      "source": "https://storage.googleapis.com/diflrdlaagprxe/how-does-a-flash-flood-start.html",
+      "original": "https://assets.telegraphindia.com/telegraph/2023/Jul/1688553345_flash-flood.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.0ed52df7f773ae4ac38ee9794e87d65d?rik=Gq1KaHXHpPrRdQ&pid=ImgRaw&r=0",
+      "domain": "assets.telegraphindia.com",
+      "width": 900,
+      "height": 600,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "90426 B"
+    },
+    {
+      "position": 5,
+      "title": "Cyclone Debbie: Brisbane drenched as system moves through south-east ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=AA5F03076BAB28B2BCD9E9DCDBF1074A40BDD6DF&simid=608020328144770172",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.kGfTDZsG9s2zpLeMFvdpbwHaE6?r=0&pid=Api",
+      "date": "2017-03-29T23:53:00Z",
+      "source": "https://www.abc.net.au/news/2017-03-30/brisbane-prepares-for-big-wet-cyclone-debbie-drenching-p/8400124",
+      "original": "https://live-production.wcms.abc-cdn.net.au/87b053f9363c5d45ce3fee43153e8706?impolicy=wcms_crop_resize&cropH=537&cropW=809&xPos=0&yPos=0&width=862&height=575",
+      "cdn_original": "https://th.bing.com/th/id/R.9067d30d9b06f6cdb3a4b78c16f7696f?rik=39a9QEoH8dvc6Q&pid=ImgRaw&r=0",
+      "domain": "live-production.wcms.abc-cdn.net.au",
+      "width": 809,
+      "height": 537,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 314,
+      "file_size": "91478 B"
+    },
+    {
+      "position": 6,
+      "title": "2 killed as flooding hits Kenya, sweeping away homes and destroying ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=76EBFAA86C4A5E349C11BB6FD0E444FD65D7B1C7&simid=608019701092402799",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.8_hsw5qDWdLzG975V4gnwgHaE8?r=0&pid=Api",
+      "date": "2023-11-03T18:34:00Z",
+      "source": "https://www.independent.co.uk/news/kenya-ap-nairobi-tanzania-mombasa-b2441336.html",
+      "original": "https://static.independent.co.uk/2023/11/03/18/Kenya_Mombasa_Heavy_Downpour_23364.jpg?quality=75&width=1200&auto=webp",
+      "cdn_original": "https://th.bing.com/th/id/R.f3f86cc39a8359d2f31bdef9578827c2?rik=x7HXZf1E5NBvuw&pid=ImgRaw&r=0",
+      "domain": "static.independent.co.uk",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "91784 B"
+    },
+    {
+      "position": 7,
+      "title": "Apa Nak Buat Jika Terperangkap Dalam Kereta – Banjir, Kereta Terjunam ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7AECB9631E939F3FB52D9A80207D74346522D41A&simid=608034544497358458",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.S-wqgd6q7_4lM4sxoDQorwHaFj?r=0&pid=Api",
+      "date": "2021-09-13T12:02:00Z",
+      "source": "https://www.carlist.my/news/apa-nak-buat-jika-terperangkap-dalam-kereta-banjir-kereta-terjunam-ke-dalam-air-dan-kanak-kanak-yang-ditinggalkan-84169/84169/",
+      "original": "https://img.icarcdn.com/autospinn-my/body/000000296786_cfc417b7_a00e_4e69_9268_50ed9a261db6.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.4bec2a81deaaeffe25338b31a03428af?rik=GtQiZTR0fSCAmg&pid=ImgRaw&r=0",
+      "domain": "img.icarcdn.com",
+      "width": 1000,
+      "height": 750,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 355,
+      "file_size": "138239 B"
+    },
+    {
+      "position": 8,
+      "title": "After the Flood - Trinidad Guardian",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=CFDC32DB2071254AE13B6A09C07B7864F43EEB6D&simid=608054009274383269",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.ArTTZXk9csV-QifGUZkfbwHaFj?r=0&pid=Api",
+      "date": "2018-10-23T04:39:00Z",
+      "source": "https://www.guardian.co.tt/life/after-the-flood-6.2.696985.918fecf780",
+      "original": "http://www.guardian.co.tt/image-3.1568053.50452.20181022163254.d2cd982199",
+      "cdn_original": "https://th.bing.com/th/id/R.02b4d365793d72c57e4227c651991f6f?rik=bes%2b9GR4e8AJag&riu=http%3a%2f%2fwww.guardian.co.tt%2fimage-3.1568053.50452.20181022163254.d2cd982199&ehk=nTltzzarvkFC6sbVxw8%2bfA09MvGaR5DCd0c%2fM4pfyVs%3d&risl=&pid=ImgRaw&r=0",
+      "domain": "www.guardian.co.tt",
+      "width": 534,
+      "height": 400,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 355,
+      "file_size": "27270 B"
+    },
+    {
+      "position": 9,
+      "title": "Record-breaking rains flood parts of Karnataka, 2018 Monsoon arrives ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5BA45113CD6358BFE9B594D40CC123F551080694&simid=608011222791381321",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.9IL3ZmR1TkBoCu6uz4f0GgHaCw?r=0&pid=Api",
+      "date": "2023-03-05T19:44:00Z",
+      "source": "https://www.pinterest.com/pin/recordbreaking-rains-flood-parts-of-karnataka-2018-monsoon-arrives-with-a-bang--199917670942968126/",
+      "original": "https://i.pinimg.com/originals/4b/fc/f5/4bfcf582e79c298ae5b4a09d232c1e62.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.f482f76664754e40680aeeaecf87f41a?rik=lAYIUfUjwQzUlA&pid=ImgRaw&r=0",
+      "domain": "i.pinimg.com",
+      "width": 796,
+      "height": 296,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 176,
+      "file_size": "53110 B"
+    },
+    {
+      "position": 10,
+      "title": "5,815 China Floods Photos & High Res Pictures - Getty Images",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0D7FB1DA1F7EC2036E46862B8984168C91668C13&simid=608043512381113632",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.DHgaVHrIpshUyBx7QbwixwAAAA?r=0&pid=Api",
+      "date": "2018-01-17T01:28:00Z",
+      "source": "https://www.gettyimages.com/photos/china-floods",
+      "original": "https://media.gettyimages.com/id/545629724/photo/topshot-this-image-taken-with-a-cameraphone-shows-cars-and-buses-being-washed-away-by.jpg?s=612x612&w=gi&k=20&c=cQI94tnkp7mnU_t5Xk9N-kfUAClgontwusAR2buIv88=",
+      "cdn_original": "https://th.bing.com/th/id/R.0c781a547ac8a6c854c81c7b41bc22c7?rik=E4xmkYwWhIkrhg&pid=ImgRaw&r=0",
+      "domain": "media.gettyimages.com",
+      "width": 459,
+      "height": 612,
+      "format": "jpeg",
+      "thumbnail_width": 459,
+      "thumbnail_height": 612,
+      "file_size": "50685 B"
+    },
+    {
+      "position": 11,
+      "title": "In pics: Kerala battered by heavy rains, death toll reaches 26",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=7806521F3A06B7EA3FD0ABE4B9DEBD99864B40C2&simid=608021041122266379",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.zIwkjTgRA3jbW5fRF0awdAHaEK?r=0&pid=Api",
+      "date": "2018-08-10T08:29:00Z",
+      "source": "https://www.business-standard.com/article/current-affairs/in-pics-kerala-battered-by-heavy-rains-death-toll-reaches-26-118081000367_1.html",
+      "original": "https://bsmedia.business-standard.com/_media/bs/img/article/2018-08/10/full/1533879782-9922.jpg?im=FeatureCrop,size=(826,465)",
+      "cdn_original": "https://th.bing.com/th/id/R.cc8c248d38110378db5b97d11746b074?rik=wkBLhpm93rnkqw&pid=ImgRaw&r=0",
+      "domain": "bsmedia.business-standard.com",
+      "width": 826,
+      "height": 465,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "54549 B"
+    },
+    {
+      "position": 12,
+      "title": "Hurricane Dorian's Australian survivors describe ocean swallowing ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=06C747733C4DEAA479E6F1C2A67F52C50B197B6E&simid=608033578142668620",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.d6xEK25DHZtdUGEjaGfHjgHaE8?r=0&pid=Api",
+      "date": "2019-09-05T03:14:00Z",
+      "source": "https://www.abc.net.au/news/2019-09-05/australian-women-in-hurricane-dorian-describe-bahamas-damage/11481182",
+      "original": "https://live-production.wcms.abc-cdn.net.au/49db091ab5bf923018f689b4fc76ca1a?impolicy=wcms_crop_resize&cropH=360&cropW=540&xPos=0&yPos=166&width=862&height=575",
+      "cdn_original": "https://th.bing.com/th/id/R.77ac442b6e431d9b5d5061236867c78e?rik=bnsZC8VSf6bC8Q&pid=ImgRaw&r=0",
+      "domain": "live-production.wcms.abc-cdn.net.au",
+      "width": 540,
+      "height": 360,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "24906 B"
+    },
+    {
+      "position": 13,
+      "title": "Yearender: Natural disasters that 'shook' and 'stuck' India in 2021 ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=8F64EFAEC0EF522FBDD126375D77841B1CA92BB9&simid=607987196778387409",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.hY6vswkwP7e9hNXV-b0hgQHaEK?r=0&pid=Api",
+      "date": "2021-12-30T08:33:00Z",
+      "source": "https://www.indiatvnews.com/photos/india-yearender-2021-natural-calamities-natural-disasters-india-earthquakes-floods-cyclones-landslides-cloudbursts-chamoli-disaster-landslide-in-himachal-751836",
+      "original": "https://resize.indiatvnews.com/en/resize/gallery/835_-/2021/12/uttarakhand-flood-2-iamge-1640833880.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.858eafb309303fb7bd84d5d5f9bd2181?rik=uSupHBuEd103Jg&pid=ImgRaw&r=0",
+      "domain": "resize.indiatvnews.com",
+      "width": 835,
+      "height": 469,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "44111 B"
+    },
+    {
+      "position": 14,
+      "title": "Tens of thousands flee West Africa floods",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0D9534C18A8B82FA042460155F834EF9870E1BE9&simid=608008409624489249",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.ihDXtU332APsBL7D1CBSHAHaE6?r=0&pid=Api",
+      "date": "2021-02-09T12:24:00Z",
+      "source": "https://www.nbcnews.com/id/wbna32673628",
+      "original": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/afp/par2746822.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.8a10d7b54df7d803ec04bec3d420521c?rik=6RsOh%2flOg18VYA&pid=ImgRaw&r=0",
+      "domain": "media-cldnry.s-nbcnews.com",
+      "width": 560,
+      "height": 371,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 314,
+      "file_size": "51170 B"
+    },
+    {
+      "position": 15,
+      "title": "Tanzania suffers $69 million crop loss from El Nino floods",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=802949D34536E3618398A99D2E11A0781B1EAE9D&simid=607995490363519445",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.dZuzwwfYvX8GAsL8JR2X9QHaEK?r=0&pid=Api",
+      "date": "2024-10-31T06:46:00Z",
+      "source": "https://www.thehansindia.com/news/international/tanzania-suffers-69-million-crop-loss-from-el-nino-floods-918386",
+      "original": "https://assets.thehansindia.com/h-upload/2024/10/31/1493589-yanzania.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.759bb3c307d8bd7f0602c2fc251d97f5?rik=na4eG3igES6dqQ&pid=ImgRaw&r=0",
+      "domain": "assets.thehansindia.com",
+      "width": 1280,
+      "height": 720,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "55500 B"
+    },
+    {
+      "position": 16,
+      "title": "Flooding in Sierra Leone: Crossroads Staff, Volunteers Safe",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=20791347AC3B2DE0C81664A7F294E8C29E9A6B23&simid=608004200527173101",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.IAn0_U0y9GcFqONJgx8zvgHaDm?r=0&pid=Api",
+      "date": "2017-08-16T01:21:00Z",
+      "source": "https://cpministries.org/news/flooding-in-sierra-leone-crossroads-staff-volunteers-safe",
+      "original": "https://cpministries.org/wp-content/uploads/2017/08/sierra-leone1.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.2009f4fd4d32f46705a8e349831f33be?rik=I2uansLolPKnZA&pid=ImgRaw&r=0",
+      "domain": "cpministries.org",
+      "width": 1008,
+      "height": 490,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 230,
+      "file_size": "107449 B"
+    },
+    {
+      "position": 17,
+      "title": "Johor Bahru hit by flash floods following two hours of heavy rain ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=9FE91AC7ACC297D5840AD0A843D4541B6332B65C&simid=608005729610442257",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.-M8XnCj5N8kNvuXNB13NkAHaEu?r=0&pid=Api",
+      "date": "2022-08-02T10:43:00Z",
+      "source": "https://paultan.org/2022/08/02/johor-bahru-hit-by-flash-floods-following-two-hours-of-heavy-rain-cars-submerged-water-levels-waist-high/",
+      "original": "https://paultan.org/image/2022/08/Johor-Bahru-flash-flood-Aug-2022-FB-photo-2.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.f8cf179c28f937c90dbee5cd075dcd90?rik=XLYyYxtU1EOo0A&pid=ImgRaw&r=0",
+      "domain": "paultan.org",
+      "width": 1232,
+      "height": 786,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 302,
+      "file_size": "262283 B"
+    },
+    {
+      "position": 18,
+      "title": "News: Flood insurance coverage take up rate still low | CarSifu",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=74FE6734574A82A595239E5CEDE68855A5F94B11&simid=607991667824997682",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.SUP9gdoYNShfxyxkE69t1wHaEJ?r=0&pid=Api",
+      "date": "2022-06-23T09:02:00Z",
+      "source": "https://www.carsifu.my/news/flood-insurance-coverage-take-up-rate-still-low",
+      "original": "https://da4dkroembtou.cloudfront.net/wp-content/uploads/2022/06/Allianz_flood.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.4943fd81da1835285fc72c6413af6dd7?rik=EUv5pVWI5u1cng&pid=ImgRaw&r=0",
+      "domain": "da4dkroembtou.cloudfront.net",
+      "width": 800,
+      "height": 448,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 265,
+      "file_size": "47102 B"
+    },
+    {
+      "position": 19,
+      "title": "Flooding hits London and the South East on EU polling day | ITV News London",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=244A82875252DC4CF6C108E3FCFB1A738CB32D4C&simid=608044233961972691",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.Xin9ctdPTn2IGl5fE2te8AHaEK?r=0&pid=Api",
+      "date": "2016-06-23T11:55:00Z",
+      "source": "https://www.itv.com/news/london/2016-06-23/flooding-hits-london-and-the-south-east-on-eu-polling-day",
+      "original": "https://images.ctfassets.net/pjshm78m9jt4/135714_header/27e7a69ac0a4d2dd98ea28e81dddc635/importedImage135714_header?fm=jpg&fit=fill&w=1600&h=900&q=80",
+      "cdn_original": "https://th.bing.com/th/id/R.5e29fd72d74f4e7d881a5e5f136b5ef0?rik=TC2zjHMa%2b%2fzjCA&pid=ImgRaw&r=0",
+      "domain": "images.ctfassets.net",
+      "width": 1600,
+      "height": 900,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "116478 B"
+    },
+    {
+      "position": 20,
+      "title": "Photos: More flooding, but this is Vadodara, not Kashmir - Rediff.com ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=973037D8046F8CC5C4F844392792E0DE0F39540F&simid=608031349017498290",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.gqivRChRjiuVXINPBgialgHaE4?r=0&pid=Api",
+      "date": "2014-09-10T09:18:00Z",
+      "source": "https://www.rediff.com/news/report/photos-more-flooding-but-this-is-not-kashmir/20140910.htm",
+      "original": "https://im.rediff.com/news/2014/sep/10vadodara3.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.82a8af4428518e2b955c834f06089a96?rik=D1Q5D97gkic5RA&pid=ImgRaw&r=0",
+      "domain": "im.rediff.com",
+      "width": 670,
+      "height": 442,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 312,
+      "file_size": "42069 B"
+    },
+    {
+      "position": 21,
+      "title": "What to watch out for after a devastating flood - Good Morning America",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=F8E37DCCC67C7B166EC3CED87C01528B2680C9ED&simid=608054589126159211",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.t8fR8mseb_P58HDEcBRTIwHaEK?r=0&pid=Api",
+      "date": "2022-08-05T12:00:00Z",
+      "source": "https://www.goodmorningamerica.com/news/video/watch-devastating-flood-88009420",
+      "original": "https://s.abcnews.com/images/US/220804_vod_orig_floodhealthrisks_hpMain_16x9_1600.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.b7c7d1f26b1e6ff3f9f070c470145323?rik=7cmAJotSAXzYzg&pid=ImgRaw&r=0",
+      "domain": "s.abcnews.com",
+      "width": 1600,
+      "height": 900,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "304955 B"
+    },
+    {
+      "position": 22,
+      "title": "As Puerto Rico's power crisis worsens, lawmakers probing outages seek ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=D3AD1073AD6FC740BF7EAFB3EE6F8B435E9A0043&simid=608055804570846117",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.3-dVf6YtY6949kniNyKGCAHaEK?r=0&pid=Api",
+      "date": "2021-10-13T15:48:00Z",
+      "source": "https://www.nbcnews.com/news/latino/puerto-ricos-power-crisis-worsens-lawmakers-probing-outages-seek-answe-rcna2920",
+      "original": "https://media-cldnry.s-nbcnews.com/image/upload/t_focal-760x428,f_auto,q_auto:best/mpx/2704722219/2021_09/1632142547431_now_mnn_pr_maria_210920_1920x1080-tpjva5.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.dfe7557fa62d63af78f649e237228608?rik=QwCaXkOLb%2b6zrw&pid=ImgRaw&r=0",
+      "domain": "media-cldnry.s-nbcnews.com",
+      "width": 760,
+      "height": 428,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "55673 B"
+    },
+    {
+      "position": 23,
+      "title": "Malaysian senior citizens stranded in flooded Hatyai urgently seek ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=F78DFB5B07C18128F9FF7C58A6073AAD5D050F42&simid=608020852152216075",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.M-SlyZDLczLDlouh7c2KsQAAAA?r=0&pid=Api",
+      "date": "2025-11-24T08:04:00Z",
+      "source": "https://www.sinardaily.my/article/731930/focus/national/malaysian-senior-citizens-stranded-in-flooded-hatyai-urgently-seek-medical-aid-evacuation",
+      "original": "https://www.sinarharian.com.my/sinarenglish/uploads/images/2025/11/24/3350084.png",
+      "cdn_original": "https://th.bing.com/th/id/R.33e4a5c990cb7332c3968ba1edcd8ab1?rik=Qg8FXa06B6ZYfA&pid=ImgRaw&r=0",
+      "domain": "www.sinarharian.com.my",
+      "width": 474,
+      "height": 317,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 317,
+      "file_size": "702679 B"
+    },
+    {
+      "position": 24,
+      "title": "Monsoon Season: What To Do When Your Car Gets Flooded - PakWheels Blog",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=4577D0F227FC4806379E9FB3B67FCF1452D86342&simid=607989082260338247",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.fCWa2tb6NLlydHnxmkbXKQHaHA?r=0&pid=Api",
+      "date": "2015-07-08T13:48:00Z",
+      "source": "https://www.pakwheels.com/blog/monsoon-season-what-to-do-when-your-car-gets-flooded/",
+      "original": "https://static.pakwheels.com/2015/07/IMG_20150708_132437-640x605.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.7c259adad6fa34b9727479f19a46d729?rik=QmPYUhTPf7aznw&pid=ImgRaw&r=0",
+      "domain": "static.pakwheels.com",
+      "width": 640,
+      "height": 605,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 448,
+      "file_size": "78898 B"
+    },
+    {
+      "position": 25,
+      "title": "Foreigners among 11 Killed in Iraqi Kurdistan Floods — Naharnet",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=BDEEC10F626BF71A12C75BE566621D5D49071F79&simid=608007138292822835",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.YeV7nnCcKxYheLgXntmEkwAAAA?r=0&pid=Api",
+      "date": "2021-12-17T12:53:00Z",
+      "source": "https://www.naharnet.com/stories/en/286487",
+      "original": "http://images0.naharnet.com/images/244827/w460.jpg?1639745114",
+      "cdn_original": "https://th.bing.com/th/id/R.61e57b9e709c2b162178b8179ed98493?rik=eR8HSV0dYmblWw&riu=http%3a%2f%2fimages0.naharnet.com%2fimages%2f244827%2fw460.jpg%3f1639745114&ehk=G4FfPqv6jNrfw7QoLszy9hd%2bL3RO3b9UuKxfxmP8Z9M%3d&risl=&pid=ImgRaw&r=0",
+      "domain": "images0.naharnet.com",
+      "width": 460,
+      "height": 230,
+      "format": "jpeg",
+      "thumbnail_width": 460,
+      "thumbnail_height": 230,
+      "file_size": "26498 B"
+    },
+    {
+      "position": 26,
+      "title": "India floods: 14 dead and 100 missing after sudden rainfall swamps ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=9CD5FF32D759D5E4BCFBBD1B2F296087071C751C&simid=607998428076314241",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.p-3Xq8avQNQkgkzD1ynSJQHaEK?r=0&pid=Api",
+      "date": "2023-10-05T08:25:00Z",
+      "source": "https://news.sky.com/story/india-floods-14-dead-and-100-missing-after-sudden-rainfall-swamps-several-towns-12977243",
+      "original": "https://e3.365dm.com/23/10/2048x1152/skynews-india-floods_6309556.jpg?20231005081755",
+      "cdn_original": "https://th.bing.com/th/id/R.a7edd7abc6af40d424824cc3d729d225?rik=HHUcB4dgKS8bvQ&pid=ImgRaw&r=0",
+      "domain": "e3.365dm.com",
+      "width": 2048,
+      "height": 1152,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "174224 B"
+    },
+    {
+      "position": 27,
+      "title": ": Kutch : A partially submerged car on a waterlogged residence after ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0B85AD288628104E852958C8B0FDD2D9B290654B&simid=607987308419026675",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.KctcLxQtHdEWgvPOjpGT-gHaEo?r=0&pid=Api",
+      "date": "2023-06-16T11:35:00Z",
+      "source": "https://www.prokerala.com/news/photos/kutch-a-partially-submerged-car-on-a-waterlogged-residence-after-heavy-3538016.html",
+      "original": "https://files.prokerala.com/news/photos/imgs/1024/mandvi-a-partially-submerged-car-on-a-waterlogged-1605566.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.29cb5c2f142d1dd11682f3ce8e9193fa?rik=S2WQstnS%2fbDIWA&pid=ImgRaw&r=0",
+      "domain": "files.prokerala.com",
+      "width": 1024,
+      "height": 640,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 296,
+      "file_size": "106416 B"
+    },
+    {
+      "position": 28,
+      "title": "Flood warning issued for Coast rivers | Gold Coast Bulletin",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=01E93FFA6BEAEE56FD67DD8AA158949DFC8CCCFE&simid=608043757193740325",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.fw3ZOGbFLOh_cTQb-FM40gHaEK?r=0&pid=Api",
+      "date": "2017-03-29T14:09:00Z",
+      "source": "https://www.goldcoastbulletin.com.au/lifestyle/extropical-cyclone-debbie-gold-coast-could-see-flash-floods-and-wild-surf-offshore/news-story/34182999aedc14085accd3bf91b6ce2b",
+      "original": "https://content.api.news/v3/images/bin/13005b5fb563fd70d4f2d997b501daa2",
+      "cdn_original": "https://th.bing.com/th/id/R.7f0dd93866c52ce87f71341bf85338d2?rik=%2fsyM%2fJ2UWKGK3Q&pid=ImgRaw&r=0",
+      "domain": "content.api.news",
+      "width": 650,
+      "height": 366,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "48189 B"
+    },
+    {
+      "position": 29,
+      "title": "President Biden Visits Puerto Rico in Wake of Hurricane Fiona",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=5BF7B8ECD5DFD4EC6B2C82AB20FA3731E8935C49&simid=608022050429160223",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.1bskttIrICp1HNNilO6XgwHaEW?r=0&pid=Api",
+      "date": "2022-10-03T15:56:00Z",
+      "source": "https://people.com/politics/joe-biden-visits-puerto-rico-following-hurricane-fiona/",
+      "original": "https://people.com/thmb/xMVFfP7mVbav15ZKhIZpPT1c_r4=/1625x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/hurricane-fiona-flooded-land-puerto-rico-1-92122-1f97dc43c20b42cda508310f33b390a3.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.d5bb24b6d22b202a751cd36294ee9783?rik=SVyT6DE3%2biCrgg&pid=ImgRaw&r=0",
+      "domain": "people.com",
+      "width": 1625,
+      "height": 956,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 278,
+      "file_size": "126505 B"
+    },
+    {
+      "position": 30,
+      "title": "What’s causing floods in Pune? Check all about number of rivers and ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=77AF3AE8EBDEE6F2057A1343C37EF3E33827DAA1&simid=608025765543432455",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.HWg7X1H490yk-Ipxu068JAHaE8?r=0&pid=Api",
+      "date": "2021-07-26T09:49:00Z",
+      "source": "https://www.financialexpress.com/life/science-whats-causing-floods-in-pune-check-all-about-number-of-rivers-and-dams-in-the-district-2297813/",
+      "original": "https://www.financialexpress.com/wp-content/uploads/2021/07/Pune-floods.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.1d683b5f51f8f74ca4f88a71bb4ebc24?rik=odonOOPzfsNDEw&pid=ImgRaw&r=0",
+      "domain": "www.financialexpress.com",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "282272 B"
+    },
+    {
+      "position": 31,
+      "title": "Typhoon Mangkhut: Photos of the Aftermath - The Atlantic",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=1BDDB5877D37290DA2C9CEFEC2428D6AAF209AC9&simid=608009199904179542",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.zyEXyQCveX0ByyhWT51DEAHaE8?r=0&pid=Api",
+      "date": "2018-09-17T18:48:00Z",
+      "source": "https://www.theatlantic.com/photo/2018/09/photos-the-aftermath-of-super-typhoon-mangkhut/570490/",
+      "original": "https://cdn.theatlantic.com/thumbor/BQchUxnm6vpXeyE3nG_PQgqX_yM=/900x601/media/img/photo/2018/09/mangkhut/m08_RTS21IP7/original.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.cf2117c900af797d01cb28564f9d4310?rik=yZogr2qNQsL%2bzg&pid=ImgRaw&r=0",
+      "domain": "cdn.theatlantic.com",
+      "width": 900,
+      "height": 601,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "99823 B"
+    },
+    {
+      "position": 32,
+      "title": "Sierra Leone mudslides: Death toll rises to 300 as UK offers support to ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=0C6D64B576917FE0671947322E1B0D7D82943EE1&simid=608044826626578926",
+      "thumbnail": "https://tse4.mm.bing.net/th/id/OIP.dzW0RhpkELrMCII-ag09yQHaE8?r=0&pid=Api",
+      "date": "2017-08-15T13:15:00Z",
+      "source": "https://www.independent.co.uk/news/world/africa/sierra-leone-mudslides-flooding-death-toll-uk-support-dfid-a7894461.html",
+      "original": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/08/14/17/sierraleone.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.7735b4461a6410bacc08823e6a0d3dc9?rik=4T6Ugn0NGy4yRw&pid=ImgRaw&r=0",
+      "domain": "static.independent.co.uk",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 316,
+      "file_size": "183640 B"
+    },
+    {
+      "position": 33,
+      "title": "Severe storms pummel south-east Qld - ABC News",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=232C4460461E05F457E52464A030884BB25BD1AA&simid=607993201133697016",
+      "thumbnail": "https://tse3.mm.bing.net/th/id/OIP.vkTBNwTCEP5_LvSN7O9ltQHaEK?r=0&pid=Api",
+      "date": "2023-03-22T02:00:00Z",
+      "source": "https://www.abc.net.au/news/2014-11-27/severe-storms-pummel-s-e-qld/5923950",
+      "original": "https://live-production.wcms.abc-cdn.net.au/a03eb00da1bf8702ceaa2b479d427cc2?impolicy=wcms_crop_resize&cropH=576&cropW=1023&xPos=0&yPos=0&width=862&height=485",
+      "cdn_original": "https://th.bing.com/th/id/R.be44c13704c210fe7f2ef48decef65b5?rik=qtFbskuIMKBkJA&pid=ImgRaw&r=0",
+      "domain": "live-production.wcms.abc-cdn.net.au",
+      "width": 862,
+      "height": 485,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "57951 B"
+    },
+    {
+      "position": 34,
+      "title": "Kenyan tour guide rescues 14 tourists after devastating floods crash ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=793E6329AD3C9E0A9298D69F07AB1F52DD0EB744&simid=608035085614517819",
+      "thumbnail": "https://tse1.mm.bing.net/th/id/OIP.IZOA5QLlAlKLQQOGxhbc0QHaEK?r=0&pid=Api",
+      "date": "2024-05-03T16:45:00Z",
+      "source": "https://news.sky.com/story/kenyan-tour-guide-rescues-14-tourists-after-devastating-floods-crash-through-the-maasai-mara-13128179",
+      "original": "https://e3.365dm.com/24/05/768x432/skynews-kenya-maasai-mara_6541875.jpg?20240503155609",
+      "cdn_original": "https://th.bing.com/th/id/R.219380e502e502528b410386c616dcd1?rik=RLcO3VIfqwef1g&pid=ImgRaw&r=0",
+      "domain": "e3.365dm.com",
+      "width": 768,
+      "height": 432,
+      "format": "jpeg",
+      "thumbnail_width": 474,
+      "thumbnail_height": 266,
+      "file_size": "68188 B"
+    },
+    {
+      "position": 35,
+      "title": "L’Italia alluvionata, una metafora del Paese | Blog | Southeastern ...",
+      "link": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&id=139A4AC013EF05799E3D15EEAA868A9A6B007DE3&simid=608048344227646038",
+      "thumbnail": "https://tse2.mm.bing.net/th/id/OIP.nFm277vgTUso2zbR2pvwTgAAAA?r=0&pid=Api",
+      "date": "2024-08-15T19:42:00Z",
+      "source": "https://www.pinterest.com/pin/litalia-alluvionata-una-metafora-del-paese--320248223481180600/",
+      "original": "https://i.pinimg.com/736x/db/35/1e/db351e818bb368644a7cdf92df737496.jpg",
+      "cdn_original": "https://th.bing.com/th/id/R.9c59b6efbbe04d4b28db36d1da9bf04e?rik=430Aa5qKhqruFQ&pid=ImgRaw&r=0",
+      "domain": "i.pinimg.com",
+      "width": 400,
+      "height": 300,
+      "format": "jpeg",
+      "thumbnail_width": 400,
+      "thumbnail_height": 300,
+      "file_size": "15061 B"
+    }
+  ],
+  "related_searches": [
+    {
+      "name": "Mukdahan Map",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Map&mmreqh=4KvthAKFO5O7I5avhR0KKxBmgM96vz0sQ2wI5EfBC1M%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Mukdahan+Map&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Map"
+    },
+    {
+      "name": "Mukdahan Thailand",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Thailand&mmreqh=0eqjIjYMr4HGJ5PmDR%2b87uRDDV49fBKHX%2bry6E%2bIc9M%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Mukdahan+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Thailand"
+    },
+    {
+      "name": "Mukdahan Province",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Province&mmreqh=AmCzO5VfiF79s3Mzy%2fuj%2bQirmUyCYJkBmCS8rA5i408%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mukdahan+Province&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Province"
+    },
+    {
+      "name": "Mukdahan Tower",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Tower&mmreqh=rdscTzhzhARgVSz0x6O04qFk0jbp%2bbDRFG%2bcb1gzvXg%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Mukdahan+Tower&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Tower"
+    },
+    {
+      "name": "Mukdahan Temple",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Temple&mmreqh=gUezoC8S3QoRPAXYg2Y4YQd6KhUZZKZhpQRKed9bN98%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Temple&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Temple"
+    },
+    {
+      "name": "Mukdahan Border",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Border&mmreqh=CFKTHDGiiVPfqUUVV3AY0D4Hi6S9yggL6YD2xY3qEqA%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mukdahan+Border&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Border"
+    },
+    {
+      "name": "Mukdahan Airport",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Airport&mmreqh=1qbKOw8LX3elAL9PfRsdnRq%2bvfTLlcpbn51sw2T0pBM%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Airport&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Airport"
+    },
+    {
+      "name": "Mukdahan Mape",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Mape&mmreqh=qe36K836GMhqaQJnNQJYkYNoNd0gCASlQXWxJRAuwKQ%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Mape&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Mape"
+    },
+    {
+      "name": "Mukdahan Sign",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Sign&mmreqh=2q2aJ1UfNQTyE0me9Ba%2f%2bMEcQ0a2wa7kYc1Xtss%2bRbg%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Sign&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Sign"
+    },
+    {
+      "name": "Mukdahan Rhailand",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Rhailand&mmreqh=6AZTqtl8el5a9aHEYuEmbOge7NL3rwbHPrE0SdbQ63g%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Rhailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Rhailand"
+    },
+    {
+      "name": "Naga Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Naga+Mukdahan&mmreqh=wCOtbm0xPyANMwhTYjNsO77Or6O6HZco4d5Bb9zPXNQ%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Naga+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Naga+Mukdahan"
+    },
+    {
+      "name": "Savannakhet Laos",
+      "link": "https://www.bing.com/images/search?q=Savannakhet+Laos&mmreqh=P40xG%2fO2JydcLTdPSfoZQLahrB9mblY1lj%2fFutFR7YE%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Savannakhet+Laos&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Savannakhet+Laos"
+    },
+    {
+      "name": "Condo Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Condo+Mukdahan&mmreqh=lFfnuvzPqmDf7IDC9BJmmXrS9kCMZwYuj4ZynfCjHCg%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Condo+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Condo+Mukdahan"
+    },
+    {
+      "name": "Mukdahan View",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+View&mmreqh=kVKr23DhMF%2fRpVO6Fx9tzobpFRB2eGjWfpDOILRrjwM%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+View&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+View"
+    },
+    {
+      "name": "Lao Thai Bridges",
+      "link": "https://www.bing.com/images/search?q=Lao+Thai+Bridges&mmreqh=HjfzuynposbWCabqyZyMjQOxS%2b9GPf8BM7Js%2b97H6ig%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Lao+Thai+Bridges&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Lao+Thai+Bridges"
+    },
+    {
+      "name": "Lao Thai Friendship",
+      "link": "https://www.bing.com/images/search?q=Lao+Thai+Friendship&mmreqh=%2bZ%2fAcAfDT32A1lNTg6jj3bUTHffl93%2bY9fJMR%2fJKEMs%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Lao+Thai+Friendship&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Lao+Thai+Friendship"
+    },
+    {
+      "name": "Mukdahan Providence Map",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Providence+Map&mmreqh=clHQXSwqFhApeh%2bkzkOAATCvm7glVPj2anYdHn89pbs%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Mukdahan+Providence+Map&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Providence+Map"
+    },
+    {
+      "name": "Mukdahan Crash",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Crash&mmreqh=fDO2swKGQ2crtV71A0qSZZHcA9a85B%2bdME9MvezxEnQ%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Crash&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Crash"
+    },
+    {
+      "name": "Surin Thailand",
+      "link": "https://www.bing.com/images/search?q=Surin+Thailand&mmreqh=LBp9Cq70hK2%2b2bkP1YacTmgFAlcEoI5A6lzDkdd29DU%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Surin+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Surin+Thailand"
+    },
+    {
+      "name": "Mukdahan Thailand City",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Thailand+City&mmreqh=9%2bVsufAj7n9UuWZ%2bn1xS90ceidebSzi4rqTrmJBkx1U%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mukdahan+Thailand+City&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Thailand+City"
+    },
+    {
+      "name": "Mukdahan Logo",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Logo&mmreqh=VumyHKzLoOR299xdKdtezaS%2bdBw3MDHFCa%2fHTn8iwC8%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Mukdahan+Logo&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Logo"
+    },
+    {
+      "name": "Phayao Thailand",
+      "link": "https://www.bing.com/images/search?q=Phayao+Thailand&mmreqh=iErCoGNIsAP7ec79YMgrazoQZnrnAXTm6fEvxhcLnk0%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Phayao+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Phayao+Thailand"
+    },
+    {
+      "name": "Huawei Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Huawei+Mukdahan&mmreqh=SrT%2bJd6sO6yuuPPr436e6o4hsYCnsPDVd3vJI5qAVzU%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Huawei+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Huawei+Mukdahan"
+    },
+    {
+      "name": "Nong Khai Thailand",
+      "link": "https://www.bing.com/images/search?q=Nong+Khai+Thailand&mmreqh=viyber%2belKFbsQj51vA04ZZuWJzSuuIk4Kb32Q3JzxM%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Nong+Khai+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Nong+Khai+Thailand"
+    },
+    {
+      "name": "Thai Bus",
+      "link": "https://www.bing.com/images/search?q=Thai+Bus&mmreqh=QFugb6xiOcenh8ldtQOINCXA6FrlPmRDEnXfw2ykC5Q%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Thai+Bus&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Thai+Bus"
+    },
+    {
+      "name": "Mukdahan International Hospital",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+International+Hospital&mmreqh=AGF1oPMW5VDCehiUBtaVlfei9P4Eoz4n3z%2bjCLZv%2bC8%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mukdahan+International+Hospital&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+International+Hospital"
+    },
+    {
+      "name": "Thailand Hotels",
+      "link": "https://www.bing.com/images/search?q=Thailand+Hotels&mmreqh=ZReDZN3FFWf95WMn2th4qzcjTr64zlJrPcnrAghLH44%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Thailand+Hotels&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Thailand+Hotels"
+    },
+    {
+      "name": "Things to See Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Things+to+See+Mukdahan&mmreqh=wt%2bUDs63O%2b%2f5SVUKkLRWl80Y8iOdX9o%2bzIZdXOtG55g%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Things+to+See+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Things+to+See+Mukdahan"
+    },
+    {
+      "name": "Mukdahan Monk Tragedy",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Monk+Tragedy&mmreqh=3t6VXTXuazI4WytXgcCx%2fH2GxSPdNp1hcxbCePZ6jqQ%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Monk+Tragedy&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Monk+Tragedy"
+    },
+    {
+      "name": "Where Is Mukdahan Thailand",
+      "link": "https://www.bing.com/images/search?q=Where+Is+Mukdahan+Thailand&mmreqh=efZRB9Fb5DZveNnRKnZM2U6kLoB%2bbTdU118uaKGmMs8%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Where+Is+Mukdahan+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Where+Is+Mukdahan+Thailand"
+    },
+    {
+      "name": "Loei Thailand Map",
+      "link": "https://www.bing.com/images/search?q=Loei+Thailand+Map&mmreqh=J943WT6HXbhUSTlzyXQ1rcTYucwPMyw9seqvqR8K%2fII%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Loei+Thailand+Map&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Loei+Thailand+Map"
+    },
+    {
+      "name": "Mekong River View From Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Mekong+River+View+From+Mukdahan&mmreqh=YB7XVbxG2g9sd6Zchwd14W%2fMu6uhJjyWqYJBFsh%2fH2Y%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mekong+River+View+From+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mekong+River+View+From+Mukdahan"
+    },
+    {
+      "name": "Khon Kaen",
+      "link": "https://www.bing.com/images/search?q=Khon+Kaen&mmreqh=sFZP8meIoU190uzEjSzplXBsUzGA1qtlZNMMk3EUDn4%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Khon+Kaen&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Khon+Kaen"
+    },
+    {
+      "name": "Pilgrims in Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Pilgrims+in+Mukdahan&mmreqh=TCTHRTbOOmRt1rVTEEHHFrO2TvWOA7ybpG4qbRGEAks%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Pilgrims+in+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Pilgrims+in+Mukdahan"
+    },
+    {
+      "name": "Mukdahan Maryters",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Maryters&mmreqh=kP3GsGXa%2fyfuHqXS3OifUuM%2bCTbXypnMJdoKEFbIAf4%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Mukdahan+Maryters&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Maryters"
+    },
+    {
+      "name": "Mukdahan Friendship Bridge",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Friendship+Bridge&mmreqh=8UkT%2bICO7765KkuULe9R0Gm179kvdTefBbOK5Lj9Ahc%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Friendship+Bridge&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Friendship+Bridge"
+    },
+    {
+      "name": "Na Mukdahan Thailand",
+      "link": "https://www.bing.com/images/search?q=Na+Mukdahan+Thailand&mmreqh=oaWexIIjHz8rZ%2bbmiQ5K%2f7bI%2f7NvGI0dE18LJba8nls%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Na+Mukdahan+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Na+Mukdahan+Thailand"
+    },
+    {
+      "name": "Laos Trip",
+      "link": "https://www.bing.com/images/search?q=Laos+Trip&mmreqh=u0fOMq0Be4qQrXsZPyez86n%2blT94mJRqyn5yPGLmKn8%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Laos+Trip&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Laos+Trip"
+    },
+    {
+      "name": "Ubon Ratchathani Map",
+      "link": "https://www.bing.com/images/search?q=Ubon+Ratchathani+Map&mmreqh=wdLWRBJCmiZUwsMkW8D0ZwtUAgouFTWM%2f3o8HZhexUc%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Ubon+Ratchathani+Map&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Ubon+Ratchathani+Map"
+    },
+    {
+      "name": "Mukdahan Thailad",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Thailad&mmreqh=p4G98bbVsrhK58mPGY4GekuAv5SyYjw5M1R3W6xN6Ec%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Mukdahan+Thailad&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Thailad"
+    },
+    {
+      "name": "Provinces of Thailand",
+      "link": "https://www.bing.com/images/search?q=Provinces+of+Thailand&mmreqh=KgAUg7XRyonsGsrvibfl0lrefgTYWiscaOHqOpM5nuI%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Provinces+of+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Provinces+of+Thailand"
+    },
+    {
+      "name": "Viking Radar Site Mukdahan Thailand Map",
+      "link": "https://www.bing.com/images/search?q=Viking+Radar+Site+Mukdahan+Thailand+Map&mmreqh=3T1iZ13UCtG0JWvNhpBJ8SGren0iJjwTqERPRC4KtS8%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Viking+Radar+Site+Mukdahan+Thailand+Map&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Viking+Radar+Site+Mukdahan+Thailand+Map"
+    },
+    {
+      "name": "Malls in Mukdahan",
+      "link": "https://www.bing.com/images/search?q=Malls+in+Mukdahan&mmreqh=2ptPVtTCXnDeBy7DaVugz8oV2SInpXUyIyV8Vmx4Qks%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Malls+in+Mukdahan&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Malls+in+Mukdahan"
+    },
+    {
+      "name": "Pattaya Bus",
+      "link": "https://www.bing.com/images/search?q=Pattaya+Bus&mmreqh=Ra2jl5Pry7yNPWVkBXbDXG3me6CdyUdAyX9mHGaJ%2foA%3d&FORM=IDINTS",
+      "thumbnail": "https://tse1.mm.bing.net/th?q=Pattaya+Bus&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Pattaya+Bus"
+    },
+    {
+      "name": "Isaan Thailand",
+      "link": "https://www.bing.com/images/search?q=Isaan+Thailand&mmreqh=Ive0HoLabQBQ35cDsJ0xk1934KAsXWh0jK%2bPX%2b%2bQDAk%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Isaan+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Isaan+Thailand"
+    },
+    {
+      "name": "Mukdahan Border Checkpoint",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Border+Checkpoint&mmreqh=aEqpsOM3iyGTrbAaFuD22BqizFPdf7t8GK2lr%2b9UR%2b4%3d&FORM=IDINTS",
+      "thumbnail": "https://tse2.mm.bing.net/th?q=Mukdahan+Border+Checkpoint&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Border+Checkpoint"
+    },
+    {
+      "name": "East Thailand",
+      "link": "https://www.bing.com/images/search?q=East+Thailand&mmreqh=Uewm5iQZN2yUexQGgw%2fPZlQTxq5Iqlf5W0sFP2fzNmY%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=East+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=East+Thailand"
+    },
+    {
+      "name": "Yasothon Thailand",
+      "link": "https://www.bing.com/images/search?q=Yasothon+Thailand&mmreqh=yI42jayJstCFn46JhPi984VbktYwvfM%2bxDTSBo%2bJOsQ%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Yasothon+Thailand&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Yasothon+Thailand"
+    },
+    {
+      "name": "Thailand Beautiful Places",
+      "link": "https://www.bing.com/images/search?q=Thailand+Beautiful+Places&mmreqh=mDi1jpssBv8TyoPFFiJzP1vP2BVTxPzSfYTOUqHC7Vc%3d&FORM=IDINTS",
+      "thumbnail": "https://tse3.mm.bing.net/th?q=Thailand+Beautiful+Places&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Thailand+Beautiful+Places"
+    },
+    {
+      "name": "Mukdahan Province Farming Life",
+      "link": "https://www.bing.com/images/search?q=Mukdahan+Province+Farming+Life&mmreqh=F8eURDrnex2VY08JM50r%2be%2fd1qYhJmtmG3JKRPdgIaE%3d&FORM=IDINTS",
+      "thumbnail": "https://tse4.mm.bing.net/th?q=Mukdahan+Province+Farming+Life&r=0&pid=Api&mkt=en-US&cc=US&setlang=en&adlt=moderate",
+      "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=bing_images&q=Mukdahan+Province+Farming+Life"
+    }
+  ],
+  "serpapi_pagination": {
+    "next_page_token": "JmKcFnicFczLjpswAIVh9Vm6DmAnzDQjVVWTEAoDZHIhjNlEYBzAxtzshOBlX2WkWfWJ-jSl26P_fL8_bn3198ufQspWvOj62OWsz8jQ53nDGU5SUhJN3NokTQTRcKML2fRJTvQ70JuUEix1Uea1nhGa3G9kJnmrkzovazLDBcFMTwg25t8WV4LNxHiGmUbb_IdsGKm_k9Htk2hf7kpnCNSq8qGl4iNgMfeBd9qreGNJFLkMHUGBqGUilcOYWyCwndJbu0Vq4-nrOqEKH37pLrUJBJgP_0cWR22R1efKez9IvF5WKc_alIcSwaJCUNxRdKb-xl8EdlwhdS78DR7jtdnhCZ1wheByiI_Ok8MP9wyaIoVb5pRDmURbw6HNI1C5GVD_MRlw6ivy62e5o9Z8t2HQV5bpq3ipbe0TeOvT6yI-XlIPzsZVF3hr51KFwZLZc-c19NH-9b1pqR1VNQfjihNgocuzwa3ceFIAet1NyM7KLofT_CGCE6Nvw2dzvQoiv_4DnJyblA",
+    "next": "https://serpapi.com/search.json?count=35&engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&mkt=en-US&next_page_token=JmKcFnicFczLjpswAIVh9Vm6DmAnzDQjVVWTEAoDZHIhjNlEYBzAxtzshOBlX2WkWfWJ-jSl26P_fL8_bn3198ufQspWvOj62OWsz8jQ53nDGU5SUhJN3NokTQTRcKML2fRJTvQ70JuUEix1Uea1nhGa3G9kJnmrkzovazLDBcFMTwg25t8WV4LNxHiGmUbb_IdsGKm_k9Htk2hf7kpnCNSq8qGl4iNgMfeBd9qreGNJFLkMHUGBqGUilcOYWyCwndJbu0Vq4-nrOqEKH37pLrUJBJgP_0cWR22R1efKez9IvF5WKc_alIcSwaJCUNxRdKb-xl8EdlwhdS78DR7jtdnhCZ1wheByiI_Ok8MP9wyaIoVb5pRDmURbw6HNI1C5GVD_MRlw6ivy62e5o9Z8t2HQV5bpq3ipbe0TeOvT6yI-XlIPzsZVF3hr51KFwZLZc-c19NH-9b1pqR1VNQfjihNgocuzwa3ceFIAet1NyM7KLofT_CGCE6Nvw2dzvQoiv_4DnJyblA",
+    "current": "https://serpapi.com/search.json?engine=bing_reverse_image&image_url=https%3A%2F%2Fyqgkrdewrggomkcabeie.supabase.co%2Fstorage%2Fv1%2Fobject%2Fsign%2Fdejavue-tmp%2Fengine-check%2Faec0384fec5a072d.jpg%3Ftoken%3DeyJraWQiOiIwNzBlM2EzZS1kZmM1LTQzZDEtYWJkYS1hYjE5Yzg2ZmE1NGIiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZWphdnVlLXRtcC9lbmdpbmUtY2hlY2svYWVjMDM4NGZlYzVhMDcyZC5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5NjMxMDM2LCJleHAiOjE3ODk2MzE5MzZ9.FGT1Prbf4ZS_bL2-yBqNLCI_lUN9kG3IKUMYQKXopjGWlnm1yBme1EY_70mEg06z12LqustqEd_RT3xsNTkjPw&mkt=en-US"
+  },
+  "_dejavue": {
+    "recorded_at": "2026-09-17T13:13:59+0530",
+    "image_sha256": "aec0384fec5a072d3867e96f8a2907e69e1e5708138807dd0899fbbff39348b5",
+    "input_phash": "176e7c2677c88b10",
+    "note": "image_url was a 15-minute Supabase signed URL (token redacted)"
+  }
+}
