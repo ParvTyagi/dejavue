@@ -15,7 +15,7 @@ const TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
  */
 export async function POST(req: Request) {
   if (fixtureMode() === 'replay') {
-    return apiError(400, 'INVALID_INPUT', 'Uploads are not needed in replay mode.');
+    return apiError(400, 'INVALID_INPUT', 'Uploads are not available on this demo site.');
   }
   const form = await req.formData().catch(() => undefined);
   const file = form?.get('frame');

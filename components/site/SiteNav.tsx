@@ -18,25 +18,19 @@ export function SiteNav({ mode }: { mode: FixtureMode }) {
           <Link href="/#how" className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline">
             How it works
           </Link>
-          <Link href="/#check" className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline">
+          <Link href="/check" className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline">
             Check media
           </Link>
-          <span
-            title={
-              replay
-                ? 'Replay mode: results come from recorded demo cases. No search credits are used.'
-                : `${mode} mode: every audit searches SerpApi for real.`
-            }
-            className={`flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[11px] ${
-              replay ? 'border-line text-muted' : 'border-warn/40 bg-warn-soft text-warn'
-            }`}
-          >
-            <span className="relative flex size-1.5">
-              <span className={`absolute inset-0 animate-pulse-ring rounded-full ${replay ? 'bg-accent' : 'bg-warn'}`} />
-              <span className={`relative size-1.5 rounded-full ${replay ? 'bg-accent' : 'bg-warn'}`} />
+          {/* Visitors only need to know when they're looking at example cases, not how the server is configured. */}
+          {replay && (
+            <span
+              title="This site shows example cases with saved search results."
+              className="flex items-center gap-2 rounded-full border border-line px-3 py-1 text-[11px] text-muted"
+            >
+              <span className="size-1.5 rounded-full bg-accent" />
+              Demo
             </span>
-            {replay ? 'replay · 0 credits' : `${mode} · uses credits`}
-          </span>
+          )}
         </nav>
       </div>
       <div className="nav-rule h-px bg-line" />

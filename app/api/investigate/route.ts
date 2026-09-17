@@ -43,17 +43,17 @@ export async function POST(req: Request) {
       return apiError(
         422,
         'NO_FIXTURE',
-        'Replay mode only has recorded results for the demo cases. Pick a demo case, or set FIXTURE_MODE=live to search for real.',
+        'This demo site only checks the example cases. Pick one from the Demo cases tab.',
       );
     }
     caseId = match.id;
     const recordedAt = new Date(match.submittedAt);
     clock = () => recordedAt;
   } else {
-    if (!process.env.SERPAPI_API_KEY) return apiError(503, 'NOT_CONFIGURED', 'SERPAPI_API_KEY is not set.');
+    if (!process.env.SERPAPI_API_KEY) return apiError(503, 'NOT_CONFIGURED', 'Photo checks are not available right now.');
     const { creditsThisMonth } = await store.ledgerStats(monthStartIso());
     if (MONTHLY_CREDIT_LIMIT - creditsThisMonth < MONTHLY_CREDIT_FLOOR) {
-      return apiError(402, 'CREDITS_EXHAUSTED', 'The monthly SerpApi search budget is nearly used up. Switch to FIXTURE_MODE=replay.');
+      return apiError(402, 'CREDITS_EXHAUSTED', 'DejaVue has used its searches for this month. Please try again later.');
     }
     for (const frame of body.media.frames) {
       try {

@@ -139,12 +139,12 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
   ];
 
   return (
-    <section id="check" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-24 sm:px-6">
+    <section className="mx-auto max-w-6xl px-4 pt-12 pb-24 sm:px-6 sm:pt-16">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check media</p>
-        <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+        <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
           Where did it <span className="text-shine italic">come from?</span>
-        </h2>
+        </h1>
       </Reveal>
 
       <Reveal delay={0.1} className="mt-10">
@@ -186,8 +186,8 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                 {source === 'demo' ? (
                   <div className="space-y-5">
                     <p className="max-w-3xl text-sm text-muted">
-                      Replay mode runs the full pipeline on recorded search results, so it costs no credits. These cases
-                      are synthetic: invented scenarios in SerpApi&apos;s response format, not real publication histories.
+                      Each example runs the full check on saved search results, so you can watch how a verdict is reached.
+                      The cases are made up for demonstration and are not real news events.
                     </p>
                     <motion.ul
                       initial="hidden"
@@ -316,7 +316,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                             </label>
                           )}
                           {replay && (
-                            <p className="text-xs text-warn">Replay mode only recognises the demo case images. Set FIXTURE_MODE=live to search any image.</p>
+                            <p className="text-xs text-warn">This demo site only checks the example cases. Checking your own photos isn&apos;t switched on here.</p>
                           )}
                         </>
                       ) : (
@@ -333,7 +333,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                             onChange={(e) => setImageUrl(e.target.value)}
                             className={field}
                           />
-                          {replay && <p className="text-xs text-warn">Image URLs need FIXTURE_MODE=live.</p>}
+                          {replay && <p className="text-xs text-warn">This demo site only checks the example cases. Checking your own photos isn&apos;t switched on here.</p>}
                         </>
                       )}
                     </div>
@@ -366,10 +366,10 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                           <label className="mb-1.5 block text-xs text-muted" htmlFor="date">
                             Claimed date <span className="text-faint">(defaults to now)</span>
                           </label>
-                          <input id="date" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className={`${field} [color-scheme:dark]`} />
+                          <input id="date" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className={field} />
                         </div>
                       </div>
-                      <ShimmerButton type="submit" disabled={busy || (source === 'upload' && !prepared)} className="mt-auto flex items-center justify-center gap-2">
+                      <ShimmerButton type="submit" disabled={busy || replay || (source === 'upload' && !prepared)} className="mt-auto flex items-center justify-center gap-2">
                         {busy && <Loader2 className="size-4 animate-spin" />}
                         Check where it came from
                       </ShimmerButton>

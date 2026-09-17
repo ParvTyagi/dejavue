@@ -49,7 +49,7 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
         </div>
         <div className="mx-auto max-w-6xl px-4 pt-8 pb-24 sm:px-6">
           <div className="flex items-center justify-between gap-3">
-            <Link href="/#check" className="group flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-ink">
+            <Link href="/check" className="group flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-ink">
               <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
               Check something else
             </Link>

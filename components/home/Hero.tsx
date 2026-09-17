@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { Backdrop } from '@/components/site/Backdrop';
 import { NumberTicker, ShimmerButton } from '@/components/ui/motion';
 import { EngineMarquee } from './EngineMarquee';
@@ -47,12 +48,12 @@ export function Hero() {
 
           <div style={delay(0.2)} className="rise mt-8 flex flex-wrap items-center gap-3"
           >
-            <a href="#check">
+            <Link href="/check">
               <ShimmerButton type="button" className="flex items-center gap-2">
                 Check a photo
-                <ArrowDown className="size-4" />
+                <ArrowRight className="size-4" />
               </ShimmerButton>
-            </a>
+            </Link>
             <a
               href="#how"
               className="rounded-xl border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-line-strong hover:bg-surface-2"
