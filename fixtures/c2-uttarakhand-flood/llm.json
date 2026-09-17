@@ -1,0 +1,24 @@
+{
+  "parseClaim": {
+    "event": "flash flood washes away houses",
+    "place": "Uttarakhand, India",
+    "claimedAt": null,
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "language": "none"
+  },
+  "narrate": {
+    "summary": "This flood photo was online in June 2013, years before the claimed flood.",
+    "bullets": [
+      {
+        "text": "An archive copy is dated 18 June 2013.",
+        "evidenceIds": [
+          "lens0-0"
+        ]
+      }
+    ]
+  }
+}

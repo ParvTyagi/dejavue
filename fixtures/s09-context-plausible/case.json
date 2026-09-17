@@ -1,0 +1,42 @@
+{
+  "title": "Landslide photo with no prior copy, event confirmed by news",
+  "synthetic": true,
+  "notes": "CONTEXT_PLAUSIBLE path: only similar (unconfirmed) results, but news corroborates the claimed event, place and date.",
+  "submittedAt": "2026-07-14T05:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/s09-context-plausible/frame-0.jpg",
+          "pHash": "7a2c9e15d4b8f063",
+          "sharpness": 600
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Landslide blocks the expressway near Khandala this morning",
+      "place": "Khandala, Maharashtra, India",
+      "date": "2026-07-14T09:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "CONTEXT_PLAUSIBLE",
+    "flags": {
+      "recycled": false,
+      "misplaced": false
+    },
+    "credits": 5,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 10
+  }
+}

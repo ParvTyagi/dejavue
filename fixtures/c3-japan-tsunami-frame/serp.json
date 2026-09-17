@@ -1,0 +1,60 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-07-30T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Tsunami wave hits harbour",
+        "link": "https://www.socialclip.example/v/tsunami-wave",
+        "source": "socialclip.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c3-japan-tsunami-frame/v/tsunami-wave.jpg"
+      }
+    ]
+  },
+  "google_lens?type=exact_matches&frame=1": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-07-30T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-07-30T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "related_content": [
+      {
+        "position": 1,
+        "title": "Tsunami video from Miyako",
+        "link": "https://www.forum-mirror.example/threads/tsunami-2011-video",
+        "source": "forum-mirror.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c3-japan-tsunami-frame/threads/tsunami-2011-video.jpg",
+        "date": "Mar 11, 2011"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-07-30T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "position": 1,
+        "title": "Footage shows tsunami reaching the coast",
+        "link": "https://www.regional-daily.example/2011/03/12/tsunami-footage",
+        "source": "regional-daily.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c3-japan-tsunami-frame/2011/03/12/tsunami-footage.jpg",
+        "date": "12 March 2011"
+      }
+    ]
+  }
+}

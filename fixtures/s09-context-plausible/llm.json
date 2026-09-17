@@ -1,0 +1,24 @@
+{
+  "parseClaim": {
+    "event": "landslide blocks expressway",
+    "place": "Khandala, Maharashtra, India",
+    "claimedAt": "2026-07-14T03:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "language": "none"
+  },
+  "narrate": {
+    "summary": "News confirms a landslide near Khandala this morning, but no earlier copy of this photo was found to prove where it came from.",
+    "bullets": [
+      {
+        "text": "A news report describes the landslide near Khandala.",
+        "evidenceIds": [
+          "news-0"
+        ]
+      }
+    ]
+  }
+}

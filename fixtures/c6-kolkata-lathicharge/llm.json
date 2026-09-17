@@ -1,0 +1,26 @@
+{
+  "parseClaim": {
+    "event": "police beat kanwariyas on state government orders",
+    "place": "West Bengal, India",
+    "claimedAt": "2025-07-20T06:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "बंगाल में ममता सरकार के आदेशानुसार"
+    ],
+    "landmarks": [],
+    "language": "Hindi"
+  },
+  "narrate": {
+    "summary": "This video was online in October 2020, years before the claimed incident.",
+    "bullets": [
+      {
+        "text": "An archive copy of the video is dated 26 October 2020.",
+        "evidenceIds": [
+          "lens0-0"
+        ]
+      }
+    ]
+  }
+}

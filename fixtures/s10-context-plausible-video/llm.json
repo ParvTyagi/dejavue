@@ -1,0 +1,13 @@
+{
+  "parseClaim": {
+    "event": "cyclone winds uproot trees",
+    "place": "Puri, Odisha, India",
+    "claimedAt": "2026-05-25T12:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "language": "none"
+  }
+}

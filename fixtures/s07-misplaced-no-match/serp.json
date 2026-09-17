@@ -1,0 +1,77 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "related_content": []
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=heavy rain floods road near bridge Mumbai, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Mumbai rain: waterlogging reported on several roads",
+        "snippet": "Heavy overnight rain in Mumbai...",
+        "link": "https://www.metro-news.example/mumbai-rain-waterlogging",
+        "source": {
+          "name": "metro-news.example"
+        },
+        "iso_date": "2026-07-02T03:00:00Z"
+      }
+    ]
+  },
+  "google_maps?q=Mumbai, India&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Mumbai",
+      "type": "City",
+      "address": "Mumbai, Maharashtra, India",
+      "gps_coordinates": {
+        "latitude": 19.076,
+        "longitude": 72.8777
+      }
+    }
+  },
+  "google_maps?q=Howrah Bridge&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-02T06:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Howrah Bridge",
+      "type": "Bridge",
+      "address": "Jagannath Ghat, Kolkata, West Bengal 700001, India",
+      "gps_coordinates": {
+        "latitude": 22.5851,
+        "longitude": 88.3468
+      }
+    }
+  }
+}

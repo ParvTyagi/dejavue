@@ -1,0 +1,13 @@
+{
+  "parseClaim": {
+    "event": "leopard spotted inside tech park",
+    "place": "Bengaluru, Karnataka, India",
+    "claimedAt": "2026-06-03T02:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "language": "none"
+  }
+}

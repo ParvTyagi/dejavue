@@ -1,0 +1,42 @@
+{
+  "title": "Crowd photo with only look-alike results from years ago",
+  "synthetic": true,
+  "notes": "UNVERIFIED path: old but unconfirmed look-alikes never feed T₀, and a low-confidence landmark is not geocoded.",
+  "submittedAt": "2026-04-11T14:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/s12-unverified-similar-only/frame-0.jpg",
+          "pHash": "1f7b3d9e5c2a8064",
+          "sharpness": 570
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Huge crowd gathers at the Kolkata station after train cancellations",
+      "place": "Kolkata, West Bengal, India",
+      "date": "2026-04-11T19:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "UNVERIFIED",
+    "flags": {
+      "recycled": false,
+      "misplaced": false
+    },
+    "credits": 5,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 0
+  }
+}

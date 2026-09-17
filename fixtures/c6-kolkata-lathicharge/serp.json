@@ -1,0 +1,35 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-07-20T08:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Police disperse crowd in Kolkata",
+        "link": "https://www.wire-archive.example/video/2020/10/kolkata-crowd-control",
+        "source": "wire-archive.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c6-kolkata-lathicharge/video/2020/10/kolkata-crowd-control.jpg",
+        "date": "Oct 26, 2020"
+      },
+      {
+        "position": 2,
+        "title": "Video of police action goes viral",
+        "link": "https://www.regional-daily.example/2020/10/26/kolkata-police-video",
+        "source": "regional-daily.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c6-kolkata-lathicharge/2020/10/26/kolkata-police-video.jpg",
+        "date": "Oct 26, 2020"
+      },
+      {
+        "position": 3,
+        "title": "Police lathicharge video",
+        "link": "https://www.video-mirror.example/watch/police-lathicharge",
+        "source": "video-mirror.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/c6-kolkata-lathicharge/watch/police-lathicharge.jpg",
+        "date": "Oct 27, 2020"
+      }
+    ]
+  }
+}

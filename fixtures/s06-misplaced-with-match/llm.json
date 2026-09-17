@@ -1,0 +1,38 @@
+{
+  "parseClaim": {
+    "event": "drone strike on port facilities",
+    "place": "Dubai, UAE",
+    "claimedAt": "2026-09-17T14:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "ميناء جدة الإسلامي",
+      "Jeddah Islamic Port"
+    ],
+    "landmarks": [
+      {
+        "name": "Jeddah Islamic Port",
+        "confidence": 0.93
+      }
+    ],
+    "language": "Arabic"
+  },
+  "narrate": {
+    "summary": "This photo is recent, but it shows Jeddah Islamic Port in Saudi Arabia, not Dubai.",
+    "bullets": [
+      {
+        "text": "Signage in the photo reads \"Jeddah Islamic Port\".",
+        "evidenceIds": [
+          "maps-scene"
+        ]
+      },
+      {
+        "text": "Copies posted today describe a fire at a Red Sea port.",
+        "evidenceIds": [
+          "lens0-0"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-06-03T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-06-03T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "related_content": []
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-06-03T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=leopard spotted inside tech park Bengaluru, Karnataka, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-06-03T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": []
+  },
+  "google_maps?q=Bengaluru, Karnataka, India&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-06-03T03:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Bengaluru",
+      "type": "City",
+      "address": "Bengaluru, Karnataka, India",
+      "gps_coordinates": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "parseClaim": {
+    "event": "hailstorm covers streets",
+    "place": "Shimla, Himachal Pradesh, India",
+    "claimedAt": "2026-02-02T10:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [
+      {
+        "name": "The Ridge, Shimla",
+        "confidence": 0.86
+      }
+    ],
+    "language": "none"
+  },
+  "narrate": {
+    "summary": "The earliest copies of this photo are from the same day, and it shows The Ridge in Shimla, as claimed.",
+    "bullets": [
+      {
+        "text": "Copies appeared on 2 February 2026 on two independent indexes.",
+        "evidenceIds": [
+          "lens0-0",
+          "bing0-0"
+        ]
+      },
+      {
+        "text": "News reports a hailstorm in Shimla that day.",
+        "evidenceIds": [
+          "news-0"
+        ]
+      }
+    ]
+  }
+}

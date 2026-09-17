@@ -1,0 +1,40 @@
+{
+  "title": "Old factory fire photo, found once in a trusted archive",
+  "synthetic": true,
+  "notes": "RECYCLED path decided by a single trusted-archive match, which is enough on its own for T₀ and the decisive rule.",
+  "submittedAt": "2026-03-10T16:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/s05-recycled-trusted-single/frame-0.jpg",
+          "pHash": "9c3e61a4f0b7d258",
+          "sharpness": 700
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Massive fire at chemical factory in Surat tonight",
+      "place": "Surat, Gujarat, India",
+      "date": "2026-03-10T21:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "RECYCLED",
+    "flags": {
+      "recycled": true,
+      "misplaced": false
+    },
+    "credits": 1,
+    "tiersRun": [
+      1
+    ],
+    "confidence": 25
+  }
+}

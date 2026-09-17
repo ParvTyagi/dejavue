@@ -1,0 +1,36 @@
+{
+  "parseClaim": {
+    "event": "Christians pray outdoors in the snow",
+    "place": "Ukraine",
+    "claimedAt": "2022-02-20T11:19:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [
+      {
+        "name": "Derzhprom, Kharkiv",
+        "confidence": 0.9
+      }
+    ],
+    "language": "none"
+  },
+  "narrate": {
+    "summary": "The earliest copies of this photo appeared a day before the post and show Kharkiv, Ukraine, as claimed.",
+    "bullets": [
+      {
+        "text": "Two independent pages carried the same photo on 19 February 2022.",
+        "evidenceIds": [
+          "lens0-0",
+          "lens0-1"
+        ]
+      },
+      {
+        "text": "The building in the background was located as Derzhprom in Kharkiv.",
+        "evidenceIds": [
+          "maps-scene"
+        ]
+      }
+    ]
+  }
+}

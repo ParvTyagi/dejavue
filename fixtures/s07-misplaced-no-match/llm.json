@@ -1,0 +1,31 @@
+{
+  "parseClaim": {
+    "event": "heavy rain floods road near bridge",
+    "place": "Mumbai, India",
+    "claimedAt": "2026-07-02T04:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "Howrah"
+    ],
+    "landmarks": [
+      {
+        "name": "Howrah Bridge",
+        "confidence": 0.95
+      }
+    ],
+    "language": "Bengali"
+  },
+  "narrate": {
+    "summary": "No earlier copy was found, but the bridge in the photo is Howrah Bridge in Kolkata, not Mumbai.",
+    "bullets": [
+      {
+        "text": "The landmark resolves to Howrah Bridge, Kolkata.",
+        "evidenceIds": [
+          "maps-scene"
+        ]
+      }
+    ]
+  }
+}

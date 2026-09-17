@@ -9,3 +9,8 @@ coverage/
 playwright-report/
 test-results/
 .DS_Store
+test-images/
+.claude/
+data/
+next-env.d.ts
+*.tsbuildinfo

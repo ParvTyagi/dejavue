@@ -1,0 +1,13 @@
+{
+  "parseClaim": {
+    "event": "fire at chemical factory",
+    "place": "Surat, Gujarat, India",
+    "claimedAt": "2026-03-10T15:30:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "language": "none"
+  }
+}
