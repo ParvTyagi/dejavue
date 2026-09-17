@@ -64,7 +64,7 @@ The same name on another TLD (`amazon.jobs` vs `amazon.com`) is deliberately not
 - **`NO_RED_FLAGS`**: official site found, plus a listing or a contact on the official site, and no strong or medium signs.
 - **`UNVERIFIED`**: everything else, including no official site.
 
-There is no "genuine" or "safe" verdict. Every result says: *Apply only through the official website. A real employer never asks you to pay.* Confidence is additive with a reason per point, like `lib/verdict/score.ts`; `NO_RED_FLAGS` is capped below the High band.
+There is no "genuine" or "safe" verdict. Every result carries advice worded for its type, such as *Apply only through the official website. A real employer never asks you to pay.* for jobs and *Never share an OTP, PIN or password with a caller.* for customer care. Confidence is additive with a reason per point, like `lib/verdict/score.ts`; `NO_RED_FLAGS` is capped below the High band.
 
 ## 6. Types
 

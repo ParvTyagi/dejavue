@@ -5,6 +5,8 @@ import type { OfferDossier } from '@/lib/offer/types';
 import { isFinalEvent, isOfferDossier, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
 
 export interface AuditState {
+  /** Known from the first stage event, or from the finished result. */
+  kind?: 'media' | 'offer';
   stage?: Stage;
   evidence: Evidence[];
   credits: number;
@@ -17,12 +19,14 @@ export interface AuditState {
   fatal?: { code: string; message: string };
 }
 
+const OFFER_STAGE_IDS = new Set<Stage>(['read', 'identity', 'contacts', 'offer']);
+
 const initial: AuditState = { evidence: [], credits: 0, creditLog: [], notices: [] };
 
 function reducer(state: AuditState, e: AuditEvent): AuditState {
   switch (e.type) {
     case 'stage':
-      return { ...state, stage: e.data.stage };
+      return { ...state, stage: e.data.stage, kind: OFFER_STAGE_IDS.has(e.data.stage) ? 'offer' : (state.kind ?? 'media') };
     case 'evidence':
       return { ...state, evidence: [...state.evidence, e.data] };
     case 'credit':
@@ -38,7 +42,7 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
       return state;
     case 'dossier': {
       const done = { evidence: e.data.evidence, credits: e.data.metrics.credits, maxCredits: e.data.metrics.maxCredits };
-      return isOfferDossier(e.data) ? { ...state, ...done, offerDossier: e.data } : { ...state, ...done, dossier: e.data };
+      return isOfferDossier(e.data) ? { ...state, ...done, kind: 'offer', offerDossier: e.data } : { ...state, ...done, kind: 'media', dossier: e.data };
     }
     case 'error':
       return e.data.recoverable

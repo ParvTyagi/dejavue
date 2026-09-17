@@ -335,7 +335,7 @@ async function checkWithinDeadline(
     reading: { excerpt: reading.message.slice(0, EXCERPT_CHARS), source: reading.source },
     evidence,
     narrative: offerNarrative(verdict, flags, final, officialEvidence),
-    advice: OFFER_ADVICE,
+    advice: OFFER_ADVICE[final.type],
     metrics: { totalMs: Math.round(performance.now() - startedMs), credits: budget.used, maxCredits: budget.max, stepsRun, partial },
     limitations: OFFER_LIMITATIONS,
     createdAt: deps.wallClock().toISOString(),

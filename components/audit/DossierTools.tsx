@@ -3,7 +3,7 @@
 import { BadgeCheck, Download, ImageDown, Loader2, ShieldAlert, ShieldQuestion } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useRef, useState } from 'react';
-import type { Dossier } from '@/lib/shared/types';
+import type { AnyDossier } from '@/lib/shared/types';
 import { Panel } from './Panel';
 import { ShareCard } from './ShareCard';
 
@@ -14,7 +14,7 @@ async function renderPng(node: HTMLElement) {
 
 type Check = { state: 'idle' } | { state: 'checking' } | { state: 'valid' } | { state: 'invalid' } | { state: 'error'; message: string };
 
-export function DossierTools({ dossier }: { dossier: Dossier }) {
+export function DossierTools({ dossier }: { dossier: AnyDossier }) {
   const [check, setCheck] = useState<Check>({ state: 'idle' });
   const [rendering, setRendering] = useState(false);
   const card = useRef<HTMLDivElement>(null);

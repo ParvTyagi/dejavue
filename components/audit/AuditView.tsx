@@ -7,21 +7,23 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { EASE_OUT } from '@/components/ui/motion';
 import { loadAuditIntro, type AuditIntro } from '@/lib/client/auditIntro';
-import { humanizeEngines } from '@/lib/client/labels';
+import { humanizeEngines, OFFER_STAGES, OFFER_STEP_NUMBER, STAGES } from '@/lib/client/labels';
 import { useAuditStream } from '@/lib/client/useAuditStream';
+import { OFFER_SCORE_CAP } from '@/lib/offer/score';
 import { isFinalEvent, type AuditEvent } from '@/lib/shared/types';
 import { ClaimBanner } from './ClaimBanner';
 import { CreditMeter } from './CreditMeter';
 import { DossierTools } from './DossierTools';
-import { EnginePanel } from './EnginePanel';
+import { EnginePanel, mediaEngineProps, offerEngineProps } from './EnginePanel';
 import { EvidenceFeed } from './EvidenceFeed';
 import { FactTiles } from './FactTiles';
+import { ContactList, MessageBanner, OfficialSourceCard, RedFlagList } from './OfferPanels';
 import { Panel } from './Panel';
-import { ScorePanel } from './ScorePanel';
+import { MEDIA_SCORE_CAP, ScorePanel } from './ScorePanel';
 import { StageRail } from './StageRail';
 import { Toaster } from './Toaster';
 import { Timeline } from './Timeline';
-import { VerdictHero } from './VerdictHero';
+import { mediaVerdictView, offerVerdictView, VerdictHero } from './VerdictHero';
 
 const LocationMap = dynamic(() => import('./LocationMap'), {
   ssr: false,
@@ -33,11 +35,14 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
   // A finished audit arrives complete in the server HTML; skipping entrance animations
   // keeps it visible from the first paint instead of hidden until hydration.
   const [finishedOnLoad] = useState(() => initialEvents.some(isFinalEvent));
-  const { dossier, fatal } = state;
+  const { dossier, offerDossier, fatal } = state;
   const [intro, setIntro] = useState<AuditIntro>();
   useEffect(() => setIntro(loadAuditIntro(id)), [id]);
 
-  const status = fatal ? 'failed' : dossier ? 'complete' : 'live';
+  // An offer check is known from its first stage, its result, or the form that started it in this tab.
+  const offer = state.kind === 'offer' || (!state.kind && intro?.kind === 'offer');
+  const finished = offer ? offerDossier : dossier;
+  const status = fatal ? 'failed' : finished ? 'complete' : 'live';
   const s = dossier?.signals;
 
   return (
@@ -59,7 +64,7 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
             </div>
           </div>
 
-          <ClaimBanner intro={intro} dossier={dossier} />
+          {offer ? <MessageBanner intro={intro} dossier={offerDossier} /> : <ClaimBanner intro={intro} dossier={dossier} />}
           <Toaster notices={state.notices} />
 
           <AnimatePresence initial={!finishedOnLoad}>
@@ -79,22 +84,53 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
             )}
           </AnimatePresence>
 
-          <AnimatePresence initial={!finishedOnLoad}>{dossier && <VerdictHero dossier={dossier} />}</AnimatePresence>
+          <AnimatePresence initial={!finishedOnLoad}>
+            {offer
+              ? offerDossier && <VerdictHero view={offerVerdictView(offerDossier)} />
+              : dossier && <VerdictHero view={mediaVerdictView(dossier)} />}
+          </AnimatePresence>
 
           {/* Phones: progress, then evidence, then details. Desktop: progress and details in a left column. */}
           <div className="mt-6 grid items-start gap-5 lg:grid-cols-[300px_1fr]">
             <aside className="order-1 min-w-0 space-y-5 lg:order-none lg:col-start-1 lg:row-start-1">
               <Panel title="Investigation">
-                <StageRail stage={state.stage} dossier={dossier} fatal={fatal} />
+                {offer ? (
+                  <StageRail
+                    stages={OFFER_STAGES}
+                    stage={state.stage}
+                    finished={!!offerDossier}
+                    fatal={fatal}
+                    skipped={(stage) => OFFER_STEP_NUMBER[stage] !== undefined && !offerDossier?.metrics.stepsRun.includes(OFFER_STEP_NUMBER[stage]!)}
+                  />
+                ) : (
+                  <StageRail
+                    stages={STAGES}
+                    stage={state.stage}
+                    finished={!!dossier}
+                    fatal={fatal}
+                    skipped={(stage) => stage.startsWith('tier') && !dossier?.metrics.tiersRun.includes(Number(stage.slice(4)))}
+                  />
+                )}
               </Panel>
               <CreditMeter credits={state.credits} maxCredits={state.maxCredits} shortCircuit={state.shortCircuit} creditLog={state.creditLog} />
             </aside>
 
-            {dossier && (
+            {finished && (
               <aside className="order-3 min-w-0 space-y-5 lg:order-none lg:col-start-1 lg:row-start-2">
-                <ScorePanel dossier={dossier} />
-                <EnginePanel dossier={dossier} />
-                <DossierTools dossier={dossier} />
+                {offerDossier ? (
+                  <>
+                    <ScorePanel reasons={offerDossier.confidence.reasons} cap={OFFER_SCORE_CAP[offerDossier.verdict]} />
+                    <EnginePanel {...offerEngineProps(offerDossier)} />
+                  </>
+                ) : (
+                  dossier && (
+                    <>
+                      <ScorePanel reasons={dossier.confidence.reasons} cap={MEDIA_SCORE_CAP[dossier.verdict]} />
+                      <EnginePanel {...mediaEngineProps(dossier)} />
+                    </>
+                  )
+                )}
+                <DossierTools dossier={finished} />
               </aside>
             )}
 
@@ -112,7 +148,9 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                         <Zap className="size-4" />
                       </span>
                       <p>
-                        <span className="font-medium text-ink">Decisive after tier {state.shortCircuit.afterTier}.</span>{' '}
+                        <span className="font-medium text-ink">
+                          {offer ? 'Clear scam signs' : 'Decisive'} after {offer ? 'step' : 'tier'} {state.shortCircuit.afterTier}.
+                        </span>{' '}
                         <span className="text-muted">
                           Stopped early and saved {state.shortCircuit.creditsSaved} search{state.shortCircuit.creditsSaved === 1 ? '' : 'es'}.
                         </span>
@@ -122,7 +160,15 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                 )}
               </AnimatePresence>
 
-              {dossier && s && (
+              {offerDossier && (
+                <>
+                  <OfficialSourceCard dossier={offerDossier} />
+                  <RedFlagList dossier={offerDossier} />
+                  <ContactList dossier={offerDossier} />
+                </>
+              )}
+
+              {!offer && dossier && s && (
                 <>
                   <FactTiles dossier={dossier} />
                   <div className={`grid items-start gap-5 ${s.claimGeo || s.sceneGeo ? 'xl:grid-cols-2' : ''}`}>
@@ -140,13 +186,13 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
 
               <Panel
                 title="Evidence"
-                subtitle={dossier ? `${dossier.evidence.length} results, each linked to its source` : 'Arriving live from each search engine'}
+                subtitle={finished ? `${finished.evidence.length} results, each linked to its source` : 'Arriving live from each search engine'}
               >
                 <EvidenceFeed
-                  evidence={dossier?.evidence ?? state.evidence}
+                  evidence={finished?.evidence ?? state.evidence}
                   firstSeenId={s?.firstSeen?.evidenceId}
                   searching={status === 'live'}
-                  inputPreview={intro?.previews[0]}
+                  inputPreview={offer ? undefined : intro?.previews[0]}
                 />
               </Panel>
 

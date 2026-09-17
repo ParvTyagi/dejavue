@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { matchOfferCase } from '@/lib/fixtures/source';
+import { OFFER_ADVICE } from '@/lib/offer/types';
 import { AuditError } from '@/lib/orchestrator/pipeline';
 import { SerpError, type SerpClient } from '@/lib/serp/client';
 import type { EngineId } from '@/lib/shared/types';
@@ -55,7 +56,7 @@ describe('offer golden cases (replay fixtures)', () => {
 
     it('carries the advice and limitations, and keeps no screenshot', async () => {
       const { dossier } = await replayOffer(c);
-      expect(dossier!).toMatchObject({ kind: 'offer', advice: expect.stringMatching(/never asks you to pay/) });
+      expect(dossier!).toMatchObject({ kind: 'offer', advice: OFFER_ADVICE[dossier!.signals.type] });
       expect(dossier!.limitations.join(' ')).toMatch(/cannot confirm that an offer is genuine/);
       expect(JSON.stringify(dossier)).not.toContain('screenshot.jpg');
     });
@@ -91,6 +92,14 @@ describe('offer stream', () => {
       'dossier',
     ]);
     expect(events.find((e) => e.type === 'short_circuit')?.data).toEqual({ afterTier: 2, creditsSaved: 4 });
+  });
+
+  it('words the advice for the kind of message', async () => {
+    const { dossier: bank } = await replayOffer(getOfferCase('o4-sbi-kyc-reported-number'));
+    expect(bank!.advice).toMatch(/Never share an OTP/);
+    expect(bank!.advice).not.toMatch(/employer/);
+    const { dossier: job } = await replayOffer(getOfferCase('o1-amazon-registration-fee'));
+    expect(job!.advice).toMatch(/A real employer never asks you to pay/);
   });
 
   it('points to the real site even when the message is plainly a scam', async () => {

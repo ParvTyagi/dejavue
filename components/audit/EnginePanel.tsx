@@ -2,22 +2,44 @@
 
 import { motion } from 'motion/react';
 import { ENGINE_LABEL, SKIP_REASON_LABEL } from '@/lib/client/labels';
-import type { Dossier } from '@/lib/shared/types';
+import type { OfferDossier } from '@/lib/offer/types';
+import type { Dossier, EngineId, SkipReason } from '@/lib/shared/types';
 import { ENGINE_COLOR, ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
 
-export function EnginePanel({ dossier }: { dossier: Dossier }) {
-  const { enginesUsed, enginesFailed, enginesSkipped } = dossier.signals;
+interface EnginePanelProps {
+  enginesUsed: EngineId[];
+  enginesFailed: EngineId[];
+  enginesSkipped: { engine: EngineId; reason: SkipReason }[];
+  subtitle: string;
+  /** Text and landmarks read from a photo. */
+  sceneTags?: string[];
+}
+
+const seconds = (ms: number) => `${(ms / 1000).toFixed(1)} s`;
+
+export function mediaEngineProps(d: Dossier): EnginePanelProps {
+  const m = d.metrics;
+  return {
+    ...d.signals,
+    subtitle: `Tiers ${m.tiersRun.join(', ') || 'none'} · ${seconds(m.totalMs)}${m.cacheHit ? ' · cached evidence' : ''}`,
+    sceneTags: [...new Set([...d.scene.landmarks, ...d.scene.text].map((t) => t.trim()).filter(Boolean))],
+  };
+}
+
+export function offerEngineProps(d: OfferDossier): EnginePanelProps {
+  return { ...d.signals, subtitle: `Steps ${d.metrics.stepsRun.join(', ') || 'none'} · ${seconds(d.metrics.totalMs)}` };
+}
+
+export function EnginePanel({ enginesUsed, enginesFailed, enginesSkipped, subtitle, sceneTags = [] }: EnginePanelProps) {
   const rows = [
     ...enginesUsed.map((e) => ({ e, status: 'used', cls: 'text-good bg-good-soft' })),
     ...enginesFailed.map((e) => ({ e, status: 'failed', cls: 'text-bad bg-bad-soft' })),
     ...enginesSkipped.map((s) => ({ e: s.engine, status: `skipped · ${SKIP_REASON_LABEL[s.reason]}`, cls: 'text-warn bg-warn-soft' })),
   ];
-  const m = dossier.metrics;
-  const sceneTags = [...new Set([...dossier.scene.landmarks, ...dossier.scene.text].map((t) => t.trim()).filter(Boolean))];
 
   return (
-    <Panel title="Search engines" subtitle={`Tiers ${m.tiersRun.join(', ') || 'none'} · ${(m.totalMs / 1000).toFixed(1)} s${m.cacheHit ? ' · cached evidence' : ''}`}>
+    <Panel title="Search engines" subtitle={subtitle}>
       {rows.length === 0 ? (
         <p className="text-sm text-muted">No searches were needed.</p>
       ) : (

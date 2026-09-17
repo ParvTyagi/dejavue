@@ -95,7 +95,14 @@ export interface OfferDossier {
   createdAt: string;
 }
 
-export const OFFER_ADVICE = 'Apply only through the official website. A real employer never asks you to pay.';
+/** Shown with every verdict, worded for the kind of message. */
+export const OFFER_ADVICE: Record<OfferType, string> = {
+  job: 'Apply only through the official website. A real employer never asks you to pay.',
+  govt_scheme: 'Apply only on the official government website. A government benefit never needs a fee to claim.',
+  customer_support:
+    'Contact the company only through the number on its official website. Never share an OTP, PIN or password with a caller.',
+  other: 'Check with the organisation through its official website. Never pay or share an OTP because of a message.',
+};
 
 export const OFFER_LIMITATIONS = [
   'DejaVue looks for warning signs using public search results. It cannot confirm that an offer is genuine.',

@@ -1,7 +1,7 @@
 import type { FlagStrength, OfferConfidence, OfferSignals, OfferVerdict, RedFlag } from './types';
 
 // NO_RED_FLAGS stays below the High band (80): finding nothing wrong is never strong proof.
-const CAP: Record<OfferVerdict, number> = {
+export const OFFER_SCORE_CAP: Record<OfferVerdict, number> = {
   LIKELY_SCAM: 99,
   NO_RED_FLAGS: 75,
   UNVERIFIED: 40,
@@ -9,7 +9,7 @@ const CAP: Record<OfferVerdict, number> = {
 
 const FLAG_POINTS: Record<FlagStrength, number> = { strong: 45, medium: 25, weak: 5 };
 
-const FLAG_LABEL: Record<RedFlag['id'], string> = {
+export const FLAG_LABEL: Record<RedFlag['id'], string> = {
   payment_request: 'Asks for money up front',
   lookalike_domain: 'Uses a look-alike website',
   reported_contact: 'Contact is reported as a scam',
@@ -37,7 +37,7 @@ export function scoreOffer(signals: OfferSignals, verdict: OfferVerdict, flags: 
   for (const engine of signals.enginesFailed) add(`${engine} failed or timed out`, -10);
 
   const raw = reasons.reduce((sum, r) => sum + r.points, 0);
-  const value = Math.max(0, Math.min(CAP[verdict], raw));
+  const value = Math.max(0, Math.min(OFFER_SCORE_CAP[verdict], raw));
   const band = value >= 80 ? 'High' : value >= 50 ? 'Medium' : 'Low';
   return { value, band, reasons };
 }

@@ -3,13 +3,58 @@
 import { Info } from 'lucide-react';
 import { motion } from 'motion/react';
 import { EASE_OUT, NumberTicker } from '@/components/ui/motion';
-import { TONE_VAR, VERDICT_LABEL } from '@/lib/client/labels';
+import { OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL, type Tone } from '@/lib/client/labels';
+import type { OfferDossier } from '@/lib/offer/types';
 import type { Dossier } from '@/lib/shared/types';
 
+/** What the verdict card shows, for a media audit or an offer check. */
+export interface VerdictView {
+  stamp: string;
+  title: string;
+  tone: Tone;
+  /** A second stamp, such as Misplaced on a recycled photo. */
+  extraStamp?: { text: string; tone: Tone };
+  summary: string;
+  bullets: { text: string; evidenceIds: string[] }[];
+  /** Shown in warning colour when the searches did not all run. */
+  partialNote?: string;
+  /** Advice that applies whatever the verdict. */
+  advice?: string;
+  template: boolean;
+  limitations: string[];
+  confidence: { value: number; band: string };
+}
+
+export function mediaVerdictView(d: Dossier): VerdictView {
+  const label = VERDICT_LABEL[d.verdict];
+  return {
+    ...label,
+    extraStamp: d.flags.recycled && d.flags.misplaced ? { text: 'Misplaced', tone: 'warn' } : undefined,
+    summary: d.narrative.summary,
+    bullets: d.narrative.bullets,
+    partialNote: d.metrics.partial ? 'Partial audit: searches ran out, timed out or were rate-limited before all engines ran.' : undefined,
+    template: d.narrative.source === 'template',
+    limitations: d.limitations,
+    confidence: d.confidence,
+  };
+}
+
+export function offerVerdictView(d: OfferDossier): VerdictView {
+  return {
+    ...OFFER_VERDICT_LABEL[d.verdict],
+    summary: d.narrative.summary,
+    bullets: d.narrative.bullets,
+    partialNote: d.metrics.partial ? 'Partial check: some searches failed or were skipped, so fewer warning signs could be checked.' : undefined,
+    advice: d.advice,
+    template: d.narrative.source === 'template',
+    limitations: d.limitations,
+    confidence: d.confidence,
+  };
+}
+
 /** The verdict lands like a rubber stamp; confidence fills its ring. */
-export function VerdictHero({ dossier }: { dossier: Dossier }) {
-  const label = VERDICT_LABEL[dossier.verdict];
-  const color = TONE_VAR[label.tone];
+export function VerdictHero({ view }: { view: VerdictView }) {
+  const color = TONE_VAR[view.tone];
 
   return (
     <motion.section
@@ -28,16 +73,17 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
             className="inline-block rounded-lg border-2 px-3 py-1 font-mono text-xs font-bold tracking-[0.25em] uppercase"
             style={{ borderColor: color, color }}
           >
-            {label.stamp}
+            {view.stamp}
           </motion.div>
-          {dossier.flags.recycled && dossier.flags.misplaced && (
+          {view.extraStamp && (
             <motion.span
               initial={{ opacity: 0, scale: 1.8, rotate: 10 }}
               animate={{ opacity: 1, scale: 1, rotate: 3 }}
               transition={{ type: 'spring', stiffness: 320, damping: 14, delay: 0.35 }}
-              className="ml-3 inline-block rounded-lg border-2 border-warn px-3 py-1 font-mono text-xs font-bold tracking-[0.25em] text-warn uppercase"
+              className="ml-3 inline-block rounded-lg border-2 px-3 py-1 font-mono text-xs font-bold tracking-[0.25em] uppercase"
+              style={{ borderColor: TONE_VAR[view.extraStamp.tone], color: TONE_VAR[view.extraStamp.tone] }}
             >
-              Misplaced
+              {view.extraStamp.text}
             </motion.span>
           )}
 
@@ -47,7 +93,7 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
             transition={{ duration: 0.7, delay: 0.3, ease: EASE_OUT }}
             className="mt-5 font-serif text-4xl leading-none sm:text-6xl"
           >
-            {label.title}
+            {view.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 8 }}
@@ -55,17 +101,17 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
             transition={{ duration: 0.6, delay: 0.45, ease: EASE_OUT }}
             className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            {dossier.narrative.summary}
+            {view.summary}
           </motion.p>
 
-          {dossier.narrative.bullets.length > 0 && (
+          {view.bullets.length > 0 && (
             <motion.ul
               initial="hidden"
               animate="show"
               variants={{ show: { transition: { staggerChildren: 0.08, delayChildren: 0.6 } } }}
               className="mt-5 space-y-2"
             >
-              {dossier.narrative.bullets.map((b, i) => (
+              {view.bullets.map((b, i) => (
                 <motion.li
                   key={i}
                   variants={{ hidden: { opacity: 0, x: -8 }, show: { opacity: 1, x: 0 } }}
@@ -88,12 +134,15 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
               ))}
             </motion.ul>
           )}
-          {dossier.metrics.partial && (
-            <p className="mt-4 text-sm font-medium text-warn">Partial audit: searches ran out, timed out or were rate-limited before all engines ran.</p>
+          {view.advice && (
+            <p className="mt-5 rounded-xl border px-4 py-3 text-sm font-medium text-ink" style={{ borderColor: `color-mix(in oklab, ${color} 35%, transparent)` }}>
+              {view.advice}
+            </p>
           )}
-          {dossier.narrative.source === 'template' && <p className="mt-4 text-xs text-faint">Explanation generated from the evidence without AI.</p>}
+          {view.partialNote && <p className="mt-4 text-sm font-medium text-warn">{view.partialNote}</p>}
+          {view.template && <p className="mt-4 text-xs text-faint">Explanation generated from the evidence without AI.</p>}
           <ul className="mt-5 space-y-1 border-t border-line pt-4 text-xs text-faint">
-            {dossier.limitations.map((l) => (
+            {view.limitations.map((l) => (
               <li key={l} className="flex items-start gap-1.5">
                 <Info className="mt-0.5 size-3 shrink-0" /> {l}
               </li>
@@ -101,7 +150,7 @@ export function VerdictHero({ dossier }: { dossier: Dossier }) {
           </ul>
         </div>
 
-        <ConfidenceRing value={dossier.confidence.value} band={dossier.confidence.band} color={color} />
+        <ConfidenceRing value={view.confidence.value} band={view.confidence.band} color={color} />
       </div>
     </motion.section>
   );
