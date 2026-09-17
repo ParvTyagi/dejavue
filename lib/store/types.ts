@@ -2,6 +2,8 @@ import type { Dossier, EngineId, Evidence, GeoPoint, SceneReading } from '@/lib/
 
 export interface MediaCacheEntry {
   pHash: string;
+  /** Reverse-image engines whose results are included. Claim-dependent searches are never cached here. */
+  engines: EngineId[];
   evidence: Evidence[];
   scene?: SceneReading;
   sceneGeo?: GeoPoint;

@@ -32,7 +32,7 @@ describe.each(STORE_KINDS)('%s store', (kind) => {
 
   it('finds near-identical media and forgets it after the TTL', async () => {
     const { store, at } = setup();
-    const entry = { pHash: '0bdd9709e6be8112', evidence: [], createdAt: T0.toISOString() };
+    const entry = { pHash: '0bdd9709e6be8112', engines: ['google_lens' as const], evidence: [], createdAt: T0.toISOString() };
     await store.putMedia(entry, TTL.mediaMs);
     at(DAY);
     expect(await store.findMedia(['0bdd9709e6be8113'])).toMatchObject({ pHash: entry.pHash });

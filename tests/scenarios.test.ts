@@ -296,6 +296,73 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
     expect(next.dossier!.verdict).toBe('CONSISTENT');
   });
 
+  it('still checks a new caption fairly: reverse-image searches are free, claim searches run again', async () => {
+    const { run } = session('c1-kharkiv-prayer');
+    await run();
+    const again = await run();
+    expect(again.dossier!.metrics.cacheHit).toBe(true);
+    expect(again.dossier!.signals.enginesUsed).not.toEqual(expect.arrayContaining(['google_lens']));
+    expect(again.dossier!.signals.enginesUsed).toEqual(expect.arrayContaining(['google_news', 'google_maps']));
+    // News and Maps for the claimed place: 2 credits, while Lens, Bing, Yandex and the scene landmark come from the cache.
+    expect(again.dossier!.metrics.credits).toBe(2);
+    expect(again.dossier!.signals.locationAgrees).toBe(true);
+    expect(again.dossier!.verdict).toBe('CONSISTENT');
+  });
+
+  it('completes the missing reverse-image searches when an early-stopped audit is reused for a harder claim', async () => {
+    const { c, run } = session('c2-uttarakhand-flood');
+    const first = await run();
+    expect(first.dossier!.metrics.tiersRun).toEqual([1]);
+
+    // Claimed before the known copies, so the cached Lens evidence is no longer decisive.
+    const calls: EngineId[] = [];
+    const earlier = { ...c.input, claim: { ...c.input.claim, date: '2013-06-01T00:00:00Z' } };
+    await run(
+      (d) => ({
+        serp: (engine, params, ctx) => {
+          calls.push(engine);
+          return d.serp(engine, params, ctx);
+        },
+      }),
+      earlier,
+    );
+    expect(calls).not.toContain('google_lens');
+    expect(calls).toEqual(expect.arrayContaining(['bing_reverse_image', 'yandex_images']));
+  });
+
+  it('caches only reverse-image evidence, never searches built from the claim', async () => {
+    const c = getCase('c1-kharkiv-prayer');
+    const frame = c.input.media.frames[0].pHash;
+    const store = makeStore(kind, () => new Date(c.submittedAt));
+    const video = { ...c.input, media: { ...c.input.media, kind: 'video' as const } };
+    const results: Partial<Record<EngineId, unknown>> = {
+      google_lens: { exact_matches: [{ title: 'Copy', link: 'https://a.example/p', thumbnail: 'https://t.example/a.jpg', date: 'Feb 19, 2022' }] },
+      youtube: { video_results: [{ title: 'Clip', link: 'https://www.youtube.com/watch?v=x', thumbnail: { static: 'https://t.example/y.jpg' }, published_date: '3 years ago' }] },
+    };
+    const { dossier } = await replay(
+      c,
+      (d) => ({
+        store,
+        useMediaCache: true,
+        serp: async (engine, _params, ctx) => {
+          ctx.budget.used++;
+          return { raw: results[engine] ?? {}, cached: false, fetchedAt: new Date(c.submittedAt) };
+        },
+        hashThumbnail: async () => frame,
+        llm: llmWith(d.llm, {
+          parseClaim: async () => ({ event: 'people pray in the snow', refersToPast: false }),
+          readScene: async () => ({ signText: [], landmarks: [] }),
+        }),
+      }),
+      video,
+    );
+    expect(dossier!.evidence.map((e) => e.engine)).toContain('youtube');
+
+    const entry = await store.findMedia([frame]);
+    expect(entry!.engines).toEqual(['google_lens', 'bing_reverse_image', 'yandex_images']);
+    expect(entry!.evidence.map((e) => e.engine)).toEqual(['google_lens']);
+  });
+
   it('searches again once cached evidence is older than 7 days', async () => {
     const { run, later } = session('c2-uttarakhand-flood');
     expect((await run()).dossier!.metrics.cacheHit).toBe(false);

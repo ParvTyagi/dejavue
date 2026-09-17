@@ -21,8 +21,6 @@ export interface SearchContext {
   onCredit?: (e: { engine: EngineId; cached: boolean; totalCredits: number }) => void;
   /** Aborts the request (audit deadline or tier timeout). An aborted search is never retried. */
   signal?: AbortSignal;
-  /** Answer only from the query cache; never spend a credit. */
-  cacheOnly?: boolean;
 }
 
 export interface SearchResult {
@@ -46,7 +44,6 @@ export type SerpErrorCode =
   | 'BUDGET_EXCEEDED'
   | 'CREDITS_EXHAUSTED'
   | 'FIXTURE_MISSING'
-  | 'NOT_CACHED'
   | 'RATE_LIMITED'
   | 'TIMED_OUT'
   | 'UPSTREAM_FAILED';
@@ -154,7 +151,6 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
     if (ctx.signal?.aborted) throw timedOut(engine);
     if (opts.mode === 'replay') {
       // Replay has no query cache, and simulates credit spend so the meter and budget behave as in live mode.
-      if (ctx.cacheOnly) throw new SerpError('NOT_CACHED', engine, `Skipped ${engine}: not in the query cache`);
       guard(engine, ctx);
       await pause(opts.replayDelayMs ?? 0, ctx.signal);
       if (ctx.signal?.aborted) throw timedOut(engine);
@@ -173,8 +169,6 @@ export function createSerpClient(opts: SerpClientOptions): SerpClient {
       spend(engine, true, ctx);
       return { raw: hit.response, cached: true, fetchedAt: new Date(hit.fetchedAt) };
     }
-    if (ctx.cacheOnly) throw new SerpError('NOT_CACHED', engine, `Skipped ${engine}: not in the query cache`);
-
     guard(engine, ctx);
     if (!opts.transport) throw new SerpError('UPSTREAM_FAILED', engine, 'No SerpApi transport configured');
 

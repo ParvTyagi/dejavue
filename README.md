@@ -62,7 +62,7 @@ Live mode needs `SERPAPI_API_KEY`, `GEMINI_API_KEY` and Supabase Storage for tem
 | Cache | Kept for | Saves |
 | --- | --- | --- |
 | SerpApi query cache | 24 h (Google Maps: 30 days, since places don't move) | Paying twice for the same search |
-| Media cache (near-identical photo, by pHash) | 7 days | Lens, Bing and Yandex searches. A hit costs **0 credits**, and the verdict is always recomputed for the new claim. Partial or failed audits are never cached |
+| Media cache (near-identical photo, by pHash) | 7 days | Lens, Bing and Yandex searches, which depend only on the image. A hit reuses them for free and searches only the reverse-image engines still missing. Claim searches (News, Maps, YouTube, dated Search) always run for the new claim, so the verdict is judged fairly. Partial or failed audits are never cached |
 | Finished dossiers | 7 days | Reloading a result link |
 | Credit ledger | Per calendar month | Enforcing the monthly search budget |
 

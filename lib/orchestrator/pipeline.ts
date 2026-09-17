@@ -70,8 +70,11 @@ const ID_PREFIX: Record<EngineId, string> = {
 
 const TIER3_RANK = ['google_news', 'maps_claim', 'maps_scene', 'youtube', 'google'] as const;
 const LANDMARK_MIN_CONFIDENCE = 0.8;
-/** Engines whose results are reused from the media cache. */
-const MEDIA_ENGINES: EngineId[] = ['google_lens', 'bing_reverse_image', 'yandex_images', 'youtube', 'google'];
+/**
+ * Engines that search by the image itself, so their results hold for any claim
+ * about the same media and can be reused from the media cache.
+ */
+const IMAGE_ENGINES: EngineId[] = ['google_lens', 'bing_reverse_image', 'yandex_images'];
 const NEWS_WINDOW_MS = 3 * 86_400_000;
 
 /** Rejects with TIMED_OUT when the signal fires, even if the work itself ignores it. */
@@ -128,11 +131,7 @@ async function audit(
   const inputHashes = frames.map((f) => f.pHash);
   const sharpest = frames[0];
 
-  const call = async (
-    req: engines.EngineRequest,
-    signal = auditSignal,
-    cacheOnly = false,
-  ): Promise<SearchResult | undefined> => {
+  const call = async (req: engines.EngineRequest, signal = auditSignal): Promise<SearchResult | undefined> => {
     if (halt || auditSignal.aborted) {
       partial = true;
       skipped.add(req.engine);
@@ -146,17 +145,12 @@ async function audit(
         frameIndex: req.frameIndex,
         onCredit: (data) => emit({ type: 'credit', data }),
         signal,
-        cacheOnly,
       });
       const res = await untilAborted(search, signal, req.engine);
       used.add(req.engine);
       return res;
     } catch (err) {
       const e = err instanceof SerpError ? err : new SerpError('UPSTREAM_FAILED', req.engine, String(err));
-      if (e.code === 'NOT_CACHED') {
-        skipped.add(req.engine);
-        return undefined;
-      }
       if (e.code === 'BUDGET_EXCEEDED') {
         skipped.add(req.engine);
       } else {
@@ -213,11 +207,14 @@ async function audit(
   let scene: SceneReading | undefined;
   let sceneGeo: GeoPoint | undefined;
 
+  /** Reverse-image engines answered from the media cache; only the missing ones are searched. */
+  const fromCache = new Set(cached?.engines ?? []);
+
   emit({ type: 'stage', data: { stage: 'scene' } });
   if (cached) {
     scene = cached.scene;
     sceneGeo = cached.sceneGeo;
-    for (const ev of cached.evidence) {
+    for (const ev of structuredClone(cached.evidence)) {
       evidence.push(ev);
       emit({ type: 'evidence', data: ev });
     }
@@ -231,10 +228,10 @@ async function audit(
     emit({ type: 'short_circuit', data: { afterTier, creditsSaved: budget.remaining } });
   };
 
-  if (!cached) {
-    // Tier 1: Google Lens on the sharpest frame, falling back to Bing if Lens is down.
-    emit({ type: 'stage', data: { stage: 'tier1' } });
-    tiersRun.push(1);
+  // Tier 1: Google Lens on the sharpest frame, falling back to Bing if Lens is down.
+  emit({ type: 'stage', data: { stage: 'tier1' } });
+  tiersRun.push(1);
+  if (!fromCache.has('google_lens')) {
     const lensReq = engines.lensExact(sharpest.url, sharpest.index);
     const lens = await call(lensReq);
     if (lens) {
@@ -245,35 +242,33 @@ async function audit(
         const res = await call(req);
         if (res) await collect(req, res);
       }
-    } else if (failed.has('google_lens')) {
+    } else if (failed.has('google_lens') && !fromCache.has('bing_reverse_image')) {
       const bingReq = engines.bingReverse(sharpest.url, sharpest.index);
       const bing = await call(bingReq);
       if (!bing) {
-        if (halt?.code === 'RATE_LIMITED' || halt?.code === 'CREDITS_EXHAUSTED') {
-          throw new AuditError(halt.code, `SerpApi refused the search: ${halt.message}`);
-        }
+        if (halt) throw new AuditError(halt.code as 'RATE_LIMITED' | 'CREDITS_EXHAUSTED', `SerpApi refused the search: ${halt.message}`);
         if (auditSignal.aborted) throw new AuditError('TIMED_OUT', 'Reverse image search timed out; no verdict is possible.');
         throw new AuditError('UPSTREAM_FAILED', 'Google Lens and Bing both failed; no verdict is possible.');
       }
       await collect(bingReq, bing);
     }
-    if (decisive()) shortCircuit(1);
+  }
+  if (decisive()) shortCircuit(1);
 
-    // Tier 2: independent reverse-image indexes, one at a time.
-    if (!shortCircuited) {
-      emit({ type: 'stage', data: { stage: 'tier2' } });
-      tiersRun.push(2);
-      for (const req of [
-        engines.bingReverse(sharpest.url, sharpest.index),
-        engines.yandexByUrl(sharpest.url, sharpest.index),
-      ]) {
-        if (used.has(req.engine) || failed.has(req.engine)) continue;
-        const res = await call(req);
-        if (res) await collect(req, res);
-        if (decisive()) {
-          shortCircuit(2);
-          break;
-        }
+  // Tier 2: independent reverse-image indexes, one at a time.
+  if (!shortCircuited) {
+    emit({ type: 'stage', data: { stage: 'tier2' } });
+    tiersRun.push(2);
+    for (const req of [
+      engines.bingReverse(sharpest.url, sharpest.index),
+      engines.yandexByUrl(sharpest.url, sharpest.index),
+    ]) {
+      if (fromCache.has(req.engine) || used.has(req.engine) || failed.has(req.engine)) continue;
+      const res = await call(req);
+      if (res) await collect(req, res);
+      if (decisive()) {
+        shortCircuit(2);
+        break;
       }
     }
   }
@@ -290,11 +285,9 @@ async function audit(
     const news = engines.newsFor(claim);
     if (news) plan.push({ key: 'google_news', req: news });
     if (claim.place) plan.push({ key: 'maps_claim', req: engines.mapsPlace(claim.place) });
-    if (landmark && !cached) plan.push({ key: 'maps_scene', req: engines.mapsPlace(landmark.name) });
-    if (!cached && (input.media.kind === 'video' || scene?.broadcastLogo)) {
-      plan.push({ key: 'youtube', req: engines.youtubeFor(claim) });
-    }
-    if (undated && !cached) plan.push({ key: 'google', req: engines.datedSearch(undated.title!, claim.claimedAt) });
+    if (landmark && !sceneGeo) plan.push({ key: 'maps_scene', req: engines.mapsPlace(landmark.name) });
+    if (input.media.kind === 'video' || scene?.broadcastLogo) plan.push({ key: 'youtube', req: engines.youtubeFor(claim) });
+    if (undated) plan.push({ key: 'google', req: engines.datedSearch(undated.title!, claim.claimedAt) });
     plan.sort((a, b) => TIER3_RANK.indexOf(a.key) - TIER3_RANK.indexOf(b.key));
 
     const affordable = plan.slice(0, Math.max(0, budget.remaining));
@@ -308,8 +301,8 @@ async function audit(
 
     // One timeout for the whole tier; it also cancels the searches still running.
     const tier3Signal = AbortSignal.any([auditSignal, AbortSignal.timeout(deps.timeouts?.tier3Ms ?? 10_000)]);
-    // A media cache hit costs no credits: claim-dependent searches are answered from the query cache or skipped.
-    const results = await Promise.all(affordable.map((p) => call(p.req, tier3Signal, !!cached)));
+    // Claim-dependent searches always run for this claim, even on a media cache hit.
+    const results = await Promise.all(affordable.map((p) => call(p.req, tier3Signal)));
 
     // Process in rank order so evidence ids and ordering stay deterministic.
     for (let i = 0; i < affordable.length; i++) {
@@ -355,14 +348,18 @@ async function audit(
     sceneGeo = { lat, lng, label: 'Photo GPS location', scale: 'poi' };
   }
 
-  // Only complete image evidence is reused: a partial audit or a failed image search would
-  // otherwise hide older copies from every later audit of the same media.
-  const imageEvidenceComplete = !partial && !MEDIA_ENGINES.some((e) => failed.has(e));
-  if (!cached && deps.useMediaCache && imageEvidenceComplete) {
+  // Cache the reverse-image evidence and record which engines produced it, so a later audit
+  // searches only the engines still missing. Nothing is cached from a partial audit or a
+  // failed image search, which would hide older copies from later audits of the same media.
+  const imageEngines = IMAGE_ENGINES.filter((e) => fromCache.has(e) || used.has(e));
+  const searchedNewImageEngine = imageEngines.some((e) => !fromCache.has(e));
+  const imageSearchFailed = IMAGE_ENGINES.some((e) => failed.has(e));
+  if (deps.useMediaCache && searchedNewImageEngine && !partial && !imageSearchFailed) {
     await deps.store.putMedia(
       {
-        pHash: sharpest.pHash,
-        evidence: evidence.filter((e) => MEDIA_ENGINES.includes(e.engine)),
+        pHash: cached?.pHash ?? sharpest.pHash,
+        engines: imageEngines,
+        evidence: evidence.filter((e) => IMAGE_ENGINES.includes(e.engine)),
         scene,
         sceneGeo: sceneResolvedByMaps ? sceneGeo : undefined,
         createdAt: deps.clock().toISOString(),
