@@ -20,7 +20,7 @@ export const dynamic = 'force-dynamic';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
-      <body className="grain min-h-screen overflow-x-hidden font-sans antialiased">
+      <body className="grain min-h-screen overflow-x-clip font-sans antialiased">
         <Providers>
           <SiteNav mode={fixtureMode()} />
           <main>{children}</main>

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { EASE_OUT } from '@/components/ui/motion';
 import { DATE_TRUST_LABEL, displayDate, ENGINE_LABEL } from '@/lib/client/labels';
 import type { Evidence } from '@/lib/shared/types';
-import { ENGINE_ICON } from './icons';
+import { ENGINE_COLOR, ENGINE_ICON } from './icons';
 import { MatchCompare } from './MatchCompare';
 
 /** Evidence cards that slide in as each engine answers; confirmed matches first. */
@@ -64,7 +64,10 @@ function EvidenceCard({ ev, firstSeen, inputPreview }: { ev: Evidence; firstSeen
     >
       {confirmed && <span aria-hidden className="absolute inset-y-0 left-0 w-0.5 bg-good" />}
       <div className="flex flex-wrap items-start gap-3 sm:flex-nowrap">
-        <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg border border-line bg-surface-2 text-muted">
+        <span
+          className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg border"
+          style={{ color: ENGINE_COLOR[ev.engine], borderColor: `${ENGINE_COLOR[ev.engine]}40`, background: `${ENGINE_COLOR[ev.engine]}14` }}
+        >
           <Icon className="size-4" />
         </span>
         <div className="min-w-0 flex-1">

@@ -15,6 +15,8 @@
   --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-teal: var(--teal);
+  --color-violet: var(--violet);
   --color-bad: var(--bad);
   --color-bad-soft: var(--bad-soft);
   --color-warn: var(--warn);
@@ -82,10 +84,12 @@
   --line: rgb(255 255 255 / 0.08);
   --line-strong: rgb(255 255 255 / 0.16);
   --ink: #f5f5f2;
-  --muted: #a3a3a0;
-  --faint: #6b6b68;
+  --muted: #b8b8b2;
+  --faint: #7d7d78;
   --accent: #d4f75c;
   --accent-ink: #0b0d02;
+  --teal: #5eead4;
+  --violet: #a78bfa;
   --bad: #ff6b4f;
   --bad-soft: rgb(255 107 79 / 0.12);
   --warn: #ffb547;
@@ -130,11 +134,76 @@ body {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
 }
 
+/* Applied to each animated word (clipped text can't paint through child layers). */
 .text-gradient {
-  background: linear-gradient(180deg, #fff 20%, rgb(255 255 255 / 0.55));
+  background: linear-gradient(180deg, #fff 30%, rgb(255 255 255 / 0.62));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.text-shine {
+  background: linear-gradient(90deg, var(--accent), var(--teal), var(--violet), var(--accent));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 9s linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position: 300% 0;
+  }
+}
+
+/* A light that travels around the element's border. */
+@property --glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.glow-border {
+  position: relative;
+  isolation: isolate;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--glow-angle), transparent 0 55%, var(--accent) 70%, var(--teal) 80%, var(--violet) 90%, transparent 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: glow-spin 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes glow-spin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+/* Soft colour wash behind a section. */
+.wash {
+  position: relative;
+  isolation: isolate;
+}
+.wash::before {
+  content: '';
+  position: absolute;
+  inset: -120px calc(50% - 50vw);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 300px at 15% 20%, rgb(94 234 212 / 0.07), transparent 70%),
+    radial-gradient(500px 300px at 85% 60%, rgb(167 139 250 / 0.08), transparent 70%);
 }
 
 .leaflet-container {

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { NumberTicker } from '@/components/ui/motion';
 import { DEFAULT_MAX_CREDITS, ENGINE_LABEL } from '@/lib/client/labels';
 import type { AuditState } from '@/lib/client/useAuditStream';
-import { ENGINE_ICON } from './icons';
+import { ENGINE_COLOR, ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
 
 /** Live SerpApi search meter: six slots that fill as searches are spent. */
@@ -28,7 +28,7 @@ export function CreditMeter({ state }: { state: AuditState }) {
         {Array.from({ length: MAX }, (_, i) => (
           <div key={i} className="h-2 overflow-hidden rounded-full bg-surface-2">
             <motion.div
-              className="h-full rounded-full bg-accent"
+              className="h-full rounded-full bg-gradient-to-r from-accent to-teal"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: i < used ? 1 : 0 }}
               style={{ originX: 0 }}
@@ -48,7 +48,7 @@ export function CreditMeter({ state }: { state: AuditState }) {
                 animate={{ opacity: 1, x: 0, height: 'auto' }}
                 className="flex items-center gap-2 text-xs text-muted"
               >
-                <Icon className="size-3.5 text-faint" />
+                <Icon className="size-3.5" style={{ color: ENGINE_COLOR[c.engine] }} />
                 {ENGINE_LABEL[c.engine]}
                 <span className="ml-auto font-mono text-faint">{c.cached ? 'cached' : `#${i + 1}`}</span>
               </motion.li>

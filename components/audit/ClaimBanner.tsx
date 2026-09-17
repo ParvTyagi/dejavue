@@ -44,7 +44,11 @@ export function ClaimBanner({ intro, dossier }: { intro?: AuditIntro; dossier?: 
           <Kind className="size-3.5" /> Claim under investigation
         </p>
         {text ? (
-          <h1 className="mt-2 font-serif text-3xl leading-tight text-balance text-ink sm:text-4xl">“{text}”</h1>
+          <h1 className="mt-2 font-serif text-3xl leading-tight text-balance text-ink sm:text-4xl">
+            <span className="text-shine">“</span>
+            {text}
+            <span className="text-shine">”</span>
+          </h1>
         ) : (
           <div className="mt-3 h-9 w-3/4 animate-pulse rounded-lg bg-surface-2" />
         )}

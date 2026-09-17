@@ -8,6 +8,7 @@ import { EASE_OUT, Reveal, ScrambleText, ShimmerButton, SpotlightCard } from '@/
 import { saveAuditIntro } from '@/lib/client/auditIntro';
 import { MediaError, prepareImage, prepareVideo, type PreparedUpload } from '@/lib/client/prepareMedia';
 import type { AuditInput, FixtureMode } from '@/lib/shared/types';
+import { demoTheme } from './demoThemes';
 
 export interface DemoCase {
   id: string;
@@ -133,10 +134,12 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
   ];
 
   return (
-    <section id="check" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-24 sm:px-6">
+    <section id="check" className="wash mx-auto max-w-6xl scroll-mt-20 px-4 pb-24 sm:px-6">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check media</p>
-        <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">Where did it come from?</h2>
+        <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+          Where did it <span className="text-shine italic">come from?</span>
+        </h2>
       </Reveal>
 
       <Reveal delay={0.1} className="mt-10">
@@ -187,29 +190,49 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                       variants={{ show: { transition: { staggerChildren: 0.04 } } }}
                       className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
                     >
-                      {demos.map((d) => (
-                        <motion.li key={d.id} variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}>
-                          <SpotlightCard
-                            role="button"
-                            tabIndex={0}
-                            aria-disabled={busy}
-                            onClick={() => !busy && runDemo(d)}
-                            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && !busy && runDemo(d)}
-                            whileHover={{ y: -3 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="flex h-full cursor-pointer flex-col gap-4 p-4 outline-none focus-visible:border-accent"
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className="flex size-8 items-center justify-center rounded-lg border border-line bg-black/30 text-muted group-hover:text-accent">
-                                {d.kind === 'video' ? <Film className="size-4" /> : <ImageIcon className="size-4" />}
-                              </span>
-                              <ArrowUpRight className="size-4 text-faint transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
-                            </div>
-                            <span className="text-sm leading-snug font-medium text-ink">{d.title}</span>
-                            <span className="mt-auto font-mono text-[11px] text-faint">{d.id}</span>
-                          </SpotlightCard>
-                        </motion.li>
-                      ))}
+                      {demos.map((d) => {
+                        const theme = demoTheme(d.title);
+                        return (
+                          <motion.li key={d.id} variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}>
+                            <SpotlightCard
+                              role="button"
+                              tabIndex={0}
+                              aria-disabled={busy}
+                              onClick={() => !busy && runDemo(d)}
+                              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && !busy && runDemo(d)}
+                              whileHover={{ y: -4 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="flex h-full cursor-pointer flex-col outline-none focus-visible:border-accent"
+                            >
+                              <div
+                                className="relative flex h-24 items-center justify-center overflow-hidden border-b border-line"
+                                style={{ background: `linear-gradient(135deg, ${theme.from}33, ${theme.to}14 60%, transparent)` }}
+                              >
+                                <div
+                                  aria-hidden
+                                  className="absolute -top-10 -right-6 size-32 rounded-full opacity-50 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
+                                  style={{ background: theme.from }}
+                                />
+                                <div className="grid-bg absolute inset-0 opacity-30" />
+                                <theme.icon
+                                  className="relative size-9 drop-shadow-[0_0_18px_currentColor] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                                  style={{ color: theme.to }}
+                                  strokeWidth={1.5}
+                                />
+                                <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-0.5 text-[10px] text-ink backdrop-blur">
+                                  {d.kind === 'video' ? <Film className="size-3" /> : <ImageIcon className="size-3" />}
+                                  {d.kind}
+                                </span>
+                                <ArrowUpRight className="absolute top-2.5 right-2.5 size-4 text-white/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                              </div>
+                              <div className="flex flex-1 flex-col gap-3 p-4">
+                                <span className="text-sm leading-snug font-medium text-ink">{d.title}</span>
+                                <span className="mt-auto font-mono text-[11px] text-faint">{d.id}</span>
+                              </div>
+                            </SpotlightCard>
+                          </motion.li>
+                        );
+                      })}
                     </motion.ul>
                   </div>
                 ) : (

@@ -26,7 +26,7 @@ export function Hero() {
             transition={{ duration: 0.6, ease: EASE_OUT }}
             className="group inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-3 pl-1 text-xs text-muted backdrop-blur hover:border-line-strong"
           >
-            <span className="rounded-full bg-accent/15 px-2 py-0.5 font-mono text-[10px] font-medium tracking-wide text-accent uppercase">
+            <span className="rounded-full bg-gradient-to-r from-accent/25 to-teal/25 px-2 py-0.5 font-mono text-[10px] font-medium tracking-wide text-accent uppercase">
               SerpApi
             </span>
             Six search engines, one evidence trail
@@ -34,9 +34,16 @@ export function Hero() {
           </motion.a>
 
           <h1 className="mt-6 font-serif text-[clamp(2.9rem,5.6vw,5rem)] leading-[0.95] tracking-[-0.02em]">
-            <WordReveal text="Has this photo been" className="text-gradient whitespace-nowrap" />
+            <WordReveal text="Has this photo been" className="whitespace-nowrap" wordClassName="text-gradient" />
             <br />
-            <WordReveal text="seen before?" delay={0.3} className="text-accent italic" />
+            <motion.span
+              className="text-shine inline-block pr-2 italic"
+              initial={{ opacity: 0, y: '0.3em', filter: 'blur(12px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.9, delay: 0.35, ease: EASE_OUT }}
+            >
+              seen before?
+            </motion.span>
           </h1>
 
           <motion.p
@@ -78,7 +85,7 @@ export function Hero() {
             {STATS.map((s) => (
               <motion.div key={s.label} variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="font-serif text-4xl text-ink">
+                <dd className="text-shine font-serif text-4xl">
                   <NumberTicker value={s.value} />
                 </dd>
                 <dd className="mt-1 text-xs leading-snug text-faint">{s.label}</dd>

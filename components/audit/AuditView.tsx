@@ -38,7 +38,12 @@ export function AuditView({ id }: { id: string }) {
 
   return (
     <div className="relative isolate">
-      <div aria-hidden className="grid-bg pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 opacity-60" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] overflow-hidden">
+        <div className="grid-bg absolute inset-0 opacity-60" />
+        <div className="absolute -top-40 left-[10%] h-[420px] w-[620px] animate-drift rounded-full bg-[radial-gradient(closest-side,rgb(94_234_212/0.14),transparent)] blur-3xl" />
+        <div className="absolute -top-24 right-[5%] h-[380px] w-[560px] animate-drift rounded-full bg-[radial-gradient(closest-side,rgb(167_139_250/0.16),transparent)] blur-3xl" style={{ animationDelay: '-9s' }} />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-bg" />
+      </div>
       <div className="mx-auto max-w-6xl px-4 pt-8 pb-24 sm:px-6">
         <div className="flex items-center justify-between gap-3">
           <Link href="/#check" className="group flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-ink">

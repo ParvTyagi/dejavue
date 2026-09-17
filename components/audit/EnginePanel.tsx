@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { ENGINE_LABEL, SKIP_REASON_LABEL } from '@/lib/client/labels';
 import type { Dossier } from '@/lib/shared/types';
-import { ENGINE_ICON } from './icons';
+import { ENGINE_COLOR, ENGINE_ICON } from './icons';
 import { Panel } from './Panel';
 
 export function EnginePanel({ dossier }: { dossier: Dossier }) {
@@ -32,7 +32,7 @@ export function EnginePanel({ dossier }: { dossier: Dossier }) {
                 transition={{ delay: 0.2 + i * 0.05 }}
                 className="flex items-center gap-2 text-sm"
               >
-                <Icon className="size-4 text-faint" />
+                <Icon className="size-4" style={{ color: ENGINE_COLOR[e] }} />
                 <span className="text-ink">{ENGINE_LABEL[e]}</span>
                 <span className={`ml-auto rounded-full px-2 py-0.5 text-[11px] ${cls}`}>{status}</span>
               </motion.li>

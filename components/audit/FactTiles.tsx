@@ -11,6 +11,7 @@ export function FactTiles({ dossier }: { dossier: Dossier }) {
   const tiles = [
     {
       icon: History,
+      color: 'var(--warn)',
       label: 'First seen',
       value: s.firstSeen ? displayDate(s.firstSeen.at) : '—',
       hint:
@@ -25,6 +26,7 @@ export function FactTiles({ dossier }: { dossier: Dossier }) {
     },
     {
       icon: CalendarClock,
+      color: 'var(--teal)',
       label: 'Claimed',
       value: displayDate(s.claim.claimedAt),
       hint: s.claim.place ?? 'No place given',
@@ -32,6 +34,7 @@ export function FactTiles({ dossier }: { dossier: Dossier }) {
     },
     {
       icon: Ruler,
+      color: 'var(--violet)',
       label: 'Scene vs. claim',
       value: s.deltaSKm !== undefined ? <><NumberTicker value={s.deltaSKm} /> km</> : '—',
       hint: s.sceneGeo ? `Scene: ${s.sceneGeo.label}` : 'Scene not located',
@@ -53,7 +56,7 @@ export function FactTiles({ dossier }: { dossier: Dossier }) {
           className={`rounded-2xl border p-4 ${t.highlight ? 'border-warn/30 bg-warn-soft' : 'border-line bg-surface'}`}
         >
           <p className="flex items-center gap-1.5 text-xs text-faint">
-            <t.icon className="size-3.5" /> {t.label}
+            <t.icon className="size-3.5" style={{ color: t.color }} /> {t.label}
           </p>
           <p className="mt-2 font-serif text-3xl leading-none">{t.value}</p>
           <p className={`mt-2 text-xs ${t.highlight ? 'text-warn' : 'text-muted'}`}>{t.hint}</p>

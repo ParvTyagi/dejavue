@@ -33,8 +33,8 @@ export function HeroPreview() {
       style={{ perspective: 1200 }}
       className="relative mx-auto w-full max-w-md lg:max-w-none"
     >
-      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(closest-side,rgb(212_247_92/0.12),transparent)] blur-2xl" />
-      <div className="overflow-hidden rounded-2xl border border-line-strong bg-[#0d0d10]/90 shadow-2xl shadow-black/60 backdrop-blur">
+      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(closest-side,rgb(94_234_212/0.16),rgb(167_139_250/0.08),transparent)] blur-2xl" />
+      <div className="glow-border rounded-2xl border border-line-strong bg-[#0d0d10]/90 shadow-2xl shadow-black/60 backdrop-blur">
         <div className="flex items-center justify-between border-b border-line px-4 py-2.5">
           <div className="flex gap-1.5">
             <span className="size-2.5 rounded-full bg-white/10" />

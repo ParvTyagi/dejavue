@@ -7,7 +7,7 @@ import { ENGINE_LABEL } from '@/lib/client/labels';
 
 export function HowItWorks() {
   return (
-    <section id="how" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28">
+    <section id="how" className="wash mx-auto max-w-6xl scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28">
       <Reveal>
         <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">How it works</p>
         <h2 className="mt-3 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">
@@ -17,17 +17,17 @@ export function HowItWorks() {
 
       <div className="mt-12 grid gap-4 md:grid-cols-3">
         <Reveal delay={0}>
-          <Step n="01" title="Fingerprint" body="Your browser shrinks the media and computes a 64-bit perceptual hash. Only resized frames ever leave your device.">
+          <Step n="01" color="#d4f75c" title="Fingerprint" body="Your browser shrinks the media and computes a 64-bit perceptual hash. Only resized frames ever leave your device.">
             <BitGrid />
           </Step>
         </Reveal>
         <Reveal delay={0.1}>
-          <Step n="02" title="Escalate, don't broadcast" body="Google Lens first. Bing and Yandex only if needed, then News, Maps and YouTube. It stops the moment the evidence is decisive.">
+          <Step n="02" color="#5eead4" title="Escalate, don't broadcast" body="Google Lens first. Bing and Yandex only if needed, then News, Maps and YouTube. It stops the moment the evidence is decisive.">
             <TierLadder />
           </Step>
         </Reveal>
         <Reveal delay={0.2}>
-          <Step n="03" title="Judge by rules" body="Every match is re-verified by its thumbnail. Deterministic rules pick the verdict; the AI only writes the explanation.">
+          <Step n="03" color="#ff6b4f" title="Judge by rules" body="Every match is re-verified by its thumbnail. Deterministic rules pick the verdict; the AI only writes the explanation.">
             <VerdictCycle />
           </Step>
         </Reveal>
@@ -36,14 +36,20 @@ export function HowItWorks() {
   );
 }
 
-function Step({ n, title, body, children }: { n: string; title: string; body: string; children: React.ReactNode }) {
+function Step({ n, color, title, body, children }: { n: string; color: string; title: string; body: string; children: React.ReactNode }) {
   return (
     <SpotlightCard className="flex h-full flex-col">
-      <div className="flex h-44 items-center justify-center border-b border-line bg-[radial-gradient(ellipse_at_top,rgb(255_255_255/0.04),transparent_70%)]">
+      <div
+        className="relative flex h-44 items-center justify-center overflow-hidden border-b border-line"
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${color}26, transparent 70%)` }}
+      >
+        <div aria-hidden className="absolute inset-x-10 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
         {children}
       </div>
       <div className="p-5">
-        <p className="font-mono text-xs text-faint">{n}</p>
+        <p className="font-mono text-xs" style={{ color }}>
+          {n}
+        </p>
         <h3 className="mt-1 text-lg font-medium">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
       </div>
@@ -70,7 +76,7 @@ function BitGrid() {
       {bits.map((on, i) => (
         <motion.span
           key={i}
-          animate={{ backgroundColor: on ? 'rgb(212 247 92)' : 'rgb(255 255 255 / 0.06)', scale: on ? 1 : 0.8 }}
+          animate={{ backgroundColor: on ? (i % 9 === 0 ? 'rgb(94 234 212)' : 'rgb(212 247 92)') : 'rgb(255 255 255 / 0.06)', scale: on ? 1 : 0.8 }}
           transition={{ duration: 0.25 }}
           className="size-3.5 rounded-[3px]"
         />
@@ -100,7 +106,7 @@ function TierLadder() {
         return (
           <div key={t.label} className="relative overflow-hidden rounded-lg border border-line px-3 py-2 text-xs">
             <motion.div
-              className="absolute inset-0 origin-left bg-accent/15"
+              className="absolute inset-0 origin-left bg-gradient-to-r from-teal/30 to-accent/20"
               animate={{ scaleX: lit ? 1 : 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             />
@@ -144,12 +150,12 @@ function VerdictCycle() {
   }, []);
   const v = VERDICTS[i];
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout" initial={false}>
       <motion.span
         key={v.label}
         initial={{ opacity: 0, scale: 1.7, rotate: -16 }}
         animate={{ opacity: 1, scale: 1, rotate: -6 }}
-        exit={{ opacity: 0, scale: 0.85, rotate: -2 }}
+        exit={{ opacity: 0, scale: 0.6, rotate: 8, transition: { duration: 0.25 } }}
         transition={{ type: 'spring', stiffness: 360, damping: 15 }}
         className={`rounded-lg border-2 px-4 py-1.5 font-mono text-sm font-bold tracking-[0.18em] uppercase ${v.cls}`}
       >

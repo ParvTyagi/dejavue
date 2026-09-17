@@ -20,14 +20,27 @@ export function Reveal({ delay = 0, y = 16, className, children }: { delay?: num
   );
 }
 
-/** Headline that blurs in word by word. */
-export function WordReveal({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) {
+/**
+ * Headline that blurs in word by word. `wordClassName` is applied to each word,
+ * which is where clipped-text effects such as gradients must go.
+ */
+export function WordReveal({
+  text,
+  className,
+  wordClassName = '',
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  wordClassName?: string;
+  delay?: number;
+}) {
   return (
     <span className={className}>
       {text.split(' ').map((word, i) => (
         <motion.span
           key={i}
-          className="inline-block whitespace-pre"
+          className={`inline-block whitespace-pre ${wordClassName}`}
           initial={{ opacity: 0, y: '0.35em', filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.8, delay: delay + i * 0.07, ease: EASE_OUT }}
@@ -146,7 +159,7 @@ export function ShimmerButton({ className = '', children, ...props }: HTMLMotion
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 400, damping: 22 }}
       {...props}
-      className={`relative isolate overflow-hidden rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_0_0_1px_rgb(212_247_92/0.4),0_10px_40px_-10px_rgb(212_247_92/0.55)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none ${className}`}
+      className={`relative isolate overflow-hidden rounded-xl bg-gradient-to-r from-accent via-[#c2f56a] to-teal px-5 py-3 text-sm font-semibold text-accent-ink shadow-[0_0_0_1px_rgb(212_247_92/0.4),0_10px_40px_-10px_rgb(212_247_92/0.55)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none ${className}`}
     >
       <span aria-hidden className="absolute inset-y-0 left-0 -z-10 w-1/3 animate-shimmer bg-gradient-to-r from-transparent via-white/60 to-transparent" />
       {children}
