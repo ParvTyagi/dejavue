@@ -93,25 +93,14 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
     await start(input).catch(fail);
   }
 
-  const tabs: { id: Source; label: string; icon: typeof Upload }[] = [
+  const tabs: { id: Source; label: string; icon: typeof Upload; off?: boolean }[] = [
     ...(replay ? [{ id: 'demo' as const, label: 'Demo messages', icon: Sparkles }] : []),
-    { id: 'message', label: 'Your message', icon: MessageSquareText },
+    { id: 'message', label: 'Your message', icon: MessageSquareText, off: replay },
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-8 pb-24 sm:px-6">
-      <Reveal>
-        <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check a message</p>
-        <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-          Is this offer <span className="text-shine italic">for real?</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-sm text-muted sm:text-base">
-          Job offers, government scheme messages and customer-care numbers. DejaVue finds the official website, looks
-          for scam reports and checks for warning signs like asking you to pay.
-        </p>
-      </Reveal>
-
-      <Reveal delay={0.1} className="mt-10">
+    <section>
+      <Reveal delay={0.1} className="mt-8">
         <div className="rounded-3xl border border-line bg-surface p-2">
           <div role="tablist" className="flex gap-1 rounded-2xl bg-surface-2 p-1">
             {tabs.map((t) => (
@@ -122,18 +111,21 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                 aria-selected={source === t.id}
                 onClick={() => setSource(t.id)}
                 className={`relative flex flex-1 items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-[13px] whitespace-nowrap transition-colors sm:flex-none sm:gap-2 sm:px-5 sm:text-sm ${
-                  source === t.id ? 'text-ink' : 'text-muted hover:text-ink'
+                  source === t.id ? 'font-medium text-ink' : 'text-muted hover:text-ink'
                 }`}
               >
                 {source === t.id && (
                   <motion.span
                     layoutId="offer-tab-pill"
-                    className="absolute inset-0 rounded-xl border border-line-strong bg-surface-2"
+                    className="absolute inset-0 rounded-xl bg-bg shadow-sm ring-1 ring-black/5"
                     transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                   />
                 )}
                 <t.icon className="relative size-4" />
                 <span className="relative">{t.label}</span>
+                {t.off && (
+                  <span className="relative rounded-full border border-line px-1.5 py-0.5 text-[10px] text-faint">off</span>
+                )}
               </button>
             ))}
           </div>
@@ -175,7 +167,7 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                             </div>
                             <span className="text-sm leading-snug font-medium text-ink">{d.title}</span>
                             {d.input.text && <span className="line-clamp-2 text-xs text-muted">{d.input.text}</span>}
-                            <span className="mt-auto font-mono text-[11px] text-faint">{d.id}</span>
+                            <span className="mt-auto text-xs text-faint transition-colors group-hover:text-ink">Run this example</span>
                           </SpotlightCard>
                         </li>
                       ))}
@@ -183,6 +175,21 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                   </div>
                 ) : (
                   <form onSubmit={onSubmit} className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+                    {/* Said once, up front, before anything is filled in. */}
+                    {replay && (
+                      <div className="rounded-2xl border border-line bg-surface-2 p-4 text-sm lg:col-span-2">
+                        <p className="font-medium text-ink">This public demo runs on recorded searches, so it spends no SerpApi credits.</p>
+                        <p className="mt-1 text-muted">
+                          Checking your own message needs a live SerpApi key. Run the project locally with{' '}
+                          <code className="rounded bg-bg px-1 py-0.5 font-mono text-xs">FIXTURE_MODE=live</code> to do that. To see
+                          the full pipeline right now, open{' '}
+                          <button type="button" onClick={() => setSource('demo')} className="font-medium text-accent underline underline-offset-2">
+                            Demo messages
+                          </button>
+                          .
+                        </p>
+                      </div>
+                    )}
                     <div className="flex flex-col gap-4">
                       <div>
                         <div className="mb-1.5 flex items-baseline justify-between">
@@ -272,9 +279,6 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                           <X className="size-3.5" />
                           Remove screenshot
                         </button>
-                      )}
-                      {replay && (
-                        <p className="text-xs text-warn">This demo site only checks the example messages. Checking your own isn&apos;t switched on here.</p>
                       )}
                       <ShimmerButton
                         type="submit"

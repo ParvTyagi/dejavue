@@ -115,22 +115,15 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
     await start(demo.input).catch(fail);
   }
 
-  const tabs: { id: Source; label: string; icon: typeof Upload }[] = [
+  const tabs: { id: Source; label: string; icon: typeof Upload; off?: boolean }[] = [
     ...(replay ? [{ id: 'demo' as const, label: 'Demo cases', icon: Sparkles }] : []),
-    { id: 'upload', label: 'Upload', icon: Upload },
-    { id: 'url', label: 'Image URL', icon: Link2 },
+    { id: 'upload', label: 'Upload', icon: Upload, off: replay },
+    { id: 'url', label: 'Image URL', icon: Link2, off: replay },
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-8 pb-24 sm:px-6">
-      <Reveal>
-        <p className="font-mono text-xs tracking-[0.2em] text-accent uppercase">Check media</p>
-        <h1 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
-          Where did it <span className="text-shine italic">come from?</span>
-        </h1>
-      </Reveal>
-
-      <Reveal delay={0.1} className="mt-10">
+    <section>
+      <Reveal delay={0.1} className="mt-8">
         <div className="rounded-3xl border border-line bg-surface p-2">
           <div role="tablist" className="flex gap-1 rounded-2xl bg-surface-2 p-1">
             {tabs.map((t) => (
@@ -141,18 +134,21 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                 aria-selected={source === t.id}
                 onClick={() => setSource(t.id)}
                 className={`relative flex flex-1 items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-[13px] whitespace-nowrap transition-colors sm:flex-none sm:gap-2 sm:px-5 sm:text-sm ${
-                  source === t.id ? 'text-ink' : 'text-muted hover:text-ink'
+                  source === t.id ? 'font-medium text-ink' : 'text-muted hover:text-ink'
                 }`}
               >
                 {source === t.id && (
                   <motion.span
                     layoutId="tab-pill"
-                    className="absolute inset-0 rounded-xl border border-line-strong bg-surface-2"
+                    className="absolute inset-0 rounded-xl bg-bg shadow-sm ring-1 ring-black/5"
                     transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                   />
                 )}
                 <t.icon className="relative size-4" />
                 <span className="relative">{t.label}</span>
+                {t.off && (
+                  <span className="relative rounded-full border border-line px-1.5 py-0.5 text-[10px] text-faint">off</span>
+                )}
               </button>
             ))}
           </div>
@@ -193,12 +189,12 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                               className="flex h-full cursor-pointer flex-col outline-none focus-visible:border-accent"
                             >
                               <div
-                                className="relative flex h-24 items-center justify-center overflow-hidden border-b border-line"
+                                className="relative flex h-16 items-center justify-center overflow-hidden border-b border-line"
                                 style={{ background: 'var(--surface-2)' }}
                               >
                                 <div className="grid-bg absolute inset-0 opacity-30" />
                                 <theme.icon
-                                  className="relative size-9 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                                  className="relative size-7 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
                                   style={{ color: 'var(--ink)' }}
                                   strokeWidth={1.5}
                                 />
@@ -210,7 +206,7 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                               </div>
                               <div className="flex flex-1 flex-col gap-3 p-4">
                                 <span className="text-sm leading-snug font-medium text-ink">{d.title}</span>
-                                <span className="mt-auto font-mono text-[11px] text-faint">{d.id}</span>
+                                <span className="mt-auto text-xs text-faint transition-colors group-hover:text-ink">Run this example</span>
                               </div>
                             </SpotlightCard>
                           </motion.li>
@@ -220,6 +216,21 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                   </div>
                 ) : (
                   <form onSubmit={onSubmit} className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+                    {/* Said once, up front, before anything is filled in. */}
+                    {replay && (
+                      <div className="rounded-2xl border border-line bg-surface-2 p-4 text-sm lg:col-span-2">
+                        <p className="font-medium text-ink">This public demo runs on recorded searches, so it spends no SerpApi credits.</p>
+                        <p className="mt-1 text-muted">
+                          Checking your own photo needs a live SerpApi key. Run the project locally with{' '}
+                          <code className="rounded bg-bg px-1 py-0.5 font-mono text-xs">FIXTURE_MODE=live</code> to do that. To see
+                          the full pipeline right now, open{' '}
+                          <button type="button" onClick={() => setSource('demo')} className="font-medium text-accent underline underline-offset-2">
+                            Demo cases
+                          </button>
+                          .
+                        </p>
+                      </div>
+                    )}
                     <div className="space-y-3">
                       {source === 'upload' ? (
                         <>
@@ -298,9 +309,6 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                               </span>
                             </label>
                           )}
-                          {replay && (
-                            <p className="text-xs text-warn">This demo site only checks the example cases. Checking your own photos isn&apos;t switched on here.</p>
-                          )}
                         </>
                       ) : (
                         <>
@@ -316,7 +324,6 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                             onChange={(e) => setImageUrl(e.target.value)}
                             className={field}
                           />
-                          {replay && <p className="text-xs text-warn">This demo site only checks the example cases. Checking your own photos isn&apos;t switched on here.</p>}
                         </>
                       )}
                     </div>

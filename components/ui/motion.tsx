@@ -27,7 +27,9 @@ export function NumberTicker({ value, className, format = formatInteger }: { val
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
   const reduce = useReducedMotion();
-  const [shown, setShown] = useState(reduce ? value : 0);
+  // Starts at the real number: if the count-up never runs — off screen, no JS — the
+  // figure on the page is still the true one rather than a placeholder zero.
+  const [shown, setShown] = useState(value);
   const from = useRef(0);
 
   useEffect(() => {

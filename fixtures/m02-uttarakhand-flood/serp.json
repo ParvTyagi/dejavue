@@ -1,0 +1,35 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2025-08-06T10:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Floodwaters sweep through Himalayan town",
+        "link": "https://www.wire-archive.example/photos/2013/himalayan-floods",
+        "source": "wire-archive.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m02-uttarakhand-flood/photos/2013/himalayan-floods.jpg",
+        "date": "Jun 18, 2013"
+      },
+      {
+        "position": 2,
+        "title": "Valley towns hit by floods",
+        "link": "https://www.hill-news.example/2013/06/floods-kedarnath-valley",
+        "source": "hill-news.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m02-uttarakhand-flood/2013/06/floods-kedarnath-valley.jpg",
+        "date": "Jun 19, 2013"
+      },
+      {
+        "position": 3,
+        "title": "Monsoon memories",
+        "link": "https://www.travel-blog.example/monsoon-memories",
+        "source": "travel-blog.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m02-uttarakhand-flood/monsoon-memories.jpg",
+        "date": "Jul 2, 2013"
+      }
+    ]
+  }
+}

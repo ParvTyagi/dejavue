@@ -1,0 +1,43 @@
+{
+  "title": "Crowd photo with only look-alike results from years ago",
+  "synthetic": true,
+  "notes": "UNVERIFIED path: old but unconfirmed look-alikes never feed T₀. The scene landmark is only 0.6 confident, but Maps is asked anyway and confirms it inside the claimed city, so the location agrees and the verdict still turns on the missing matches.",
+  "submittedAt": "2026-04-11T14:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m12-unverified-similar-only/frame-0.jpg",
+          "pHash": "1f7b3d9e5c2a8064",
+          "sharpness": 570
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Huge crowd gathers at the Kolkata station after train cancellations",
+      "place": "Kolkata, West Bengal, India",
+      "date": "2026-04-11T19:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "UNVERIFIED",
+    "flags": {
+      "recycled": false,
+      "misplaced": false,
+      "predatesClaim": false
+    },
+    "credits": 6,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 10
+  }
+}

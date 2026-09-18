@@ -108,7 +108,13 @@ export function decideOffer(s: OfferSignals): OfferDecision {
   const strong = flags.filter((f) => f.strength === 'strong').length;
   const medium = flags.filter((f) => f.strength === 'medium').length;
 
-  if (strong > 0 || medium >= 2) return { verdict: 'LIKELY_SCAM', flags };
+  // A strong sign stands on its own. Two medium signs are circumstantial, and only
+  // add up once the organisation has actually been found: "claims to be TCS but writes
+  // from Gmail" is a contradiction of tcs.com, and without tcs.com there is nothing to
+  // contradict — we cannot tell an impersonator from a company we could not look up.
+  // The same rule as the media side, applied in the accusing direction: absence of
+  // evidence is not evidence.
+  if (strong > 0 || (medium >= 2 && !!s.officialDomain)) return { verdict: 'LIKELY_SCAM', flags };
 
   const confirmedOfficially = s.listingFound || s.contacts.some((c) => c.onOfficialSite === true);
   // A single medium sign still blocks "no red flags"; absence of evidence alone never earns it.

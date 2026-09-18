@@ -24,7 +24,7 @@ export interface GoldenCase {
   input: AuditInput;
   expected: {
     verdict: Verdict;
-    flags: { recycled: boolean; misplaced: boolean };
+    flags: { recycled: boolean; misplaced: boolean; predatesClaim: boolean };
     credits: number;
     tiersRun: number[];
     confidence: number;

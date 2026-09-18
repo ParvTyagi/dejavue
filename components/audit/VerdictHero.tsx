@@ -29,7 +29,13 @@ export function mediaVerdictView(d: Dossier): VerdictView {
   const label = VERDICT_LABEL[d.verdict];
   return {
     ...label,
-    extraStamp: d.flags.recycled && d.flags.misplaced ? { text: 'Misplaced', tone: 'warn' } : undefined,
+    extraStamp: d.flags.recycled
+      ? d.flags.misplaced
+        ? { text: 'Misplaced', tone: 'warn' }
+        : undefined
+      : d.flags.predatesClaim
+        ? { text: 'Older copy exists', tone: 'warn' }
+        : undefined,
     summary: d.narrative.summary,
     bullets: d.narrative.bullets,
     partialNote: d.metrics.partial ? 'Partial audit: searches ran out, timed out or were rate-limited before all engines ran.' : undefined,
@@ -159,40 +165,46 @@ export function VerdictHero({ view }: { view: VerdictView }) {
 function ConfidenceRing({ value, band, color }: { value: number; band: string; color: string }) {
   const r = 58;
   return (
-    <div className="relative mx-auto size-44 shrink-0 md:mx-0" role="img" aria-label={`Confidence ${value} out of 100, ${band}`}>
-      <svg viewBox="0 0 140 140" className="size-full -rotate-90">
-        <circle cx="70" cy="70" r={r} fill="none" stroke="var(--line)" strokeWidth="8" />
-        <motion.circle
-          cx="70"
-          cy="70"
-          r={r}
-          fill="none"
-          stroke={color}
-          strokeWidth="8"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: value / 100 }}
-          transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT }}
-        />
-        {Array.from({ length: 40 }, (_, i) => (
-          <line
-            key={i}
-            x1="70"
-            y1="4"
-            x2="70"
-            y2={i % 10 === 0 ? 10 : 7}
-            stroke="var(--line-strong)"
-            strokeWidth="1"
-            transform={`rotate(${i * 9} 70 70)`}
+    <div className="mx-auto shrink-0 text-center md:mx-0" role="img" aria-label={`Confidence ${value} out of 100, ${band}`}>
+      <div className="relative mx-auto size-40">
+        <svg viewBox="0 0 140 140" className="size-full -rotate-90">
+          <circle cx="70" cy="70" r={r} fill="none" stroke="var(--line)" strokeWidth="8" />
+          <motion.circle
+            cx="70"
+            cy="70"
+            r={r}
+            fill="none"
+            stroke={color}
+            strokeWidth="8"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: value / 100 }}
+            transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT }}
           />
-        ))}
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-serif text-5xl leading-none">
-          <NumberTicker value={value} />
-        </span>
-        <span className="mt-1 text-[11px] tracking-wide text-faint uppercase">{band} confidence</span>
+          {Array.from({ length: 40 }, (_, i) => (
+            <line
+              key={i}
+              x1="70"
+              y1="4"
+              x2="70"
+              y2={i % 10 === 0 ? 10 : 7}
+              stroke="var(--line-strong)"
+              strokeWidth="1"
+              transform={`rotate(${i * 9} 70 70)`}
+            />
+          ))}
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="font-serif text-5xl leading-none">
+            <NumberTicker value={value} />
+          </span>
+          <span className="mt-1 text-[11px] text-faint">out of 100</span>
+        </div>
       </div>
+      {/* Outside the ring: the band never has to fit inside the stroke. */}
+      <p className="mt-3 text-xs tracking-wide text-muted">
+        <span className="font-medium text-ink capitalize">{band}</span> confidence
+      </p>
     </div>
   );
 }

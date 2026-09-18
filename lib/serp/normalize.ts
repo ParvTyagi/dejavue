@@ -2,9 +2,10 @@ import { extractDate } from '@/lib/evidence/dates';
 import { scaleFromPlaceType } from '@/lib/evidence/geo';
 import type { EngineId, Evidence, GeoPoint } from '@/lib/shared/types';
 
-// Response field names follow SerpApi's documented JSON. Engines whose shapes
-// vary (Bing, Yandex) accept several candidate arrays; confirm against
-// recorded responses before relying on them.
+// Response field names follow SerpApi's documented JSON, cross-checked against
+// docs/research/serpapi-engine-inputs.md. Where an engine returns more than one
+// array, the arrays are listed strongest-first: pages that carry *this* image
+// before pages that merely carry a similar one.
 
 type Item = Record<string, unknown>;
 
@@ -88,19 +89,25 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
         text: [str(it.date)],
       }));
     case 'bing_reverse_image':
-      return build(
-        engine,
-        'visual_match',
-        firstArray(r, ['related_content', 'pages_including', 'page_with_similar_images', 'visual_search_results']),
-        ctx,
-        (it) => ({ url: str(it.link), title: str(it.title), text: [str(it.date)] }),
-      );
+      // `pages_with_this_image` is the exact-match array. `related_content` is only
+      // *visually related* media, so it is a fallback: pHash re-verification in
+      // confirmMatches() is what stops a merely-similar image counting as a match.
+      // Bing dates are documented as ISO 8601 and present on every sample item.
+      return build(engine, 'visual_match', firstArray(r, ['pages_with_this_image', 'related_content']), ctx, (it) => ({
+        url: str(it.link) ?? str(it.source),
+        title: str(it.title),
+        iso: str(it.date),
+        text: [str(it.date)],
+      }));
     case 'yandex_images':
-      return build(engine, 'visual_match', firstArray(r, ['image_results', 'sites', 'similar_images']), ctx, (it) => ({
+      // Yandex returns no date on any documented response field, so its matches can
+      // confirm that a copy exists but can never date one. `images_results` is the
+      // tab=similar spelling; `similar_images` is weaker and comes last.
+      return build(engine, 'visual_match', firstArray(r, ['image_results', 'images_results', 'similar_images']), ctx, (it) => ({
         url: str(it.link) ?? str(it.source),
         title: str(it.title),
         snippet: str(it.snippet),
-        text: [str(it.date)],
+        text: [],
       }));
     case 'google_news':
       return build(engine, 'article', arr(r.news_results), ctx, (it) => ({
@@ -131,8 +138,7 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
         snippet: [str(it.location), str(it.via)].filter(Boolean).join(' · '),
         text: [str((it.detected_extensions as Item | undefined)?.posted_at)],
       }));
-    case 'google_trends':
-      return [];
+    // Maps answers a place, not a list of pages; toPlace() reads it instead.
     case 'google_maps':
       return [];
   }

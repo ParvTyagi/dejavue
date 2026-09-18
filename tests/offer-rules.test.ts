@@ -99,12 +99,25 @@ describe('offer verdicts (the six planned demo cases)', () => {
   });
 
   it('2. a Gmail recruiter who moves you to WhatsApp adds up to a likely scam', () => {
+    // Google finds tcs.com, so writing from Gmail contradicts something real.
     const s = signals({
       org: 'TCS',
+      officialDomain: 'tcs.com',
       contacts: [contact('email', 'tcs-hiring@gmail.com'), contact('chat', 'wa.me/919876543210')],
     });
     expect(ids(s)).toEqual(['free_email', 'chat_only']);
     expect(decideOffer(s).verdict).toBe('LIKELY_SCAM');
+  });
+
+  it('2b. but two medium signs alone are not enough when the organisation was never found', () => {
+    // No official site, so there is nothing for the Gmail address to contradict.
+    // Accusing here would be the accusing-direction version of "absence of evidence".
+    const s = signals({
+      org: 'Brightway Staffing Solutions',
+      contacts: [contact('email', 'brightway.hr@gmail.com'), contact('chat', 'wa.me/919876543210')],
+    });
+    expect(ids(s)).toEqual(['free_email', 'chat_only']);
+    expect(decideOffer(s).verdict).toBe('UNVERIFIED');
   });
 
   it('3. a scheme link on a fake government domain is a likely scam, even with no official site found', () => {

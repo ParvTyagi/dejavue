@@ -1,0 +1,43 @@
+{
+  "title": "Fresh port fire photo from Jeddah captioned as Dubai",
+  "synthetic": true,
+  "notes": "MISPLACED path with confirmed same-day matches: the scene landmark resolves ~1,700 km from the claimed city.",
+  "submittedAt": "2026-09-17T15:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m06-misplaced-with-match/frame-0.jpg",
+          "pHash": "e1a7c3590d2b6f84",
+          "sharpness": 820
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Drone strike on port facilities in Dubai tonight",
+      "place": "Dubai, UAE",
+      "date": "2026-09-17T20:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "MISPLACED",
+    "flags": {
+      "recycled": false,
+      "misplaced": true,
+      "predatesClaim": false
+    },
+    "credits": 6,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 40
+  }
+}

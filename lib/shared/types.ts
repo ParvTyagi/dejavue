@@ -10,7 +10,6 @@ export type EngineId =
   | 'google_news'
   | 'google_maps'
   | 'youtube'
-  | 'google_trends'
   | 'google_jobs';
 
 export type Verdict = 'RECYCLED' | 'MISPLACED' | 'CONSISTENT' | 'CONTEXT_PLAUSIBLE' | 'UNVERIFIED';
@@ -104,6 +103,12 @@ export type SkipReason = 'budget' | 'deadline' | 'halted';
 export interface VerdictFlags {
   recycled: boolean;
   misplaced: boolean;
+  /**
+   * A confirmed copy is more than 48 h older than the claimed date. `recycled`
+   * is this plus a claim that actually asserts a date; when no date was claimed
+   * this stays true on its own and is reported as a fact, not an accusation.
+   */
+  predatesClaim: boolean;
 }
 
 export interface Signals {
@@ -117,6 +122,8 @@ export interface Signals {
   location: LocationCheck;
   newsCorroborates: boolean;
   sceneResolvedByMaps: boolean;
+  /** Where `sceneGeo` came from. EXIF is user-supplied and editable, so it is trusted less. */
+  sceneGeoSource?: 'maps' | 'exif';
   enginesUsed: EngineId[];
   enginesFailed: EngineId[];
   enginesSkipped: { engine: EngineId; reason: SkipReason }[];

@@ -58,7 +58,7 @@ function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45, ease: EASE_OUT }}
-      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-bg p-3.5 [contain-intrinsic-size:auto_96px] [content-visibility:auto] transition-colors hover:bg-surface-2 target:border-accent ${
+      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-bg p-3.5 transition-colors hover:bg-surface-2 target:border-accent ${
         confirmed ? 'border-good/25' : 'border-line'
       }`}
     >
@@ -70,7 +70,8 @@ function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence
         >
           <Icon className="size-4" />
         </span>
-        <div className="min-w-0 flex-1">
+        {/* Full width beside the icon on a phone, so the thumbnails wrap below instead of crushing the title. */}
+        <div className="min-w-0 flex-1 basis-[calc(100%-2.75rem)] sm:basis-auto">
           <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
             <span className="font-mono text-faint">{ev.id}</span>
             <span className="text-faint">·</span>

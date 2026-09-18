@@ -1,10 +1,47 @@
 # DejaVue
 
-DejaVue checks whether a viral image or video is really from where and when it claims. It uses SerpApi's search engines as a timestamped archive of the web to find where the media appeared first, then judges the claim with deterministic rules and shows every piece of evidence behind the verdict.
+**Was this photo really taken where and when the post says?** DejaVue answers that using SerpApi's search engines as a timestamped archive of the web — and shows you every result it used to decide.
 
-It also checks the text scams people act on fastest: **fake job offers, government scheme messages and customer-care numbers** (see [Offer Check](#offer-check) and [docs/OFFER_CHECK.md](docs/OFFER_CHECK.md)).
+It also checks the text scams people act on fastest: **fake job offers, government scheme messages and customer-care numbers** (see [Offer Check](#offer-check)).
 
-Built for the SerpApi India Hackathon 2026 (Knowledge & Public Interest track). The full design is in [docs/DESIGN.md](docs/DESIGN.md).
+Searches escalate in tiers and stop the moment the evidence is decisive, so **a recycled photo usually costs 1 SerpApi search and the hardest case costs 6.**
+
+Built for the SerpApi India Hackathon 2026 (Knowledge & Public Interest track).
+
+## One case, end to end
+
+> A video is going around captioned *"Tsunami waves hit Japan coast right now after huge earthquake"*, dated 30 July 2025.
+
+```
+Tier 1  Google Lens (exact matches) ────────── 1 search
+        socialclip.example  ·  no date on the page
+        ↳ thumbnail re-hashed: Hamming 2 of 64 → same video
+
+Tier 2  Bing Reverse Image ─────────────────── 1 search
+        forum-mirror.example    2011-03-11   ISO date on the page
+        regional-daily.example  2011-03-12   ISO date on the page
+        ↳ two independent domains, one day apart → T₀ = 11 March 2011
+
+        Decisive. Yandex is never searched.
+
+╭──────────────────────────────────────────────────────────╮
+│  RECYCLED                              confidence 70 Med │
+│  This footage was published in March 2011, long before   │
+│  the claimed tsunami.                                    │
+│                                                          │
+│  +15 ×3  confirmed visual match (3 domains)              │
+│  +15     matches from 2+ independent search indexes      │
+│  +10     earliest date comes from page metadata          │
+╰──────────────────────────────────────────────────────────╯
+
+2 SerpApi searches spent. 4 of the 6-search cap unused.
+```
+
+Every number on that card traces to a labelled reason, and every reason traces to a search result you can click. That is the whole design.
+
+![The DejaVue audit page showing a RECYCLED verdict at confidence 70 for the tsunami case, with the two dated Bing matches cited as evidence and a first-seen date of 11 March 2011](docs/images/audit.png)
+
+That capture is generated, not pasted: `npm run build`, `npm start -- -p 3123`, then `npm run screenshots` re-renders it from the live app, so it cannot drift from what the code does. ([the whole page](docs/images/audit-full.png), including the evidence feed and the timeline.)
 
 ## Run it locally
 
@@ -17,27 +54,37 @@ npm run dev                  # http://localhost:3000
 Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on `/check` (photos) or `/check?type=offer` (messages) to watch a check stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
 
 ```bash
-npm test            # 12 media and 6 offer golden cases, failure scenarios, extraction and pHash checks
-npm run test:live   # real SerpApi + Gemini checks; spends about 8 searches
+npm test            # 221 tests: 12 media and 6 offer golden cases, verdict rules,
+                    # failure scenarios, extraction, stores and pHash
+npm run test:live   # 4 real end-to-end checks against SerpApi + Gemini (~8 searches)
 npm run typecheck
 npm run build
+npm run screenshots # re-render the README image from a running build
 ```
+
+`npm run test:live` is the one that matters for trusting any of this. `tests/offer-live-regressions.test.ts` holds seven tests, each pinning down something a real September 2026 run against SerpApi and Gemini got wrong — `.bank.in` domains read as "bank", missing knowledge graphs, an organisation's own second domain flagged as unofficial.
 
 ## Verdicts
 
-| Verdict | Meaning |
-| --- | --- |
-| `RECYCLED` | A confirmed copy was online more than 48 hours before the claimed date |
-| `MISPLACED` | The scene resolves too far from the claimed place (50 km city, 300 km region, country boundary) |
-| `CONSISTENT` | The earliest confirmed copies match the claimed time, and the scene was located close to the claimed place |
-| `CONTEXT_PLAUSIBLE` | No earlier copy, but news corroborates the claimed event |
-| `UNVERIFIED` | Not enough evidence. Finding nothing never counts as proof of authenticity |
+The names on the left are internal. A reader only ever sees the middle column — `lib/client/labels.ts` is the single place the two are joined, and a test fails if any verdict reaches the screen as its constant.
+
+| Verdict | Shown as | Meaning |
+| --- | --- | --- |
+| `RECYCLED` | **Old media, new claim** | A confirmed copy was online more than 48 hours before the claimed date |
+| `MISPLACED` | **Wrong location** | The scene resolves too far from the claimed place (50 km city, 300 km region, country boundary) |
+| `CONSISTENT` | **Matches its claim** | The earliest confirmed copies match the claimed time, and the scene was located close to the claimed place |
+| `CONTEXT_PLAUSIBLE` | **Event is real, image unproven** | No earlier copy, but news corroborates the claimed event |
+| `UNVERIFIED` | **Not enough evidence** | Finding nothing never counts as proof of authenticity |
 
 Confidence (0–100) is additive over the evidence and capped per verdict. The dossier lists every point.
 
-## How SerpApi is used
+### Calling something recycled is an accusation, so it needs a claim to contradict
 
-Searches escalate in tiers and stop as soon as the evidence is decisive, so recycled media usually costs 1 search and the hardest case costs at most 6.
+If you upload a genuine 2019 photo, describe it honestly and leave the date box empty, the claimed date defaults to *now* — and a naive rule would stamp **RECYCLED** on it at high confidence. That is a false accusation produced by our own default, not by anything the user said.
+
+So `RECYCLED` additionally requires that the claim asserts a date at all: either you gave one, or the text itself puts the media in the present (`today`, `breaking`, `right now`, `abhi`, `aaj`, …), matched by a plain regex — not by the language model. When no date is asserted but an older copy exists, the finding is kept and the accusation is dropped: the flag `predatesClaim` stays true and the result reads *"This media was already online on 2019-06-01. Nothing was claimed about its date."*
+
+## How SerpApi is used
 
 | Tier | Engine | Question it answers |
 | --- | --- | --- |
@@ -48,7 +95,36 @@ Searches escalate in tiers and stop as soon as the evidence is decisive, so recy
 | 3 | YouTube | Was this footage uploaded earlier? (video, or a broadcast logo) |
 | 3 | Google Search (date-restricted) | When was an undated matching page published? |
 
-A search result only counts as a visual match after DejaVue re-hashes its thumbnail and finds it within Hamming distance 10 of the input (64-bit DCT pHash). Gemini only parses the claim, reads scene text and writes the explanation. It never decides the verdict, and all its output is schema-checked with fallbacks.
+A search result only counts as a visual match after DejaVue re-hashes its thumbnail and finds it within Hamming distance 10 of the input (64-bit DCT pHash). This is what stops a merely *similar* image counting as the same one, which matters because Bing's `related_content` and Yandex's `similar_images` are exactly that.
+
+What each engine can and cannot tell us, from [its documented response shape](docs/research/serpapi-engine-inputs.md):
+
+| Engine | Confirms a copy | Dates it |
+| --- | --- | --- |
+| Google Lens `exact_matches` | yes | weakly — the date is a relative string ("2 years ago") and present on roughly a third of results |
+| Bing `pages_with_this_image` | yes | yes, ISO 8601 on every documented sample |
+| Yandex `image_results` | yes | **never** — no date field exists on any documented response |
+
+T₀ (first-seen) therefore leans on Bing, needs two independent domains within 30 days or one trusted archive, and drops relative dates entirely whenever an absolute one is available.
+
+## What Gemini does, and what it cannot do
+
+Gemini parses the claim, reads text in the scene and writes the final explanation. **It never scores and never picks the verdict** — `decide()` in `lib/verdict/rules.ts` is a pure function over confirmed evidence, and its output does not depend on any model call succeeding.
+
+That claim is narrower than "the LLM has no influence", so here is the whole truth. Gemini's output reaches the rules in exactly two places, and both are fenced:
+
+| Where | What it could do | What stops it |
+| --- | --- | --- |
+| `claim.refersToPast` — "this post is openly about an older event" | Clear a genuinely recycled photo | The raw text must independently contain a past cue (a year, `anniversary`, `throwback`, `on this day`, …). A bare hallucinated `true` changes nothing |
+| `scene.landmarks[].name` — what the model thinks it can see | Place the scene somewhere wrong, and a wrong location is what `MISPLACED` is built on | Google Maps has to confirm the name it was asked about. `mapsAgrees()` throws away an answer that shares no word with the query, so a landmark the model invented locates nothing |
+
+The model's `confidence` number used to be a gate: below 0.8 and the scene was never looked up at all. That was the wrong thing to trust — it is an uncalibrated figure the model writes about its own guess. It now only *ranks* candidates. Every named landmark is asked about, text read off a sign is used when no landmark is named, and Maps is what decides. A landmark the model was only 0.6 sure of now gets checked (see `m12`), and a hallucinated one resolves to nothing.
+
+What remains true, and is a real limit: **if the scene reading comes back empty — no landmark, no legible sign — there is nothing to look up, so `MISPLACED` is unreachable for that image.** The dossier then says `location: unchecked` rather than implying agreement, and the audit page prints "Scene not located".
+
+Everything else the model emits is schema-checked with `zod` and falls back to a deterministic template. Narrative bullets that cite an evidence ID which does not exist are dropped, which blocks invented sources, and a narrative whose wording contradicts the verdict is discarded in favour of the template.
+
+EXIF GPS, when you opt in, can locate a scene — but it is a field anyone can edit, so a verdict resting on it alone is docked 20 confidence points and the dossier names the source.
 
 ## Offer Check
 
@@ -62,13 +138,13 @@ Paste a message or upload a screenshot. Phones, emails, links, amounts and payme
 | 3 | Google Search (`site:gov.in`) | Is the scheme on a government website? |
 | 3 | Google Search (`site:` the official domain) | Does the official website list this helpline number? |
 
-| Verdict | Meaning |
-| --- | --- |
-| `LIKELY_SCAM` | A strong sign (asks for money, look-alike website, contact reported on 2+ sites) or two medium signs (personal email, chat-only contact, unofficial link) |
-| `NO_RED_FLAGS` | Official site found, the listing or a contact confirmed on it, and no warning signs. Never "genuine": capped below High confidence |
-| `UNVERIFIED` | Everything else, including when no official site is found |
+| Verdict | Shown as | Meaning |
+| --- | --- | --- |
+| `LIKELY_SCAM` | **Likely a scam** | A strong sign (asks for money, look-alike website, contact reported on 2+ sites), or two medium signs *and* a confirmed official site to contradict |
+| `NO_RED_FLAGS` | **No warning signs found** | Official site found, the listing or a contact confirmed on it, and no warning signs. Never "genuine": capped below High confidence |
+| `UNVERIFIED` | **Not enough evidence** | Everything else, including when no official site is found |
 
-The six offer demo cases in `fixtures/offers/` are synthetic, like the media ones. `npm run test:live` runs four real checks against SerpApi and Gemini (about 8 searches) with keys from `.env.local`; set `LIVE_DUMP_DIR` to save the raw responses.
+Two medium signs only add up to a scam verdict when the organisation was actually found. A personal email address is not a warning sign until the sender claims to be TCS, and it is not a *contradiction* until Google has handed us `tcs.com` for the claim to contradict. If no official site turns up, we cannot tell an impersonator from a small firm we simply could not look up, so the answer is `UNVERIFIED` — the same "absence of evidence is not evidence" rule as the media side, applied in the accusing direction.
 
 ## Modes
 
@@ -77,6 +153,8 @@ The six offer demo cases in `fixtures/offers/` are synthetic, like the media one
 | `replay` (default) | Reads `fixtures/<case>/`. Never calls SerpApi or Gemini |
 | `record` | Calls SerpApi for real and saves scrubbed responses as fixtures |
 | `live` | Calls SerpApi with a 24 h query cache, media cache and credit ledger |
+
+In `replay` the Upload and Image URL tabs are marked **off** and the demo says so before you fill anything in: the public demo cannot check your own photo, because doing that costs real searches. Run locally with `FIXTURE_MODE=live` and a key to check anything you like.
 
 The home page is prerendered at build time, so its demo cases and the mode badge in the header reflect `FIXTURE_MODE` as it was when you ran `npm run build`. Rebuild after changing it. (On Vercel, changing an environment variable already needs a redeploy.) The API always reads the current value.
 
@@ -108,7 +186,11 @@ How it fits serverless: `POST /api/investigate` answers immediately and finishes
 
 ## About the fixtures
 
-**The 12 golden cases are currently synthetic.** They are hand-written in SerpApi's response format so the app and tests run without spending credits. Outlets use reserved `.example` domains, and the scenarios are invented. They are not claims about what real publishers printed or when the real images first appeared. Frame hashes for c1, c2, c3 and c6 come from local test images, which are not committed. The cases are generated by `npm run fixtures:author` and should be replaced with recorded responses (`FIXTURE_MODE=record`) once credits are set aside for it. Response field names for Bing and Yandex in particular must be checked against real recordings.
+Verdict logic is validated against **12 authored media cases and 6 offer cases covering every verdict path**, plus failure scenarios (engine down, budget exhausted, rate limited, deadline hit). They run in CI on every push and spend nothing.
+
+They are authored, not recorded: hand-written in SerpApi's response format so the app and tests run without credits. Outlets use reserved `.example` domains and the scenarios are invented — they are not claims about what real publishers printed. The cases run `m01`–`m12` with no gaps, and `o1`–`o6` for offers; frame hashes for `m01`–`m04` come from local test images, which are not committed. Regenerate with `npm run fixtures:author`, and replace a case with a recording (`FIXTURE_MODE=record`) once credits are set aside.
+
+Because authored fixtures can only ever confirm what the author already believed, the response shapes are checked against SerpApi's docs rather than against the code: see [docs/research/serpapi-engine-inputs.md](docs/research/serpapi-engine-inputs.md). That check is what caught the Bing normalizer reading `related_content` (visually *related* images) instead of `pages_with_this_image` (the exact-match array), and Yandex fixtures carrying dates that Yandex never returns. Both are fixed; both had passed 12 green golden cases.
 
 ## Project layout
 
@@ -124,15 +206,17 @@ lib/llm/             Gemini calls with validation and fallbacks
 lib/media/           pHash and keyframe scoring (shared by browser and server)
 lib/store/           SQLite (node:sqlite) and in-memory stores
 fixtures/            golden cases (offers/ for message checks)
-tests/               tests at the runAudit seam, plus pHash
+tests/               tests at the runAudit seam, plus verdict rules and pHash
 ```
 
-## Differences from the design doc
+## Decisions that differ from the design doc
 
-- Node's built-in `node:sqlite` instead of `better-sqlite3` + Drizzle (no native build step; needs Node ≥ 22.13).
-- Supabase Storage instead of Cloudflare R2 for temporary frames.
-- Plain Tailwind components instead of shadcn/ui, and React state instead of Zustand.
-- Keyframes are extracted with `<video>` seeking on the main thread, not WebCodecs in a worker.
-- Fixtures are stored per case as `serp.json`, `llm.json` and `thumbs.json` (hashes only) rather than one file per request.
-- Not built yet: Google Trends, Playwright UI test, ESLint/Prettier/Husky and the gitleaks pre-commit hook.
-- Extra error code `TIMED_OUT` (504) when the reverse-image search cannot finish before the audit deadline.
+| Design doc | Built instead | Why |
+| --- | --- | --- |
+| `better-sqlite3` + Drizzle | Node's built-in `node:sqlite` | No native build step on any host. Needs Node ≥ 22.13 |
+| Cloudflare R2 | Supabase Storage for temporary frames | One less account to provision; 15-minute signed URLs either way |
+| shadcn/ui + Zustand | Plain Tailwind components and React state | Smaller bundle, and the audit page has one owner for its state |
+| WebCodecs in a worker | `<video>` seeking on the main thread | Works in every browser a judge will open this in |
+| One fixture file per request | `serp.json`, `llm.json`, `thumbs.json` per case | A case is reviewable as one diff |
+
+Not built: Google Trends, a Playwright UI test, and the ESLint/Prettier/Husky/gitleaks tooling. There is an extra error code `TIMED_OUT` (504) for when the reverse-image search cannot finish before the audit deadline.

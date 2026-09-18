@@ -27,7 +27,7 @@ export function HowItWorks() {
           </Step>
         </Reveal>
         <Reveal delay={0.2}>
-          <Step n="03" color="#171717" title="Judge by rules" body="Every match is re-verified by its thumbnail. Deterministic rules pick the verdict; the AI only writes the explanation.">
+          <Step n="03" color="#171717" title="Judge by rules" body="Every match is re-verified by its thumbnail, and every point of the score is a rule you can read. The AI reads the claim and the scene; it never scores and never picks the verdict.">
             <VerdictCycle />
           </Step>
         </Reveal>

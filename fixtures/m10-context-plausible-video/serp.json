@@ -1,0 +1,61 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "google_lens?type=exact_matches&frame=1": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "google_lens?type=exact_matches&frame=2": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "bing_reverse_image?frame=1": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": []
+  },
+  "yandex_images?frame=1": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=cyclone winds uproot trees Puri, Odisha, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-05-25T13:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Cyclone makes landfall near Puri, trees uprooted",
+        "snippet": "Strong winds lashed Puri...",
+        "link": "https://www.east-coast-times.example/cyclone-landfall-puri",
+        "source": {
+          "name": "east-coast-times.example"
+        },
+        "iso_date": "2026-05-25T11:00:00Z"
+      }
+    ]
+  }
+}

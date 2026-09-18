@@ -73,7 +73,6 @@ const ID_PREFIX: Record<EngineId, string> = {
   google_news: 'news',
   google_maps: 'maps',
   youtube: 'yt',
-  google_trends: 'trends',
   google_jobs: 'jobs',
 };
 
@@ -89,6 +88,36 @@ const NEWS_WINDOW_MS = 3 * 86_400_000;
 function locationCheck(claim: GeoPoint | undefined, scene: GeoPoint | undefined): LocationCheck {
   if (!claim || !scene) return 'unchecked';
   return isLocationMismatch(claim, scene) ? 'mismatch' : 'agrees';
+}
+
+const words = (s: string) => new Set(s.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? []);
+
+/**
+ * What to ask Google Maps in order to locate the scene.
+ *
+ * The model's own `confidence` is an uncalibrated number it writes about itself, so
+ * it is used only to rank candidates, never as a gate: a named landmark it is unsure
+ * about still gets asked about, and text read off a sign is asked about when there is
+ * no landmark at all. Maps is the thing that decides, and `mapsAgrees` below throws
+ * away an answer that does not actually correspond to what was asked.
+ */
+export function sceneLocationQuery(scene: SceneReading | undefined): string | undefined {
+  const best = [...(scene?.landmarks ?? [])].sort((a, b) => b.confidence - a.confidence)[0];
+  if (best && best.confidence >= LANDMARK_MIN_CONFIDENCE) return best.name;
+  const sign = (scene?.signText ?? []).filter((t) => words(t).size > 0).slice(0, 2).join(' ');
+  return best?.name ?? (sign || undefined);
+}
+
+/**
+ * Whether a place Maps returned is really the place we asked about: they must share a
+ * word. Without this a hallucinated landmark could be "located" by whatever Maps offers
+ * instead, and a wrong location is what MISPLACED is built on.
+ */
+export function mapsAgrees(query: string, place: GeoPoint): boolean {
+  const asked = words(query);
+  if (asked.size === 0) return false;
+  const got = words(`${place.label} ${place.country ?? ''}`);
+  return [...asked].some((w) => got.has(w));
 }
 
 /**
@@ -286,13 +315,13 @@ async function auditWithinDeadline(
   if (!shortCircuited) {
     emit({ type: 'stage', data: { stage: 'tier3' } });
     tiersRun.push(3);
-    const landmark = scene?.landmarks.find((l) => l.confidence >= LANDMARK_MIN_CONFIDENCE);
+    const sceneQuery = sceneLocationQuery(scene);
     const undated = confirmed().find((e) => !e.publishedAt && e.title);
     const plan: { key: (typeof TIER3_RANK)[number]; req: engines.EngineRequest }[] = [];
     const news = engines.newsFor(claim);
     if (news) plan.push({ key: 'google_news', req: news });
     if (claim.place) plan.push({ key: 'maps_claim', req: engines.mapsPlace(claim.place) });
-    if (landmark && !sceneGeo) plan.push({ key: 'maps_scene', req: engines.mapsPlace(landmark.name) });
+    if (sceneQuery && !sceneGeo) plan.push({ key: 'maps_scene', req: engines.mapsPlace(sceneQuery) });
     if (input.media.kind === 'video' || scene?.broadcastLogo) plan.push({ key: 'youtube', req: engines.youtubeFor(claim) });
     if (undated) plan.push({ key: 'google', req: engines.datedSearch(undated.title!, claim.claimedAt) });
     plan.sort((a, b) => TIER3_RANK.indexOf(a.key) - TIER3_RANK.indexOf(b.key));
@@ -319,6 +348,9 @@ async function auditWithinDeadline(
       if (key === 'maps_claim' || key === 'maps_scene') {
         const place = toPlace(res.raw);
         if (!place) continue;
+        // A scene location is only accepted when Maps confirms the name it was asked about;
+        // the claimed place came from the user, so it is taken as given.
+        if (key === 'maps_scene' && !(sceneQuery && mapsAgrees(sceneQuery, place))) continue;
         if (key === 'maps_claim') claimGeo = place;
         else {
           sceneGeo = place;
@@ -350,9 +382,13 @@ async function auditWithinDeadline(
     }
   }
 
+  // EXIF GPS is written by the camera but is trivially editable, so where the scene
+  // came from is recorded and scored lower than a location Maps resolved.
+  let sceneGeoSource: Signals['sceneGeoSource'] = sceneResolvedByMaps ? 'maps' : undefined;
   if (!sceneGeo && input.options.useExifLocation && input.media.exif?.gps) {
     const [lat, lng] = input.media.exif.gps;
     sceneGeo = { lat, lng, label: 'Photo GPS location', scale: 'poi' };
+    sceneGeoSource = 'exif';
   }
 
   // Cache the reverse-image evidence and record which engines produced it, so a later audit
@@ -379,14 +415,20 @@ async function auditWithinDeadline(
   emit({ type: 'stage', data: { stage: 'judge' } });
   const confirmedMatches = confirmed();
   const { firstSeen, dateSpreadDays } = computeFirstSeen(confirmedMatches, deps.clock());
-  const placeToken = claim.place?.split(',')[0].trim().toLowerCase();
+  const placeToken = claim.place?.split(',')[0].trim();
+  // Whole word only, and never a token so short that it matches inside other words:
+  // "Goa" must not corroborate an article about "goal", nor "Ladakh" one about "Ladakhi".
+  const placeMatch =
+    placeToken && placeToken.length >= 3
+      ? new RegExp(`\\b${placeToken.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i')
+      : undefined;
   const claimedMs = Date.parse(claim.claimedAt);
   const newsCorroborates = evidence.some(
     (e) =>
       e.engine === 'google_news' &&
       !!e.publishedAt &&
       Math.abs(Date.parse(e.publishedAt) - claimedMs) <= NEWS_WINDOW_MS &&
-      (!placeToken || `${e.title ?? ''} ${e.snippet ?? ''}`.toLowerCase().includes(placeToken)),
+      (!placeMatch || placeMatch.test(`${e.title ?? ''} ${e.snippet ?? ''}`)),
   );
 
   const signals: Signals = {
@@ -400,6 +442,7 @@ async function auditWithinDeadline(
     location: locationCheck(claimGeo, sceneGeo),
     newsCorroborates,
     sceneResolvedByMaps,
+    sceneGeoSource,
     enginesUsed: [...used],
     enginesFailed: [...failed],
     enginesSkipped: [...skipped].filter(([engine]) => !used.has(engine)).map(([engine, reason]) => ({ engine, reason })),

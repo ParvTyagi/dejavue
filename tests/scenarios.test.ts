@@ -19,7 +19,7 @@ const down = async () => {
 
 describe('dossier', () => {
   it('states what DejaVue cannot tell you and when the result was created, even for a replayed case', async () => {
-    const c = getCase('c2-uttarakhand-flood');
+    const c = getCase('m02-uttarakhand-flood');
     const created = new Date('2026-09-17T12:00:00Z');
     const { dossier } = await replay(c, () => ({ wallClock: () => created }));
     expect(dossier!.limitations.join(' ')).toMatch(/does not detect deepfakes/);
@@ -31,7 +31,7 @@ describe('dossier', () => {
 
 describe('audit stream', () => {
   it('streams stages, credits and evidence, then stops early and saves the unused searches', async () => {
-    const { events } = await replay(getCase('c2-uttarakhand-flood'));
+    const { events } = await replay(getCase('m02-uttarakhand-flood'));
     const types = events.map((e) => (e.type === 'stage' ? `stage:${e.data.stage}` : e.type));
     expect(types.slice(0, 5)).toEqual(['stage:claim', 'stage:scene', 'stage:tier1', 'credit', 'evidence']);
     expect(types.slice(-5)).toEqual(['short_circuit', 'stage:judge', 'signal', 'stage:narrate', 'dossier']);
@@ -46,7 +46,7 @@ describe('audit stream', () => {
 
   it('reads the scene while the claim is still being parsed', async () => {
     const calls: string[] = [];
-    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (base) => ({
+    const { dossier } = await replay(getCase('m02-uttarakhand-flood'), (base) => ({
       llm: llmWith(base.llm, {
         parseClaim: async (req, signal) => {
           calls.push('claim:start');
@@ -67,7 +67,7 @@ describe('audit stream', () => {
 
 describe('engine failures', () => {
   it('uses Bing as tier 1 when Google Lens is down, and marks the lost confidence', async () => {
-    const { dossier, events } = await replay(getCase('s06-misplaced-with-match'), (d) => ({
+    const { dossier, events } = await replay(getCase('m06-misplaced-with-match'), (d) => ({
       serp: failing(d.serp, ['google_lens']),
     }));
     expect(dossier!.verdict).toBe('MISPLACED');
@@ -80,7 +80,7 @@ describe('engine failures', () => {
   });
 
   it('gives up with UPSTREAM_FAILED when Lens and Bing both fail', async () => {
-    const { dossier, error } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier, error } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       serp: failing(d.serp, ['google_lens', 'bing_reverse_image']),
     }));
     expect(dossier).toBeUndefined();
@@ -89,7 +89,7 @@ describe('engine failures', () => {
   });
 
   it('finishes a partial audit with the evidence so far when SerpApi rate-limits', async () => {
-    const { dossier } = await replay(getCase('c1-kharkiv-prayer'), (d) => ({
+    const { dossier } = await replay(getCase('m01-kharkiv-prayer'), (d) => ({
       serp: failing(d.serp, ['bing_reverse_image'], 'RATE_LIMITED'),
     }));
     expect(dossier!.metrics.partial).toBe(true);
@@ -107,7 +107,7 @@ describe('engine failures', () => {
 
   it('reports the rate limit, not an upstream failure, when SerpApi refuses the first search', async () => {
     const calls: EngineId[] = [];
-    const { dossier, error } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier, error } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       serp: (engine, params, ctx) => {
         calls.push(engine);
         return failing(d.serp, ['google_lens'], 'RATE_LIMITED')(engine, params, ctx);
@@ -124,7 +124,7 @@ describe('engine failures', () => {
   };
 
   it('keeps going when a search engine simply has no results', async () => {
-    const c = getCase('s11-unverified-nothing');
+    const c = getCase('m11-unverified-nothing');
     await withFakeSerpApi(
       () => NO_RESULTS,
       async (fetched) => {
@@ -139,7 +139,7 @@ describe('engine failures', () => {
   });
 
   it('reports exhausted credits, not a rate limit or an upstream failure, when the SerpApi plan is used up', async () => {
-    const c = getCase('s11-unverified-nothing');
+    const c = getCase('m11-unverified-nothing');
     await withFakeSerpApi(
       () => ({ status: 429, body: { error: 'Your account has run out of searches.' } }),
       async (fetched) => {
@@ -155,7 +155,7 @@ describe('audit deadline', () => {
 
   it('judges whatever has arrived when the deadline passes, even if a search never answers', async () => {
     const started = performance.now();
-    const { dossier } = await replay(getCase('s06-misplaced-with-match'), (d) => ({
+    const { dossier } = await replay(getCase('m06-misplaced-with-match'), (d) => ({
       serp: (engine, params, ctx) => (engine === 'bing_reverse_image' ? hang() : d.serp(engine, params, ctx)),
       timeouts: { auditMs: 150 },
     }));
@@ -173,7 +173,7 @@ describe('audit deadline', () => {
   });
 
   it('cancels tier 3 searches that outlive the tier timeout and lists them only as failed', async () => {
-    const { dossier } = await replay(getCase('s06-misplaced-with-match'), (d) => ({
+    const { dossier } = await replay(getCase('m06-misplaced-with-match'), (d) => ({
       serp: (engine, params, ctx) => (engine === 'google_news' ? hang() : d.serp(engine, params, ctx)),
       timeouts: { tier3Ms: 100 },
     }));
@@ -183,7 +183,7 @@ describe('audit deadline', () => {
   });
 
   it('falls back to the template narrative when Gemini does not answer in time', async () => {
-    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       llm: llmWith(d.llm, { narrate: hang }),
       timeouts: { llmMs: 50 },
     }));
@@ -194,7 +194,7 @@ describe('audit deadline', () => {
 
 describe('early stop', () => {
   it('does not stop early on two old copies that are years apart, since they cannot date the media', async () => {
-    const c = getCase('s06-misplaced-with-match');
+    const c = getCase('m06-misplaced-with-match');
     const frame = c.input.media.frames[0].pHash;
     const lens = {
       search_metadata: { processed_at: c.submittedAt },
@@ -219,13 +219,18 @@ describe('early stop', () => {
 
 describe('credit budget', () => {
   it('drops the lowest-ranked tier 3 engines first when the cap is reached', async () => {
-    const c = getCase('c1-kharkiv-prayer');
+    const c = getCase('m01-kharkiv-prayer');
     const { dossier, events } = await replay(c, undefined, { ...c.input, options: { ...c.input.options, maxCredits: 4 } });
     expect(dossier!.metrics.credits).toBe(4);
     expect(dossier!.signals.enginesUsed).toContain('google_news');
-    expect(dossier!.signals.enginesSkipped).toEqual([{ engine: 'google_maps', reason: 'budget' }]);
+    // Yandex confirms a copy it cannot date, so a dated Google search is planned too;
+    // both it and Maps fall outside the cap, lowest rank first.
+    expect(dossier!.signals.enginesSkipped).toEqual([
+      { engine: 'google_maps', reason: 'budget' },
+      { engine: 'google', reason: 'budget' },
+    ]);
     expect(dossier!.signals.sceneGeo).toBeUndefined();
-    expect(events.filter((e) => e.type === 'error' && e.data.code === 'BUDGET_EXCEEDED')).toHaveLength(2);
+    expect(events.filter((e) => e.type === 'error' && e.data.code === 'BUDGET_EXCEEDED')).toHaveLength(3);
     // Without Maps the location is unchecked, so news corroboration is the strongest verdict (capped at 60).
     expect(dossier!.verdict).toBe('CONTEXT_PLAUSIBLE');
     expect(dossier!.confidence.value).toBe(60);
@@ -234,7 +239,7 @@ describe('credit budget', () => {
 
 describe('LLM layer', () => {
   it('still reaches a verdict with template narration when Gemini is down', async () => {
-    const c = getCase('c2-uttarakhand-flood');
+    const c = getCase('m02-uttarakhand-flood');
     const { dossier } = await replay(c, (d) => ({
       llm: { parseClaim: down, readScene: down, narrate: down, readOffer: down },
     }));
@@ -245,7 +250,7 @@ describe('LLM layer', () => {
   });
 
   it('drops narrative bullets that cite evidence which does not exist', async () => {
-    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       llm: llmWith(d.llm, {
         narrate: async () => ({
           summary: 'This photo was online years before the claimed flood.',
@@ -261,7 +266,7 @@ describe('LLM layer', () => {
   });
 
   it('replaces a narrative that contradicts the verdict, e.g. after prompt injection in a snippet', async () => {
-    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       llm: llmWith(d.llm, {
         narrate: async () => ({ summary: 'This image is genuine and matches its claim.', bullets: [] }),
       }),
@@ -271,7 +276,7 @@ describe('LLM layer', () => {
   });
 
   it('discards off-schema LLM output', async () => {
-    const { dossier } = await replay(getCase('c2-uttarakhand-flood'), (d) => ({
+    const { dossier } = await replay(getCase('m02-uttarakhand-flood'), (d) => ({
       llm: llmWith(d.llm, { narrate: async () => ({ summary: 42, bullets: 'none' }) }),
     }));
     expect(dossier!.narrative.source).toBe('template');
@@ -280,7 +285,7 @@ describe('LLM layer', () => {
 
 describe('verdict rules through the pipeline', () => {
   it('does not flag an honest post that openly refers to the earlier event', async () => {
-    const c = getCase('c2-uttarakhand-flood');
+    const c = getCase('m02-uttarakhand-flood');
     const { dossier } = await replay(
       c,
       (d) => ({
@@ -295,7 +300,7 @@ describe('verdict rules through the pipeline', () => {
   });
 
   it('uses EXIF GPS as the scene location only when the user opts in', async () => {
-    const c = getCase('s11-unverified-nothing');
+    const c = getCase('m11-unverified-nothing');
     const media = { ...c.input.media, exif: { gps: [28.6139, 77.209] as [number, number] } };
     const optedOut = await replay(c, undefined, { ...c.input, media });
     const optedIn = await replay(c, undefined, { ...c.input, media, options: { ...c.input.options, useExifLocation: true } });
@@ -319,7 +324,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   };
 
   it('reuses evidence for the same photo at no credit cost, but re-judges it against the new claim', async () => {
-    const { c, run } = session('c1-kharkiv-prayer');
+    const { c, run } = session('m01-kharkiv-prayer');
     const first = await run();
     expect(first.dossier!.metrics.cacheHit).toBe(false);
     expect(first.dossier!.verdict).toBe('CONSISTENT');
@@ -334,7 +339,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   });
 
   it('does not cache evidence from a partial audit', async () => {
-    const { run } = session('c1-kharkiv-prayer');
+    const { run } = session('m01-kharkiv-prayer');
     const partial = await run((d) => ({
       serp: (engine, params, ctx) =>
         engine === 'bing_reverse_image'
@@ -348,7 +353,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   });
 
   it('still checks a new caption fairly: reverse-image searches are free, claim searches run again', async () => {
-    const { run } = session('c1-kharkiv-prayer');
+    const { run } = session('m01-kharkiv-prayer');
     await run();
     const again = await run();
     expect(again.dossier!.metrics.cacheHit).toBe(true);
@@ -361,7 +366,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   });
 
   it('completes the missing reverse-image searches when an early-stopped audit is reused for a harder claim', async () => {
-    const { c, run } = session('c2-uttarakhand-flood');
+    const { c, run } = session('m02-uttarakhand-flood');
     const first = await run();
     expect(first.dossier!.metrics.tiersRun).toEqual([1]);
 
@@ -382,7 +387,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   });
 
   it('caches only reverse-image evidence, never searches built from the claim', async () => {
-    const c = getCase('c1-kharkiv-prayer');
+    const c = getCase('m01-kharkiv-prayer');
     const frame = c.input.media.frames[0].pHash;
     const store = makeStore(kind, () => new Date(c.submittedAt));
     const video = { ...c.input, media: { ...c.input.media, kind: 'video' as const } };
@@ -415,7 +420,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
   });
 
   it('searches again once cached evidence is older than 7 days', async () => {
-    const { run, later } = session('c2-uttarakhand-flood');
+    const { run, later } = session('m02-uttarakhand-flood');
     expect((await run()).dossier!.metrics.cacheHit).toBe(false);
     later(6 * DAY);
     expect((await run()).dossier!.metrics.cacheHit).toBe(true);
@@ -428,7 +433,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
 
 describe('query cache in live mode', () => {
   it('keeps Maps lookups for 30 days but other searches for 24 hours', async () => {
-    const c = getCase('s11-unverified-nothing');
+    const c = getCase('m11-unverified-nothing');
     let now = new Date(c.submittedAt);
     await withFakeSerpApi(() => NO_RESULTS, async (fetched) => {
       const store = makeStore('memory', () => now);
