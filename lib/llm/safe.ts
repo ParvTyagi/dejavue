@@ -104,17 +104,18 @@ export async function narrateSafe(
 
 const isoDay = (iso: string) => new Date(iso).toISOString().slice(0, 10);
 
-export function templateNarrative(verdict: Verdict, s: Signals, flags?: VerdictFlags): Narrative {
+export function templateNarrative(verdict: Verdict, s: Signals, flags: VerdictFlags): Narrative {
   const bullets: Narrative['bullets'] = [];
   const first = s.firstSeen && s.confirmedMatches.find((e) => e.id === s.firstSeen!.evidenceId);
+  // An older copy that the claim said nothing about: a fact to report, not a contradiction.
+  // `predatesClaim` alone is not enough, since a claim can openly be about the older event.
+  const unclaimedOlderCopy = flags.predatesClaim && !flags.recycled && s.claim.claimedAtSource === 'default_now';
   if (first && s.firstSeen) {
     // With no claimed date there is no gap to report, so the date is stated on its own.
-    const assumed = s.claim.claimedAtSource === 'default_now';
     bullets.push({
-      text:
-        flags?.predatesClaim && !flags.recycled && assumed
-          ? `Earliest confirmed copy: ${first.domain} on ${isoDay(s.firstSeen.at)}. No date was claimed for this media, so it is not treated as recycled.`
-          : `Earliest confirmed copy: ${first.domain} on ${isoDay(s.firstSeen.at)}, ${s.deltaTDays} days before the claimed date.`,
+      text: unclaimedOlderCopy
+        ? `Earliest confirmed copy: ${first.domain} on ${isoDay(s.firstSeen.at)}. No date was claimed for this media, so it is not treated as recycled.`
+        : `Earliest confirmed copy: ${first.domain} on ${isoDay(s.firstSeen.at)}, ${s.deltaTDays} days before the claimed date.`,
       evidenceIds: [first.id],
     });
   }
@@ -139,7 +140,7 @@ export function templateNarrative(verdict: Verdict, s: Signals, flags?: VerdictF
   }
   // "Not enough evidence" would be wrong when an older copy was actually found.
   const summary =
-    flags?.predatesClaim && !flags.recycled && s.firstSeen
+    unclaimedOlderCopy && s.firstSeen
       ? `This media was already online on ${isoDay(s.firstSeen.at)}. Nothing was claimed about its date, so that is a fact about the media, not a contradiction of the post.`
       : summaries[verdict];
   return { summary, bullets, source: 'template' };

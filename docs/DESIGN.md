@@ -159,7 +159,6 @@ DejaVue uses up to eight SerpApi engines, and each one closes a specific gap in 
 | 3 | Google News (`google_news`) | Did the claimed event happen, and when? | Event corroboration + event date | Claim names an event |
 | 3 | Google Maps (`google_maps`) | Where are the claimed place and the detected landmark? | Coordinates for ΔS | Claim or scene text names a place |
 | 3 | YouTube (`youtube`) | Was this footage broadcast earlier? | Earliest upload of matching clip | Media is video, or scene shows a broadcast logo |
-| 4 | Google Trends (`google_trends`) | When did people start searching for this event? | Search-interest spike date | Optional; strengthens timeline chart |
 
 Engine and parameter names should be confirmed in the [SerpApi playground](https://serpapi.com/search-engine-apis) before coding, since response fields change over time.
 
@@ -322,7 +321,7 @@ dejavue/
 │  ├─ serp/
 │  │  ├─ client.ts              # typed wrapper, cache, ledger, fixtures
 │  │  ├─ engines/lens.ts, bing.ts, yandex.ts, news.ts,
-│  │  │          maps.ts, youtube.ts, search.ts, trends.ts
+│  │  │          maps.ts, youtube.ts, search.ts
 │  │  └─ normalize.ts           # engine JSON → Evidence[]
 │  ├─ evidence/
 │  │  ├─ verifyMatch.ts         # thumbnail pHash confirmation
@@ -353,7 +352,7 @@ dejavue/
 | `serp/normalize` | `toEvidence(engine, raw) → Evidence[]` | `evidence/dates` |
 | `evidence/verifyMatch` | `confirm(ev, inputHash) → Evidence` | `sharp`, pHash |
 | `evidence/geo` | `resolve(place) → GeoPoint`, `haversineKm(a, b)` | `engines/maps` |
-| `orchestrator/pipeline` | `runAudit(input, emit) → Dossier` | everything above |
+| `orchestrator/pipeline` | `runAudit(input, emit) → Dossier`, `sceneLocationQuery`, `mapsAgrees` | everything above |
 | `verdict/rules` | `decide(signals) → {verdict, flags}` | none (pure) |
 | `verdict/score` | `score(signals, verdict) → {value, reasons}` | none (pure) |
 | `llm/*` | `parseClaim(text)`, `readScene(frameUrl)`, `narrate(dossier)` | Gemini SDK |
@@ -364,7 +363,7 @@ All engines normalize into one `Evidence` shape, which is what makes the verdict
 
 ```ts
 type EngineId = 'google_lens' | 'bing_reverse_image' | 'yandex_images'
-  | 'google' | 'google_news' | 'google_maps' | 'youtube' | 'google_trends';
+  | 'google' | 'google_news' | 'google_maps' | 'youtube' | 'google_jobs';
 
 type Verdict = 'RECYCLED' | 'MISPLACED' | 'CONSISTENT'
   | 'CONTEXT_PLAUSIBLE' | 'UNVERIFIED';
@@ -596,7 +595,7 @@ Fixtures strip `search_metadata.id` and any key-bearing URLs before saving, so t
 
 **Budget guard**
 
-- `maxCredits` per audit defaults to 6. Tier 3 calls are ranked (News, Maps, YouTube, dated Search, Trends) and the lowest-ranked are skipped once the cap would be hit, with a `skipped` note in the dossier.
+- `maxCredits` per audit defaults to 6. Tier 3 calls are ranked (News, Maps, YouTube, dated Search) and the lowest-ranked are skipped once the cap would be hit, with a `skipped` note in the dossier.
 - A monthly floor of 20 credits: below it, live mode refuses new audits and the UI suggests fixture mode.
 - `/api/quota` reports ledger totals alongside SerpApi's Account API figure, so the credit meter is honest.
 

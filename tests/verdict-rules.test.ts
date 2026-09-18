@@ -38,7 +38,6 @@ function signals(over: Partial<Signals> = {}): Signals {
     firstSeen: { at: OLD, evidenceId: 'a' },
     location: 'unchecked',
     newsCorroborates: false,
-    sceneResolvedByMaps: false,
     enginesUsed: [],
     enginesFailed: [],
     enginesSkipped: [],
@@ -95,11 +94,48 @@ describe('the model cannot clear a recycled photo on its own', () => {
     const s = signals({ claim: claim({ rawText: 'Flood water in the streets right now', refersToPast: true }) });
     expect(decide(s).verdict).toBe('RECYCLED');
   });
+
+  it('does not read any four-digit number as a reference to an older event', () => {
+    // A casualty count, a house count and a rupee amount are not years.
+    for (const text of ['Flood today, 2000 houses washed away', 'Rs 2500 relief announced', '1500 stranded at the station']) {
+      const s = signals({ claim: claim({ rawText: text, refersToPast: true }) });
+      expect(decide(s).verdict, text).toBe('RECYCLED');
+    }
+  });
+
+  it('will not treat a claim about right now as a claim about an older event', () => {
+    const s = signals({
+      claim: claim({ rawText: 'Breaking: floods hit the city today, 2019 homes damaged', refersToPast: true, referencedYear: 2019 }),
+    });
+    expect(decide(s).verdict).toBe('RECYCLED');
+  });
+
+  it('keeps the older-copy finding even when the claim accounts for it', () => {
+    // The post is honest, so it is not recycled — but the copy really is older, and
+    // that fact must not depend on what the model said.
+    const s = signals({
+      claim: claim({ rawText: 'Remembering the 2019 floods, six years on', refersToPast: true, referencedYear: 2019 }),
+      location: 'agrees',
+    });
+    const d = decide(s);
+    expect(d.flags).toEqual({ recycled: false, misplaced: false, predatesClaim: true });
+    // An acknowledged older copy does not block confirming the claim.
+    expect(d.verdict).toBe('CONSISTENT');
+  });
+
+  it('reads recency words in the script they are forwarded in', () => {
+    const hindi = claim({ rawText: 'आज बंगाल में पुलिस लाठीचार्ज, वीडियो देखें', claimedAtSource: 'default_now' });
+    expect(claimAssertsDate(hindi)).toBe(true);
+    const bengali = claim({ rawText: 'এখন কলকাতায় ভারী বৃষ্টি', claimedAtSource: 'default_now' });
+    expect(claimAssertsDate(bengali)).toBe(true);
+    const undated = claim({ rawText: 'गंगा नदी का सुंदर दृश्य', claimedAtSource: 'default_now' });
+    expect(claimAssertsDate(undated)).toBe(false);
+  });
 });
 
 describe('scoring a location that rests on EXIF alone', () => {
   it('takes points off, so it cannot reach the same confidence as a resolved one', () => {
-    const base = signals({ location: 'mismatch', sceneGeoSource: 'maps', sceneResolvedByMaps: true });
+    const base = signals({ location: 'mismatch', sceneGeoSource: 'maps' });
     const exif = signals({ location: 'mismatch', sceneGeoSource: 'exif' });
     const withMaps = score(base, 'MISPLACED').value;
     const withExif = score(exif, 'MISPLACED').value;
@@ -118,6 +154,17 @@ describe('locating the scene without trusting the model to be right', () => {
 
   it('falls back to text read off a sign when no landmark is named', () => {
     expect(sceneLocationQuery({ signText: ['Jeddah Islamic Port', 'Gate 4'], landmarks: [] })).toBe('Jeddah Islamic Port Gate 4');
+  });
+
+  it('prefers text read off a sign to a landmark the model hedged', () => {
+    // The old ordering let any landmark, at any confidence, block the sign-text
+    // fallback entirely.
+    const q = sceneLocationQuery({ signText: ['Jeddah Islamic Port'], landmarks: [{ name: 'Atlantis Tower', confidence: 0.2 }] });
+    expect(q).toBe('Jeddah Islamic Port');
+  });
+
+  it('still falls back to a hedged landmark when no sign is legible', () => {
+    expect(sceneLocationQuery({ signText: [], landmarks: [{ name: 'Howrah Station', confidence: 0.2 }] })).toBe('Howrah Station');
   });
 
   it('prefers the landmark the model is most sure of', () => {

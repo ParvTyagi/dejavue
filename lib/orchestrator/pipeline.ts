@@ -90,22 +90,24 @@ function locationCheck(claim: GeoPoint | undefined, scene: GeoPoint | undefined)
   return isLocationMismatch(claim, scene) ? 'mismatch' : 'agrees';
 }
 
-const words = (s: string) => new Set(s.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? []);
+const placeTokens = (s: string) => new Set(s.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? []);
 
 /**
- * What to ask Google Maps in order to locate the scene.
+ * What to ask Google Maps in order to locate the scene, best candidate first:
+ * a landmark the model is confident about, then text actually read off a sign,
+ * then a landmark it was unsure of.
  *
  * The model's own `confidence` is an uncalibrated number it writes about itself, so
- * it is used only to rank candidates, never as a gate: a named landmark it is unsure
- * about still gets asked about, and text read off a sign is asked about when there is
- * no landmark at all. Maps is the thing that decides, and `mapsAgrees` below throws
- * away an answer that does not actually correspond to what was asked.
+ * it no longer gates the lookup — a landmark below the threshold is still asked
+ * about, just after the sign text, because words visible in the photo are better
+ * evidence than a guess the model hedged. Maps is what decides either way, and
+ * `mapsAgrees` below throws away an answer that does not match what was asked.
  */
 export function sceneLocationQuery(scene: SceneReading | undefined): string | undefined {
   const best = [...(scene?.landmarks ?? [])].sort((a, b) => b.confidence - a.confidence)[0];
   if (best && best.confidence >= LANDMARK_MIN_CONFIDENCE) return best.name;
-  const sign = (scene?.signText ?? []).filter((t) => words(t).size > 0).slice(0, 2).join(' ');
-  return best?.name ?? (sign || undefined);
+  const sign = (scene?.signText ?? []).filter((t) => placeTokens(t).size > 0).slice(0, 2).join(' ');
+  return sign || best?.name;
 }
 
 /**
@@ -114,9 +116,9 @@ export function sceneLocationQuery(scene: SceneReading | undefined): string | un
  * instead, and a wrong location is what MISPLACED is built on.
  */
 export function mapsAgrees(query: string, place: GeoPoint): boolean {
-  const asked = words(query);
+  const asked = placeTokens(query);
   if (asked.size === 0) return false;
-  const got = words(`${place.label} ${place.country ?? ''}`);
+  const got = placeTokens(`${place.label} ${place.country ?? ''}`);
   return [...asked].some((w) => got.has(w));
 }
 
@@ -311,7 +313,7 @@ async function auditWithinDeadline(
 
   // Tier 3: corroboration in parallel, ranked so the budget drops the least useful first.
   let claimGeo: GeoPoint | undefined;
-  let sceneResolvedByMaps = !!sceneGeo;
+  let sceneGeoSource: Signals['sceneGeoSource'] = sceneGeo ? 'maps' : undefined;
   if (!shortCircuited) {
     emit({ type: 'stage', data: { stage: 'tier3' } });
     tiersRun.push(3);
@@ -354,7 +356,7 @@ async function auditWithinDeadline(
         if (key === 'maps_claim') claimGeo = place;
         else {
           sceneGeo = place;
-          sceneResolvedByMaps = true;
+          sceneGeoSource = 'maps';
         }
         const ev: Evidence = {
           id: key === 'maps_claim' ? 'maps-claim' : 'maps-scene',
@@ -384,7 +386,6 @@ async function auditWithinDeadline(
 
   // EXIF GPS is written by the camera but is trivially editable, so where the scene
   // came from is recorded and scored lower than a location Maps resolved.
-  let sceneGeoSource: Signals['sceneGeoSource'] = sceneResolvedByMaps ? 'maps' : undefined;
   if (!sceneGeo && input.options.useExifLocation && input.media.exif?.gps) {
     const [lat, lng] = input.media.exif.gps;
     sceneGeo = { lat, lng, label: 'Photo GPS location', scale: 'poi' };
@@ -404,7 +405,7 @@ async function auditWithinDeadline(
         engines: imageEngines,
         evidence: evidence.filter((e) => IMAGE_ENGINES.includes(e.engine)),
         scene,
-        sceneGeo: sceneResolvedByMaps ? sceneGeo : undefined,
+        sceneGeo: sceneGeoSource === 'maps' ? sceneGeo : undefined,
         createdAt: deps.clock().toISOString(),
       },
       TTL.mediaMs,
@@ -441,7 +442,6 @@ async function auditWithinDeadline(
     deltaSKm: claimGeo && sceneGeo ? Math.round(haversineKm(claimGeo, sceneGeo)) : undefined,
     location: locationCheck(claimGeo, sceneGeo),
     newsCorroborates,
-    sceneResolvedByMaps,
     sceneGeoSource,
     enginesUsed: [...used],
     enginesFailed: [...failed],

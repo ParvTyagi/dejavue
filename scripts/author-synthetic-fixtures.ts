@@ -311,7 +311,7 @@ const cases: CaseSpec[] = [
       { site: 'regional-daily.example', slug: '2011/03/12/tsunami-footage', title: 'Footage shows tsunami reaching the coast', date: '2011-03-12T22:15:00Z', hash: near(H.m03, 7) },
     ],
     yandex: [{ site: 'clip-archive.example', slug: 'tsunami-miyako', title: 'Tsunami reaching the coast', hash: near(H.m03, 6) }],
-    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 2, tiersRun: [1, 2], confidence: 70 },
+    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 2, tiersRun: [1, 2], confidence: 60 },
   },
   {
     id: 'm04-kolkata-lathicharge',
@@ -433,7 +433,7 @@ const cases: CaseSpec[] = [
     news: [{ site: 'hill-news.example', slug: 'shimla-hailstorm-traffic', title: 'Hailstorm lashes Shimla, traffic slows', iso: '2026-02-02T09:00:00Z', snippet: 'A sudden hailstorm in Shimla...' }],
     mapsClaim: PLACES.shimla,
     mapsScene: { q: 'The Ridge, Shimla', place: PLACES.theRidge },
-    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 85 },
+    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 80 },
   },
   {
     id: 'm09-context-plausible',
@@ -505,7 +505,7 @@ const cases: CaseSpec[] = [
   {
     id: 'm12-unverified-similar-only',
     title: 'Crowd photo with only look-alike results from years ago',
-    notes: 'UNVERIFIED path: old but unconfirmed look-alikes never feed T₀. The scene landmark is only 0.6 confident, but Maps is asked anyway and confirms it inside the claimed city, so the location agrees and the verdict still turns on the missing matches.',
+    notes: 'UNVERIFIED path: old but unconfirmed look-alikes never feed T₀. The scene landmark is only 0.6 confident, so the text read off the sign is what Maps is asked about; it resolves inside the claimed city, so the location agrees and the verdict still turns on the missing matches.',
     submittedAt: '2026-04-11T14:00:00.000Z',
     kind: 'image',
     frames: [{ pHash: H.m12, sharpness: 570 }],
@@ -526,7 +526,7 @@ const cases: CaseSpec[] = [
     yandex: [],
     news: [{ site: 'metro-news.example', slug: '2023-train-cancellations', title: 'Train cancellations leave passengers stranded in Kolkata', iso: '2023-12-01T10:00:00Z', snippet: 'Passengers in Kolkata...' }],
     mapsClaim: PLACES.kolkata,
-    mapsScene: { q: 'Howrah Station', place: PLACES.howrahStation },
+    mapsScene: { q: 'Howrah', place: PLACES.howrahStation },
     expected: { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 10 },
   },
 ];

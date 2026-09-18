@@ -22,9 +22,13 @@ export function score(signals: Signals, verdict: Verdict): Dossier['confidence']
 
   const earliest = signals.firstSeen && confirmed.find((e) => e.id === signals.firstSeen!.evidenceId);
   if (earliest?.trustedSource) add('Earliest match is from a trusted archive', 10);
-  if (earliest?.dateTrust === 'metadata') add('Earliest date comes from page metadata', 10);
+  // There is deliberately no bonus for `dateTrust === 'metadata'`. Only Google News
+  // supplies a real publish-date field, and a news article is never a confirmed
+  // visual match, so the earliest match can never carry that trust level. A reason
+  // that cannot fire is worse than no reason: it makes the score look better audited
+  // than it is.
 
-  if (signals.sceneResolvedByMaps) add('Scene text or landmark located on Google Maps', 10);
+  if (signals.sceneGeoSource === 'maps') add('Scene text or landmark located on Google Maps', 10);
   if (signals.newsCorroborates) add('News coverage corroborates the event', 10);
 
   // A location that rests only on EXIF rests on a field anyone can edit, so a

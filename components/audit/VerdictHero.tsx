@@ -29,11 +29,13 @@ export function mediaVerdictView(d: Dossier): VerdictView {
   const label = VERDICT_LABEL[d.verdict];
   return {
     ...label,
+    // "Older copy exists" is only news when the claim said nothing about the date.
+    // A post that is openly about the older event also predates its own claim.
     extraStamp: d.flags.recycled
       ? d.flags.misplaced
         ? { text: 'Misplaced', tone: 'warn' }
         : undefined
-      : d.flags.predatesClaim
+      : d.flags.predatesClaim && d.signals.claim.claimedAtSource === 'default_now'
         ? { text: 'Older copy exists', tone: 'warn' }
         : undefined,
     summary: d.narrative.summary,

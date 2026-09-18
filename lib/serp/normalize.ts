@@ -92,11 +92,15 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
       // `pages_with_this_image` is the exact-match array. `related_content` is only
       // *visually related* media, so it is a fallback: pHash re-verification in
       // confirmMatches() is what stops a merely-similar image counting as a match.
-      // Bing dates are documented as ISO 8601 and present on every sample item.
+      //
+      // The date is ISO 8601, but it goes through `text`, not `iso`, on purpose. `iso`
+      // means "page metadata we trust as a publish date", and SerpApi does not document
+      // what Bing's date is: the research notes find a 2014 date on a page about a 2024
+      // image, which reads like a page or crawl date. Parsing it as text records it at
+      // absolute_text trust, which is what an undocumented date deserves.
       return build(engine, 'visual_match', firstArray(r, ['pages_with_this_image', 'related_content']), ctx, (it) => ({
         url: str(it.link) ?? str(it.source),
         title: str(it.title),
-        iso: str(it.date),
         text: [str(it.date)],
       }));
     case 'yandex_images':

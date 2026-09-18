@@ -84,7 +84,7 @@
       }
     }
   },
-  "google_maps?q=Howrah Station&type=search": {
+  "google_maps?q=Howrah&type=search": {
     "search_metadata": {
       "status": "Success",
       "processed_at": "2026-04-11T14:00:00.000Z"

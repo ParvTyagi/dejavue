@@ -25,13 +25,12 @@ Tier 2  Bing Reverse Image ─────────────────�
         Decisive. Yandex is never searched.
 
 ╭──────────────────────────────────────────────────────────╮
-│  RECYCLED                              confidence 70 Med │
+│  RECYCLED                              confidence 60 Med │
 │  This footage was published in March 2011, long before   │
 │  the claimed tsunami.                                    │
 │                                                          │
 │  +15 ×3  confirmed visual match (3 domains)              │
 │  +15     matches from 2+ independent search indexes      │
-│  +10     earliest date comes from page metadata          │
 ╰──────────────────────────────────────────────────────────╯
 
 2 SerpApi searches spent. 4 of the 6-search cap unused.
@@ -39,7 +38,7 @@ Tier 2  Bing Reverse Image ─────────────────�
 
 Every number on that card traces to a labelled reason, and every reason traces to a search result you can click. That is the whole design.
 
-![The DejaVue audit page showing a RECYCLED verdict at confidence 70 for the tsunami case, with the two dated Bing matches cited as evidence and a first-seen date of 11 March 2011](docs/images/audit.png)
+![The DejaVue audit page showing a RECYCLED verdict at confidence 60 for the tsunami case, with the two dated Bing matches cited as evidence and a first-seen date of 11 March 2011](docs/images/audit.png)
 
 That capture is generated, not pasted: `npm run build`, `npm start -- -p 3123`, then `npm run screenshots` re-renders it from the live app, so it cannot drift from what the code does. ([the whole page](docs/images/audit-full.png), including the evidence feed and the timeline.)
 
@@ -54,7 +53,7 @@ npm run dev                  # http://localhost:3000
 Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on `/check` (photos) or `/check?type=offer` (messages) to watch a check stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
 
 ```bash
-npm test            # 221 tests: 12 media and 6 offer golden cases, verdict rules,
+npm test            # 236 tests: 12 media and 6 offer golden cases, verdict rules,
                     # failure scenarios, extraction, stores and pHash
 npm run test:live   # 4 real end-to-end checks against SerpApi + Gemini (~8 searches)
 npm run typecheck
@@ -102,10 +101,12 @@ What each engine can and cannot tell us, from [its documented response shape](do
 | Engine | Confirms a copy | Dates it |
 | --- | --- | --- |
 | Google Lens `exact_matches` | yes | weakly — the date is a relative string ("2 years ago") and present on roughly a third of results |
-| Bing `pages_with_this_image` | yes | yes, ISO 8601 on every documented sample |
+| Bing `pages_with_this_image` | yes | an ISO 8601 date on every documented sample — but SerpApi never says whether it is a publish or a crawl date, so it is recorded at text trust, not as page metadata |
 | Yandex `image_results` | yes | **never** — no date field exists on any documented response |
 
 T₀ (first-seen) therefore leans on Bing, needs two independent domains within 30 days or one trusted archive, and drops relative dates entirely whenever an absolute one is available.
+
+Nothing in the score rewards `dateTrust: 'metadata'`. Only Google News carries a real publish-date field, and a news article is never a confirmed visual match, so the earliest match can never reach that trust level — a scoring reason that cannot fire would make the score look better audited than it is.
 
 ## What Gemini does, and what it cannot do
 
@@ -118,7 +119,7 @@ That claim is narrower than "the LLM has no influence", so here is the whole tru
 | `claim.refersToPast` — "this post is openly about an older event" | Clear a genuinely recycled photo | The raw text must independently contain a past cue (a year, `anniversary`, `throwback`, `on this day`, …). A bare hallucinated `true` changes nothing |
 | `scene.landmarks[].name` — what the model thinks it can see | Place the scene somewhere wrong, and a wrong location is what `MISPLACED` is built on | Google Maps has to confirm the name it was asked about. `mapsAgrees()` throws away an answer that shares no word with the query, so a landmark the model invented locates nothing |
 
-The model's `confidence` number used to be a gate: below 0.8 and the scene was never looked up at all. That was the wrong thing to trust — it is an uncalibrated figure the model writes about its own guess. It now only *ranks* candidates. Every named landmark is asked about, text read off a sign is used when no landmark is named, and Maps is what decides. A landmark the model was only 0.6 sure of now gets checked (see `m12`), and a hallucinated one resolves to nothing.
+The model's `confidence` number used to be a gate: below 0.8 and the scene was never looked up at all. That was the wrong thing to trust — it is an uncalibrated figure the model writes about its own guess. It now only *orders* candidates: a landmark it is confident about, then text actually read off a sign, then a landmark it hedged. Words visible in the photo beat a guess the model was unsure of, and Maps decides either way. In `m12` the landmark is 0.6, so the sign text is what gets looked up.
 
 What remains true, and is a real limit: **if the scene reading comes back empty — no landmark, no legible sign — there is nothing to look up, so `MISPLACED` is unreachable for that image.** The dossier then says `location: unchecked` rather than implying agreement, and the audit page prints "Scene not located".
 

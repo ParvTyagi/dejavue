@@ -104,9 +104,10 @@ export interface VerdictFlags {
   recycled: boolean;
   misplaced: boolean;
   /**
-   * A confirmed copy is more than 48 h older than the claimed date. `recycled`
-   * is this plus a claim that actually asserts a date; when no date was claimed
-   * this stays true on its own and is reported as a fact, not an accusation.
+   * A confirmed copy is more than 48 h older than the claimed date. Purely a fact
+   * about the evidence: nothing the language model returns can suppress it, so the
+   * finding survives even where `recycled` does not. `recycled` is this plus a claim
+   * that asserts a date and that the older copy actually contradicts.
    */
   predatesClaim: boolean;
 }
@@ -121,8 +122,10 @@ export interface Signals {
   deltaSKm?: number;
   location: LocationCheck;
   newsCorroborates: boolean;
-  sceneResolvedByMaps: boolean;
-  /** Where `sceneGeo` came from. EXIF is user-supplied and editable, so it is trusted less. */
+  /**
+   * Where `sceneGeo` came from, or undefined when the scene was never located.
+   * EXIF is user-supplied and editable, so it is trusted less than a Maps lookup.
+   */
   sceneGeoSource?: 'maps' | 'exif';
   enginesUsed: EngineId[];
   enginesFailed: EngineId[];
