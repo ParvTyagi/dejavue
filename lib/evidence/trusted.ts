@@ -11,6 +11,7 @@ export const TRUSTED_DOMAINS = [
   'theguardian.com',
   'nytimes.com',
   'washingtonpost.com',
+  'theatlantic.com',
   'cnn.com',
   'dw.com',
   'france24.com',

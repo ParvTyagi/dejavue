@@ -88,14 +88,14 @@ export const listLeakCases = (dir: string): LeakCase[] => listCaseFiles<LeakCase
 /** Finds the recorded leak case whose frames look like the given image. */
 export function matchLeakCase(dir: string, pHashes: string[]): LeakCase | undefined {
   return listLeakCases(dir).find((c) =>
-    c.input.media.frames.some((f) => pHashes.some((h) => hamming(h, f.pHash) <= HAMMING.confirmedMatch)),
+    c.input.media.frames.some((f) => !!f.pHash && pHashes.some((h) => hamming(h, f.pHash!) <= HAMMING.confirmedMatch)),
   );
 }
 
 /** Finds the recorded case whose frames look like the given media. */
 export function matchCase(dir: string, pHashes: string[]): GoldenCase | undefined {
   return listCases(dir).find((c) =>
-    c.input.media.frames.some((f) => pHashes.some((h) => hamming(h, f.pHash) <= HAMMING.confirmedMatch)),
+    c.input.media.frames.some((f) => !!f.pHash && pHashes.some((h) => hamming(h, f.pHash!) <= HAMMING.confirmedMatch)),
   );
 }
 
