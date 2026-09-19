@@ -195,7 +195,7 @@ describe('audit deadline', () => {
 describe('early stop', () => {
   it('does not stop early on two old copies that are years apart, since they cannot date the media', async () => {
     const c = getCase('m06-misplaced-with-match');
-    const frame = c.input.media.frames[0].pHash;
+    const frame = c.input.media.frames[0].pHash!;
     const lens = {
       search_metadata: { processed_at: c.submittedAt },
       exact_matches: [
@@ -388,7 +388,7 @@ describe.each(STORE_KINDS)('media cache (%s store)', (kind) => {
 
   it('caches only reverse-image evidence, never searches built from the claim', async () => {
     const c = getCase('m01-kharkiv-prayer');
-    const frame = c.input.media.frames[0].pHash;
+    const frame = c.input.media.frames[0].pHash!;
     const store = makeStore(kind, () => new Date(c.submittedAt));
     const video = { ...c.input, media: { ...c.input.media, kind: 'video' as const } };
     const results: Partial<Record<EngineId, unknown>> = {

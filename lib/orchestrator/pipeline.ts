@@ -166,6 +166,14 @@ async function auditWithinDeadline(
   const frames = input.media.frames
     .map((frame, index) => ({ ...frame, index }))
     .sort((a, b) => b.sharpness - a.sharpness);
+  // Only the browser uploader computes a pHash, so a frame given as a public URL arrives
+  // without one. Hashing it here is what lets its matches be confirmed at all; a frame that
+  // cannot be fetched or hashed stays undefined and confirmMatches() ignores it.
+  await Promise.all(
+    frames.map(async (frame) => {
+      if (!frame.pHash) frame.pHash = await deps.hashThumbnail(frame.url).catch(() => undefined);
+    }),
+  );
   const inputHashes = frames.map((f) => f.pHash);
   const sharpest = frames[0];
 
@@ -235,7 +243,8 @@ async function auditWithinDeadline(
     llmMs(),
   );
   const sceneRead = (async () => {
-    const hit = deps.useMediaCache ? await deps.store.findMedia(inputHashes) : undefined;
+    const known = inputHashes.filter((h): h is string => !!h);
+    const hit = deps.useMediaCache && known.length ? await deps.store.findMedia(known) : undefined;
     return { hit, reading: hit ? hit.scene : await readSceneSafe(deps.llm, sharpest.url, llmMs()) };
   })();
   const [claim, { hit: cached, reading }] = await Promise.all([claimParsed, sceneRead]);
@@ -399,10 +408,12 @@ async function auditWithinDeadline(
   const imageEngines = IMAGE_ENGINES.filter((e) => fromCache.has(e) || used.has(e));
   const searchedNewImageEngine = imageEngines.some((e) => !fromCache.has(e));
   const imageSearchFailed = IMAGE_ENGINES.some((e) => failed.has(e));
-  if (deps.useMediaCache && searchedNewImageEngine && !partial && !imageSearchFailed) {
+  // The cache is keyed by pHash, so media that could not be hashed is simply not cached.
+  const cacheKey = cached?.pHash ?? sharpest.pHash;
+  if (cacheKey && deps.useMediaCache && searchedNewImageEngine && !partial && !imageSearchFailed) {
     await deps.store.putMedia(
       {
-        pHash: cached?.pHash ?? sharpest.pHash,
+        pHash: cacheKey,
         engines: imageEngines,
         evidence: evidence.filter((e) => IMAGE_ENGINES.includes(e.engine)),
         scene,

@@ -61,7 +61,9 @@ export interface Claim {
 
 export interface Frame {
   url: string;
-  pHash: string;
+  /** Optional: the browser uploader computes it, a frame given as a public URL has none
+   *  until the pipeline hashes it. The request schema treats it as optional too. */
+  pHash?: string;
   sharpness: number;
   tMs?: number;
 }
