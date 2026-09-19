@@ -28,6 +28,11 @@ export function domainOf(url: string): string {
   }
 }
 
+/** The candidate only if it is an absolute URL: Bing records `source` as a bare hostname in places. */
+function absUrl(s: string | undefined): string | undefined {
+  return s && domainOf(s) ? s : undefined;
+}
+
 export function isTrusted(domain: string, trusted: ReadonlySet<string>): boolean {
   const parts = domain.split('.');
   for (let i = 0; i < parts.length - 1; i++) if (trusted.has(parts.slice(i).join('.'))) return true;
@@ -125,7 +130,10 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
       // image, which reads like a page or crawl date. Parsing it as text records it at
       // absolute_text trust, which is what an undocumented date deserves.
       return build(engine, 'visual_match', firstArray(r, ['pages_with_this_image', 'related_content']), ctx, (it) => ({
-        url: str(it.link) ?? str(it.source),
+        // `link` is a bing.com image-viewer redirect, so it would stamp every match with
+        // the same domain and defeat the independent-domain rule in computeFirstSeen().
+        // `source` is the page that actually carries the image.
+        url: absUrl(str(it.source)) ?? str(it.link),
         title: str(it.title),
         text: [str(it.date)],
         // `original` is the full-size image and `cdn_original` Bing's copy of it; the
