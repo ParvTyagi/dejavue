@@ -1,6 +1,8 @@
 import path from 'node:path';
 import { vi } from 'vitest';
-import { listCases, listOfferCases, type GoldenCase, type OfferCase } from '@/lib/fixtures/source';
+import { listCases, listLeakCases, listOfferCases, type GoldenCase, type LeakCase, type OfferCase } from '@/lib/fixtures/source';
+import { runLeakTrace, type LeakDeps } from '@/lib/leak/pipeline';
+import type { LeakDossier } from '@/lib/leak/types';
 import { runOfferCheck, type OfferDeps } from '@/lib/offer/pipeline';
 import type { OfferDossier } from '@/lib/offer/types';
 import { runAudit, type AuditDeps } from '@/lib/orchestrator/pipeline';
@@ -10,6 +12,7 @@ import { createMemoryStore } from '@/lib/store/memory';
 
 export const FIXTURES = path.join(__dirname, '..', 'fixtures');
 export const OFFER_FIXTURES = path.join(FIXTURES, 'offers');
+export const LEAK_FIXTURES = path.join(FIXTURES, 'leaks');
 
 export const goldenCases = (): GoldenCase[] => listCases(FIXTURES);
 
@@ -24,6 +27,14 @@ export const offerCases = (): OfferCase[] => listOfferCases(OFFER_FIXTURES);
 export function getOfferCase(id: string): OfferCase {
   const c = offerCases().find((g) => g.id === id);
   if (!c) throw new Error(`Unknown offer case ${id}`);
+  return c;
+}
+
+export const leakCases = (): LeakCase[] => listLeakCases(LEAK_FIXTURES);
+
+export function getLeakCase(id: string): LeakCase {
+  const c = leakCases().find((g) => g.id === id);
+  if (!c) throw new Error(`Unknown leak case ${id}`);
   return c;
 }
 
@@ -105,6 +116,31 @@ export async function replayOffer(
   const events: AuditEvent[] = [];
   try {
     const dossier = await runOfferCheck(input, (e) => events.push(e), deps);
+    return { dossier, events };
+  } catch (error) {
+    return { error, events };
+  }
+}
+
+export interface LeakRun {
+  dossier?: LeakDossier;
+  error?: unknown;
+  events: AuditEvent[];
+}
+
+/** Runs a leak case through the real leak pipeline in replay mode, like `replay` does for media. */
+export async function replayLeak(
+  c: LeakCase,
+  override: (deps: LeakDeps) => Partial<LeakDeps> = () => ({}),
+  input = c.input,
+): Promise<LeakRun> {
+  const clock = () => new Date(c.submittedAt);
+  const base = createAuditDeps({ mode: 'replay', store: createMemoryStore(), fixturesDir: LEAK_FIXTURES, caseId: c.id, clock });
+  let n = 0;
+  const deps: LeakDeps = { ...base, newId: () => `dv_test${n++}`, wallClock: clock, sign: () => 'test-signature', ...override(base) };
+  const events: AuditEvent[] = [];
+  try {
+    const dossier = await runLeakTrace(input, (e) => events.push(e), deps);
     return { dossier, events };
   } catch (error) {
     return { error, events };

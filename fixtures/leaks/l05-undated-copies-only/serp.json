@@ -1,0 +1,103 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Stock sheet image",
+        "link": "https://www.imageboard.example/b/stock-sheet",
+        "source": "imageboard.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l05-undated-copies-only/b-stock-sheet.jpg"
+      },
+      {
+        "position": 2,
+        "title": "Stock sheet mirror",
+        "link": "https://www.pastebin-mirror.example/raw/stock-sheet",
+        "source": "pastebin-mirror.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l05-undated-copies-only/raw-stock-sheet.jpg"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "Stock sheet download",
+        "link": "https://www.filehost.example/d/stock-sheet",
+        "source": "https://www.filehost.example/d/stock-sheet",
+        "domain": "filehost.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l05-undated-copies-only/d-stock-sheet.jpg",
+        "original": "https://filehost.example/full/d-stock-sheet.jpg",
+        "cdn_original": "https://cdn.bing.example/l05-undated-copies-only.jpg",
+        "width": 480,
+        "height": 340,
+        "file_size": "120000 B"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "title": "Stock sheet copy",
+        "link": "https://www.bigmirror.example/i/stock-sheet",
+        "source": "bigmirror.example",
+        "thumbnail": {
+          "link": "https://thumbs.dejavue.invalid/l05-undated-copies-only/i-stock-sheet.jpg",
+          "width": 200,
+          "height": 140
+        },
+        "original_image": {
+          "link": "https://bigmirror.example/full/i-stock-sheet.jpg",
+          "width": 6000,
+          "height": 4000
+        }
+      }
+    ]
+  },
+  "google?q=\"Stock sheet image\"&tbs=cdr:1,cd_max:3/10/2026": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Something else",
+        "link": "https://www.unrelated.example/a",
+        "snippet": "Synthetic result for a replayed dating search.",
+        "date": "Feb 2, 2025"
+      }
+    ]
+  },
+  "google?q=\"Stock sheet mirror\"&tbs=cdr:1,cd_max:3/10/2026": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Also something else",
+        "link": "https://www.another-unrelated.example/b",
+        "snippet": "Synthetic result for a replayed dating search.",
+        "date": "Mar 3, 2025"
+      }
+    ]
+  }
+}

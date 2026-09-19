@@ -1,3 +1,4 @@
+import type { LeakVerdict, OriginSkipReason } from '@/lib/leak/types';
 import type { FlagStrength, OfferType, OfferVerdict } from '@/lib/offer/types';
 import type { DateTrust, EngineId, SkipReason, Stage, Verdict } from '@/lib/shared/types';
 
@@ -16,6 +17,25 @@ export const OFFER_VERDICT_LABEL: Record<OfferVerdict, { title: string; stamp: s
   LIKELY_SCAM: { title: 'Likely a scam', stamp: 'Likely scam', tone: 'bad' },
   NO_RED_FLAGS: { title: 'No warning signs found', stamp: 'No red flags', tone: 'info' },
   UNVERIFIED: { title: 'Not enough evidence', stamp: 'Unverified', tone: 'muted' },
+};
+
+/**
+ * No leak verdict uses the "good" tone, and none of them mentions a person: the
+ * strongest thing a leak trace can say is where and when public copies appeared.
+ */
+export const LEAK_VERDICT_LABEL: Record<LeakVerdict, { title: string; stamp: string; tone: Tone }> = {
+  LEAK_RECYCLED: { title: 'Old leak, shared as new', stamp: 'Recycled leak', tone: 'bad' },
+  LEAK_EARLIEST_FOUND: { title: 'Earliest public copy found', stamp: 'Earliest copy', tone: 'warn' },
+  LEAK_NOT_FOUND: { title: 'No public copy found', stamp: 'Not found', tone: 'muted' },
+};
+
+export const ORIGIN_SKIP_LABEL: Record<OriginSkipReason, string> = {
+  no_original_url: 'the search engine gave no full-size link',
+  budget: 'over the fetch limit',
+  deadline: 'out of time',
+  too_large: 'file too large',
+  unreadable: 'could not be read as an image',
+  blocked: 'address not allowed',
 };
 
 export const OFFER_TYPE_LABEL: Record<OfferType, string> = {
@@ -68,6 +88,18 @@ export const OFFER_STAGES: { id: Stage; label: string; detail: string }[] = [
   { id: 'offer', label: 'The offer itself', detail: 'Job listings, scheme pages, helplines' },
   { id: 'judge', label: 'Judge', detail: 'Fixed rules' },
 ];
+
+export const LEAK_STAGES: { id: Stage; label: string; detail: string }[] = [
+  { id: 'trace', label: 'Read the claim', detail: 'Date and claimed source' },
+  { id: 'copies', label: 'Find public copies', detail: 'Lens, Bing, Yandex' },
+  { id: 'dates', label: 'Date the copies', detail: 'When each one appeared' },
+  { id: 'origin', label: 'Compare the copies', detail: 'Size, compression, cropping' },
+  { id: 'judge', label: 'Judge', detail: 'Fixed rules' },
+  { id: 'narrate', label: 'Explain', detail: 'Plain-language summary' },
+];
+
+/** Leak stages that spend searches, by the step number the trace reports in stepsRun. */
+export const LEAK_STEP_NUMBER: Partial<Record<Stage, number>> = { copies: 1, dates: 2, origin: 3 };
 
 /** Offer stages that spend searches, by the step number the check reports in stepsRun. */
 export const OFFER_STEP_NUMBER: Partial<Record<Stage, number>> = { identity: 1, contacts: 2, offer: 3 };

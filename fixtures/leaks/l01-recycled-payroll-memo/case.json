@@ -1,0 +1,40 @@
+{
+  "title": "Two-year-old payroll memo reshared as \"leaked today\"",
+  "synthetic": true,
+  "notes": "LEAK_RECYCLED: two dated copies on different sites corroborate a T₀ well before the claimed date, and the claim gives a date. Also the case that exercises the closest-to-original ranking, including a Lens match that carries no full-size link.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l01-recycled-payroll-memo/frame-0.jpg",
+          "pHash": "2c7e5193a0b6d4e8",
+          "sharpness": 820
+        }
+      ]
+    },
+    "claim": {
+      "text": "Northwind Logistics internal payroll memo leaked today, full salary sheet is out",
+      "source": "Northwind Logistics",
+      "date": "2026-03-10T09:00:00.000Z"
+    },
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LEAK_RECYCLED",
+    "flags": {
+      "predatesClaim": true,
+      "recycled": true,
+      "copiesFound": true,
+      "undatedOnly": false
+    },
+    "credits": 4,
+    "stepsRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 60
+  }
+}

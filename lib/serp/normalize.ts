@@ -37,9 +37,23 @@ export function isTrusted(domain: string, trusted: ReadonlySet<string>): boolean
 function thumbnailOf(item: Item): string | undefined {
   const t = item.thumbnail;
   if (typeof t === 'string') return t;
-  if (t && typeof t === 'object') return str((t as Item).static) ?? str((t as Item).rich);
+  // YouTube nests `static`/`rich`; Yandex nests `link` beside the thumbnail's own size.
+  if (t && typeof t === 'object') return str((t as Item).static) ?? str((t as Item).rich) ?? str((t as Item).link);
   return str(item.image);
 }
+
+const num = (v: unknown): number | undefined => (typeof v === 'number' && Number.isFinite(v) ? v : undefined);
+
+/** Bing writes a file size as "213559 B"; Yandex gives a plain number. */
+const bytesOf = (v: unknown): number | undefined => {
+  if (typeof v === 'number') return Number.isFinite(v) ? v : undefined;
+  const digits = typeof v === 'string' ? /^\s*(\d+)/.exec(v)?.[1] : undefined;
+  return digits ? Number(digits) : undefined;
+};
+
+/** Drops an `original` that carries nothing worth keeping. */
+const original = (o: Evidence['original']): Evidence['original'] =>
+  o && (o.url || o.width || o.height || o.bytes) ? o : undefined;
 
 export interface NormalizeContext {
   fetchedAt: Date;
@@ -53,7 +67,14 @@ function build(
   kind: Evidence['kind'],
   items: Item[],
   ctx: NormalizeContext,
-  pick: (item: Item) => { url?: string; title?: string; snippet?: string; iso?: string; text: (string | undefined)[] },
+  pick: (item: Item) => {
+    url?: string;
+    title?: string;
+    snippet?: string;
+    iso?: string;
+    text: (string | undefined)[];
+    original?: Evidence['original'];
+  },
 ): Evidence[] {
   const out: Evidence[] = [];
   items.forEach((item, i) => {
@@ -74,6 +95,7 @@ function build(
       publishedAt: date.publishedAt,
       dateTrust: date.dateTrust,
       trustedSource: isTrusted(domain, ctx.trustedDomains),
+      original: original(p.original),
     });
   });
   return out;
@@ -83,10 +105,14 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
   const r = (raw ?? {}) as Item;
   switch (engine) {
     case 'google_lens':
+      // Lens documents no link to the full-size image for an exact match, only
+      // `actual_image_width` / `actual_image_height`, so its copies can be measured by
+      // what the engine says but never fetched.
       return build(engine, 'visual_match', firstArray(r, ['exact_matches', 'visual_matches']), ctx, (it) => ({
         url: str(it.link),
         title: str(it.title),
         text: [str(it.date)],
+        original: { width: num(it.actual_image_width), height: num(it.actual_image_height) },
       }));
     case 'bing_reverse_image':
       // `pages_with_this_image` is the exact-match array. `related_content` is only
@@ -102,17 +128,37 @@ export function toEvidence(engine: EngineId, raw: unknown, ctx: NormalizeContext
         url: str(it.link) ?? str(it.source),
         title: str(it.title),
         text: [str(it.date)],
+        // `original` is the full-size image and `cdn_original` Bing's copy of it; the
+        // first is what the page actually carries, so it is preferred.
+        original: {
+          url: str(it.original) ?? str(it.cdn_original),
+          width: num(it.width),
+          height: num(it.height),
+          bytes: bytesOf(it.file_size),
+        },
       }));
     case 'yandex_images':
       // Yandex returns no date on any documented response field, so its matches can
       // confirm that a copy exists but can never date one. `images_results` is the
       // tab=similar spelling; `similar_images` is weaker and comes last.
-      return build(engine, 'visual_match', firstArray(r, ['image_results', 'images_results', 'similar_images']), ctx, (it) => ({
-        url: str(it.link) ?? str(it.source),
-        title: str(it.title),
-        snippet: str(it.snippet),
-        text: [],
-      }));
+      return build(engine, 'visual_match', firstArray(r, ['image_results', 'images_results', 'similar_images']), ctx, (it) => {
+        // `original_image` is the reverse-search shape; `original` plus `size` is the
+        // tab=similar shape. Both name the full-resolution image.
+        const nested = (it.original_image ?? {}) as Item;
+        const size = (it.size ?? {}) as Item;
+        return {
+          url: str(it.link) ?? str(it.source),
+          title: str(it.title),
+          snippet: str(it.snippet),
+          text: [],
+          original: {
+            url: str(nested.link) ?? str(it.original),
+            width: num(nested.width) ?? num(size.width),
+            height: num(nested.height) ?? num(size.height),
+            bytes: bytesOf(size.bytes),
+          },
+        };
+      });
     case 'google_news':
       return build(engine, 'article', arr(r.news_results), ctx, (it) => ({
         url: str(it.link),

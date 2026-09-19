@@ -3,6 +3,7 @@ import { after, NextResponse } from 'next/server';
 import { matchCase } from '@/lib/fixtures/source';
 import { AuditError, runAudit } from '@/lib/orchestrator/pipeline';
 import { appStore, createAuditDeps, fetchAndHash, FIXTURES_DIR, fixtureMode } from '@/lib/server/deps';
+import { replayPaceMs } from '@/lib/server/mode';
 import {
   apiError,
   clientIp,
@@ -80,8 +81,7 @@ export async function POST(req: Request) {
   const emit: Emit = (event) => {
     logged = logged.then(() => store.appendEvent(auditId, event, TTL.eventsMs)).catch((err) => console.error(err));
   };
-  const replayDelayMs = Number(process.env.REPLAY_PACE_MS ?? 700);
-  const deps = { ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs }), newId: () => auditId };
+  const deps = { ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs: replayPaceMs() }), newId: () => auditId };
 
   // after() keeps a serverless function alive until the audit is done.
   after(async () => {

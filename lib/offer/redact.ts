@@ -1,6 +1,5 @@
+import { redactPersonalData } from '@/lib/shared/redact';
 import type { Contact } from './types';
-
-const PHONE_LIKE = /\+?\d[\d\s-]{7,}\d/g;
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -20,5 +19,6 @@ export function redactContacts(text: string, contacts: Contact[]): string {
     const rest = label === '[link]' ? String.raw`(?:[/?#]\S*?)?(?=[.,;:!?)"']*(?:\s|$))` : '';
     out = out.replace(new RegExp(`(https?://)?(www\\.)?${escape(value.replace(/^https?:\/\/(www\.)?/i, ''))}${rest}`, 'gi'), label);
   }
-  return out.replace(PHONE_LIKE, '[number]');
+  // Whatever the contact list missed still goes: numbers, emails and id-like numbers.
+  return redactPersonalData(out);
 }

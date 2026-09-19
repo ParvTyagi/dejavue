@@ -1,6 +1,7 @@
 import {
   Briefcase,
   Calendar,
+  Crosshair,
   Eye,
   FileText,
   Globe,
@@ -14,6 +15,7 @@ import {
   Scale,
   ScanSearch,
   Search,
+  Share2,
   Youtube,
   type LucideIcon,
 } from 'lucide-react';
@@ -54,4 +56,8 @@ export const STAGE_ICON: Record<Stage, LucideIcon> = {
   identity: IdCard,
   contacts: Phone,
   offer: Briefcase,
+  trace: FileText,
+  copies: Share2,
+  dates: Calendar,
+  origin: Crosshair,
 };

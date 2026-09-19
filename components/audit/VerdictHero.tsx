@@ -3,11 +3,12 @@
 import { Info } from 'lucide-react';
 import { motion } from 'motion/react';
 import { EASE_OUT, NumberTicker } from '@/components/ui/motion';
-import { OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL, type Tone } from '@/lib/client/labels';
+import { LEAK_VERDICT_LABEL, OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL, type Tone } from '@/lib/client/labels';
+import type { LeakDossier } from '@/lib/leak/types';
 import type { OfferDossier } from '@/lib/offer/types';
 import type { Dossier } from '@/lib/shared/types';
 
-/** What the verdict card shows, for a media audit or an offer check. */
+/** What the verdict card shows, for a media audit, an offer check or a leak trace. */
 export interface VerdictView {
   stamp: string;
   title: string;
@@ -41,6 +42,27 @@ export function mediaVerdictView(d: Dossier): VerdictView {
     summary: d.narrative.summary,
     bullets: d.narrative.bullets,
     partialNote: d.metrics.partial ? 'Partial audit: searches ran out, timed out or were rate-limited before all engines ran.' : undefined,
+    template: d.narrative.source === 'template',
+    limitations: d.limitations,
+    confidence: d.confidence,
+  };
+}
+
+export function leakVerdictView(d: LeakDossier): VerdictView {
+  const { flags, signals } = d;
+  return {
+    ...LEAK_VERDICT_LABEL[d.verdict],
+    // Two findings the verdict word alone would hide: copies that exist but cannot be
+    // dated, and an older copy under a post that claimed no date at all.
+    extraStamp: flags.undatedOnly
+      ? { text: 'Copies found, none dated', tone: 'warn' }
+      : d.verdict !== 'LEAK_RECYCLED' && flags.predatesClaim && signals.claim.claimedAtSource === 'default_now'
+        ? { text: 'Older copy exists', tone: 'warn' }
+        : undefined,
+    summary: d.narrative.summary,
+    bullets: d.narrative.bullets,
+    partialNote: d.metrics.partial ? 'Partial trace: searches ran out, timed out or were rate-limited, so fewer copies could be found.' : undefined,
+    advice: d.advice,
     template: d.narrative.source === 'template',
     limitations: d.limitations,
     confidence: d.confidence,

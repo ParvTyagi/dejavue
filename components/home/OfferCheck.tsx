@@ -4,6 +4,7 @@ import { ArrowUpRight, Image as ImageIcon, Loader2, MessageSquareText, Sparkles,
 import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { MoreDetails } from '@/components/ui/MoreDetails';
 import { EASE_OUT, Reveal, ShimmerButton, SpotlightCard } from '@/components/ui/motion';
 import { FIELD_CLASS as field, postJson, uploadImage } from '@/lib/client/api';
 import { saveAuditIntro } from '@/lib/client/auditIntro';
@@ -210,9 +211,9 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                           className={`${field} resize-y`}
                         />
                       </div>
-                      <div>
+                      <MoreDetails hint="who the message claims to be from">
                         <label className="mb-1.5 block text-xs text-muted" htmlFor="org">
-                          Who does it claim to be from? <span className="text-faint">(optional)</span>
+                          Who does it claim to be from?
                         </label>
                         <input
                           id="org"
@@ -222,7 +223,8 @@ export function OfferCheck({ mode, demos }: { mode: FixtureMode; demos: OfferDem
                           placeholder="Amazon, SBI, PM-Kisan…"
                           className={field}
                         />
-                      </div>
+                        <p className="mt-1.5 text-xs text-faint">Given here, it wins over whatever the message says about itself.</p>
+                      </MoreDetails>
                     </div>
 
                     <div className="flex flex-col gap-4">

@@ -2,7 +2,7 @@
 
 **Was this photo really taken where and when the post says?** DejaVue answers that using SerpApi's search engines as a timestamped archive of the web — and shows you every result it used to decide.
 
-It also checks the text scams people act on fastest: **fake job offers, government scheme messages and customer-care numbers** (see [Offer Check](#offer-check)).
+It also checks the text scams people act on fastest: **fake job offers, government scheme messages and customer-care numbers** (see [Offer Check](#offer-check)), and traces **leaked documents shared as images** to where and when public copies of them appeared (see [Leak trace](#leak-trace)).
 
 Searches escalate in tiers and stop the moment the evidence is decisive, so **a recycled photo usually costs 1 SerpApi search and the hardest case costs 6.**
 
@@ -38,6 +38,8 @@ Tier 2  Bing Reverse Image ─────────────────�
 
 Every number on that card traces to a labelled reason, and every reason traces to a search result you can click. That is the whole design.
 
+The result page leads with the verdict, the plain-language explanation and the evidence. The working behind it — the score breakdown, the searches spent, which engines answered, the signed dossier — sits one click away under **Show the working**, so nothing is hidden and nothing is in the way.
+
 ![The DejaVue audit page showing a RECYCLED verdict at confidence 60 for the tsunami case, with the two dated Bing matches cited as evidence and a first-seen date of 11 March 2011](docs/images/audit.png)
 
 That capture is generated, not pasted: `npm run build`, `npm start -- -p 3123`, then `npm run screenshots` re-renders it from the live app, so it cannot drift from what the code does. ([the whole page](docs/images/audit-full.png), including the evidence feed and the timeline.)
@@ -50,7 +52,7 @@ cp .env.example .env.local   # FIXTURE_MODE=replay needs no keys
 npm run dev                  # http://localhost:3000
 ```
 
-Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on `/check` (photos) or `/check?type=offer` (messages) to watch a check stream in. Each replayed search waits about 0.7 s (`REPLAY_PACE_MS`) so the live view can be seen and recorded; set it to 0 for instant results.
+Replay mode runs the whole pipeline on recorded search results and uses **zero SerpApi credits**. Pick a demo case on `/check` to watch a check stream in. The pipeline itself judges a media audit in single-digit milliseconds, so each replayed search and model call waits `REPLAY_PACE_MS` (default 180 ms) to keep the staged progress visible; set it to 0 for instant results, or higher when recording a walkthrough.
 
 ```bash
 npm test            # 236 tests: 12 media and 6 offer golden cases, verdict rules,
@@ -147,6 +149,24 @@ Paste a message or upload a screenshot. Phones, emails, links, amounts and payme
 
 Two medium signs only add up to a scam verdict when the organisation was actually found. A personal email address is not a warning sign until the sender claims to be TCS, and it is not a *contradiction* until Google has handed us `tcs.com` for the claim to contradict. If no official site turns up, we cannot tell an impersonator from a small firm we simply could not look up, so the answer is `UNVERIFIED` — the same "absence of evidence is not evidence" rule as the media side, applied in the accusing direction.
 
+## Leak trace
+
+Upload a screenshot or photo of a leaked document and say what it is being shared as. DejaVue looks for public copies of the same image, builds a timeline of where and when each one appeared, and compares the full-size copies to say which looks least degraded. Full detail in [docs/LEAK_TRACE.md](docs/LEAK_TRACE.md).
+
+**It never identifies who leaked anything, and says so on every result.** The earliest copy a search engine can see is usually a repost of something first shared in a closed channel, so the answer is always "earliest public appearance found". A narrative that names or implies a person is discarded in favour of the deterministic template, and every result prints the same two lines: *DejaVue finds where public copies appeared. It cannot identify who leaked it.* and *Search engines do not cover private groups, Telegram or dark web forums.*
+
+| Verdict | Shown as | Meaning |
+| --- | --- | --- |
+| `LEAK_RECYCLED` | **Old leak, shared as new** | A corroborated earliest public copy predates the claimed date by more than 48 h, and the post claims a date or says it is from now |
+| `LEAK_EARLIEST_FOUND` | **Earliest public copy found** | A corroborated earliest public copy that does not contradict the claim. Capped at 85: earlier copies may exist where search engines cannot look |
+| `LEAK_NOT_FOUND` | **No public copy found** | Nothing corroborated. Capped at 40, because search engines do not index Telegram, private groups, paste sites or dark web forums |
+
+Copies that exist but carry no date are never given one. They are listed apart from the timeline, under *Date unknown*, and the verdict card says *Copies found, none dated* rather than pretending the trace found nothing.
+
+Unlike a media audit, a leak trace does not stop early when the evidence turns decisive: the spread of copies is the answer, so every reverse-image index the budget allows is searched. Two extra searches can date a copy that arrived without one, using that result's own page title - nothing read from the document is ever sent to a search engine.
+
+The **likely closest to the original** panel fetches up to 8 full-size copies (SSRF-guarded, 15 MB cap, no thumbnails - engines resize those) and ranks them by resolution, estimated JPEG quality from the quantisation tables, and how much of the scene each one shows. It is labelled a hint on the page and it never reaches the verdict or the score: a big clean copy can still be a late repost.
+
 ## Modes
 
 | `FIXTURE_MODE` | Behaviour |
@@ -179,7 +199,7 @@ Storage is chosen automatically. With `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDI
 3. Add environment variables:
    - `FIXTURE_MODE=replay` for a public demo that never spends SerpApi credits
    - `DOSSIER_HMAC_SECRET` (any long random string)
-   - optional `REPLAY_PACE_MS` (default 700)
+   - optional `REPLAY_PACE_MS` (default 180)
    - only for live mode: `SERPAPI_API_KEY`, `GEMINI_API_KEY`, `GEMINI_MODEL` and the `SUPABASE_*` variables
 4. Deploy.
 
@@ -187,27 +207,30 @@ How it fits serverless: `POST /api/investigate` answers immediately and finishes
 
 ## About the fixtures
 
-Verdict logic is validated against **12 authored media cases and 6 offer cases covering every verdict path**, plus failure scenarios (engine down, budget exhausted, rate limited, deadline hit). They run in CI on every push and spend nothing.
+Verdict logic is validated against **12 authored media cases, 6 offer cases and 6 leak cases covering every verdict path**, plus failure scenarios (engine down, budget exhausted, rate limited, deadline hit). They run in CI on every push and spend nothing.
 
-They are authored, not recorded: hand-written in SerpApi's response format so the app and tests run without credits. Outlets use reserved `.example` domains and the scenarios are invented — they are not claims about what real publishers printed. The cases run `m01`–`m12` with no gaps, and `o1`–`o6` for offers; frame hashes for `m01`–`m04` come from local test images, which are not committed. Regenerate with `npm run fixtures:author`, and replace a case with a recording (`FIXTURE_MODE=record`) once credits are set aside.
+They are authored, not recorded: hand-written in SerpApi's response format so the app and tests run without credits. Outlets use reserved `.example` domains and the scenarios are invented — they are not claims about what real publishers printed. The cases run `m01`–`m12` with no gaps, `o1`–`o6` for offers and `l01`–`l06` for leak traces; frame hashes for `m01`–`m04` come from local test images, which are not committed. Regenerate with `npm run fixtures:author` and `npm run fixtures:leaks`, and replace a case with a recording (`FIXTURE_MODE=record`) once credits are set aside.
 
-Because authored fixtures can only ever confirm what the author already believed, the response shapes are checked against SerpApi's docs rather than against the code: see [docs/research/serpapi-engine-inputs.md](docs/research/serpapi-engine-inputs.md). That check is what caught the Bing normalizer reading `related_content` (visually *related* images) instead of `pages_with_this_image` (the exact-match array), and Yandex fixtures carrying dates that Yandex never returns. Both are fixed; both had passed 12 green golden cases.
+The leak fixtures also carry small drawn stand-in documents under `originals/`, resized, recompressed and cropped, so the closest-to-original ranking runs on real pixels without a real leaked document ever being committed.
+
+Because authored fixtures can only ever confirm what the author already believed, the response shapes are checked against SerpApi's docs rather than against the code: see [docs/research/serpapi-engine-inputs.md](docs/research/serpapi-engine-inputs.md). That check is what caught the Bing normalizer reading `related_content` (visually *related* images) instead of `pages_with_this_image` (the exact-match array), and Yandex fixtures carrying dates that Yandex never returns. Both are fixed; both had passed 12 green golden cases. The same check is what fixed Yandex thumbnails, documented as an object (`thumbnail.link`) that the normalizer only read as a string, and it is where the leak ranking's original-image fields come from: Bing's `original`, Yandex's `original_image.link`, and the fact that Google Lens exact matches document no full-size link at all.
 
 ## Project layout
 
 ```
-app/                 pages and API routes (investigate, offer, SSE stream, upload, verify, quota)
+app/                 pages and API routes (investigate, offer, leak, SSE stream, upload, verify, quota)
 components/          audit UI: progress, verdict, timeline, map, evidence
 lib/orchestrator/    runAudit: tiered escalation, judging, narration
 lib/offer/           runOfferCheck: extraction, reading, domain checks, rules and score
+lib/leak/            runLeakTrace: spread timeline, copy ranking, rules and score
 lib/serp/            SerpApi client (replay, cache, budget, ledger), engines, normalizer
 lib/evidence/        dates and first-seen T₀, geo and ΔS, match confirmation
 lib/verdict/         pure verdict rules and score
 lib/llm/             Gemini calls with validation and fallbacks
 lib/media/           pHash and keyframe scoring (shared by browser and server)
 lib/store/           SQLite (node:sqlite) and in-memory stores
-fixtures/            golden cases (offers/ for message checks)
-tests/               tests at the runAudit seam, plus verdict rules and pHash
+fixtures/            golden cases (offers/ for message checks, leaks/ for leak traces)
+tests/               tests at the runAudit, runOfferCheck and runLeakTrace seams, plus pure rules and pHash
 ```
 
 ## Decisions that differ from the design doc

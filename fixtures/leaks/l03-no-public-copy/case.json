@@ -1,0 +1,38 @@
+{
+  "title": "Document no search engine has indexed",
+  "synthetic": true,
+  "notes": "LEAK_NOT_FOUND: every index answers, none has seen the image. The score credits the completeness of the search, never the conclusion.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l03-no-public-copy/frame-0.jpg",
+          "pHash": "1f4d62a09385e7da",
+          "sharpness": 700
+        }
+      ]
+    },
+    "claim": {
+      "text": "Fabrikam vendor contract leaked today on a private channel",
+      "source": "Fabrikam",
+      "date": "2026-03-10T09:00:00.000Z"
+    },
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LEAK_NOT_FOUND",
+    "flags": {
+      "predatesClaim": false,
+      "recycled": false,
+      "copiesFound": false,
+      "undatedOnly": false
+    },
+    "credits": 3,
+    "stepsRun": [
+      1
+    ],
+    "confidence": 20
+  }
+}

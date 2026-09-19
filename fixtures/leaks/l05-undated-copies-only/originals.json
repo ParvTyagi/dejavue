@@ -1,0 +1,6 @@
+{
+  "https://filehost.example/full/d-stock-sheet.jpg": "source.jpg",
+  "https://bigmirror.example/full/i-stock-sheet.jpg": {
+    "skip": "too_large"
+  }
+}

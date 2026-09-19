@@ -3,11 +3,13 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { LogoMark } from '@/components/site/Logo';
-import { displayDate, OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL } from '@/lib/client/labels';
+import { displayDate, LEAK_VERDICT_LABEL, OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL } from '@/lib/client/labels';
+import { LEAK_LIMITATIONS } from '@/lib/leak/types';
 import { redactContacts } from '@/lib/offer/redact';
-import { isOfferDossier, type AnyDossier } from '@/lib/shared/types';
+import { redactPersonalData } from '@/lib/shared/redact';
+import { isLeakDossier, isOfferDossier, type AnyDossier } from '@/lib/shared/types';
 
-interface CardContent {
+export interface CardContent {
   stamp: string;
   title: string;
   color: string;
@@ -18,7 +20,8 @@ interface CardContent {
 
 const results = (n: number) => `${n} search result${n === 1 ? '' : 's'}`;
 
-function cardContent(dossier: AnyDossier): CardContent {
+/** Exported for tests: the card is the most-shared surface, so its redaction is checked directly. */
+export function cardContent(dossier: AnyDossier): CardContent {
   const confidence = { label: 'Confidence', value: `${dossier.confidence.value} · ${dossier.confidence.band}` };
   if (isOfferDossier(dossier)) {
     const label = OFFER_VERDICT_LABEL[dossier.verdict];
@@ -35,6 +38,24 @@ function cardContent(dossier: AnyDossier): CardContent {
         confidence,
       ],
       footer: `Based on ${results(dossier.evidence.length)} · signed dossier · ${dossier.advice} Finding no warning signs never proves an offer is genuine.`,
+    };
+  }
+  if (isLeakDossier(dossier)) {
+    const label = LEAK_VERDICT_LABEL[dossier.verdict];
+    const s = dossier.signals;
+    const copies = s.confirmedMatches.length;
+    return {
+      ...label,
+      color: TONE_VAR[label.tone],
+      // A leaked document is full of personal data, and this card exists to be forwarded.
+      quote: redactPersonalData(s.claim.rawText),
+      facts: [
+        { label: 'Earliest public copy', value: s.firstSeen ? displayDate(s.firstSeen.at) : 'None found' },
+        { label: 'Claimed', value: displayDate(s.claim.claimedAt) },
+        { label: 'Public copies', value: String(copies) },
+        confidence,
+      ],
+      footer: `Based on ${results(dossier.evidence.length)} · signed dossier · ${LEAK_LIMITATIONS.join(' ')}`,
     };
   }
   const label = VERDICT_LABEL[dossier.verdict];

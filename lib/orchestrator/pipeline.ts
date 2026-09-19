@@ -41,7 +41,8 @@ export interface AuditDeps {
   caseId?: string;
   /** Reuse evidence for near-identical media seen before. */
   useMediaCache: boolean;
-  timeouts?: { tier3Ms?: number; auditMs?: number; llmMs?: number };
+  /** `originalMs` is per full-size image fetch, and only leak traces fetch those. */
+  timeouts?: { tier3Ms?: number; auditMs?: number; llmMs?: number; originalMs?: number };
 }
 
 export type AuditErrorCode = 'UPSTREAM_FAILED' | 'RATE_LIMITED' | 'CREDITS_EXHAUSTED' | 'TIMED_OUT' | 'UNREADABLE';

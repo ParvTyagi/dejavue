@@ -11,6 +11,7 @@ const LINKS = [
   { href: '/#how', label: 'How it works' },
   { href: '/check', label: 'Check a photo' },
   { href: '/check?type=offer', label: 'Check a message' },
+  { href: '/check?type=leak', label: 'Trace a leak' },
 ];
 
 export function SiteNav({ mode }: { mode: FixtureMode }) {

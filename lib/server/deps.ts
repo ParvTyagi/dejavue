@@ -7,9 +7,11 @@ import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import {
   createFixtureSource,
   createReplayLlm,
+  createReplayOriginals,
   createReplayThumbnails,
   loadTrustedDomains,
 } from '@/lib/fixtures/source';
+import type { FetchedImage, FullImageFetcher } from '@/lib/leak/originals';
 import { createGeminiLlm } from '@/lib/llm/gemini';
 import type { LlmPort } from '@/lib/llm/port';
 import { pHash, toGray } from '@/lib/media/phash';
@@ -75,6 +77,35 @@ export async function fetchAndHash(url: string, timeoutMs: number): Promise<stri
 
 const liveThumbnails: ThumbnailHasher = (url) => fetchAndHash(url, 2_000);
 
+/**
+ * Downloads one full-size copy for a leak trace: SSRF-guarded, capped, and read in chunks
+ * so a server that declares no length cannot stream past the cap. The bytes are handed
+ * straight to the feature measurement and never written anywhere.
+ */
+export const fetchFullImage: FullImageFetcher = async (url, { timeoutMs, maxBytes }): Promise<FetchedImage> => {
+  try {
+    await assertPublicHttpsUrl(url);
+  } catch {
+    return { ok: false, reason: 'blocked' };
+  }
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs), redirect: 'error' });
+    if (!res.ok || !(res.headers.get('content-type') ?? '').startsWith('image/')) return { ok: false, reason: 'unreadable' };
+    if (Number(res.headers.get('content-length') ?? 0) > maxBytes) return { ok: false, reason: 'too_large' };
+    if (!res.body) return { ok: false, reason: 'unreadable' };
+    const chunks: Uint8Array[] = [];
+    let total = 0;
+    for await (const chunk of res.body as unknown as AsyncIterable<Uint8Array>) {
+      total += chunk.byteLength;
+      if (total > maxBytes) return { ok: false, reason: 'too_large' };
+      chunks.push(chunk);
+    }
+    return { ok: true, bytes: Buffer.concat(chunks) };
+  } catch {
+    return { ok: false, reason: 'unreadable' };
+  }
+};
+
 const unavailableLlm: LlmPort = {
   parseClaim: async () => {
     throw new Error('GEMINI_API_KEY not set');
@@ -100,8 +131,12 @@ export interface DepsOptions {
   replayDelayMs?: number;
 }
 
-/** Wires the audit pipeline for a fixture mode. Tests and API routes share this. */
-export function createAuditDeps(opts: DepsOptions): AuditDeps {
+/**
+ * Wires the audit pipeline for a fixture mode. Tests and API routes share this.
+ * `fetchOriginal` is only used by leak traces, which are the only check that downloads
+ * full-size images rather than search results.
+ */
+export function createAuditDeps(opts: DepsOptions): AuditDeps & { fetchOriginal: FullImageFetcher } {
   const fixturesDir = opts.fixturesDir ?? FIXTURES_DIR;
   const clock = opts.clock ?? (() => new Date());
   const replay = opts.mode === 'replay';
@@ -128,6 +163,7 @@ export function createAuditDeps(opts: DepsOptions): AuditDeps {
         ? createGeminiLlm(geminiKey, process.env.GEMINI_MODEL ?? 'gemini-flash-latest')
         : unavailableLlm,
     hashThumbnail: replay ? createReplayThumbnails(fixturesDir, opts.caseId) : liveThumbnails,
+    fetchOriginal: replay ? createReplayOriginals(fixturesDir, opts.caseId) : fetchFullImage,
     store: opts.store,
     clock,
     wallClock: () => new Date(),

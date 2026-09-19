@@ -1,0 +1,15 @@
+{
+  "parseClaim": {
+    "event": "stock sheet leak",
+    "claimedAt": "2026-03-10T09:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "TAILWIND TRADERS",
+      "STOCK SHEET"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

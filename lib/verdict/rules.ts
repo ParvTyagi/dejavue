@@ -41,8 +41,11 @@ export function claimAssertsDate(claim: Claim): boolean {
   return ASSERTS_RECENCY.test(claim.rawText) || ASSERTS_RECENCY_INDIC.test(claim.rawText);
 }
 
-/** The claim openly refers to the earlier event, e.g. "remembering the 2022 fire". */
-export function claimRefersToOriginal(signals: Signals): boolean {
+/**
+ * The claim openly refers to the earlier event, e.g. "remembering the 2022 fire".
+ * Takes only the claim and T₀ so leak traces can apply the same rule to their own signals.
+ */
+export function claimRefersToOriginal(signals: { claim: Claim; firstSeen?: { at: string } }): boolean {
   const { claim, firstSeen } = signals;
   if (!claim.refersToPast || !firstSeen) return false;
   // A claim that puts the media in the present is not also a claim about an older

@@ -1,5 +1,6 @@
 // Domain types shared by the browser, the API routes and the audit pipeline.
 
+import type { LeakDossier, TimelineEntry } from '@/lib/leak/types';
 import type { OfferDossier } from '@/lib/offer/types';
 
 export type EngineId =
@@ -16,7 +17,11 @@ export type Verdict = 'RECYCLED' | 'MISPLACED' | 'CONSISTENT' | 'CONTEXT_PLAUSIB
 
 export type FixtureMode = 'replay' | 'record' | 'live';
 
-/** Media audits run claim → narrate; offer checks run read → offer, then judge. */
+/**
+ * Media audits run claim → narrate; offer checks run read → offer, then judge; leak
+ * traces run trace → origin, then judge. The three sets of ids are disjoint, which is
+ * how a stream tells which kind of check it is following before the result arrives.
+ */
 export type Stage =
   | 'claim'
   | 'scene'
@@ -28,7 +33,11 @@ export type Stage =
   | 'read'
   | 'identity'
   | 'contacts'
-  | 'offer';
+  | 'offer'
+  | 'trace'
+  | 'copies'
+  | 'dates'
+  | 'origin';
 
 export type PlaceScale = 'poi' | 'city' | 'region' | 'country';
 
@@ -85,6 +94,13 @@ export interface Evidence {
   match?: { hamming: number; confirmed: boolean };
   geo?: GeoPoint;
   trustedSource: boolean;
+  /**
+   * The full-size image behind a visual match, as the engine reports it. Bing and
+   * Yandex give a URL and pixel dimensions; Google Lens documents dimensions only
+   * (`actual_image_width` / `actual_image_height`) and no original URL. Leak traces
+   * use this to fetch and measure copies; nothing else reads it.
+   */
+  original?: { url?: string; width?: number; height?: number; bytes?: number };
 }
 
 export interface SceneReading {
@@ -156,10 +172,12 @@ export interface Dossier {
   createdAt: string;
 }
 
-/** Any stored result: a media audit or an offer check. */
-export type AnyDossier = Dossier | OfferDossier;
+/** Any stored result: a media audit, an offer check or a leak trace. */
+export type AnyDossier = Dossier | OfferDossier | LeakDossier;
 
 export const isOfferDossier = (d: AnyDossier): d is OfferDossier => d.kind === 'offer';
+
+export const isLeakDossier = (d: AnyDossier): d is LeakDossier => d.kind === 'leak';
 
 export const LIMITATIONS = [
   'DejaVue finds earlier appearances of media. It does not detect deepfakes or AI-generated images.',
@@ -172,6 +190,9 @@ export type AuditEvent =
   | { type: 'signal'; data: { firstSeen?: Signals['firstSeen']; deltaTDays?: number; deltaSKm?: number } }
   | { type: 'credit'; data: { engine: EngineId; cached: boolean; totalCredits: number; maxCredits: number } }
   | { type: 'short_circuit'; data: { afterTier: number; creditsSaved: number } }
+  // One confirmed, dated public copy, streamed as soon as it is confirmed. T₀ is only
+  // known once every search is in, so `isEarliest` is settled in the finished dossier.
+  | { type: 'timeline'; data: TimelineEntry }
   | { type: 'dossier'; data: AnyDossier }
   | { type: 'error'; data: { code: string; message: string; recoverable: boolean } };
 

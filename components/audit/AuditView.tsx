@@ -1,29 +1,32 @@
 'use client';
 
-import { AlertTriangle, ArrowLeft, Zap } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ChevronRight, Zap } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { EASE_OUT } from '@/components/ui/motion';
 import { loadAuditIntro, type AuditIntro } from '@/lib/client/auditIntro';
-import { humanizeEngines, OFFER_STAGES, OFFER_STEP_NUMBER, STAGES } from '@/lib/client/labels';
+import { humanizeEngines, LEAK_STAGES, LEAK_STEP_NUMBER, OFFER_STAGES, OFFER_STEP_NUMBER, STAGES } from '@/lib/client/labels';
 import { useAuditStream } from '@/lib/client/useAuditStream';
+import { LEAK_SCORE_CAP } from '@/lib/leak/score';
 import { OFFER_SCORE_CAP } from '@/lib/offer/score';
 import { isFinalEvent, type AuditEvent } from '@/lib/shared/types';
 import { ClaimBanner } from './ClaimBanner';
 import { CreditMeter } from './CreditMeter';
 import { DossierTools } from './DossierTools';
-import { EnginePanel, mediaEngineProps, offerEngineProps } from './EnginePanel';
+import { EnginePanel, leakEngineProps, mediaEngineProps, offerEngineProps } from './EnginePanel';
 import { EvidenceFeed } from './EvidenceFeed';
 import { FactTiles } from './FactTiles';
+import { OriginPanel } from './OriginPanel';
 import { ContactList, MessageBanner, OfficialSourceCard, RedFlagList } from './OfferPanels';
 import { Panel } from './Panel';
 import { MEDIA_SCORE_CAP, ScorePanel } from './ScorePanel';
+import { SpreadTimeline } from './SpreadTimeline';
 import { StageRail } from './StageRail';
 import { Toaster } from './Toaster';
 import { Timeline } from './Timeline';
-import { mediaVerdictView, offerVerdictView, VerdictHero } from './VerdictHero';
+import { leakVerdictView, mediaVerdictView, offerVerdictView, VerdictHero } from './VerdictHero';
 
 const LocationMap = dynamic(() => import('./LocationMap'), {
   ssr: false,
@@ -35,13 +38,16 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
   // A finished audit arrives complete in the server HTML; skipping entrance animations
   // keeps it visible from the first paint instead of hidden until hydration.
   const [finishedOnLoad] = useState(() => initialEvents.some(isFinalEvent));
-  const { dossier, offerDossier, fatal } = state;
+  const { dossier, offerDossier, leakDossier, fatal } = state;
   const [intro, setIntro] = useState<AuditIntro>();
   useEffect(() => setIntro(loadAuditIntro(id)), [id]);
 
-  // An offer check is known from its first stage, its result, or the form that started it in this tab.
-  const offer = state.kind === 'offer' || (!state.kind && intro?.kind === 'offer');
-  const finished = offer ? offerDossier : dossier;
+  // Which kind of check this is, known from its first stage, its result, or the form that
+  // started it in this tab.
+  const kind = state.kind ?? (intro?.kind === 'offer' || intro?.kind === 'leak' ? intro.kind : undefined);
+  const offer = kind === 'offer';
+  const leak = kind === 'leak';
+  const finished = offer ? offerDossier : leak ? leakDossier : dossier;
   const status = fatal ? 'failed' : finished ? 'complete' : 'live';
   const s = dossier?.signals;
 
@@ -64,7 +70,13 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
             </div>
           </div>
 
-          {offer ? <MessageBanner intro={intro} dossier={offerDossier} /> : <ClaimBanner intro={intro} dossier={dossier} />}
+          {offer ? (
+            <MessageBanner intro={intro} dossier={offerDossier} />
+          ) : leak ? (
+            <ClaimBanner intro={intro} claim={leakDossier?.signals.claim} source={leakDossier?.signals.claimedSource} scanning={!leakDossier} />
+          ) : (
+            <ClaimBanner intro={intro} claim={dossier?.signals.claim} scanning={!dossier} />
+          )}
           <Toaster notices={state.notices} />
 
           <AnimatePresence initial={!finishedOnLoad}>
@@ -87,14 +99,24 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
           <AnimatePresence initial={!finishedOnLoad}>
             {offer
               ? offerDossier && <VerdictHero view={offerVerdictView(offerDossier)} />
-              : dossier && <VerdictHero view={mediaVerdictView(dossier)} />}
+              : leak
+                ? leakDossier && <VerdictHero view={leakVerdictView(leakDossier)} />
+                : dossier && <VerdictHero view={mediaVerdictView(dossier)} />}
           </AnimatePresence>
 
           {/* Phones: progress, then evidence, then details. Desktop: progress and details in a left column. */}
-          <div className="mt-6 grid items-start gap-5 lg:grid-cols-[300px_1fr]">
-            <aside className="order-1 min-w-0 space-y-5 lg:order-none lg:col-start-1 lg:row-start-1">
+          <div className={finished ? 'mt-6 space-y-5' : 'mt-6 grid items-start gap-5 lg:grid-cols-[300px_1fr]'}>
+            <aside className={finished ? 'hidden' : 'order-1 min-w-0 space-y-5 lg:order-none lg:col-start-1 lg:row-start-1'}>
               <Panel title="Investigation">
-                {offer ? (
+                {leak ? (
+                  <StageRail
+                    stages={LEAK_STAGES}
+                    stage={state.stage}
+                    finished={!!leakDossier}
+                    fatal={fatal}
+                    skipped={(stage) => LEAK_STEP_NUMBER[stage] !== undefined && !leakDossier?.metrics.stepsRun.includes(LEAK_STEP_NUMBER[stage]!)}
+                  />
+                ) : offer ? (
                   <StageRail
                     stages={OFFER_STAGES}
                     stage={state.stage}
@@ -115,26 +137,7 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
               <CreditMeter credits={state.credits} maxCredits={state.maxCredits} shortCircuit={state.shortCircuit} creditLog={state.creditLog} />
             </aside>
 
-            {finished && (
-              <aside className="order-3 min-w-0 space-y-5 lg:order-none lg:col-start-1 lg:row-start-2">
-                {offerDossier ? (
-                  <>
-                    <ScorePanel reasons={offerDossier.confidence.reasons} cap={OFFER_SCORE_CAP[offerDossier.verdict]} />
-                    <EnginePanel {...offerEngineProps(offerDossier)} />
-                  </>
-                ) : (
-                  dossier && (
-                    <>
-                      <ScorePanel reasons={dossier.confidence.reasons} cap={MEDIA_SCORE_CAP[dossier.verdict]} />
-                      <EnginePanel {...mediaEngineProps(dossier)} />
-                    </>
-                  )
-                )}
-                <DossierTools dossier={finished} />
-              </aside>
-            )}
-
-            <div className="order-2 min-w-0 space-y-5 lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1">
+            <div className={finished ? 'min-w-0 space-y-5' : 'order-2 min-w-0 space-y-5 lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1'}>
               <AnimatePresence initial={!finishedOnLoad}>
                 {state.shortCircuit && (
                   <motion.div
@@ -160,6 +163,21 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                 )}
               </AnimatePresence>
 
+              {leak && (
+                <>
+                  <Panel
+                    title="Where public copies appeared"
+                    subtitle="Confirmed copies only, earliest first"
+                  >
+                    <SpreadTimeline
+                      timeline={leakDossier?.signals.timeline ?? { entries: state.timeline, undated: [] }}
+                      live={!leakDossier}
+                    />
+                  </Panel>
+                  {leakDossier && <OriginPanel origin={leakDossier.origin} />}
+                </>
+              )}
+
               {offerDossier && (
                 <>
                   <OfficialSourceCard dossier={offerDossier} />
@@ -168,7 +186,7 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                 </>
               )}
 
-              {!offer && dossier && s && (
+              {!offer && !leak && dossier && s && (
                 <>
                   <FactTiles dossier={dossier} />
                   <div className={`grid items-start gap-5 ${s.claimGeo || s.sceneGeo ? 'xl:grid-cols-2' : ''}`}>
@@ -193,6 +211,7 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                   firstSeenId={s?.firstSeen?.evidenceId}
                   searching={status === 'live'}
                   inputPreview={offer ? undefined : intro?.previews[0]}
+                  firstSeenLabel={leak ? 'earliest public copy' : undefined}
                 />
               </Panel>
 
@@ -208,11 +227,66 @@ export function AuditView({ id, initialEvents }: { id: string; initialEvents: Au
                   </ul>
                 </Panel>
               )}
+              {finished && (
+                <ShowTheWorking>
+                  <div className="grid gap-5 lg:grid-cols-3">
+                    {leakDossier ? (
+                      <>
+                        <ScorePanel reasons={leakDossier.confidence.reasons} cap={LEAK_SCORE_CAP[leakDossier.verdict]} />
+                        <EnginePanel {...leakEngineProps(leakDossier)} />
+                      </>
+                    ) : offerDossier ? (
+                      <>
+                        <ScorePanel reasons={offerDossier.confidence.reasons} cap={OFFER_SCORE_CAP[offerDossier.verdict]} />
+                        <EnginePanel {...offerEngineProps(offerDossier)} />
+                      </>
+                    ) : (
+                      dossier && (
+                        <>
+                          <ScorePanel reasons={dossier.confidence.reasons} cap={MEDIA_SCORE_CAP[dossier.verdict]} />
+                          <EnginePanel {...mediaEngineProps(dossier)} />
+                        </>
+                      )
+                    )}
+                    <div className="space-y-5">
+                      <CreditMeter
+                        credits={state.credits}
+                        maxCredits={state.maxCredits}
+                        shortCircuit={state.shortCircuit}
+                        creditLog={state.creditLog}
+                      />
+                      <DossierTools dossier={finished} />
+                    </div>
+                  </div>
+                </ShowTheWorking>
+              )}
+
             </div>
           </div>
         </div>
       </div>
     </AnimatePresence>
+  );
+}
+
+/**
+ * The audit's working, folded away once there is a verdict to read.
+ *
+ * None of it is hidden or dropped: the score breakdown, the searches spent, the engines
+ * and the signed dossier are what make a verdict checkable rather than asserted. But a
+ * reader who has just been told a photo is recycled wants the verdict and the evidence
+ * first, and everything at once was the complaint.
+ */
+function ShowTheWorking({ children }: { children: React.ReactNode }) {
+  return (
+    <details className="group rounded-2xl border border-line bg-surface/60 open:bg-transparent">
+      <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+        <ChevronRight className="size-4 text-faint transition-transform group-open:rotate-90" />
+        <span className="font-medium text-ink">Show the working</span>
+        <span className="hidden text-xs text-faint sm:inline">score · searches spent · engines · signed dossier</span>
+      </summary>
+      <div className="border-t border-line p-4">{children}</div>
+    </details>
   );
 }
 

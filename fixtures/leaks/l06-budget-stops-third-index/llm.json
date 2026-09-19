@@ -1,0 +1,15 @@
+{
+  "parseClaim": {
+    "event": "branch circular leak",
+    "claimedAt": "2026-03-10T09:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "WOODGROVE BANK",
+      "BRANCH CIRCULAR"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

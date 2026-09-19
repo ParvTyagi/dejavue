@@ -7,7 +7,8 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
-const POLL_MS = 350;
+/** How often the store is checked for new events. Half of it is the average lag a viewer sees. */
+const POLL_MS = 200;
 /** Close before the platform limit; the browser reconnects and resumes from Last-Event-ID. */
 const STREAM_MS = 50_000;
 /** How long to wait for a just-started audit to log its first event. */

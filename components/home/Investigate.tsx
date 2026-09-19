@@ -4,6 +4,7 @@ import { ArrowUpRight, Film, Image as ImageIcon, Link2, Loader2, Sparkles, Uploa
 import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { MoreDetails } from '@/components/ui/MoreDetails';
 import { EASE_OUT, Reveal, ScrambleText, ShimmerButton, SpotlightCard } from '@/components/ui/motion';
 import { FIELD_CLASS as field, postJson, uploadImage } from '@/lib/client/api';
 import { saveAuditIntro } from '@/lib/client/auditIntro';
@@ -345,20 +346,24 @@ export function Investigate({ mode, demos }: { mode: FixtureMode; demos: DemoCas
                           className={`${field} resize-none font-serif text-lg`}
                         />
                       </div>
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        <div>
-                          <label className="mb-1.5 block text-xs text-muted" htmlFor="place">
-                            Claimed place <span className="text-faint">(optional)</span>
-                          </label>
-                          <input id="place" value={place} onChange={(e) => setPlace(e.target.value)} placeholder="Dubai, UAE" className={field} />
+                      <MoreDetails hint="place and date, if the post gives them">
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <div>
+                            <label className="mb-1.5 block text-xs text-muted" htmlFor="place">
+                              Claimed place
+                            </label>
+                            <input id="place" value={place} onChange={(e) => setPlace(e.target.value)} placeholder="Dubai, UAE" className={field} />
+                            <p className="mt-1.5 text-xs text-faint">Lets the check compare the scene with the place claimed.</p>
+                          </div>
+                          <div>
+                            <label className="mb-1.5 block text-xs text-muted" htmlFor="date">
+                              Claimed date
+                            </label>
+                            <input id="date" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className={field} />
+                            <p className="mt-1.5 text-xs text-faint">Left blank, nothing is assumed about when it is from.</p>
+                          </div>
                         </div>
-                        <div>
-                          <label className="mb-1.5 block text-xs text-muted" htmlFor="date">
-                            Claimed date <span className="text-faint">(defaults to now)</span>
-                          </label>
-                          <input id="date" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} className={field} />
-                        </div>
-                      </div>
+                      </MoreDetails>
                       <ShimmerButton type="submit" disabled={busy || replay || (source === 'upload' && !prepared)} className="mt-auto flex items-center justify-center gap-2">
                         {busy && <Loader2 className="size-4 animate-spin" />}
                         Check where it came from

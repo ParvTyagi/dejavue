@@ -1,0 +1,69 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Contoso memo posted",
+        "link": "https://www.newsfeed.example/posts/contoso-memo",
+        "source": "newsfeed.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l02-earliest-copy-found/posts-contoso-memo.jpg",
+        "date": "Mar 9, 2026"
+      },
+      {
+        "position": 2,
+        "title": "Contoso memo thread",
+        "link": "https://www.forum.example/t/contoso-memo",
+        "source": "forum.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l02-earliest-copy-found/t-contoso-memo.jpg",
+        "date": "Mar 10, 2026"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "What the Contoso memo says",
+        "link": "https://www.techblog.example/contoso-memo-explained",
+        "source": "https://www.techblog.example/contoso-memo-explained",
+        "domain": "techblog.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l02-earliest-copy-found/contoso-memo-explained.jpg",
+        "date": "2026-03-10T00:00:00Z",
+        "original": "https://techblog.example/full/contoso-memo-explained.jpg",
+        "cdn_original": "https://cdn.bing.example/l02-earliest-copy-found.jpg",
+        "width": 480,
+        "height": 340,
+        "file_size": "120000 B"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "title": "A different memo",
+        "link": "https://www.lookalike.example/i/other-memo",
+        "source": "lookalike.example",
+        "thumbnail": {
+          "link": "https://thumbs.dejavue.invalid/l02-earliest-copy-found/i-other-memo.jpg",
+          "width": 200,
+          "height": 140
+        }
+      }
+    ]
+  }
+}
