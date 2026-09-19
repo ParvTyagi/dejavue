@@ -1,0 +1,40 @@
+{
+  "title": "Public copies exist, but not one of them can be dated",
+  "synthetic": true,
+  "notes": "Copies were found and the dating searches came back with nothing on the same site, so there is no T₀ and no timeline. The verdict stays LEAK_NOT_FOUND and the undatedOnly flag is what the page shows. One full-size image is too large to fetch, which is recorded as a skip.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l05-undated-copies-only/frame-0.jpg",
+          "pHash": "2c81516ca049d416",
+          "sharpness": 690
+        }
+      ]
+    },
+    "claim": {
+      "text": "Tailwind Traders stock sheet leaked today from their warehouse system",
+      "source": "Tailwind Traders",
+      "date": "2026-03-10T09:00:00.000Z"
+    },
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LEAK_NOT_FOUND",
+    "flags": {
+      "predatesClaim": false,
+      "recycled": false,
+      "copiesFound": true,
+      "undatedOnly": true
+    },
+    "credits": 5,
+    "stepsRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 40
+  }
+}

@@ -1,3 +1,4 @@
+import type { LeakFlags, LeakSignals, LeakVerdict } from '@/lib/leak/types';
 import type { Claim, Evidence, SceneReading, Signals, Verdict, VerdictFlags } from '@/lib/shared/types';
 
 export interface ParseClaimRequest {
@@ -8,10 +9,12 @@ export interface ParseClaimRequest {
 }
 
 export interface NarrateRequest {
-  verdict: Verdict;
-  flags: VerdictFlags;
-  signals: Omit<Signals, 'confirmedMatches'>;
+  verdict: Verdict | LeakVerdict;
+  flags: VerdictFlags | LeakFlags;
+  signals: Omit<Signals, 'confirmedMatches'> | Omit<LeakSignals, 'confirmedMatches'>;
   evidence: Pick<Evidence, 'id' | 'engine' | 'domain' | 'title' | 'publishedAt' | 'url'>[];
+  /** Extra rules for this kind of result, such as never naming a person behind a leak. */
+  guidance?: string;
 }
 
 export interface ReadOfferRequest {

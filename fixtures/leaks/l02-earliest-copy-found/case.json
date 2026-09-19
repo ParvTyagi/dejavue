@@ -1,0 +1,39 @@
+{
+  "title": "Memo screenshot with its earliest public copy from the day before",
+  "synthetic": true,
+  "notes": "LEAK_EARLIEST_FOUND: a corroborated T₀ that does not contradict the claim. Yandex returns a look-alike that fails the thumbnail re-hash, so nothing undated is confirmed and no dating search is needed.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l02-earliest-copy-found/frame-0.jpg",
+          "pHash": "23715e9cafb9dbe6",
+          "sharpness": 760
+        }
+      ]
+    },
+    "claim": {
+      "text": "Contoso HR memo about the layoffs leaked today",
+      "source": "Contoso",
+      "date": "2026-03-10T09:00:00.000Z"
+    },
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LEAK_EARLIEST_FOUND",
+    "flags": {
+      "predatesClaim": false,
+      "recycled": false,
+      "copiesFound": true,
+      "undatedOnly": false
+    },
+    "credits": 3,
+    "stepsRun": [
+      1,
+      3
+    ],
+    "confidence": 60
+  }
+}

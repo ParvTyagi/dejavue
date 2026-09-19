@@ -1,0 +1,16 @@
+{
+  "parseClaim": {
+    "event": "payroll memo leak",
+    "claimedAt": "2026-03-10T09:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "NORTHWIND LOGISTICS",
+      "PAYROLL - CONFIDENTIAL",
+      "Contact 98765 43210 for queries"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

@@ -97,10 +97,11 @@ export function createGeminiLlm(apiKey: string, model: string): LlmPort {
       );
     },
 
-    narrate: (req, signal) =>
+    narrate: ({ guidance, ...req }, signal) =>
       ask(
         'Write a short plain-language explanation of this verdict for a general audience. Do not change or question the ' +
-          'verdict. Every bullet must cite the ids of the evidence items it relies on. Use only the evidence given.',
+          'verdict. Every bullet must cite the ids of the evidence items it relies on. Use only the evidence given.' +
+          (guidance ? ` ${guidance}` : ''),
         req,
         {
           type: Type.OBJECT,

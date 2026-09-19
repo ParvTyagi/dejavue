@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { ENGINE_LABEL, SKIP_REASON_LABEL } from '@/lib/client/labels';
+import type { LeakDossier } from '@/lib/leak/types';
 import type { OfferDossier } from '@/lib/offer/types';
 import type { Dossier, EngineId, SkipReason } from '@/lib/shared/types';
 import { ENGINE_COLOR, ENGINE_ICON } from './icons';
@@ -24,6 +25,16 @@ export function mediaEngineProps(d: Dossier): EnginePanelProps {
     ...d.signals,
     subtitle: `Tiers ${m.tiersRun.join(', ') || 'none'} · ${seconds(m.totalMs)}${m.cacheHit ? ' · cached evidence' : ''}`,
     sceneTags: [...new Set([...d.scene.landmarks, ...d.scene.text].map((t) => t.trim()).filter(Boolean))],
+  };
+}
+
+export function leakEngineProps(d: LeakDossier): EnginePanelProps {
+  const m = d.metrics;
+  return {
+    ...d.signals,
+    subtitle: `Steps ${m.stepsRun.join(', ') || 'none'} · ${seconds(m.totalMs)}${m.cacheHit ? ' · cached evidence' : ''}`,
+    // What was read off the document, already redacted and cut short.
+    sceneTags: d.scene.redactedSnippets,
   };
 }
 
@@ -64,7 +75,7 @@ export function EnginePanel({ enginesUsed, enginesFailed, enginesSkipped, subtit
       )}
       {sceneTags.length > 0 && (
         <div className="mt-4 border-t border-line pt-3">
-          <p className="text-xs text-faint">Read from the scene</p>
+          <p className="text-xs text-faint">Read from the image</p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {sceneTags.map((t, i) => (
               <span key={i} className="rounded-md border border-line px-2 py-0.5 text-xs text-muted">

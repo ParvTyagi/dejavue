@@ -1,15 +1,30 @@
 'use client';
 
-import { CalendarDays, Film, Image as ImageIcon, MapPin } from 'lucide-react';
+import { Building2, CalendarDays, Film, Image as ImageIcon, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { EASE_OUT } from '@/components/ui/motion';
 import type { AuditIntro } from '@/lib/client/auditIntro';
 import { displayDate } from '@/lib/client/labels';
-import type { Dossier } from '@/lib/shared/types';
+import type { Claim } from '@/lib/shared/types';
 
-/** The claim under investigation, with media previews when the upload came from this tab. */
-export function ClaimBanner({ intro, dossier }: { intro?: AuditIntro; dossier?: Dossier }) {
-  const claim = dossier?.signals.claim;
+/**
+ * The claim under investigation, with media previews when the upload came from this tab.
+ * Shared by media audits and leak traces: both start from an image and a claim about it,
+ * and a leak trace adds who the post says the document came from.
+ */
+export function ClaimBanner({
+  intro,
+  claim,
+  source,
+  scanning,
+}: {
+  intro?: AuditIntro;
+  claim?: Claim;
+  /** Who a leak trace's post says the document leaked from, as typed. */
+  source?: string;
+  /** Whether the audit is still running, which keeps the scan band moving over the previews. */
+  scanning?: boolean;
+}) {
   const text = claim?.rawText ?? intro?.claim;
   const place = claim?.place ?? intro?.place;
   const previews = intro?.previews ?? [];
@@ -34,7 +49,7 @@ export function ClaimBanner({ intro, dossier }: { intro?: AuditIntro; dossier?: 
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt="" className="size-full object-cover" />
-              {!dossier && <div className="scan-band animate-scan" />}
+              {scanning && <div className="scan-band animate-scan" />}
             </motion.div>
           ))}
         </div>
@@ -45,14 +60,19 @@ export function ClaimBanner({ intro, dossier }: { intro?: AuditIntro; dossier?: 
         </p>
         {text ? (
           <h1 className="mt-2 font-serif text-3xl leading-tight text-balance text-ink sm:text-4xl">
-            <span className="text-shine">“</span>
+            “
             {text}
-            <span className="text-shine">”</span>
+            ”
           </h1>
         ) : (
           <div className="mt-3 h-9 w-3/4 animate-pulse rounded-lg bg-surface-2" />
         )}
         <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted">
+          {source && (
+            <span className="flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1">
+              <Building2 className="size-3" /> claimed source: {source}
+            </span>
+          )}
           {place && (
             <span className="flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1">
               <MapPin className="size-3" /> {place}

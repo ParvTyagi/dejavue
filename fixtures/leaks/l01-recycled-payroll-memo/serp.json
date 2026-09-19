@@ -1,0 +1,104 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Leaked payroll memo doing the rounds",
+        "link": "https://www.docs-archive.example/payroll-memo-2024",
+        "source": "docs-archive.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l01-recycled-payroll-memo/payroll-memo-2024.jpg",
+        "date": "Jan 8, 2024"
+      },
+      {
+        "position": 2,
+        "title": "Payroll memo thread",
+        "link": "https://www.infoboard.example/threads/payroll-memo",
+        "source": "infoboard.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l01-recycled-payroll-memo/threads-payroll-memo.jpg",
+        "date": "Jan 20, 2024"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "Payroll memo surfaces online",
+        "link": "https://www.newswire.example/stories/payroll-memo-surfaces",
+        "source": "https://www.newswire.example/stories/payroll-memo-surfaces",
+        "domain": "newswire.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l01-recycled-payroll-memo/stories-payroll-memo-surfaces.jpg",
+        "date": "2024-01-26T00:00:00Z",
+        "original": "https://newswire.example/full/stories-payroll-memo-surfaces.jpg",
+        "cdn_original": "https://cdn.bing.example/l01-recycled-payroll-memo.jpg",
+        "width": 480,
+        "height": 340,
+        "file_size": "120000 B"
+      },
+      {
+        "position": 2,
+        "title": "Reposted payroll memo",
+        "link": "https://www.repostboard.example/p/payroll-memo",
+        "source": "https://www.repostboard.example/p/payroll-memo",
+        "domain": "repostboard.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l01-recycled-payroll-memo/p-payroll-memo.jpg",
+        "date": "2024-02-01T00:00:00Z",
+        "original": "https://repostboard.example/full/p-payroll-memo.jpg",
+        "cdn_original": "https://cdn.bing.example/l01-recycled-payroll-memo.jpg",
+        "width": 480,
+        "height": 340,
+        "file_size": "120000 B"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "title": "Payroll memo mirror",
+        "link": "https://www.mirror-site.example/files/payroll-memo",
+        "source": "mirror-site.example",
+        "thumbnail": {
+          "link": "https://thumbs.dejavue.invalid/l01-recycled-payroll-memo/files-payroll-memo.jpg",
+          "width": 200,
+          "height": 140
+        },
+        "original_image": {
+          "link": "https://mirror-site.example/full/files-payroll-memo.jpg",
+          "width": 288,
+          "height": 204
+        }
+      }
+    ]
+  },
+  "google?q=\"Payroll memo mirror\"&tbs=cdr:1,cd_max:3/10/2026": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "organic_results": [
+      {
+        "position": 1,
+        "title": "Payroll memo mirror",
+        "link": "https://www.mirror-site.example/files/payroll-memo",
+        "snippet": "Synthetic result for a replayed dating search.",
+        "date": "Jan 30, 2024"
+      }
+    ]
+  }
+}

@@ -5,6 +5,8 @@ import type { FixtureSource } from '@/lib/serp/client';
 import type { ThumbnailHasher } from '@/lib/evidence/verifyMatch';
 import type { LlmPort } from '@/lib/llm/port';
 import { pause } from '@/lib/shared/time';
+import type { FullImageFetcher } from '@/lib/leak/originals';
+import type { LeakInput, LeakVerdict, OriginSkipReason } from '@/lib/leak/types';
 import type { OfferInput, OfferVerdict, RedFlagId } from '@/lib/offer/types';
 import type { AuditInput, Verdict } from '@/lib/shared/types';
 
@@ -14,6 +16,9 @@ import type { AuditInput, Verdict } from '@/lib/shared/types';
 //   llm.json     parseClaim / readScene / narrate / readOffer outputs
 //   thumbs.json  thumbnail URL → pHash (hashes only, never pixels)
 // Offer cases live the same way in fixtures/offers/<caseId>/, without thumbs.json.
+// Leak cases live in fixtures/leaks/<caseId>/, with the same four files plus
+//   originals.json       full-size image URL → a file in originals/, or a skip reason
+//   originals/*.jpg      small stand-in images, so ranking runs without the network
 
 export interface GoldenCase {
   id: string;
@@ -24,7 +29,7 @@ export interface GoldenCase {
   input: AuditInput;
   expected: {
     verdict: Verdict;
-    flags: { recycled: boolean; misplaced: boolean };
+    flags: { recycled: boolean; misplaced: boolean; predatesClaim: boolean };
     credits: number;
     tiersRun: number[];
     confidence: number;
@@ -47,6 +52,22 @@ export interface OfferCase {
   };
 }
 
+export interface LeakCase {
+  id: string;
+  title: string;
+  synthetic: boolean;
+  notes?: string;
+  submittedAt: string;
+  input: LeakInput;
+  expected: {
+    verdict: LeakVerdict;
+    flags: { predatesClaim: boolean; recycled: boolean; copiesFound: boolean; undatedOnly: boolean };
+    credits: number;
+    stepsRun: number[];
+    confidence: number;
+  };
+}
+
 const readJson = (file: string): Record<string, unknown> =>
   existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as Record<string, unknown>) : {};
 
@@ -61,6 +82,15 @@ function listCaseFiles<T extends { id: string }>(dir: string): T[] {
 export const listCases = (dir: string): GoldenCase[] => listCaseFiles<GoldenCase>(dir);
 
 export const listOfferCases = (dir: string): OfferCase[] => listCaseFiles<OfferCase>(dir);
+
+export const listLeakCases = (dir: string): LeakCase[] => listCaseFiles<LeakCase>(dir);
+
+/** Finds the recorded leak case whose frames look like the given image. */
+export function matchLeakCase(dir: string, pHashes: string[]): LeakCase | undefined {
+  return listLeakCases(dir).find((c) =>
+    c.input.media.frames.some((f) => pHashes.some((h) => hamming(h, f.pHash) <= HAMMING.confirmedMatch)),
+  );
+}
 
 /** Finds the recorded case whose frames look like the given media. */
 export function matchCase(dir: string, pHashes: string[]): GoldenCase | undefined {
@@ -115,6 +145,26 @@ export function createReplayLlm(dir: string, caseId: string | undefined, delayMs
 export function createReplayThumbnails(dir: string, caseId: string | undefined): ThumbnailHasher {
   const data = caseId ? (readJson(path.join(dir, caseId, 'thumbs.json')) as Record<string, string>) : {};
   return async (url) => data[url];
+}
+
+/**
+ * Replays the full-size image fetches a leak trace makes. Each entry in originals.json is
+ * either a file in the case's originals/ folder or `{ "skip": "<reason>" }`, so the skip
+ * paths are exercised without the network. A URL that is not listed at all reads as
+ * unreadable, which is what a dead link does in live mode.
+ */
+export function createReplayOriginals(dir: string, caseId: string | undefined): FullImageFetcher {
+  const map = caseId ? (readJson(path.join(dir, caseId, 'originals.json')) as Record<string, unknown>) : {};
+  return async (url) => {
+    const entry = map[url];
+    if (typeof entry === 'object' && entry !== null && 'skip' in entry) {
+      return { ok: false, reason: (entry as { skip: OriginSkipReason }).skip };
+    }
+    if (typeof entry !== 'string') return { ok: false, reason: 'unreadable' };
+    const file = path.join(dir, caseId!, 'originals', entry);
+    if (!existsSync(file)) return { ok: false, reason: 'unreadable' };
+    return { ok: true, bytes: readFileSync(file) };
+  };
 }
 
 export function loadTrustedDomains(file: string): string[] {

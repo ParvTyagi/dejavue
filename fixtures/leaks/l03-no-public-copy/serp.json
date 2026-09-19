@@ -1,0 +1,26 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": []
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": []
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  }
+}

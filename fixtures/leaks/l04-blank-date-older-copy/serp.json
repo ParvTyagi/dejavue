@@ -1,0 +1,58 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Admissions list archived",
+        "link": "https://www.archive-board.example/lists/admissions",
+        "source": "archive-board.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l04-blank-date-older-copy/lists-admissions.jpg",
+        "date": "May 4, 2025"
+      },
+      {
+        "position": 2,
+        "title": "Admissions list thread",
+        "link": "https://www.studentforum.example/threads/admissions",
+        "source": "studentforum.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l04-blank-date-older-copy/threads-admissions.jpg",
+        "date": "May 18, 2025"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "Admissions list circulating",
+        "link": "https://www.campusnews.example/admissions-list-leak",
+        "source": "https://www.campusnews.example/admissions-list-leak",
+        "domain": "campusnews.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l04-blank-date-older-copy/admissions-list-leak.jpg",
+        "date": "2025-05-20T00:00:00Z",
+        "original": "https://campusnews.example/full/admissions-list-leak.jpg",
+        "cdn_original": "https://cdn.bing.example/l04-blank-date-older-copy.jpg",
+        "width": 240,
+        "height": 170,
+        "file_size": "120000 B"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  }
+}

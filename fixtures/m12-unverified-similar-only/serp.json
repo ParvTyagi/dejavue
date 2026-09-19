@@ -1,0 +1,103 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Station rush hour",
+        "link": "https://www.rail-fans.example/2019/station-rush",
+        "source": "rail-fans.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m12-unverified-similar-only/2019/station-rush.jpg",
+        "date": "Aug 14, 2019"
+      },
+      {
+        "position": 2,
+        "title": "Crowds at station",
+        "link": "https://www.regional-daily.example/2021/03/station-crowd",
+        "source": "regional-daily.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m12-unverified-similar-only/2021/03/station-crowd.jpg",
+        "date": "Mar 2, 2021"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "Crowded platform",
+        "link": "https://www.photo-forum.example/crowd-platform",
+        "source": "photo-forum.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m12-unverified-similar-only/crowd-platform.jpg",
+        "date": "2018-11-09T15:30:00Z"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=crowd gathers at station after train cancellations Kolkata, West Bengal, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Train cancellations leave passengers stranded in Kolkata",
+        "snippet": "Passengers in Kolkata...",
+        "link": "https://www.metro-news.example/2023-train-cancellations",
+        "source": {
+          "name": "metro-news.example"
+        },
+        "iso_date": "2023-12-01T10:00:00Z"
+      }
+    ]
+  },
+  "google_maps?q=Kolkata, West Bengal, India&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Kolkata",
+      "type": "City",
+      "address": "Kolkata, West Bengal, India",
+      "gps_coordinates": {
+        "latitude": 22.5726,
+        "longitude": 88.3639
+      }
+    }
+  },
+  "google_maps?q=Howrah&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-04-11T14:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Howrah Station",
+      "type": "Train station",
+      "address": "Howrah, West Bengal 711101, India",
+      "gps_coordinates": {
+        "latitude": 22.5839,
+        "longitude": 88.3425
+      }
+    }
+  }
+}

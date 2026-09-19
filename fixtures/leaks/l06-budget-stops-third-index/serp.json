@@ -1,0 +1,61 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Branch circular posted",
+        "link": "https://www.bankwatch.example/posts/circular",
+        "source": "bankwatch.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l06-budget-stops-third-index/posts-circular.jpg",
+        "date": "Mar 8, 2026"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "Woodgrove circular explained",
+        "link": "https://www.financeblog.example/woodgrove-circular",
+        "source": "https://www.financeblog.example/woodgrove-circular",
+        "domain": "financeblog.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/l06-budget-stops-third-index/woodgrove-circular.jpg",
+        "date": "2026-03-09T00:00:00Z",
+        "original": "https://financeblog.example/full/woodgrove-circular.jpg",
+        "cdn_original": "https://cdn.bing.example/l06-budget-stops-third-index.jpg",
+        "width": 480,
+        "height": 340,
+        "file_size": "120000 B"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-03-10T09:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "title": "Never searched",
+        "link": "https://www.never-searched.example/x",
+        "source": "never-searched.example",
+        "thumbnail": {
+          "link": "https://thumbs.dejavue.invalid/l06-budget-stops-third-index/x.jpg",
+          "width": 200,
+          "height": 140
+        }
+      }
+    ]
+  }
+}

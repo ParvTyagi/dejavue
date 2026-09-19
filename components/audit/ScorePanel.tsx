@@ -12,7 +12,7 @@ export function ScorePanel({ reasons, cap }: { reasons: ScoreReason[]; cap: numb
   // Bars are scaled to the largest reason, so 45-point warning signs and 10-point hints both read clearly.
   const scale = Math.max(15, ...reasons.map((r) => Math.abs(r.points)));
   return (
-    <Panel title="Why this confidence" subtitle={`Capped at ${cap} for this verdict`}>
+    <Panel title="Why this confidence" subtitle={`What raised and lowered the score · capped at ${cap} for this verdict`}>
       {reasons.length === 0 ? (
         <p className="text-sm text-muted">No evidence earned points.</p>
       ) : (

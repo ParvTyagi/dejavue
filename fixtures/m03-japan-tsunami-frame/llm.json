@@ -1,0 +1,31 @@
+{
+  "parseClaim": {
+    "event": "tsunami waves hit coast",
+    "place": "Japan",
+    "claimedAt": "2025-07-30T02:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [],
+    "landmarks": [],
+    "broadcastLogo": "unknown TV channel",
+    "language": "Japanese"
+  },
+  "narrate": {
+    "summary": "This footage was published in March 2011, long before the claimed tsunami.",
+    "bullets": [
+      {
+        "text": "A forum mirror posted this clip on 11 March 2011.",
+        "evidenceIds": [
+          "bing0-0"
+        ]
+      },
+      {
+        "text": "A second site has a copy from the next day.",
+        "evidenceIds": [
+          "bing0-1"
+        ]
+      }
+    ]
+  }
+}

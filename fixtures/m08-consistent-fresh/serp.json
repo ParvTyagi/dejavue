@@ -1,0 +1,103 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Hailstorm turns Shimla white",
+        "link": "https://www.hill-news.example/2026/02/02/shimla-hailstorm",
+        "source": "hill-news.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m08-consistent-fresh/2026/02/02/shimla-hailstorm.jpg",
+        "date": "Feb 2, 2026"
+      },
+      {
+        "position": 2,
+        "title": "Shimla hail pictures",
+        "link": "https://www.regional-daily.example/weather/shimla-hail",
+        "source": "regional-daily.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m08-consistent-fresh/weather/shimla-hail.jpg",
+        "date": "Feb 2, 2026"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": [
+      {
+        "position": 1,
+        "title": "The Ridge after hail",
+        "link": "https://www.snapshare.example/p/ridge-hail",
+        "source": "snapshare.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m08-consistent-fresh/p/ridge-hail.jpg",
+        "date": "2026-02-02T11:05:00Z"
+      }
+    ]
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=hailstorm covers streets Shimla, Himachal Pradesh, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Hailstorm lashes Shimla, traffic slows",
+        "snippet": "A sudden hailstorm in Shimla...",
+        "link": "https://www.hill-news.example/shimla-hailstorm-traffic",
+        "source": {
+          "name": "hill-news.example"
+        },
+        "iso_date": "2026-02-02T09:00:00Z"
+      }
+    ]
+  },
+  "google_maps?q=Shimla, Himachal Pradesh, India&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Shimla",
+      "type": "City",
+      "address": "Shimla, Himachal Pradesh, India",
+      "gps_coordinates": {
+        "latitude": 31.1048,
+        "longitude": 77.1734
+      }
+    }
+  },
+  "google_maps?q=The Ridge, Shimla&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-02-02T12:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "The Ridge",
+      "type": "Tourist attraction",
+      "address": "The Mall, Shimla, Himachal Pradesh 171001, India",
+      "gps_coordinates": {
+        "latitude": 31.1041,
+        "longitude": 77.175
+      }
+    }
+  }
+}

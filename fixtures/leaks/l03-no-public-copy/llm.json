@@ -1,0 +1,15 @@
+{
+  "parseClaim": {
+    "event": "vendor contract leak",
+    "claimedAt": "2026-03-10T09:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "FABRIKAM",
+      "VENDOR AGREEMENT"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

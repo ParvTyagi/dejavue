@@ -1,0 +1,38 @@
+{
+  "title": "Older copy found, but the post never claimed a date",
+  "synthetic": true,
+  "notes": "The blank-date guard: an older public copy exists, so predatesClaim stands, but the post asserts no date and nothing in its text claims recency, so it is NOT LEAK_RECYCLED.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l04-blank-date-older-copy/frame-0.jpg",
+          "pHash": "792b04c6f5e381bc",
+          "sharpness": 740
+        }
+      ]
+    },
+    "claim": {
+      "text": "Admissions list from Fabrikam University, is this real",
+      "source": "Fabrikam University"
+    },
+    "maxCredits": 6
+  },
+  "expected": {
+    "verdict": "LEAK_EARLIEST_FOUND",
+    "flags": {
+      "predatesClaim": true,
+      "recycled": false,
+      "copiesFound": true,
+      "undatedOnly": false
+    },
+    "credits": 3,
+    "stepsRun": [
+      1,
+      3
+    ],
+    "confidence": 60
+  }
+}

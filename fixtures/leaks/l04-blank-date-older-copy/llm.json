@@ -1,0 +1,15 @@
+{
+  "parseClaim": {
+    "event": "admissions list",
+    "claimedAt": null,
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "FABRIKAM UNIVERSITY",
+      "PROVISIONAL ADMISSIONS LIST"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

@@ -13,7 +13,7 @@ export function CreditMeter(state: Pick<AuditState, 'credits' | 'maxCredits' | '
   const used = state.credits;
   const MAX = state.maxCredits ?? DEFAULT_MAX_CREDITS;
   return (
-    <Panel title="SerpApi searches" subtitle={`Budget of ${MAX} per audit`}>
+    <Panel title="Searches used" subtitle={`At most ${MAX} per check, through SerpApi`}>
       <div className="flex items-end justify-between">
         <p className="font-serif text-5xl leading-none">
           <NumberTicker value={used} />

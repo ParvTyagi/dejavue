@@ -1,0 +1,15 @@
+{
+  "parseClaim": {
+    "event": "HR memo leak",
+    "claimedAt": "2026-03-10T09:00:00.000Z",
+    "refersToPast": false
+  },
+  "readScene": {
+    "signText": [
+      "CONTOSO",
+      "INTERNAL MEMO"
+    ],
+    "landmarks": [],
+    "language": "en"
+  }
+}

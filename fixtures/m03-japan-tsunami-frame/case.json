@@ -1,0 +1,49 @@
+{
+  "title": "Old tsunami footage shared as waves hitting Japan right now",
+  "synthetic": true,
+  "notes": "RECYCLED video path: Lens confirms an undated copy on the sharpest keyframe (so other keyframes are not searched), then two Bing pages on different domains date it to March 2011. That is decisive, so Yandex is never searched: 2 credits.",
+  "submittedAt": "2025-07-30T03:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "video",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m03-japan-tsunami-frame/frame-0.jpg",
+          "pHash": "57d9ac8d405760a7",
+          "sharpness": 905,
+          "tMs": 4000
+        },
+        {
+          "url": "https://replay.dejavue.invalid/m03-japan-tsunami-frame/frame-1.jpg",
+          "pHash": "a4c1e97b2f60d835",
+          "sharpness": 512,
+          "tMs": 11000
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Tsunami waves hit Japan coast right now after huge earthquake",
+      "place": "Japan",
+      "date": "2025-07-30T11:00:00+09:00"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "RECYCLED",
+    "flags": {
+      "recycled": true,
+      "misplaced": false,
+      "predatesClaim": true
+    },
+    "credits": 2,
+    "tiersRun": [
+      1,
+      2
+    ],
+    "confidence": 60
+  }
+}

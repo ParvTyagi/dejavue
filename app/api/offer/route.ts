@@ -8,7 +8,7 @@ import { AuditError } from '@/lib/orchestrator/pipeline';
 import { appStore, createAuditDeps, fixtureMode } from '@/lib/server/deps';
 import { apiError, clientIp, MONTHLY_CREDIT_FLOOR, MONTHLY_CREDIT_LIMIT, monthStartIso } from '@/lib/server/http';
 import { deleteTemporaryFrames, isTemporaryStoreUrl } from '@/lib/server/mediaStore';
-import { OFFER_FIXTURES_DIR } from '@/lib/server/mode';
+import { OFFER_FIXTURES_DIR, replayPaceMs } from '@/lib/server/mode';
 import { allowAudit } from '@/lib/server/rateLimit';
 import { assertPublicHttpsUrl } from '@/lib/server/ssrf';
 import type { Emit } from '@/lib/shared/types';
@@ -67,9 +67,8 @@ export async function POST(req: Request) {
   const emit: Emit = (event) => {
     logged = logged.then(() => store.appendEvent(auditId, event, TTL.eventsMs)).catch((err) => console.error(err));
   };
-  const replayDelayMs = Number(process.env.REPLAY_PACE_MS ?? 700);
   const deps = {
-    ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs, fixturesDir: mode === 'replay' ? OFFER_FIXTURES_DIR : undefined }),
+    ...createAuditDeps({ mode, store, caseId, clock, replayDelayMs: replayPaceMs(), fixturesDir: mode === 'replay' ? OFFER_FIXTURES_DIR : undefined }),
     newId: () => auditId,
   };
 

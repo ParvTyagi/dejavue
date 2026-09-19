@@ -12,7 +12,7 @@
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fixtureName } from '../lib/serp/client.ts';
+import { fixtureName } from '../lib/serp/fixtureName.ts';
 import type { EngineRequest } from '../lib/serp/engines.ts';
 
 const OUT = path.join(process.cwd(), 'fixtures');
@@ -69,7 +69,7 @@ interface CaseSpec {
   youtube?: MatchSpec[];
   expected: {
     verdict: string;
-    flags: { recycled: boolean; misplaced: boolean };
+    flags: { recycled: boolean; misplaced: boolean; predatesClaim: boolean };
     credits: number;
     tiersRun: number[];
     confidence: number;
@@ -86,7 +86,8 @@ function writeCase(spec: CaseSpec) {
   const put = (req: EngineRequest, body: object) => {
     serp[fixtureName(req.engine, req.params, req.frameIndex)] = { ...meta, ...body };
   };
-  const items = (matches: MatchSpec[] = [], dateKey = 'date') =>
+  /** `dateKey: null` omits dates entirely, for engines that never return one. */
+  const items = (matches: MatchSpec[] = [], dateKey: string | null = 'date') =>
     matches.map((m, i) => {
       const t = thumb(spec.id, `${m.slug}`);
       thumbs[t] = m.hash;
@@ -96,7 +97,7 @@ function writeCase(spec: CaseSpec) {
         link: `https://www.${m.site}/${m.slug}`,
         source: m.site,
         thumbnail: t,
-        ...(m.date ? { [dateKey]: m.date } : {}),
+        ...(m.date && dateKey ? { [dateKey]: m.date } : {}),
       };
     });
 
@@ -107,15 +108,17 @@ function writeCase(spec: CaseSpec) {
     put({ engine: 'google_lens', params: { url: url0(i), type: 'exact_matches' }, frameIndex: i }, { exact_matches: items(matches) }),
   );
   if (spec.bing) {
+    // Real Bing returns exact matches in `pages_with_this_image`, with ISO 8601 dates.
     put(
       { engine: 'bing_reverse_image', params: { image_url: url0(sharpestIndex) }, frameIndex: sharpestIndex },
-      { related_content: items(spec.bing) },
+      { pages_with_this_image: items(spec.bing) },
     );
   }
   if (spec.yandex) {
+    // Real Yandex returns no date on any response field, so neither do these fixtures.
     put(
       { engine: 'yandex_images', params: { url: url0(sharpestIndex) }, frameIndex: sharpestIndex },
-      { image_results: items(spec.yandex) },
+      { image_results: items(spec.yandex, null) },
     );
   }
   const place = spec.claim.place ?? spec.llm.parseClaim.place;
@@ -201,37 +204,38 @@ const PLACES = {
   puri: { title: 'Puri', lat: 19.8135, lng: 85.8312, type: 'City', address: 'Puri, Odisha, India' },
   bengaluru: { title: 'Bengaluru', lat: 12.9716, lng: 77.5946, type: 'City', address: 'Bengaluru, Karnataka, India' },
   kolkata: { title: 'Kolkata', lat: 22.5726, lng: 88.3639, type: 'City', address: 'Kolkata, West Bengal, India' },
+  howrahStation: { title: 'Howrah Station', lat: 22.5839, lng: 88.3425, type: 'Train station', address: 'Howrah, West Bengal 711101, India' },
 } satisfies Record<string, Place>;
 
 // ---------- frame hashes ----------
 
 const H = {
-  c1: '0bdd9709e6be8112', // test-images/c1-kharkiv-prayer.jpg
-  c2: '166e7c2677c88b14', // test-images/c2-uttarakhand-flood.jpg
-  c3: '57d9ac8d405760a7', // test-images/c3-japan-tsunami-frame.jpg
-  c6: '461f23290977b62e', // test-images/c6-kolkata-lathicharge-frame.jpg
-  s05: '9c3e61a4f0b7d258',
-  s06: 'e1a7c3590d2b6f84',
-  s07: '3b84f2c6a19d07e5',
-  s08: 'c56d0a8e3f71b942',
-  s09: '7a2c9e15d4b8f063',
-  s10a: '5e19b7d3a06c48f2',
-  s10b: '2d6a84f1c9e357b0',
-  s10c: 'b0f3e5297a4d1c86',
-  s11: '84d1f6b2a3c9e057',
-  s12: '1f7b3d9e5c2a8064',
+  m01: '0bdd9709e6be8112', // test-images/m01-kharkiv-prayer.jpg
+  m02: '166e7c2677c88b14', // test-images/m02-uttarakhand-flood.jpg
+  m03: '57d9ac8d405760a7', // test-images/m03-japan-tsunami-frame.jpg
+  m04: '461f23290977b62e', // test-images/m04-kolkata-lathicharge-frame.jpg
+  m05: '9c3e61a4f0b7d258',
+  m06: 'e1a7c3590d2b6f84',
+  m07: '3b84f2c6a19d07e5',
+  m08: 'c56d0a8e3f71b942',
+  m09: '7a2c9e15d4b8f063',
+  m10a: '5e19b7d3a06c48f2',
+  m10b: '2d6a84f1c9e357b0',
+  m10c: 'b0f3e5297a4d1c86',
+  m11: '84d1f6b2a3c9e057',
+  m12: '1f7b3d9e5c2a8064',
 };
 
 // ---------- cases ----------
 
 const cases: CaseSpec[] = [
   {
-    id: 'c1-kharkiv-prayer',
+    id: 'm01-kharkiv-prayer',
     title: 'People praying in the snow, shared as prayers for Ukraine',
     notes: 'CONSISTENT path: earliest copies are within 48 h of the claim and the scene resolves inside the claimed country. Runs all three tiers.',
     submittedAt: '2022-02-21T02:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.c1, sharpness: 740 }],
+    frames: [{ pHash: H.m01, sharpness: 740 }],
     claim: { text: 'Ukrainian Christians pray outdoors, in the snow, for their country in this phase of war danger.', place: 'Ukraine', date: '2022-02-20T18:19:00+07:00' },
     llm: {
       parseClaim: { event: 'Christians pray outdoors in the snow', place: 'Ukraine', claimedAt: '2022-02-20T11:19:00.000Z', refersToPast: false },
@@ -245,24 +249,24 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'kharkiv-daily.example', slug: 'city/prayer-in-freedom-square', title: 'Residents gather to pray in Freedom Square', date: 'Feb 19, 2022', hash: H.c1 },
-      { site: 'photo-desk.example', slug: 'gallery/kharkiv-prayer', title: 'Kharkiv prayer gathering', date: 'Feb 19, 2022', hash: near(H.c1, 6) },
-      { site: 'wallpapers.example', slug: 'winter-park', title: 'Winter park scene', hash: far(H.c1) },
+      { site: 'kharkiv-daily.example', slug: 'city/prayer-in-freedom-square', title: 'Residents gather to pray in Freedom Square', date: 'Feb 19, 2022', hash: H.m01 },
+      { site: 'photo-desk.example', slug: 'gallery/kharkiv-prayer', title: 'Kharkiv prayer gathering', date: 'Feb 19, 2022', hash: near(H.m01, 6) },
+      { site: 'wallpapers.example', slug: 'winter-park', title: 'Winter park scene', hash: far(H.m01) },
     ]],
-    bing: [{ site: 'faith-forum.example', slug: 't/prayers-for-ukraine', title: 'Prayers for Ukraine thread', date: 'Feb 20, 2022', hash: near(H.c1, 3) }],
-    yandex: [{ site: 'ua-news-portal.example', slug: 'kharkiv/prayer', title: 'Kharkiv: people pray for peace', date: 'Feb 19, 2022', hash: near(H.c1, 4) }],
+    bing: [{ site: 'faith-forum.example', slug: 't/prayers-for-ukraine', title: 'Prayers for Ukraine thread', date: '2022-02-20T09:12:00Z', hash: near(H.m01, 3) }],
+    yandex: [{ site: 'ua-news-portal.example', slug: 'kharkiv/prayer', title: 'Kharkiv: people pray for peace', hash: near(H.m01, 4) }],
     news: [{ site: 'world-wire.example', slug: 'ukraine-prayer-day', title: 'Churches across Ukraine call day of prayer amid war fears', iso: '2022-02-20T09:00:00Z', snippet: 'Believers in Ukraine gathered outdoors...' }],
     mapsClaim: PLACES.ukraine,
     mapsScene: { q: 'Derzhprom, Kharkiv', place: PLACES.derzhprom },
-    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 80 },
+    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 80 },
   },
   {
-    id: 'c2-uttarakhand-flood',
+    id: 'm02-uttarakhand-flood',
     title: 'Old flood photo shared as a flash flood in Uttarakhand today',
     notes: 'RECYCLED path, short-circuits after Google Lens: a trusted archive copy is years older than the claim. Costs 1 credit.',
     submittedAt: '2025-08-06T10:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.c2, sharpness: 810 }],
+    frames: [{ pHash: H.m02, sharpness: 810 }],
     claim: { text: 'Flash flood hits Uttarakhand today, houses washed away', place: 'Uttarakhand, India' },
     llm: {
       parseClaim: { event: 'flash flood washes away houses', place: 'Uttarakhand, India', claimedAt: null, refersToPast: false },
@@ -273,20 +277,20 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'wire-archive.example', slug: 'photos/2013/himalayan-floods', title: 'Floodwaters sweep through Himalayan town', date: 'Jun 18, 2013', hash: H.c2 },
-      { site: 'hill-news.example', slug: '2013/06/floods-kedarnath-valley', title: 'Valley towns hit by floods', date: 'Jun 19, 2013', hash: near(H.c2, 5) },
-      { site: 'travel-blog.example', slug: 'monsoon-memories', title: 'Monsoon memories', date: 'Jul 2, 2013', hash: near(H.c2, 8) },
+      { site: 'wire-archive.example', slug: 'photos/2013/himalayan-floods', title: 'Floodwaters sweep through Himalayan town', date: 'Jun 18, 2013', hash: H.m02 },
+      { site: 'hill-news.example', slug: '2013/06/floods-kedarnath-valley', title: 'Valley towns hit by floods', date: 'Jun 19, 2013', hash: near(H.m02, 5) },
+      { site: 'travel-blog.example', slug: 'monsoon-memories', title: 'Monsoon memories', date: 'Jul 2, 2013', hash: near(H.m02, 8) },
     ]],
-    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false }, credits: 1, tiersRun: [1], confidence: 55 },
+    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 1, tiersRun: [1], confidence: 55 },
   },
   {
-    id: 'c3-japan-tsunami-frame',
+    id: 'm03-japan-tsunami-frame',
     title: 'Old tsunami footage shared as waves hitting Japan right now',
-    notes: 'RECYCLED video path: Lens confirms an undated copy on the sharpest keyframe (so other keyframes are not searched), then Bing and Yandex date it to 2011 and the audit stops after tier 2.',
+    notes: 'RECYCLED video path: Lens confirms an undated copy on the sharpest keyframe (so other keyframes are not searched), then two Bing pages on different domains date it to March 2011. That is decisive, so Yandex is never searched: 2 credits.',
     submittedAt: '2025-07-30T03:00:00.000Z',
     kind: 'video',
     frames: [
-      { pHash: H.c3, sharpness: 905, tMs: 4000 },
+      { pHash: H.m03, sharpness: 905, tMs: 4000 },
       { pHash: 'a4c1e97b2f60d835', sharpness: 512, tMs: 11000 },
     ],
     claim: { text: 'Tsunami waves hit Japan coast right now after huge earthquake', place: 'Japan', date: '2025-07-30T11:00:00+09:00' },
@@ -297,22 +301,25 @@ const cases: CaseSpec[] = [
         summary: 'This footage was published in March 2011, long before the claimed tsunami.',
         bullets: [
           { text: 'A forum mirror posted this clip on 11 March 2011.', evidenceIds: ['bing0-0'] },
-          { text: 'A second index has a copy from the next day.', evidenceIds: ['yandex0-0'] },
+          { text: 'A second site has a copy from the next day.', evidenceIds: ['bing0-1'] },
         ],
       },
     },
-    lens: [[{ site: 'socialclip.example', slug: 'v/tsunami-wave', title: 'Tsunami wave hits harbour', hash: near(H.c3, 2) }], []],
-    bing: [{ site: 'forum-mirror.example', slug: 'threads/tsunami-2011-video', title: 'Tsunami video from Miyako', date: 'Mar 11, 2011', hash: near(H.c3, 4) }],
-    yandex: [{ site: 'regional-daily.example', slug: '2011/03/12/tsunami-footage', title: 'Footage shows tsunami reaching the coast', date: '12 March 2011', hash: near(H.c3, 7) }],
-    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false }, credits: 3, tiersRun: [1, 2], confidence: 60 },
+    lens: [[{ site: 'socialclip.example', slug: 'v/tsunami-wave', title: 'Tsunami wave hits harbour', hash: near(H.m03, 2) }], []],
+    bing: [
+      { site: 'forum-mirror.example', slug: 'threads/tsunami-2011-video', title: 'Tsunami video from Miyako', date: '2011-03-11T07:40:00Z', hash: near(H.m03, 4) },
+      { site: 'regional-daily.example', slug: '2011/03/12/tsunami-footage', title: 'Footage shows tsunami reaching the coast', date: '2011-03-12T22:15:00Z', hash: near(H.m03, 7) },
+    ],
+    yandex: [{ site: 'clip-archive.example', slug: 'tsunami-miyako', title: 'Tsunami reaching the coast', hash: near(H.m03, 6) }],
+    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 2, tiersRun: [1, 2], confidence: 60 },
   },
   {
-    id: 'c6-kolkata-lathicharge',
+    id: 'm04-kolkata-lathicharge',
     title: 'Old police lathi-charge video shared as a recent incident in Bengal',
     notes: 'RECYCLED video path, short-circuits after Lens: three confirmed copies from 2020, one from a trusted archive.',
     submittedAt: '2025-07-20T08:00:00.000Z',
     kind: 'video',
-    frames: [{ pHash: H.c6, sharpness: 640, tMs: 6000 }],
+    frames: [{ pHash: H.m04, sharpness: 640, tMs: 6000 }],
     claim: { text: 'बंगाल में ममता सरकार के आदेशानुसार कावड़ियों पर प्रेम बरसाती पुलिस', place: 'West Bengal, India', date: '2025-07-20T12:00:00+05:30' },
     llm: {
       parseClaim: { event: 'police beat kanwariyas on state government orders', place: 'West Bengal, India', claimedAt: '2025-07-20T06:30:00.000Z', refersToPast: false },
@@ -323,34 +330,34 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'wire-archive.example', slug: 'video/2020/10/kolkata-crowd-control', title: 'Police disperse crowd in Kolkata', date: 'Oct 26, 2020', hash: near(H.c6, 2) },
-      { site: 'regional-daily.example', slug: '2020/10/26/kolkata-police-video', title: 'Video of police action goes viral', date: 'Oct 26, 2020', hash: H.c6 },
-      { site: 'video-mirror.example', slug: 'watch/police-lathicharge', title: 'Police lathicharge video', date: 'Oct 27, 2020', hash: near(H.c6, 9) },
+      { site: 'wire-archive.example', slug: 'video/2020/10/kolkata-crowd-control', title: 'Police disperse crowd in Kolkata', date: 'Oct 26, 2020', hash: near(H.m04, 2) },
+      { site: 'regional-daily.example', slug: '2020/10/26/kolkata-police-video', title: 'Video of police action goes viral', date: 'Oct 26, 2020', hash: H.m04 },
+      { site: 'video-mirror.example', slug: 'watch/police-lathicharge', title: 'Police lathicharge video', date: 'Oct 27, 2020', hash: near(H.m04, 9) },
     ]],
-    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false }, credits: 1, tiersRun: [1], confidence: 55 },
+    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 1, tiersRun: [1], confidence: 55 },
   },
   {
-    id: 's05-recycled-trusted-single',
+    id: 'm05-recycled-trusted-single',
     title: 'Old factory fire photo, found once in a trusted archive',
     notes: 'RECYCLED path decided by a single trusted-archive match, which is enough on its own for T₀ and the decisive rule.',
     submittedAt: '2026-03-10T16:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s05, sharpness: 700 }],
+    frames: [{ pHash: H.m05, sharpness: 700 }],
     claim: { text: 'Massive fire at chemical factory in Surat tonight', place: 'Surat, Gujarat, India', date: '2026-03-10T21:00:00+05:30' },
     llm: {
       parseClaim: { event: 'fire at chemical factory', place: 'Surat, Gujarat, India', claimedAt: '2026-03-10T15:30:00.000Z', refersToPast: false },
       readScene: { signText: [], landmarks: [], language: 'none' },
     },
-    lens: [[{ site: 'wire-archive.example', slug: 'photos/2021/01/industrial-fire', title: 'Fire engulfs industrial unit', date: 'Jan 5, 2021', hash: near(H.s05, 1) }]],
-    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false }, credits: 1, tiersRun: [1], confidence: 25 },
+    lens: [[{ site: 'wire-archive.example', slug: 'photos/2021/01/industrial-fire', title: 'Fire engulfs industrial unit', date: 'Jan 5, 2021', hash: near(H.m05, 1) }]],
+    expected: { verdict: 'RECYCLED', flags: { recycled: true, misplaced: false, predatesClaim: true }, credits: 1, tiersRun: [1], confidence: 25 },
   },
   {
-    id: 's06-misplaced-with-match',
+    id: 'm06-misplaced-with-match',
     title: 'Fresh port fire photo from Jeddah captioned as Dubai',
     notes: 'MISPLACED path with confirmed same-day matches: the scene landmark resolves ~1,700 km from the claimed city.',
     submittedAt: '2026-09-17T15:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s06, sharpness: 820 }],
+    frames: [{ pHash: H.m06, sharpness: 820 }],
     claim: { text: 'Drone strike on port facilities in Dubai tonight', place: 'Dubai, UAE', date: '2026-09-17T20:00:00+05:30' },
     llm: {
       parseClaim: { event: 'drone strike on port facilities', place: 'Dubai, UAE', claimedAt: '2026-09-17T14:30:00.000Z', refersToPast: false },
@@ -364,23 +371,23 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'gulf-social.example', slug: 'posts/port-fire', title: 'Fire at Red Sea port tonight', date: 'Sep 17, 2026', hash: near(H.s06, 2) },
-      { site: 'regional-daily.example', slug: '2026/09/17/port-blaze', title: 'Blaze reported at port', date: 'Sep 17, 2026', hash: near(H.s06, 5) },
+      { site: 'gulf-social.example', slug: 'posts/port-fire', title: 'Fire at Red Sea port tonight', date: 'Sep 17, 2026', hash: near(H.m06, 2) },
+      { site: 'regional-daily.example', slug: '2026/09/17/port-blaze', title: 'Blaze reported at port', date: 'Sep 17, 2026', hash: near(H.m06, 5) },
     ]],
     bing: [],
     yandex: [],
     news: [{ site: 'gulf-wire.example', slug: 'jeddah-port-fire', title: 'Fire reported at Jeddah Islamic Port', iso: '2026-09-17T13:00:00Z', snippet: 'Civil defence teams responded to a fire at the port in Jeddah...' }],
     mapsClaim: PLACES.dubai,
     mapsScene: { q: 'Jeddah Islamic Port', place: PLACES.jeddahPort },
-    expected: { verdict: 'MISPLACED', flags: { recycled: false, misplaced: true }, credits: 6, tiersRun: [1, 2, 3], confidence: 40 },
+    expected: { verdict: 'MISPLACED', flags: { recycled: false, misplaced: true, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 40 },
   },
   {
-    id: 's07-misplaced-no-match',
+    id: 'm07-misplaced-no-match',
     title: 'Kolkata bridge photo with no prior copies, captioned as Mumbai',
     notes: 'MISPLACED path with no visual match at all: absence of a match does not block the location check.',
     submittedAt: '2026-07-02T06:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s07, sharpness: 690 }],
+    frames: [{ pHash: H.m07, sharpness: 690 }],
     claim: { text: 'Heavy rain floods the road near the bridge in Mumbai', place: 'Mumbai, India', date: '2026-07-02T10:00:00+05:30' },
     llm: {
       parseClaim: { event: 'heavy rain floods road near bridge', place: 'Mumbai, India', claimedAt: '2026-07-02T04:30:00.000Z', refersToPast: false },
@@ -396,15 +403,15 @@ const cases: CaseSpec[] = [
     news: [{ site: 'metro-news.example', slug: 'mumbai-rain-waterlogging', title: 'Mumbai rain: waterlogging reported on several roads', iso: '2026-07-02T03:00:00Z', snippet: 'Heavy overnight rain in Mumbai...' }],
     mapsClaim: PLACES.mumbai,
     mapsScene: { q: 'Howrah Bridge', place: PLACES.howrahBridge },
-    expected: { verdict: 'MISPLACED', flags: { recycled: false, misplaced: true }, credits: 6, tiersRun: [1, 2, 3], confidence: 20 },
+    expected: { verdict: 'MISPLACED', flags: { recycled: false, misplaced: true, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 20 },
   },
   {
-    id: 's08-consistent-fresh',
+    id: 'm08-consistent-fresh',
     title: 'Fresh hailstorm photo from Shimla, correctly captioned',
     notes: 'CONSISTENT path with High confidence: same-day copies on two indexes, landmark and news both agree.',
     submittedAt: '2026-02-02T12:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s08, sharpness: 760 }],
+    frames: [{ pHash: H.m08, sharpness: 760 }],
     claim: { text: 'Hailstorm covers the streets of Shimla white this afternoon', place: 'Shimla, Himachal Pradesh, India', date: '2026-02-02T16:00:00+05:30' },
     llm: {
       parseClaim: { event: 'hailstorm covers streets', place: 'Shimla, Himachal Pradesh, India', claimedAt: '2026-02-02T10:30:00.000Z', refersToPast: false },
@@ -418,23 +425,23 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'hill-news.example', slug: '2026/02/02/shimla-hailstorm', title: 'Hailstorm turns Shimla white', date: 'Feb 2, 2026', hash: H.s08 },
-      { site: 'regional-daily.example', slug: 'weather/shimla-hail', title: 'Shimla hail pictures', date: 'Feb 2, 2026', hash: near(H.s08, 4) },
+      { site: 'hill-news.example', slug: '2026/02/02/shimla-hailstorm', title: 'Hailstorm turns Shimla white', date: 'Feb 2, 2026', hash: H.m08 },
+      { site: 'regional-daily.example', slug: 'weather/shimla-hail', title: 'Shimla hail pictures', date: 'Feb 2, 2026', hash: near(H.m08, 4) },
     ]],
-    bing: [{ site: 'snapshare.example', slug: 'p/ridge-hail', title: 'The Ridge after hail', date: 'Feb 2, 2026', hash: near(H.s08, 3) }],
+    bing: [{ site: 'snapshare.example', slug: 'p/ridge-hail', title: 'The Ridge after hail', date: '2026-02-02T11:05:00Z', hash: near(H.m08, 3) }],
     yandex: [],
     news: [{ site: 'hill-news.example', slug: 'shimla-hailstorm-traffic', title: 'Hailstorm lashes Shimla, traffic slows', iso: '2026-02-02T09:00:00Z', snippet: 'A sudden hailstorm in Shimla...' }],
     mapsClaim: PLACES.shimla,
     mapsScene: { q: 'The Ridge, Shimla', place: PLACES.theRidge },
-    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 80 },
+    expected: { verdict: 'CONSISTENT', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 80 },
   },
   {
-    id: 's09-context-plausible',
+    id: 'm09-context-plausible',
     title: 'Landslide photo with no prior copy, event confirmed by news',
     notes: 'CONTEXT_PLAUSIBLE path: only similar (unconfirmed) results, but news corroborates the claimed event, place and date.',
     submittedAt: '2026-07-14T05:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s09, sharpness: 600 }],
+    frames: [{ pHash: H.m09, sharpness: 600 }],
     claim: { text: 'Landslide blocks the expressway near Khandala this morning', place: 'Khandala, Maharashtra, India', date: '2026-07-14T09:00:00+05:30' },
     llm: {
       parseClaim: { event: 'landslide blocks expressway', place: 'Khandala, Maharashtra, India', claimedAt: '2026-07-14T03:30:00.000Z', refersToPast: false },
@@ -445,25 +452,25 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'stock-photos.example', slug: 'landslide-road', title: 'Landslide on mountain road', date: 'May 3, 2019', hash: far(H.s09) },
-      { site: 'geo-blog.example', slug: 'monsoon-landslides', title: 'Why monsoon landslides happen', hash: near(far(H.s09), 3) },
+      { site: 'stock-photos.example', slug: 'landslide-road', title: 'Landslide on mountain road', date: 'May 3, 2019', hash: far(H.m09) },
+      { site: 'geo-blog.example', slug: 'monsoon-landslides', title: 'Why monsoon landslides happen', hash: near(far(H.m09), 3) },
     ]],
     bing: [],
-    yandex: [{ site: 'photo-forum.example', slug: 'rockfall', title: 'Rockfall', hash: near(H.s09, 20) }],
+    yandex: [{ site: 'photo-forum.example', slug: 'rockfall', title: 'Rockfall', hash: near(H.m09, 20) }],
     news: [{ site: 'metro-news.example', slug: 'khandala-landslide-expressway', title: 'Landslide near Khandala disrupts expressway traffic', iso: '2026-07-14T02:45:00Z', snippet: 'Traffic was halted near Khandala after...' }],
     mapsClaim: PLACES.khandala,
-    expected: { verdict: 'CONTEXT_PLAUSIBLE', flags: { recycled: false, misplaced: false }, credits: 5, tiersRun: [1, 2, 3], confidence: 10 },
+    expected: { verdict: 'CONTEXT_PLAUSIBLE', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 5, tiersRun: [1, 2, 3], confidence: 10 },
   },
   {
-    id: 's10-context-plausible-video',
+    id: 'm10-context-plausible-video',
     title: 'Cyclone video with three keyframes and no prior copies',
     notes: 'CONTEXT_PLAUSIBLE video path: Lens runs on all 3 keyframes, so the credit cap leaves room only for News; Maps and YouTube are skipped.',
     submittedAt: '2026-05-25T13:00:00.000Z',
     kind: 'video',
     frames: [
-      { pHash: H.s10a, sharpness: 450, tMs: 2000 },
-      { pHash: H.s10b, sharpness: 880, tMs: 9000 },
-      { pHash: H.s10c, sharpness: 610, tMs: 15000 },
+      { pHash: H.m10a, sharpness: 450, tMs: 2000 },
+      { pHash: H.m10b, sharpness: 880, tMs: 9000 },
+      { pHash: H.m10c, sharpness: 610, tMs: 15000 },
     ],
     claim: { text: 'Cyclone winds uproot trees along the beach road in Puri', place: 'Puri, Odisha, India', date: '2026-05-25T18:00:00+05:30' },
     llm: {
@@ -474,15 +481,15 @@ const cases: CaseSpec[] = [
     bing: [],
     yandex: [],
     news: [{ site: 'east-coast-times.example', slug: 'cyclone-landfall-puri', title: 'Cyclone makes landfall near Puri, trees uprooted', iso: '2026-05-25T11:00:00Z', snippet: 'Strong winds lashed Puri...' }],
-    expected: { verdict: 'CONTEXT_PLAUSIBLE', flags: { recycled: false, misplaced: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 10 },
+    expected: { verdict: 'CONTEXT_PLAUSIBLE', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 10 },
   },
   {
-    id: 's11-unverified-nothing',
+    id: 'm11-unverified-nothing',
     title: 'Leopard photo with no matches and no news',
     notes: 'UNVERIFIED path: nothing found anywhere. No recorded narration, so the template narrative is used.',
     submittedAt: '2026-06-03T03:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s11, sharpness: 530 }],
+    frames: [{ pHash: H.m11, sharpness: 530 }],
     claim: { text: 'Leopard spotted inside a Bengaluru tech park this morning', place: 'Bengaluru, Karnataka, India', date: '2026-06-03T08:00:00+05:30' },
     llm: {
       parseClaim: { event: 'leopard spotted inside tech park', place: 'Bengaluru, Karnataka, India', claimedAt: '2026-06-03T02:30:00.000Z', refersToPast: false },
@@ -493,15 +500,15 @@ const cases: CaseSpec[] = [
     yandex: [],
     news: [],
     mapsClaim: PLACES.bengaluru,
-    expected: { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced: false }, credits: 5, tiersRun: [1, 2, 3], confidence: 0 },
+    expected: { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 5, tiersRun: [1, 2, 3], confidence: 0 },
   },
   {
-    id: 's12-unverified-similar-only',
+    id: 'm12-unverified-similar-only',
     title: 'Crowd photo with only look-alike results from years ago',
-    notes: 'UNVERIFIED path: old but unconfirmed look-alikes never feed T₀, and a low-confidence landmark is not geocoded.',
+    notes: 'UNVERIFIED path: old but unconfirmed look-alikes never feed T₀. The scene landmark is only 0.6 confident, so the text read off the sign is what Maps is asked about; it resolves inside the claimed city, so the location agrees and the verdict still turns on the missing matches.',
     submittedAt: '2026-04-11T14:00:00.000Z',
     kind: 'image',
-    frames: [{ pHash: H.s12, sharpness: 570 }],
+    frames: [{ pHash: H.m12, sharpness: 570 }],
     claim: { text: 'Huge crowd gathers at the Kolkata station after train cancellations', place: 'Kolkata, West Bengal, India', date: '2026-04-11T19:00:00+05:30' },
     llm: {
       parseClaim: { event: 'crowd gathers at station after train cancellations', place: 'Kolkata, West Bengal, India', claimedAt: '2026-04-11T13:30:00.000Z', refersToPast: false },
@@ -512,14 +519,15 @@ const cases: CaseSpec[] = [
       },
     },
     lens: [[
-      { site: 'rail-fans.example', slug: '2019/station-rush', title: 'Station rush hour', date: 'Aug 14, 2019', hash: near(H.s12, 14) },
-      { site: 'regional-daily.example', slug: '2021/03/station-crowd', title: 'Crowds at station', date: 'Mar 2, 2021', hash: near(H.s12, 22) },
+      { site: 'rail-fans.example', slug: '2019/station-rush', title: 'Station rush hour', date: 'Aug 14, 2019', hash: near(H.m12, 14) },
+      { site: 'regional-daily.example', slug: '2021/03/station-crowd', title: 'Crowds at station', date: 'Mar 2, 2021', hash: near(H.m12, 22) },
     ]],
-    bing: [{ site: 'photo-forum.example', slug: 'crowd-platform', title: 'Crowded platform', date: 'Nov 9, 2018', hash: near(H.s12, 18) }],
+    bing: [{ site: 'photo-forum.example', slug: 'crowd-platform', title: 'Crowded platform', date: '2018-11-09T15:30:00Z', hash: near(H.m12, 18) }],
     yandex: [],
     news: [{ site: 'metro-news.example', slug: '2023-train-cancellations', title: 'Train cancellations leave passengers stranded in Kolkata', iso: '2023-12-01T10:00:00Z', snippet: 'Passengers in Kolkata...' }],
     mapsClaim: PLACES.kolkata,
-    expected: { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced: false }, credits: 5, tiersRun: [1, 2, 3], confidence: 0 },
+    mapsScene: { q: 'Howrah', place: PLACES.howrahStation },
+    expected: { verdict: 'UNVERIFIED', flags: { recycled: false, misplaced: false, predatesClaim: false }, credits: 6, tiersRun: [1, 2, 3], confidence: 10 },
   },
 ];
 

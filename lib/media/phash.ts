@@ -67,7 +67,10 @@ export function pHash(img: GrayImage): string {
   }
   const ac = coeffs.slice(1);
   const sorted = [...ac].sort((a, b) => a - b);
-  const median = (sorted[31] + sorted[32]) / 2;
+  // 63 AC coefficients, so the median is the single middle element. Averaging
+  // elements 31 and 32 (the even-length formula) biased the threshold upwards
+  // and left the hash with slightly fewer set bits than it should have.
+  const median = sorted[31];
   // Bit 0 is the dropped DC coefficient and is always 0.
   let hi = 0;
   let lo = 0;

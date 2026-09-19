@@ -1,0 +1,85 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-14T05:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Landslide on mountain road",
+        "link": "https://www.stock-photos.example/landslide-road",
+        "source": "stock-photos.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m09-context-plausible/landslide-road.jpg",
+        "date": "May 3, 2019"
+      },
+      {
+        "position": 2,
+        "title": "Why monsoon landslides happen",
+        "link": "https://www.geo-blog.example/monsoon-landslides",
+        "source": "geo-blog.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m09-context-plausible/monsoon-landslides.jpg"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-14T05:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": []
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-14T05:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": [
+      {
+        "position": 1,
+        "title": "Rockfall",
+        "link": "https://www.photo-forum.example/rockfall",
+        "source": "photo-forum.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m09-context-plausible/rockfall.jpg"
+      }
+    ]
+  },
+  "google_news?q=landslide blocks expressway Khandala, Maharashtra, India": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-14T05:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Landslide near Khandala disrupts expressway traffic",
+        "snippet": "Traffic was halted near Khandala after...",
+        "link": "https://www.metro-news.example/khandala-landslide-expressway",
+        "source": {
+          "name": "metro-news.example"
+        },
+        "iso_date": "2026-07-14T02:45:00Z"
+      }
+    ]
+  },
+  "google_maps?q=Khandala, Maharashtra, India&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-07-14T05:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Khandala",
+      "type": "Town",
+      "address": "Khandala, Maharashtra, India",
+      "gps_coordinates": {
+        "latitude": 18.7593,
+        "longitude": 73.3747
+      }
+    }
+  }
+}

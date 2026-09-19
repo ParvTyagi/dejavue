@@ -12,11 +12,14 @@ import { MatchCompare } from './MatchCompare';
 export function EvidenceFeed({
   evidence,
   firstSeenId,
+  firstSeenLabel = 'first seen',
   searching,
   inputPreview,
 }: {
   evidence: Evidence[];
   firstSeenId?: string;
+  /** What to call the earliest dated match. A leak trace calls it the earliest public copy. */
+  firstSeenLabel?: string;
   searching: boolean;
   /** The user's own image, shown beside each match's thumbnail when available. */
   inputPreview?: string;
@@ -28,7 +31,14 @@ export function EvidenceFeed({
       <ul className="space-y-2">
         <AnimatePresence initial={false}>
           {ordered.map((ev) => (
-            <EvidenceCard key={ev.id} ev={ev} firstSeen={ev.id === firstSeenId} inputPreview={inputPreview} animateIn={searching} />
+            <EvidenceCard
+              key={ev.id}
+              ev={ev}
+              firstSeen={ev.id === firstSeenId}
+              firstSeenLabel={firstSeenLabel}
+              inputPreview={inputPreview}
+              animateIn={searching}
+            />
           ))}
         </AnimatePresence>
       </ul>
@@ -46,7 +56,19 @@ export function EvidenceFeed({
   );
 }
 
-function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence; firstSeen: boolean; inputPreview?: string; animateIn: boolean }) {
+function EvidenceCard({
+  ev,
+  firstSeen,
+  firstSeenLabel,
+  inputPreview,
+  animateIn,
+}: {
+  ev: Evidence;
+  firstSeen: boolean;
+  firstSeenLabel: string;
+  inputPreview?: string;
+  animateIn: boolean;
+}) {
   const Icon = ENGINE_ICON[ev.engine];
   const confirmed = ev.match?.confirmed;
 
@@ -58,7 +80,7 @@ function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45, ease: EASE_OUT }}
-      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-bg p-3.5 [contain-intrinsic-size:auto_96px] [content-visibility:auto] transition-colors hover:bg-surface-2 target:border-accent ${
+      className={`group relative scroll-mt-28 overflow-hidden rounded-xl border bg-bg p-3.5 transition-colors hover:bg-surface-2 target:border-accent ${
         confirmed ? 'border-good/25' : 'border-line'
       }`}
     >
@@ -70,7 +92,8 @@ function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence
         >
           <Icon className="size-4" />
         </span>
-        <div className="min-w-0 flex-1">
+        {/* Full width beside the icon on a phone, so the thumbnails wrap below instead of crushing the title. */}
+        <div className="min-w-0 flex-1 basis-[calc(100%-2.75rem)] sm:basis-auto">
           <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
             <span className="font-mono text-faint">{ev.id}</span>
             <span className="text-faint">·</span>
@@ -89,7 +112,7 @@ function EvidenceCard({ ev, firstSeen, inputPreview, animateIn }: { ev: Evidence
             {ev.trustedSource && <span className="rounded-full bg-info-soft px-2 py-0.5 text-info">trusted archive</span>}
             {firstSeen && (
               <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-1 rounded-full bg-warn-soft px-2 py-0.5 text-warn">
-                <Sparkle className="size-3" /> first seen
+                <Sparkle className="size-3" /> {firstSeenLabel}
               </motion.span>
             )}
           </div>

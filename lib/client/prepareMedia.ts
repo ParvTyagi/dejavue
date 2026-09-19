@@ -85,10 +85,19 @@ export async function prepareImage(file: File): Promise<PreparedUpload> {
 export interface PreparedScreenshot {
   blob: Blob;
   previewUrl: string;
+  /**
+   * Fingerprint of the prepared image, present when the check searches by image.
+   * An offer screenshot is only read, so it does not need one.
+   */
+  pHash?: string;
 }
 
-/** A screenshot of a message, kept large enough to read and re-encoded (which also drops its metadata). */
-export async function prepareScreenshot(file: File): Promise<PreparedScreenshot> {
+/**
+ * A screenshot of a message or a photographed document, kept large enough to read and
+ * re-encoded (which also drops its metadata). `withHash` adds the perceptual hash a leak
+ * trace needs to search by image; an offer check only reads the text, so it skips it.
+ */
+export async function prepareScreenshot(file: File, withHash = false): Promise<PreparedScreenshot> {
   if (file.size > MEDIA_LIMITS.imageBytes) throw new MediaError('Screenshots must be 10 MB or smaller.');
   let bitmap: ImageBitmap;
   try {
@@ -96,12 +105,14 @@ export async function prepareScreenshot(file: File): Promise<PreparedScreenshot>
   } catch {
     throw new MediaError("Couldn't read this image. Try a JPEG, PNG or WebP screenshot.");
   }
-  const { canvas } = canvasFor(bitmap, bitmap.width, bitmap.height, MEDIA_LIMITS.screenshotEdgePx);
+  const { canvas, ctx, w, h } = canvasFor(bitmap, bitmap.width, bitmap.height, MEDIA_LIMITS.screenshotEdgePx);
   bitmap.close();
+  // Hashed from the same pixels that are uploaded, so the server and the browser agree.
+  const hash = withHash ? pHash(toGray(w, h, ctx.getImageData(0, 0, w, h).data, 4)) : undefined;
   let blob = await toBlob(canvas);
   if (blob.size > MEDIA_LIMITS.frameBytes) blob = await toBlob(canvas, 0.7);
   if (blob.size > MEDIA_LIMITS.frameBytes) throw new MediaError('This screenshot is too detailed to upload. Try cropping it.');
-  return { blob, previewUrl: URL.createObjectURL(blob) };
+  return { blob, previewUrl: URL.createObjectURL(blob), ...(hash ? { pHash: hash } : {}) };
 }
 
 function seek(video: HTMLVideoElement, t: number): Promise<void> {

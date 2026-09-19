@@ -3,11 +3,12 @@
 import { Info } from 'lucide-react';
 import { motion } from 'motion/react';
 import { EASE_OUT, NumberTicker } from '@/components/ui/motion';
-import { OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL, type Tone } from '@/lib/client/labels';
+import { LEAK_VERDICT_LABEL, OFFER_VERDICT_LABEL, TONE_VAR, VERDICT_LABEL, type Tone } from '@/lib/client/labels';
+import type { LeakDossier } from '@/lib/leak/types';
 import type { OfferDossier } from '@/lib/offer/types';
 import type { Dossier } from '@/lib/shared/types';
 
-/** What the verdict card shows, for a media audit or an offer check. */
+/** What the verdict card shows, for a media audit, an offer check or a leak trace. */
 export interface VerdictView {
   stamp: string;
   title: string;
@@ -29,10 +30,39 @@ export function mediaVerdictView(d: Dossier): VerdictView {
   const label = VERDICT_LABEL[d.verdict];
   return {
     ...label,
-    extraStamp: d.flags.recycled && d.flags.misplaced ? { text: 'Misplaced', tone: 'warn' } : undefined,
+    // "Older copy exists" is only news when the claim said nothing about the date.
+    // A post that is openly about the older event also predates its own claim.
+    extraStamp: d.flags.recycled
+      ? d.flags.misplaced
+        ? { text: 'Misplaced', tone: 'warn' }
+        : undefined
+      : d.flags.predatesClaim && d.signals.claim.claimedAtSource === 'default_now'
+        ? { text: 'Older copy exists', tone: 'warn' }
+        : undefined,
     summary: d.narrative.summary,
     bullets: d.narrative.bullets,
     partialNote: d.metrics.partial ? 'Partial audit: searches ran out, timed out or were rate-limited before all engines ran.' : undefined,
+    template: d.narrative.source === 'template',
+    limitations: d.limitations,
+    confidence: d.confidence,
+  };
+}
+
+export function leakVerdictView(d: LeakDossier): VerdictView {
+  const { flags, signals } = d;
+  return {
+    ...LEAK_VERDICT_LABEL[d.verdict],
+    // Two findings the verdict word alone would hide: copies that exist but cannot be
+    // dated, and an older copy under a post that claimed no date at all.
+    extraStamp: flags.undatedOnly
+      ? { text: 'Copies found, none dated', tone: 'warn' }
+      : d.verdict !== 'LEAK_RECYCLED' && flags.predatesClaim && signals.claim.claimedAtSource === 'default_now'
+        ? { text: 'Older copy exists', tone: 'warn' }
+        : undefined,
+    summary: d.narrative.summary,
+    bullets: d.narrative.bullets,
+    partialNote: d.metrics.partial ? 'Partial trace: searches ran out, timed out or were rate-limited, so fewer copies could be found.' : undefined,
+    advice: d.advice,
     template: d.narrative.source === 'template',
     limitations: d.limitations,
     confidence: d.confidence,
@@ -159,40 +189,46 @@ export function VerdictHero({ view }: { view: VerdictView }) {
 function ConfidenceRing({ value, band, color }: { value: number; band: string; color: string }) {
   const r = 58;
   return (
-    <div className="relative mx-auto size-44 shrink-0 md:mx-0" role="img" aria-label={`Confidence ${value} out of 100, ${band}`}>
-      <svg viewBox="0 0 140 140" className="size-full -rotate-90">
-        <circle cx="70" cy="70" r={r} fill="none" stroke="var(--line)" strokeWidth="8" />
-        <motion.circle
-          cx="70"
-          cy="70"
-          r={r}
-          fill="none"
-          stroke={color}
-          strokeWidth="8"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: value / 100 }}
-          transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT }}
-        />
-        {Array.from({ length: 40 }, (_, i) => (
-          <line
-            key={i}
-            x1="70"
-            y1="4"
-            x2="70"
-            y2={i % 10 === 0 ? 10 : 7}
-            stroke="var(--line-strong)"
-            strokeWidth="1"
-            transform={`rotate(${i * 9} 70 70)`}
+    <div className="mx-auto shrink-0 text-center md:mx-0" role="img" aria-label={`Confidence ${value} out of 100, ${band}`}>
+      <div className="relative mx-auto size-40">
+        <svg viewBox="0 0 140 140" className="size-full -rotate-90">
+          <circle cx="70" cy="70" r={r} fill="none" stroke="var(--line)" strokeWidth="8" />
+          <motion.circle
+            cx="70"
+            cy="70"
+            r={r}
+            fill="none"
+            stroke={color}
+            strokeWidth="8"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: value / 100 }}
+            transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT }}
           />
-        ))}
-      </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-serif text-5xl leading-none">
-          <NumberTicker value={value} />
-        </span>
-        <span className="mt-1 text-[11px] tracking-wide text-faint uppercase">{band} confidence</span>
+          {Array.from({ length: 40 }, (_, i) => (
+            <line
+              key={i}
+              x1="70"
+              y1="4"
+              x2="70"
+              y2={i % 10 === 0 ? 10 : 7}
+              stroke="var(--line-strong)"
+              strokeWidth="1"
+              transform={`rotate(${i * 9} 70 70)`}
+            />
+          ))}
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="font-serif text-5xl leading-none">
+            <NumberTicker value={value} />
+          </span>
+          <span className="mt-1 text-[11px] text-faint">out of 100</span>
+        </div>
       </div>
+      {/* Outside the ring: the band never has to fit inside the stroke. */}
+      <p className="mt-3 text-xs tracking-wide text-muted">
+        <span className="font-medium text-ink capitalize">{band}</span> confidence
+      </p>
     </div>
   );
 }

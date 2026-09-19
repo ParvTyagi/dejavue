@@ -41,15 +41,22 @@ export interface FirstSeen {
 }
 
 /**
+ * Whether a search result's date can be used at all: present, trusted, after the web
+ * existed and not in the future. Shared by T₀ and the leak spread timeline so both
+ * discard the same dates.
+ */
+export function hasUsableDate(e: Evidence, now: Date): boolean {
+  if (!e.publishedAt || e.dateTrust === 'none') return false;
+  const t = Date.parse(e.publishedAt);
+  return t >= EARLIEST_PLAUSIBLE && t <= now.getTime();
+}
+
+/**
  * Robust T₀: the earliest confirmed-match date that is backed by a second
  * confirmed match within 30 days, or by a trusted archive on its own.
  */
 export function computeFirstSeen(confirmed: Evidence[], now: Date): FirstSeen {
-  let dated = confirmed.filter((e) => {
-    if (!e.publishedAt || e.dateTrust === 'none') return false;
-    const t = Date.parse(e.publishedAt);
-    return t >= EARLIEST_PLAUSIBLE && t <= now.getTime();
-  });
+  let dated = confirmed.filter((e) => hasUsableDate(e, now));
   if (dated.some((e) => e.dateTrust !== 'relative_text')) {
     dated = dated.filter((e) => e.dateTrust !== 'relative_text');
   }

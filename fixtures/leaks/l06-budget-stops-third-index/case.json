@@ -1,0 +1,39 @@
+{
+  "title": "Credit cap reached before the third index is searched",
+  "synthetic": true,
+  "notes": "The cap is two searches, so Yandex is never asked and is recorded as skipped over budget. The verdict still rests on what the first two indexes confirmed. Both copies are within 48 h of the claimed date, so nothing predates the claim.",
+  "submittedAt": "2026-03-10T09:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/l06-budget-stops-third-index/frame-0.jpg",
+          "pHash": "4ae7370ac62fb270",
+          "sharpness": 710
+        }
+      ]
+    },
+    "claim": {
+      "text": "Woodgrove Bank branch circular leaked today",
+      "source": "Woodgrove Bank",
+      "date": "2026-03-10T09:00:00.000Z"
+    },
+    "maxCredits": 2
+  },
+  "expected": {
+    "verdict": "LEAK_EARLIEST_FOUND",
+    "flags": {
+      "predatesClaim": false,
+      "recycled": false,
+      "copiesFound": true,
+      "undatedOnly": false
+    },
+    "credits": 2,
+    "stepsRun": [
+      1,
+      3
+    ],
+    "confidence": 45
+  }
+}

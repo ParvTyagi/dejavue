@@ -1,12 +1,22 @@
 'use client';
 
 import { useEffect, useReducer, useState } from 'react';
+import type { LeakDossier, TimelineEntry } from '@/lib/leak/types';
 import type { OfferDossier } from '@/lib/offer/types';
-import { isFinalEvent, isOfferDossier, type AuditEvent, type Dossier, type EngineId, type Evidence, type Stage } from '@/lib/shared/types';
+import {
+  isFinalEvent,
+  isLeakDossier,
+  isOfferDossier,
+  type AuditEvent,
+  type Dossier,
+  type EngineId,
+  type Evidence,
+  type Stage,
+} from '@/lib/shared/types';
 
 export interface AuditState {
   /** Known from the first stage event, or from the finished result. */
-  kind?: 'media' | 'offer';
+  kind?: 'media' | 'offer' | 'leak';
   stage?: Stage;
   evidence: Evidence[];
   credits: number;
@@ -16,17 +26,25 @@ export interface AuditState {
   notices: { id: number; code: string; message: string }[];
   dossier?: Dossier;
   offerDossier?: OfferDossier;
+  leakDossier?: LeakDossier;
+  /** Dated public copies as they are confirmed. T₀ is only marked once the result arrives. */
+  timeline: TimelineEntry[];
   fatal?: { code: string; message: string };
 }
 
 const OFFER_STAGE_IDS = new Set<Stage>(['read', 'identity', 'contacts', 'offer']);
+const LEAK_STAGE_IDS = new Set<Stage>(['trace', 'copies', 'dates', 'origin']);
 
-const initial: AuditState = { evidence: [], credits: 0, creditLog: [], notices: [] };
+/** Which kind of check a stage belongs to; the three sets of stage ids are disjoint. */
+const kindOfStage = (stage: Stage): AuditState['kind'] | undefined =>
+  OFFER_STAGE_IDS.has(stage) ? 'offer' : LEAK_STAGE_IDS.has(stage) ? 'leak' : undefined;
+
+const initial: AuditState = { evidence: [], credits: 0, creditLog: [], notices: [], timeline: [] };
 
 function reducer(state: AuditState, e: AuditEvent): AuditState {
   switch (e.type) {
     case 'stage':
-      return { ...state, stage: e.data.stage, kind: OFFER_STAGE_IDS.has(e.data.stage) ? 'offer' : (state.kind ?? 'media') };
+      return { ...state, stage: e.data.stage, kind: kindOfStage(e.data.stage) ?? state.kind ?? 'media' };
     case 'evidence':
       return { ...state, evidence: [...state.evidence, e.data] };
     case 'credit':
@@ -40,9 +58,17 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
       return { ...state, shortCircuit: e.data };
     case 'signal':
       return state;
+    case 'timeline': {
+      // A copy that arrives undated and is dated by a later search streams twice, so the
+      // entry is replaced rather than repeated.
+      const rest = state.timeline.filter((t) => t.evidenceId !== e.data.evidenceId);
+      return { ...state, timeline: [...rest, e.data] };
+    }
     case 'dossier': {
       const done = { evidence: e.data.evidence, credits: e.data.metrics.credits, maxCredits: e.data.metrics.maxCredits };
-      return isOfferDossier(e.data) ? { ...state, ...done, kind: 'offer', offerDossier: e.data } : { ...state, ...done, kind: 'media', dossier: e.data };
+      if (isOfferDossier(e.data)) return { ...state, ...done, kind: 'offer', offerDossier: e.data };
+      if (isLeakDossier(e.data)) return { ...state, ...done, kind: 'leak', leakDossier: e.data, timeline: e.data.signals.timeline.entries };
+      return { ...state, ...done, kind: 'media', dossier: e.data };
     }
     case 'error':
       return e.data.recoverable
@@ -51,7 +77,7 @@ function reducer(state: AuditState, e: AuditEvent): AuditState {
   }
 }
 
-const EVENT_TYPES: AuditEvent['type'][] = ['stage', 'evidence', 'signal', 'credit', 'short_circuit', 'dossier', 'error'];
+const EVENT_TYPES: AuditEvent['type'][] = ['stage', 'evidence', 'signal', 'credit', 'short_circuit', 'timeline', 'dossier', 'error'];
 
 /** Follows an audit over Server-Sent Events until the dossier or a fatal error arrives. */
 export function useAuditStream(id: string, initialEvents: AuditEvent[] = []): AuditState {

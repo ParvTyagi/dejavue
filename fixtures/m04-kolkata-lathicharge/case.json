@@ -1,0 +1,42 @@
+{
+  "title": "Old police lathi-charge video shared as a recent incident in Bengal",
+  "synthetic": true,
+  "notes": "RECYCLED video path, short-circuits after Lens: three confirmed copies from 2020, one from a trusted archive.",
+  "submittedAt": "2025-07-20T08:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "video",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m04-kolkata-lathicharge/frame-0.jpg",
+          "pHash": "461f23290977b62e",
+          "sharpness": 640,
+          "tMs": 6000
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "बंगाल में ममता सरकार के आदेशानुसार कावड़ियों पर प्रेम बरसाती पुलिस",
+      "place": "West Bengal, India",
+      "date": "2025-07-20T12:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "RECYCLED",
+    "flags": {
+      "recycled": true,
+      "misplaced": false,
+      "predatesClaim": true
+    },
+    "credits": 1,
+    "tiersRun": [
+      1
+    ],
+    "confidence": 55
+  }
+}

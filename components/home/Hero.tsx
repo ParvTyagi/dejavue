@@ -6,9 +6,9 @@ import { EngineMarquee } from './EngineMarquee';
 import { HeroPreview } from './HeroPreview';
 
 const STATS = [
-  { value: 1, label: 'search for most recycled media', suffix: '' },
-  { value: 6, label: 'searches at most, ever', suffix: '' },
-  { value: 0, label: 'verdicts decided by AI', suffix: '' },
+  { value: 1, unit: 'search', label: 'settles most recycled photos' },
+  { value: 6, unit: 'searches', label: 'the hard cap on any one check' },
+  { value: 0, unit: 'points', label: 'of the score come from the AI' },
 ];
 
 const delay = (s: number) => ({ '--rise-delay': `${s}s` }) as React.CSSProperties;
@@ -66,11 +66,14 @@ export function Hero() {
           >
             {STATS.map((s, i) => (
               <div key={s.label} style={delay(0.3 + i * 0.08)} className="rise">
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-serif text-4xl">
-                  <NumberTicker value={s.value} />
+                <dt className="sr-only">{`${s.value} ${s.unit} ${s.label}`}</dt>
+                <dd aria-hidden className="flex items-baseline gap-1.5">
+                  <span className="font-serif text-4xl">
+                    <NumberTicker value={s.value} />
+                  </span>
+                  <span className="text-sm text-muted">{s.unit}</span>
                 </dd>
-                <dd className="mt-1 text-xs leading-snug text-faint">{s.label}</dd>
+                <dd aria-hidden className="mt-1 text-xs leading-snug text-faint">{s.label}</dd>
               </div>
             ))}
           </dl>

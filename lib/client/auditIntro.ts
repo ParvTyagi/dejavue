@@ -4,7 +4,7 @@
 export interface AuditIntro {
   claim: string;
   place?: string;
-  kind: 'image' | 'video' | 'offer';
+  kind: 'image' | 'video' | 'offer' | 'leak';
   previews: string[];
 }
 

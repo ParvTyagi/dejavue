@@ -1,6 +1,7 @@
 import {
   Briefcase,
   Calendar,
+  Crosshair,
   Eye,
   FileText,
   Globe,
@@ -14,6 +15,7 @@ import {
   Scale,
   ScanSearch,
   Search,
+  Share2,
   Youtube,
   type LucideIcon,
 } from 'lucide-react';
@@ -27,7 +29,6 @@ export const ENGINE_ICON: Record<EngineId, LucideIcon> = {
   google_news: Newspaper,
   google_maps: MapPin,
   youtube: Youtube,
-  google_trends: Calendar,
   google_jobs: Briefcase,
 };
 
@@ -40,7 +41,6 @@ export const ENGINE_COLOR: Record<EngineId, string> = {
   google_news: '#404040',
   google_maps: '#525252',
   youtube: '#262626',
-  google_trends: '#737373',
   google_jobs: '#404040',
 };
 
@@ -56,4 +56,8 @@ export const STAGE_ICON: Record<Stage, LucideIcon> = {
   identity: IdCard,
   contacts: Phone,
   offer: Briefcase,
+  trace: FileText,
+  copies: Share2,
+  dates: Calendar,
+  origin: Crosshair,
 };

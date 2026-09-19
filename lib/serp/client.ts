@@ -2,6 +2,9 @@ import { createHash } from 'node:crypto';
 import type { EngineId, FixtureMode } from '@/lib/shared/types';
 import { pause, timeoutSignal } from '@/lib/shared/time';
 import { TTL, type Store } from '@/lib/store/types';
+import { fixtureName } from './fixtureName';
+
+export { fixtureName };
 
 /** Performs one real SerpApi request. Only used in `record` and `live` modes. */
 export type SerpTransport = (engine: EngineId, params: Record<string, string>, signal: AbortSignal) => Promise<unknown>;
@@ -73,19 +76,6 @@ export interface SerpClientOptions {
 
 export type SerpClient = (engine: EngineId, params: Record<string, string>, ctx: SearchContext) => Promise<SearchResult>;
 
-const IMAGE_PARAMS = new Set(['url', 'image_url']);
-
-/**
- * Stable, human-readable fixture name. Image URLs change on every upload, so
- * image searches are keyed by keyframe index instead.
- */
-export function fixtureName(engine: EngineId, params: Record<string, string>, frameIndex?: number): string {
-  const parts = Object.keys(params)
-    .filter((k) => k !== 'engine' && k !== 'api_key')
-    .sort()
-    .map((k) => (IMAGE_PARAMS.has(k) ? `frame=${frameIndex ?? 0}` : `${k}=${params[k]}`));
-  return `${engine}?${parts.join('&')}`;
-}
 
 /** How long a query result is reused. Places don't move, so Maps is kept longer. */
 export function cacheTtlMs(engine: EngineId): number {

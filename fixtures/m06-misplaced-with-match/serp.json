@@ -1,0 +1,94 @@
+{
+  "google_lens?type=exact_matches&frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "exact_matches": [
+      {
+        "position": 1,
+        "title": "Fire at Red Sea port tonight",
+        "link": "https://www.gulf-social.example/posts/port-fire",
+        "source": "gulf-social.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m06-misplaced-with-match/posts/port-fire.jpg",
+        "date": "Sep 17, 2026"
+      },
+      {
+        "position": 2,
+        "title": "Blaze reported at port",
+        "link": "https://www.regional-daily.example/2026/09/17/port-blaze",
+        "source": "regional-daily.example",
+        "thumbnail": "https://thumbs.dejavue.invalid/m06-misplaced-with-match/2026/09/17/port-blaze.jpg",
+        "date": "Sep 17, 2026"
+      }
+    ]
+  },
+  "bing_reverse_image?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "pages_with_this_image": []
+  },
+  "yandex_images?frame=0": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "image_results": []
+  },
+  "google_news?q=drone strike on port facilities Dubai, UAE": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "news_results": [
+      {
+        "position": 1,
+        "title": "Fire reported at Jeddah Islamic Port",
+        "snippet": "Civil defence teams responded to a fire at the port in Jeddah...",
+        "link": "https://www.gulf-wire.example/jeddah-port-fire",
+        "source": {
+          "name": "gulf-wire.example"
+        },
+        "iso_date": "2026-09-17T13:00:00Z"
+      }
+    ]
+  },
+  "google_maps?q=Dubai, UAE&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Dubai",
+      "type": "City",
+      "address": "Dubai, United Arab Emirates",
+      "gps_coordinates": {
+        "latitude": 25.2048,
+        "longitude": 55.2708
+      }
+    }
+  },
+  "google_maps?q=Jeddah Islamic Port&type=search": {
+    "search_metadata": {
+      "status": "Success",
+      "processed_at": "2026-09-17T15:00:00.000Z"
+    },
+    "_synthetic": true,
+    "place_results": {
+      "title": "Jeddah Islamic Port",
+      "type": "Port",
+      "address": "Jeddah 22312, Saudi Arabia",
+      "gps_coordinates": {
+        "latitude": 21.4735,
+        "longitude": 39.1665
+      }
+    }
+  }
+}

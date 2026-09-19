@@ -13,9 +13,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:live": "vitest run --config vitest.live.config.ts",
+    "screenshots": "node scripts/screenshot.mjs",
     "typecheck": "tsc --noEmit",
     "fixtures:hash": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/hash-test-images.ts",
-    "fixtures:author": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/author-synthetic-fixtures.ts"
+    "fixtures:author": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/author-synthetic-fixtures.ts",
+    "fixtures:leaks": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/author-leak-fixtures.ts"
   },
   "dependencies": {
     "@google/genai": "^1.52.0",

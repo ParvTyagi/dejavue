@@ -1,0 +1,43 @@
+{
+  "title": "Fresh hailstorm photo from Shimla, correctly captioned",
+  "synthetic": true,
+  "notes": "CONSISTENT path with High confidence: same-day copies on two indexes, landmark and news both agree.",
+  "submittedAt": "2026-02-02T12:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "image",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m08-consistent-fresh/frame-0.jpg",
+          "pHash": "c56d0a8e3f71b942",
+          "sharpness": 760
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Hailstorm covers the streets of Shimla white this afternoon",
+      "place": "Shimla, Himachal Pradesh, India",
+      "date": "2026-02-02T16:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "CONSISTENT",
+    "flags": {
+      "recycled": false,
+      "misplaced": false,
+      "predatesClaim": false
+    },
+    "credits": 6,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 80
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "title": "Cyclone video with three keyframes and no prior copies",
+  "synthetic": true,
+  "notes": "CONTEXT_PLAUSIBLE video path: Lens runs on all 3 keyframes, so the credit cap leaves room only for News; Maps and YouTube are skipped.",
+  "submittedAt": "2026-05-25T13:00:00.000Z",
+  "input": {
+    "media": {
+      "kind": "video",
+      "frames": [
+        {
+          "url": "https://replay.dejavue.invalid/m10-context-plausible-video/frame-0.jpg",
+          "pHash": "5e19b7d3a06c48f2",
+          "sharpness": 450,
+          "tMs": 2000
+        },
+        {
+          "url": "https://replay.dejavue.invalid/m10-context-plausible-video/frame-1.jpg",
+          "pHash": "2d6a84f1c9e357b0",
+          "sharpness": 880,
+          "tMs": 9000
+        },
+        {
+          "url": "https://replay.dejavue.invalid/m10-context-plausible-video/frame-2.jpg",
+          "pHash": "b0f3e5297a4d1c86",
+          "sharpness": 610,
+          "tMs": 15000
+        }
+      ],
+      "exif": null
+    },
+    "claim": {
+      "text": "Cyclone winds uproot trees along the beach road in Puri",
+      "place": "Puri, Odisha, India",
+      "date": "2026-05-25T18:00:00+05:30"
+    },
+    "options": {
+      "maxCredits": 6,
+      "useExifLocation": false
+    }
+  },
+  "expected": {
+    "verdict": "CONTEXT_PLAUSIBLE",
+    "flags": {
+      "recycled": false,
+      "misplaced": false,
+      "predatesClaim": false
+    },
+    "credits": 6,
+    "tiersRun": [
+      1,
+      2,
+      3
+    ],
+    "confidence": 10
+  }
+}
